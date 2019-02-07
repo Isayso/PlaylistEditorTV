@@ -1,2 +1,2 @@
-# PlaylistEditorTV
-Editor TV m3u files for Kodi
+# Playlist Editor TV
+Editor for TV m3u files
