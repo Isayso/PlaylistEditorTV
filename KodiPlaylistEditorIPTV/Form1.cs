@@ -20,6 +20,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
+
 namespace PlaylistEditor
 {
     public partial class Form1 : Form
@@ -187,28 +188,28 @@ namespace PlaylistEditor
 
             dt.TableName = "IPTV";
 
+
+            dataGridView1.DataSource = dt;
+            string[] col = new string[6];
+
             StreamReader playlistFile = new StreamReader(filename);
             if (!append)  //append false
             {
                 dt.Clear();  // row clear
                 dt.Columns.Clear();  // col clear
-               
+
                 plabel_Filename.Text = filename;
-                
+
                 dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
 
             }
-           
-            
-
-            dataGridView1.DataSource = dt;
-            string[] col = new string[6];
-
-
 
             while ((line = playlistFile.ReadLine()) != null)
             {
+
+                
+
                 if (line.StartsWith("#EXTINF"))
                 {
                    
@@ -271,12 +272,15 @@ namespace PlaylistEditor
                         continue;
                     }
             }
-            playlistFile.Close();  
+            playlistFile.Close();
+
+            dataGridView1.AllowUserToAddRows = false;
 
             if (dt.Rows.Count == 0)
             {
                 MessageBox.Show("Wrong file structure! ", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void button_delLine_Click(object sender, EventArgs e) 
@@ -288,7 +292,8 @@ namespace PlaylistEditor
             {
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                    int selectedRow = dataGridView1.SelectedRows[0].Index;
+                   // int selectedRow = dataGridView1.SelectedRows[0].Index;
+                    int selectedRow = dataGridView1.SelectedCells[0].RowIndex;
 
                     dt.Rows.RemoveAt(selectedRow);
                 }
@@ -361,11 +366,19 @@ namespace PlaylistEditor
             }
             else
             {
+
+                dt.TableName = "IPTV";
+             
                 dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
-                              
-               // dt.Rows.Add(dr);
+                dr[0] = "Name"; dr[1] = "id"; dr[2] = "Title"; dr[3] = "Logo";
+                dr[4] = "Name2"; dr[5] = "Link";
+
+                dt.Rows.InsertAt(dr, 0);
+
+               
                 dataGridView1.DataSource = dt;
+                dataGridView1.AllowUserToAddRows = false;
             }
 
             isModified = true;
