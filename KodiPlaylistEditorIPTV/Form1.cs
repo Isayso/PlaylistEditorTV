@@ -52,8 +52,9 @@ namespace PlaylistEditor
             var hotlabel = Properties.Settings.Default.hotkey;
           
             plabel_Filename.Text = "";
-            dataGridView1.AllowUserToAddRows = true;
-            
+            button_revert.Visible = false;
+            //  dataGridView1.AllowUserToAddRows = true;
+
 
             //command line arguments [1]
             string[] args = Environment.GetCommandLineArgs();
@@ -62,6 +63,7 @@ namespace PlaylistEditor
             {
                 plabel_Filename.Text = args[1];
                 importDataset(args[1], false);
+                button_revert.Visible = true;
             }
         }
 
@@ -154,7 +156,7 @@ namespace PlaylistEditor
             {
 
                 importDataset(openFileDialog1.FileName, false);
-               
+                button_revert.Visible = true;
             }
         }
 
@@ -402,6 +404,7 @@ namespace PlaylistEditor
                         dt.Columns.Clear();
                         isModified = false;
                         plabel_Filename.Text = "";
+                        button_revert.Visible = false;
                         break;
 
                     case DialogResult.No:
@@ -412,11 +415,26 @@ namespace PlaylistEditor
             }
         }
 
-      
+        private void button_revert_Click(object sender, EventArgs e)
+        {
+            //message box -> delete all -> open filename
+            switch (MessageBox.Show("Reload File?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            {
+                case DialogResult.Yes:
+                    importDataset(plabel_Filename.Text, false);
+
+                    break;
+
+                case DialogResult.No:
+
+                    break;
+            }
+        }
+
         /*--------------------------------------------------------------------------------*/
         // contextMenueStrip Entries
         /*--------------------------------------------------------------------------------*/
-       
+
 
         private void copyRowMenuItem_Click(object sender, EventArgs e)
         {
@@ -707,6 +725,7 @@ namespace PlaylistEditor
                         {
                            
                             dataGridView1.Rows[row + a].Selected = true;
+                            dataGridView1.FirstDisplayedScrollingRowIndex = row + a;
 
                         }
                     }
@@ -801,9 +820,8 @@ namespace PlaylistEditor
                 isModified = true;
             }  
         }
-      
+
        
-            
     }
 }
 

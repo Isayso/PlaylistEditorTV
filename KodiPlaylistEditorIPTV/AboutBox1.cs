@@ -25,7 +25,7 @@ namespace PlaylistEditor
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion+" build 28.01.19-1");
+            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion+" build 7.02.19-1");
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
            // this.textBoxDescription.Text = AssemblyDescription;
