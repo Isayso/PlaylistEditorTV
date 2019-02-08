@@ -179,13 +179,13 @@ namespace PlaylistEditor
         /// </summary>
         /// <param name="filename"></param>
         /// <param name="append">false/true for append</param>
-        public void importDataset(string filename, bool append)  //MB ok
+        public void importDataset(string filename, bool append)  
         {
             
             if (!ClassHelp.FileIsIPTV(filename))
             {
                 MessageBox.Show("File has wrong format!  ");
-                return;  //
+                return;  
             }
 
             dt.TableName = "IPTV";
@@ -209,8 +209,6 @@ namespace PlaylistEditor
 
             while ((line = playlistFile.ReadLine()) != null)
             {
-
-                
 
                 if (line.StartsWith("#EXTINF"))
                 {
@@ -288,8 +286,6 @@ namespace PlaylistEditor
         private void button_delLine_Click(object sender, EventArgs e) 
         {
             
-
-
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
@@ -684,10 +680,10 @@ namespace PlaylistEditor
                 {
                    
                     if (row.Cells[0].Value != null)
-                    _name = dt.Rows[row.Index][colS].ToString();
+                    _name = dt.Rows[row.Index][colS].ToString().ToLower();
                    
 
-                    if (_name.Contains(textBox_find.Text) && textBox_find.Text != "")
+                    if (_name.Contains(textBox_find.Text.ToLower()) && textBox_find.Text != "")
                     {
                         dataGridView1.Rows[row.Index].Selected = true;
 
