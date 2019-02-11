@@ -4,7 +4,7 @@ Editor for TV m3u files
 Copy, cut&paste functions, sort, search and find duplicates.
 
 
-![UI](PlaylistEditorTV.png)
+![UI](PlaylistEditorTV2.png)
 
 ## Getting Started
 
