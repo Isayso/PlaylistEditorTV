@@ -16,6 +16,7 @@ using System;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -47,6 +48,8 @@ namespace PlaylistEditor
         public Form1()
         {
             InitializeComponent();
+
+            this.Text = String.Format("PlaylistEditor TV " + " v{0}" , Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
             var spec_key = Properties.Settings.Default.specKey;
             var hotlabel = Properties.Settings.Default.hotkey;
