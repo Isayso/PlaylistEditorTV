@@ -235,8 +235,7 @@ namespace PlaylistEditor
                    
                     if (col[3] == "") col[3] = "logo N/A";
 
-                   
-
+                  
                      col[4] = line.Split(',').Last();
                     
                     if (col[4] == "") col[4] = "Name2 N/A";
@@ -524,7 +523,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. Try CTRL+T" + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
