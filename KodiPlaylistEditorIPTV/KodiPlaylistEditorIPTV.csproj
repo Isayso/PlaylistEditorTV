@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon_PlayIPTV2.ico</ApplicationIcon>
+    <ApplicationIcon>icon_PlayIPTV3.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>8A946B33C36878C0C75812748241B36B8F8DFDA1</ManifestCertificateThumbprint>
@@ -182,6 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_PlayIPTV2.ico" />
+    <Content Include="icon_PlayIPTV3.ico" />
     <Content Include="KodiPlaylistEditor.ico" />
     <Content Include="KodiPlaylistEditor2.ico" />
     <Content Include="KodiPlaylistEditorW.ico" />
