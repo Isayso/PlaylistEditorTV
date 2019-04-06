@@ -118,49 +118,52 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="content-save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="content_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\content-save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow-up-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="arrow_up_bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-up-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="content-save (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="content_save_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\content-save (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close-box-outline (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="close_box_outline_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close-box-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="information-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="information_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\information-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="information-variant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="information_variant" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\information-variant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow-up-bold (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="arrow_up_bold_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-up-bold (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close-box-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="close_box_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close-box-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="open-in-app (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="open_in_app_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open-in-app (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow-down-bold (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="arrow_down_bold_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-down-bold (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="settings_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="playlist-plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="playlist_plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playlist-plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow-down-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="arrow_down_bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-down-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="open-in-app" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="open_in_app" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open-in-app.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete-forever-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="delete_forever_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete-forever-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="content_save_modified" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\content-save-modified.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -299,7 +299,7 @@ namespace PlaylistEditor
                 }
 
 
-                isModified = true;
+                toSave(true);
 
             }
         }
@@ -328,13 +328,13 @@ namespace PlaylistEditor
                      
                     }
                     
-                    isModified = false;
+                    toSave(false);
                 }
                 catch (Exception ex) when (ex is IOException || ex is ObjectDisposedException)
                 {
                     MessageBox.Show("Write Error " + ex);
                 }
-               
+                button_revert.Visible = true;
             }
         }
 
@@ -381,7 +381,7 @@ namespace PlaylistEditor
                 dataGridView1.AllowUserToAddRows = false;
             }
 
-            isModified = true;
+            toSave(true);
         }
 
 
@@ -400,7 +400,7 @@ namespace PlaylistEditor
 
                         dt.Clear();
                         dt.Columns.Clear();
-                        isModified = false;
+                        toSave(false);
                         plabel_Filename.Text = "";
                         button_revert.Visible = false;
                         break;
@@ -519,7 +519,7 @@ namespace PlaylistEditor
                         }
 
                     }
-                    isModified = true;
+                    toSave(true);
                 }
                 catch (Exception ex)
                 {
@@ -764,7 +764,7 @@ namespace PlaylistEditor
                         }
 
                     }
-                    isModified = true;
+                    toSave(true);
 
                 }
             }
@@ -815,11 +815,24 @@ namespace PlaylistEditor
                     dataGridView1.Rows[row.Index].Selected = false;
                     dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[0];  //scroll automatic to cell
                 }
-                isModified = true;
+                toSave(true);
             }  
         }
+        /// <summary>
+        /// changes icon if file is modified
+        /// </summary>
+        public void toSave(bool hasChanged)
+        {
+            isModified = hasChanged;
 
-       
+            if (hasChanged)
+                button_save.BackgroundImage = Properties.Resources.content_save_modified;
+
+            if (!hasChanged)
+                button_save.BackgroundImage = Properties.Resources.content_save_1_;
+
+        }
+
     }
 }
 

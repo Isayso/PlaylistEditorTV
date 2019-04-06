@@ -65,7 +65,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap arrow_down_bold {
             get {
-                object obj = ResourceManager.GetObject("arrow-down-bold", resourceCulture);
+                object obj = ResourceManager.GetObject("arrow_down_bold", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace PlaylistEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arrow_down_bold__1_ {
+        internal static System.Drawing.Bitmap arrow_down_bold_1_ {
             get {
-                object obj = ResourceManager.GetObject("arrow-down-bold (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("arrow_down_bold_1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +85,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap arrow_up_bold {
             get {
-                object obj = ResourceManager.GetObject("arrow-up-bold", resourceCulture);
+                object obj = ResourceManager.GetObject("arrow_up_bold", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace PlaylistEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arrow_up_bold__1_ {
+        internal static System.Drawing.Bitmap arrow_up_bold_1_ {
             get {
-                object obj = ResourceManager.GetObject("arrow-up-bold (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("arrow_up_bold_1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,7 +105,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap close_box_outline {
             get {
-                object obj = ResourceManager.GetObject("close-box-outline", resourceCulture);
+                object obj = ResourceManager.GetObject("close_box_outline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace PlaylistEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close_box_outline__1_ {
+        internal static System.Drawing.Bitmap close_box_outline_1_ {
             get {
-                object obj = ResourceManager.GetObject("close-box-outline (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("close_box_outline_1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -125,7 +125,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap content_save {
             get {
-                object obj = ResourceManager.GetObject("content-save", resourceCulture);
+                object obj = ResourceManager.GetObject("content_save", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,19 @@ namespace PlaylistEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap content_save__1_ {
+        internal static System.Drawing.Bitmap content_save_1_ {
             get {
-                object obj = ResourceManager.GetObject("content-save (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("content_save_1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap content_save_modified {
+            get {
+                object obj = ResourceManager.GetObject("content_save_modified", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -145,7 +155,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap delete_forever_outline {
             get {
-                object obj = ResourceManager.GetObject("delete-forever-outline", resourceCulture);
+                object obj = ResourceManager.GetObject("delete_forever_outline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -155,7 +165,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap information_outline {
             get {
-                object obj = ResourceManager.GetObject("information-outline", resourceCulture);
+                object obj = ResourceManager.GetObject("information_outline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -165,7 +175,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap information_variant {
             get {
-                object obj = ResourceManager.GetObject("information-variant", resourceCulture);
+                object obj = ResourceManager.GetObject("information_variant", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -175,7 +185,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap open_in_app {
             get {
-                object obj = ResourceManager.GetObject("open-in-app", resourceCulture);
+                object obj = ResourceManager.GetObject("open_in_app", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +193,9 @@ namespace PlaylistEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap open_in_app__1_ {
+        internal static System.Drawing.Bitmap open_in_app_1_ {
             get {
-                object obj = ResourceManager.GetObject("open-in-app (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("open_in_app_1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -195,7 +205,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap playlist_plus {
             get {
-                object obj = ResourceManager.GetObject("playlist-plus", resourceCulture);
+                object obj = ResourceManager.GetObject("playlist_plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -205,7 +215,7 @@ namespace PlaylistEditor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap settings_outline {
             get {
-                object obj = ResourceManager.GetObject("settings-outline", resourceCulture);
+                object obj = ResourceManager.GetObject("settings_outline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

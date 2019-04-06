@@ -224,7 +224,7 @@
             // 
             // button_delLine
             // 
-            this.button_delLine.BackgroundImage = global::PlaylistEditor.Properties.Resources.close_box_outline__1_;
+            this.button_delLine.BackgroundImage = global::PlaylistEditor.Properties.Resources.close_box_outline_1_;
             this.button_delLine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_delLine.FlatAppearance.BorderSize = 0;
             this.button_delLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -240,7 +240,7 @@
             // 
             // button_save
             // 
-            this.button_save.BackgroundImage = global::PlaylistEditor.Properties.Resources.content_save__1_;
+            this.button_save.BackgroundImage = global::PlaylistEditor.Properties.Resources.content_save_1_;
             this.button_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_save.FlatAppearance.BorderSize = 0;
             this.button_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -256,7 +256,7 @@
             // 
             // button_open
             // 
-            this.button_open.BackgroundImage = global::PlaylistEditor.Properties.Resources.open_in_app__1_;
+            this.button_open.BackgroundImage = global::PlaylistEditor.Properties.Resources.open_in_app_1_;
             this.button_open.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_open.FlatAppearance.BorderSize = 0;
             this.button_open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -272,7 +272,7 @@
             // 
             // buttonR_MoveDown
             // 
-            this.buttonR_MoveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold__1_;
+            this.buttonR_MoveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
             this.buttonR_MoveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonR_MoveDown.FlatAppearance.BorderSize = 0;
             this.buttonR_MoveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -288,7 +288,7 @@
             // 
             // buttonR_moveUp
             // 
-            this.buttonR_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold__1_;
+            this.buttonR_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
             this.buttonR_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonR_moveUp.FlatAppearance.BorderSize = 0;
             this.buttonR_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
