@@ -186,6 +186,8 @@
     <Content Include="KodiPlaylistEditor.ico" />
     <Content Include="KodiPlaylistEditor2.ico" />
     <Content Include="KodiPlaylistEditorW.ico" />
+    <None Include="Resources\reload.png" />
+    <None Include="Resources\about6.png" />
     <None Include="Resources\content-save-modified.png" />
     <None Include="Resources\backgroundiptv.png" />
     <None Include="Resources\background.bmp" />

@@ -42,20 +42,20 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.textBox_find = new System.Windows.Forms.TextBox();
+            this.plabel_Filename = new PathLabel();
+            this.button_revert = new System.Windows.Forms.Button();
             this.button_dup = new System.Windows.Forms.Button();
             this.button_search = new System.Windows.Forms.Button();
+            this.buttonR_MoveDown = new RepeatingButton();
+            this.buttonR_moveUp = new RepeatingButton();
             this.button_del_all = new System.Windows.Forms.Button();
+            this.button_settings = new System.Windows.Forms.Button();
             this.button_add = new System.Windows.Forms.Button();
+            this.button_Info = new System.Windows.Forms.Button();
             this.button_delLine = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
             this.button_open = new System.Windows.Forms.Button();
-            this.buttonR_MoveDown = new RepeatingButton();
-            this.buttonR_moveUp = new RepeatingButton();
-            this.button_revert = new System.Windows.Forms.Button();
-            this.textBox_find = new System.Windows.Forms.TextBox();
-            this.button_settings = new System.Windows.Forms.Button();
-            this.button_Info = new System.Windows.Forms.Button();
-            this.plabel_Filename = new PathLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1126, 310);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragDrop);
             this.dataGridView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragEnter);
             // 
@@ -156,6 +157,48 @@
             this.saveFileDialog1.DefaultExt = "m3u";
             this.saveFileDialog1.Filter = "Playlist|*.m3u";
             // 
+            // textBox_find
+            // 
+            this.textBox_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_find.Location = new System.Drawing.Point(934, 66);
+            this.textBox_find.Name = "textBox_find";
+            this.textBox_find.Size = new System.Drawing.Size(167, 28);
+            this.textBox_find.TabIndex = 34;
+            this.textBox_find.Text = "find";
+            this.textBox_find.Visible = false;
+            this.textBox_find.Click += new System.EventHandler(this.textBox_selectAll_Click);
+            this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChanged);
+            // 
+            // plabel_Filename
+            // 
+            this.plabel_Filename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.plabel_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
+            this.plabel_Filename.Location = new System.Drawing.Point(405, 16);
+            this.plabel_Filename.Name = "plabel_Filename";
+            this.plabel_Filename.Size = new System.Drawing.Size(483, 23);
+            this.plabel_Filename.TabIndex = 26;
+            this.plabel_Filename.Text = "pathLabel1";
+            // 
+            // button_revert
+            // 
+            this.button_revert.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_revert.BackgroundImage = global::PlaylistEditor.Properties.Resources.reload;
+            this.button_revert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_revert.FlatAppearance.BorderSize = 0;
+            this.button_revert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_revert.Location = new System.Drawing.Point(375, 9);
+            this.button_revert.Margin = new System.Windows.Forms.Padding(0);
+            this.button_revert.Name = "button_revert";
+            this.button_revert.Size = new System.Drawing.Size(25, 37);
+            this.button_revert.TabIndex = 36;
+            this.toolTip1.SetToolTip(this.button_revert, "reload file");
+            this.button_revert.UseVisualStyleBackColor = true;
+            this.button_revert.Visible = false;
+            this.button_revert.Click += new System.EventHandler(this.button_revert_Click);
+            // 
             // button_dup
             // 
             this.button_dup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -190,9 +233,41 @@
             this.button_search.UseVisualStyleBackColor = true;
             this.button_search.Click += new System.EventHandler(this.button_search_Click);
             // 
+            // buttonR_MoveDown
+            // 
+            this.buttonR_MoveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
+            this.buttonR_MoveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonR_MoveDown.FlatAppearance.BorderSize = 0;
+            this.buttonR_MoveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonR_MoveDown.Location = new System.Drawing.Point(205, 11);
+            this.buttonR_MoveDown.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonR_MoveDown.Name = "buttonR_MoveDown";
+            this.buttonR_MoveDown.Size = new System.Drawing.Size(30, 32);
+            this.buttonR_MoveDown.TabIndex = 32;
+            this.buttonR_MoveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.buttonR_MoveDown, "move row down");
+            this.buttonR_MoveDown.UseVisualStyleBackColor = true;
+            this.buttonR_MoveDown.Click += new System.EventHandler(this.button_moveDown_Click);
+            // 
+            // buttonR_moveUp
+            // 
+            this.buttonR_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
+            this.buttonR_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonR_moveUp.FlatAppearance.BorderSize = 0;
+            this.buttonR_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonR_moveUp.Location = new System.Drawing.Point(175, 9);
+            this.buttonR_moveUp.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonR_moveUp.Name = "buttonR_moveUp";
+            this.buttonR_moveUp.Size = new System.Drawing.Size(30, 32);
+            this.buttonR_moveUp.TabIndex = 31;
+            this.buttonR_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.buttonR_moveUp, "move row up");
+            this.buttonR_moveUp.UseVisualStyleBackColor = true;
+            this.buttonR_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
+            // 
             // button_del_all
             // 
-            this.button_del_all.BackgroundImage = global::PlaylistEditor.Properties.Resources.delete_forever_outline;
+            this.button_del_all.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_del_all.BackgroundImage")));
             this.button_del_all.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_del_all.FlatAppearance.BorderSize = 0;
             this.button_del_all.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -206,9 +281,25 @@
             this.button_del_all.UseVisualStyleBackColor = true;
             this.button_del_all.Click += new System.EventHandler(this.button_del_all_Click);
             // 
+            // button_settings
+            // 
+            this.button_settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_settings.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_settings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_settings.BackgroundImage")));
+            this.button_settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_settings.FlatAppearance.BorderSize = 0;
+            this.button_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_settings.Location = new System.Drawing.Point(1049, 15);
+            this.button_settings.Margin = new System.Windows.Forms.Padding(0);
+            this.button_settings.Name = "button_settings";
+            this.button_settings.Size = new System.Drawing.Size(25, 37);
+            this.button_settings.TabIndex = 28;
+            this.button_settings.UseVisualStyleBackColor = true;
+            this.button_settings.Click += new System.EventHandler(this.button_settings_Click);
+            // 
             // button_add
             // 
-            this.button_add.BackgroundImage = global::PlaylistEditor.Properties.Resources.playlist_plus;
+            this.button_add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_add.BackgroundImage")));
             this.button_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_add.FlatAppearance.BorderSize = 0;
             this.button_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -221,6 +312,22 @@
             this.toolTip1.SetToolTip(this.button_add, "add row");
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
+            // 
+            // button_Info
+            // 
+            this.button_Info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Info.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_Info.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Info.BackgroundImage")));
+            this.button_Info.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_Info.FlatAppearance.BorderSize = 0;
+            this.button_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Info.Location = new System.Drawing.Point(1087, 15);
+            this.button_Info.Margin = new System.Windows.Forms.Padding(0);
+            this.button_Info.Name = "button_Info";
+            this.button_Info.Size = new System.Drawing.Size(25, 37);
+            this.button_Info.TabIndex = 24;
+            this.button_Info.UseVisualStyleBackColor = true;
+            this.button_Info.Click += new System.EventHandler(this.button_Info_Click);
             // 
             // button_delLine
             // 
@@ -269,112 +376,6 @@
             this.toolTip1.SetToolTip(this.button_open, "open m3u");
             this.button_open.UseVisualStyleBackColor = true;
             this.button_open.Click += new System.EventHandler(this.button_open_Click);
-            // 
-            // buttonR_MoveDown
-            // 
-            this.buttonR_MoveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
-            this.buttonR_MoveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonR_MoveDown.FlatAppearance.BorderSize = 0;
-            this.buttonR_MoveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonR_MoveDown.Location = new System.Drawing.Point(205, 11);
-            this.buttonR_MoveDown.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonR_MoveDown.Name = "buttonR_MoveDown";
-            this.buttonR_MoveDown.Size = new System.Drawing.Size(30, 32);
-            this.buttonR_MoveDown.TabIndex = 32;
-            this.buttonR_MoveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.buttonR_MoveDown, "move row down");
-            this.buttonR_MoveDown.UseVisualStyleBackColor = true;
-            this.buttonR_MoveDown.Click += new System.EventHandler(this.button_moveDown_Click);
-            // 
-            // buttonR_moveUp
-            // 
-            this.buttonR_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
-            this.buttonR_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonR_moveUp.FlatAppearance.BorderSize = 0;
-            this.buttonR_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonR_moveUp.Location = new System.Drawing.Point(175, 9);
-            this.buttonR_moveUp.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonR_moveUp.Name = "buttonR_moveUp";
-            this.buttonR_moveUp.Size = new System.Drawing.Size(30, 32);
-            this.buttonR_moveUp.TabIndex = 31;
-            this.buttonR_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.buttonR_moveUp, "move row up");
-            this.buttonR_moveUp.UseVisualStyleBackColor = true;
-            this.buttonR_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
-            // 
-            // button_revert
-            // 
-            this.button_revert.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_revert.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_revert.BackgroundImage")));
-            this.button_revert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_revert.FlatAppearance.BorderSize = 0;
-            this.button_revert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_revert.Location = new System.Drawing.Point(375, 9);
-            this.button_revert.Margin = new System.Windows.Forms.Padding(0);
-            this.button_revert.Name = "button_revert";
-            this.button_revert.Size = new System.Drawing.Size(25, 37);
-            this.button_revert.TabIndex = 36;
-            this.toolTip1.SetToolTip(this.button_revert, "reload file");
-            this.button_revert.UseVisualStyleBackColor = true;
-            this.button_revert.Visible = false;
-            this.button_revert.Click += new System.EventHandler(this.button_revert_Click);
-            // 
-            // textBox_find
-            // 
-            this.textBox_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_find.Location = new System.Drawing.Point(934, 66);
-            this.textBox_find.Name = "textBox_find";
-            this.textBox_find.Size = new System.Drawing.Size(167, 28);
-            this.textBox_find.TabIndex = 34;
-            this.textBox_find.Text = "find";
-            this.textBox_find.Visible = false;
-            this.textBox_find.Click += new System.EventHandler(this.textBox_selectAll_Click);
-            this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChanged);
-            // 
-            // button_settings
-            // 
-            this.button_settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_settings.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_settings.BackgroundImage = global::PlaylistEditor.Properties.Resources.settings_outline;
-            this.button_settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_settings.FlatAppearance.BorderSize = 0;
-            this.button_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_settings.Location = new System.Drawing.Point(1049, 15);
-            this.button_settings.Margin = new System.Windows.Forms.Padding(0);
-            this.button_settings.Name = "button_settings";
-            this.button_settings.Size = new System.Drawing.Size(25, 37);
-            this.button_settings.TabIndex = 28;
-            this.button_settings.UseVisualStyleBackColor = true;
-            this.button_settings.Click += new System.EventHandler(this.button_settings_Click);
-            // 
-            // button_Info
-            // 
-            this.button_Info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Info.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_Info.BackgroundImage = global::PlaylistEditor.Properties.Resources.information_outline;
-            this.button_Info.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_Info.FlatAppearance.BorderSize = 0;
-            this.button_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Info.Location = new System.Drawing.Point(1087, 15);
-            this.button_Info.Margin = new System.Windows.Forms.Padding(0);
-            this.button_Info.Name = "button_Info";
-            this.button_Info.Size = new System.Drawing.Size(25, 37);
-            this.button_Info.TabIndex = 24;
-            this.button_Info.UseVisualStyleBackColor = true;
-            this.button_Info.Click += new System.EventHandler(this.button_Info_Click);
-            // 
-            // plabel_Filename
-            // 
-            this.plabel_Filename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.plabel_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
-            this.plabel_Filename.Location = new System.Drawing.Point(405, 16);
-            this.plabel_Filename.Name = "plabel_Filename";
-            this.plabel_Filename.Size = new System.Drawing.Size(483, 23);
-            this.plabel_Filename.TabIndex = 26;
-            this.plabel_Filename.Text = "pathLabel1";
             // 
             // Form1
             // 

@@ -63,6 +63,16 @@ namespace PlaylistEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap about6 {
+            get {
+                object obj = ResourceManager.GetObject("about6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_down_bold {
             get {
                 object obj = ResourceManager.GetObject("arrow_down_bold", resourceCulture);
@@ -206,6 +216,16 @@ namespace PlaylistEditor.Properties {
         internal static System.Drawing.Bitmap playlist_plus {
             get {
                 object obj = ResourceManager.GetObject("playlist_plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reload {
+            get {
+                object obj = ResourceManager.GetObject("reload", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

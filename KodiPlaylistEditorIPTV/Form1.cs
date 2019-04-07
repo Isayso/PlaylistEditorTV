@@ -833,6 +833,10 @@ namespace PlaylistEditor
 
         }
 
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            toSave(true);
+        }
     }
 }
 
