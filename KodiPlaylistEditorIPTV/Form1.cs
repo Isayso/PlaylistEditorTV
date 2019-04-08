@@ -308,11 +308,34 @@ namespace PlaylistEditor
         {
             saveFileDialog1.FileName = plabel_Filename.Text;
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)  
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                // ((Control)sender).Hide();
+
+                using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
+                {
+
+                    file.NewLine = "\n";  // win: LF
+                    file.WriteLine("#EXTM3U");
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
+                        file.WriteLine(dt.Rows[i][5]);
+
+                    }
+
+                }
+                toSave(false);
+                button_revert.Visible = true;
+                
+            }
+
+            else if (saveFileDialog1.ShowDialog() == DialogResult.OK)  
             {
                 plabel_Filename.Text = saveFileDialog1.FileName;
-                try
-                {
+               // try
+               // {
                     using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
                     {
                         
@@ -329,11 +352,11 @@ namespace PlaylistEditor
                     }
                     
                     toSave(false);
-                }
-                catch (Exception ex) when (ex is IOException || ex is ObjectDisposedException)
-                {
-                    MessageBox.Show("Write Error " + ex);
-                }
+                //}
+                //catch (Exception ex) when (ex is IOException || ex is ObjectDisposedException)
+                //{
+                //    MessageBox.Show("Write Error " + ex);
+                //}
                 button_revert.Visible = true;
             }
         }
@@ -420,7 +443,7 @@ namespace PlaylistEditor
             {
                 case DialogResult.Yes:
                     importDataset(plabel_Filename.Text, false);
-
+                    toSave(false);
                     break;
 
                 case DialogResult.No:
@@ -600,7 +623,7 @@ namespace PlaylistEditor
                 int iRow = dataGridView1.CurrentCell.RowIndex;
                 int iCol = dataGridView1.CurrentCell.ColumnIndex;
                 DataGridViewCell oCell;
-                if (iRow + lines.Length > dataGridView1.Rows.Count - 1)
+                if (iRow + lines.Length > dataGridView1.Rows.Count - 1)  //true on last line
                 {
                     bool bFlag = false;
                     foreach (string sEmpty in lines)
@@ -612,7 +635,7 @@ namespace PlaylistEditor
                     }
 
                     int iNewRows = iRow + lines.Length - dataGridView1.Rows.Count;
-                    if (iNewRows > 0)
+                    if (iNewRows > 0)     //error at last line ????
                     {
                         if (bFlag)
                             dataGridView1.Rows.Add(iNewRows);
@@ -735,6 +758,7 @@ namespace PlaylistEditor
 
         private void dataGridView1_DragDrop(object sender, DragEventArgs e)
         {
+          
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
 
@@ -754,13 +778,18 @@ namespace PlaylistEditor
 
                     if (extName.Equals(".m3u"))
                     {
+                        button_revert.Visible = true;
+
                         if (dataGridView1.RowCount == 0)
                         {
-                            importDataset(fileName, false);  
+                            importDataset(fileName, false);
+                            break;
                         }
                         else  //imoprt and add
                         {
-                            importDataset(fileName, true);                             
+                            importDataset(fileName, true);
+                            toSave(true);
+                            break;
                         }
 
                     }
