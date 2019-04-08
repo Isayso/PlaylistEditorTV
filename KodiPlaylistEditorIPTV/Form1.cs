@@ -299,7 +299,7 @@ namespace PlaylistEditor
                 }
 
 
-                isModified = true;
+                toSave(true);
 
             }
         }
@@ -308,11 +308,34 @@ namespace PlaylistEditor
         {
             saveFileDialog1.FileName = plabel_Filename.Text;
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)  
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                // ((Control)sender).Hide();
+
+                using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
+                {
+
+                    file.NewLine = "\n";  // win: LF
+                    file.WriteLine("#EXTM3U");
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
+                        file.WriteLine(dt.Rows[i][5]);
+
+                    }
+
+                }
+                toSave(false);
+                button_revert.Visible = true;
+                
+            }
+
+            else if (saveFileDialog1.ShowDialog() == DialogResult.OK)  
             {
                 plabel_Filename.Text = saveFileDialog1.FileName;
-                try
-                {
+               // try
+               // {
                     using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
                     {
                         
@@ -328,13 +351,13 @@ namespace PlaylistEditor
                      
                     }
                     
-                    isModified = false;
-                }
-                catch (Exception ex) when (ex is IOException || ex is ObjectDisposedException)
-                {
-                    MessageBox.Show("Write Error " + ex);
-                }
-               
+                    toSave(false);
+                //}
+                //catch (Exception ex) when (ex is IOException || ex is ObjectDisposedException)
+                //{
+                //    MessageBox.Show("Write Error " + ex);
+                //}
+                button_revert.Visible = true;
             }
         }
 
@@ -381,7 +404,7 @@ namespace PlaylistEditor
                 dataGridView1.AllowUserToAddRows = false;
             }
 
-            isModified = true;
+            toSave(true);
         }
 
 
@@ -400,7 +423,7 @@ namespace PlaylistEditor
 
                         dt.Clear();
                         dt.Columns.Clear();
-                        isModified = false;
+                        toSave(false);
                         plabel_Filename.Text = "";
                         button_revert.Visible = false;
                         break;
@@ -420,7 +443,7 @@ namespace PlaylistEditor
             {
                 case DialogResult.Yes:
                     importDataset(plabel_Filename.Text, false);
-
+                    toSave(false);
                     break;
 
                 case DialogResult.No:
@@ -519,7 +542,7 @@ namespace PlaylistEditor
                         }
 
                     }
-                    isModified = true;
+                    toSave(true);
                 }
                 catch (Exception ex)
                 {
@@ -600,7 +623,7 @@ namespace PlaylistEditor
                 int iRow = dataGridView1.CurrentCell.RowIndex;
                 int iCol = dataGridView1.CurrentCell.ColumnIndex;
                 DataGridViewCell oCell;
-                if (iRow + lines.Length > dataGridView1.Rows.Count - 1)
+                if (iRow + lines.Length > dataGridView1.Rows.Count - 1)  //true on last line
                 {
                     bool bFlag = false;
                     foreach (string sEmpty in lines)
@@ -612,7 +635,7 @@ namespace PlaylistEditor
                     }
 
                     int iNewRows = iRow + lines.Length - dataGridView1.Rows.Count;
-                    if (iNewRows > 0)
+                    if (iNewRows > 0)     //error at last line ????
                     {
                         if (bFlag)
                             dataGridView1.Rows.Add(iNewRows);
@@ -735,6 +758,7 @@ namespace PlaylistEditor
 
         private void dataGridView1_DragDrop(object sender, DragEventArgs e)
         {
+          
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
 
@@ -754,17 +778,22 @@ namespace PlaylistEditor
 
                     if (extName.Equals(".m3u"))
                     {
+                        button_revert.Visible = true;
+
                         if (dataGridView1.RowCount == 0)
                         {
-                            importDataset(fileName, false);  
+                            importDataset(fileName, false);
+                            break;
                         }
                         else  //imoprt and add
                         {
-                            importDataset(fileName, true);                             
+                            importDataset(fileName, true);
+                            toSave(true);
+                            break;
                         }
 
                     }
-                    isModified = true;
+                    toSave(true);
 
                 }
             }
@@ -815,11 +844,28 @@ namespace PlaylistEditor
                     dataGridView1.Rows[row.Index].Selected = false;
                     dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[0];  //scroll automatic to cell
                 }
-                isModified = true;
+                toSave(true);
             }  
         }
+        /// <summary>
+        /// changes icon if file is modified
+        /// </summary>
+        public void toSave(bool hasChanged)
+        {
+            isModified = hasChanged;
 
-       
+            if (hasChanged)
+                button_save.BackgroundImage = Properties.Resources.content_save_modified;
+
+            if (!hasChanged)
+                button_save.BackgroundImage = Properties.Resources.content_save_1_;
+
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            toSave(true);
+        }
     }
 }
 
