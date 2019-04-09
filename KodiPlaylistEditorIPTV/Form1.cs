@@ -752,6 +752,11 @@ namespace PlaylistEditor
                     }
                 }             
             }
+
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                button_delLine.PerformClick();
+            }
         }
 
       
@@ -863,6 +868,11 @@ namespace PlaylistEditor
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            toSave(true);
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             toSave(true);
         }
