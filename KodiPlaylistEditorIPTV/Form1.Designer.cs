@@ -86,6 +86,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1126, 310);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             this.dataGridView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragDrop);
             this.dataGridView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragEnter);
             // 
@@ -200,7 +201,7 @@
             this.button_dup.Name = "button_dup";
             this.button_dup.Size = new System.Drawing.Size(25, 37);
             this.button_dup.TabIndex = 35;
-            this.toolTip1.SetToolTip(this.button_dup, "find duplicates");
+            this.toolTip1.SetToolTip(this.button_dup, "find duplicates\r\n+shift remove duplicates");
             this.button_dup.UseVisualStyleBackColor = true;
             this.button_dup.Click += new System.EventHandler(this.button_dup_Click);
             // 
@@ -313,7 +314,7 @@
             this.button_save.Size = new System.Drawing.Size(45, 49);
             this.button_save.TabIndex = 1;
             this.button_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_save, "click save as\r\nshift-click save");
+            this.toolTip1.SetToolTip(this.button_save, "save as\r\n+shift save overwrite");
             this.button_save.UseVisualStyleBackColor = true;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
