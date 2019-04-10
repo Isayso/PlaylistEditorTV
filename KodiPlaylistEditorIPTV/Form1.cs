@@ -49,7 +49,7 @@ namespace PlaylistEditor
         {
             InitializeComponent();
 
-            this.Text = String.Format("PlaylistEditor TV " + " v{0}" , Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            this.Text = String.Format("PlaylistEditor TV " + " v{0}" , Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 
             var spec_key = Properties.Settings.Default.specKey;
             var hotlabel = Properties.Settings.Default.hotkey;
@@ -308,7 +308,7 @@ namespace PlaylistEditor
         {
             saveFileDialog1.FileName = plabel_Filename.Text;
 
-            if (Control.ModifierKeys == Keys.Shift)
+            if (Control.ModifierKeys == Keys.Shift && !string.IsNullOrEmpty(plabel_Filename.Text))
             {
                 // ((Control)sender).Hide();
 
