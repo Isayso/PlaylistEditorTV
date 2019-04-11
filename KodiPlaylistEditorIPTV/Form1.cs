@@ -22,6 +22,8 @@ using System.Windows.Forms;
 
 
 
+
+
 namespace PlaylistEditor
 {
     public partial class Form1 : Form
@@ -41,7 +43,8 @@ namespace PlaylistEditor
         DataTable dt = new DataTable();
         DataRow dr;
 
-        
+        string vlcpath = Properties.Settings.Default.vlcpath;
+
 
 
 
@@ -53,9 +56,24 @@ namespace PlaylistEditor
 
             var spec_key = Properties.Settings.Default.specKey;
             var hotlabel = Properties.Settings.Default.hotkey;
-          
+           
+            
+           
+            if (!string.IsNullOrEmpty(vlcpath))
+            {
+                button_vlc.Visible = true;
+            }
+            else if (string.IsNullOrEmpty(vlcpath))  //first run
+            {
+                vlcpath = ClassHelp.GetVlcPath();
+                if (string.IsNullOrEmpty(vlcpath)) button_vlc.Visible = false; //no vlc installed
+            }
+           
+
             plabel_Filename.Text = "";
             button_revert.Visible = false;
+
+
             //  dataGridView1.AllowUserToAddRows = true;
 
 
@@ -100,6 +118,10 @@ namespace PlaylistEditor
 
                         case Keys.X:
                             cutRowMenuItem.PerformClick();
+                            break;
+
+                        case Keys.P:
+                            button_vlc.PerformClick();
                             break;
                     }
                 }
@@ -380,7 +402,7 @@ namespace PlaylistEditor
             
             if (dataGridView1.RowCount > 0)
             {
-                int a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
+                int a = dataGridView1.SelectedCells[0].RowIndex;  // row index in a datatable
                 dr[0] = "Name"; dr[1] = "id"; dr[2] = "Title"; dr[3] = "Logo";
                 dr[4] = "Name2"; dr[5] = "Link";
 
@@ -408,10 +430,40 @@ namespace PlaylistEditor
         }
 
 
-      
+        private void button_vlc_Click(object sender, EventArgs e)
+        {
+            
+            string param = "";
+
+            if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath))
+            {
+              
+                param = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+               
+                System.Diagnostics.ProcessStartInfo ps = new System.Diagnostics.ProcessStartInfo();
+                ps.FileName = vlcpath + "\\" + "vlc.exe";
+                ps.ErrorDialog = false;
+                ps.Arguments =  " " + param;
+                
+                ps.CreateNoWindow = true; 
+                ps.UseShellExecute = false; 
+
+                ps.RedirectStandardOutput = true; 
+                ps.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden; 
+
+                using (System.Diagnostics.Process proc = new System.Diagnostics.Process())
+                {
+                    proc.StartInfo = ps;
+                    
+                    proc.Start();
+                  //  proc.WaitForExit();
+                    
+                }
+            }
+        }
 
 
-      
+
 
         private void button_del_all_Click(object sender, EventArgs e)  
         {
@@ -463,8 +515,7 @@ namespace PlaylistEditor
             //copy selection to whatever
             if (dataGridView1.CurrentCell.Value != null && dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
             {
-                             
-              
+
                 dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
 
                 try
@@ -875,6 +926,22 @@ namespace PlaylistEditor
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             toSave(true);
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                button_open.PerformClick();
+            }
+                
+        }
+
+
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath)) button_vlc.PerformClick();
         }
     }
 }
