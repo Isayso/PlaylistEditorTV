@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -72,14 +72,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(-3, 59);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
@@ -294,13 +294,13 @@
             // 
             // button_vlc
             // 
-            this.button_vlc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_vlc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_vlc.BackColor = System.Drawing.Color.MidnightBlue;
             this.button_vlc.BackgroundImage = global::PlaylistEditor.Properties.Resources.play;
             this.button_vlc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_vlc.FlatAppearance.BorderSize = 0;
             this.button_vlc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_vlc.Location = new System.Drawing.Point(-3, 343);
+            this.button_vlc.Location = new System.Drawing.Point(869, 11);
             this.button_vlc.Margin = new System.Windows.Forms.Padding(0);
             this.button_vlc.Name = "button_vlc";
             this.button_vlc.Size = new System.Drawing.Size(38, 37);
@@ -394,7 +394,7 @@
             this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
             this.plabel_Filename.Location = new System.Drawing.Point(405, 16);
             this.plabel_Filename.Name = "plabel_Filename";
-            this.plabel_Filename.Size = new System.Drawing.Size(483, 23);
+            this.plabel_Filename.Size = new System.Drawing.Size(385, 23);
             this.plabel_Filename.TabIndex = 26;
             this.plabel_Filename.Text = "pathLabel1";
             // 
