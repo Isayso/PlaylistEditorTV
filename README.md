@@ -1,5 +1,5 @@
 # Playlist Editor TV
-Editor for TV m3u files
+Editor for TV m3u files (play with vlc media player in dev tree)
 
 Copy, cut&paste functions, sort, search and find duplicates.
 
