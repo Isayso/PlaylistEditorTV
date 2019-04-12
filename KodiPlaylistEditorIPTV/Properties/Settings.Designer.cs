@@ -154,5 +154,17 @@ namespace PlaylistEditor.Properties {
                 this["leftshift"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string vlcpath {
+            get {
+                return ((string)(this["vlcpath"]));
+            }
+            set {
+                this["vlcpath"] = value;
+            }
+        }
     }
 }

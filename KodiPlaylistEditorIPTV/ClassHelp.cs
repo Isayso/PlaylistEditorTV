@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Microsoft.Win32;
+using System.IO;
 
 namespace PlaylistEditor
 {
@@ -53,10 +54,43 @@ namespace PlaylistEditor
             }
         }
 
+        /// <summary>
+        /// function to get the path of installed vlc
+        /// </summary>
+        /// <returns>path or empty</returns>
+        public static string GetVlcPath()
+        {
+            string VlcPath = "";
+            object line;
+            string softwareinstallpath = string.Empty;
+            string registry_key = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+            using (var baseKey = Microsoft.Win32.RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
+            {
+                using (var key = baseKey.OpenSubKey(registry_key))
+                {
+                    foreach (string subkey_name in key.GetSubKeyNames())
+                    {
+                        using (var subKey = key.OpenSubKey(subkey_name))
+                        {
+                            line = subKey.GetValue("DisplayName");
+                            if (line != null && (line.ToString().ToUpper().Contains("VLC")))
+                            {
 
+                                VlcPath = subKey.GetValue("InstallLocation").ToString();
+                                
+                                Properties.Settings.Default.vlcpath = VlcPath;
+                                Properties.Settings.Default.Save();
+                                return VlcPath;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            return  "";  //no vlc found
+           
+        }
 
-
-      
 
     }
 }

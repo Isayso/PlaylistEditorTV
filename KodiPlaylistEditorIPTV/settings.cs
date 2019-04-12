@@ -80,5 +80,10 @@ namespace PlaylistEditor
             Properties.Settings.Default.leftshift = val;
 
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
