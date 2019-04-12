@@ -1,5 +1,5 @@
 # Playlist Editor TV
-Editor for TV m3u files (play with vlc media player)
+Editor for TV m3u files (with vlc media player support)
 
 Copy, cut&paste functions, sort, search and find duplicates.
 
@@ -14,7 +14,7 @@ You can download the compiled EXE file [released](https://github.com/Isayso/Play
 ### Prerequisites
 
 Windows with .NET Framework 4.6.2
-Istalled VLC player recommended. 
+Installation of VLC player recommended. 
 
 
 ### Installing
