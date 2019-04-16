@@ -13,8 +13,8 @@ You can download the compiled EXE file [released](https://github.com/Isayso/Play
 
 ### Prerequisites
 
-Windows with .NET Framework 4.6.2
-Installation of VLC player recommended. 
+- Windows with .NET Framework 4.6.2
+- Installation of VLC player for play function 
 
 
 ### Installing
