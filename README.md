@@ -1,7 +1,10 @@
 # Playlist Editor TV
 Editor for TV m3u files (with vlc media player support)
 
-Copy, cut&paste functions, sort, search and find duplicates.
+- You can edit and create Kodi IPTV playlists, add, rename, move and delete playlist entries, drag&drop m3u files to add to list. 
+- Search for names and find duplicate links to merge files. 
+- Copy/paste links to other editor window. 
+- Play links on Windows with installed VLC player 
 
 
 ![UI](PlaylistEditorTV2.png)
