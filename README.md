@@ -1,6 +1,7 @@
 # Playlist Editor TV
 Editor for TV m3u files (with vlc media player support)
 
+- NEW in 1.1: Send link to Kodi device e.g. Raspberry PI
 - You can edit and create Kodi IPTV playlists, add, rename, move and delete playlist entries, drag&drop m3u files to add to list. 
 - Search for names and find duplicate links to merge files. 
 - Copy/paste links to other editor window. 
