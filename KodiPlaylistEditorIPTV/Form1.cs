@@ -708,7 +708,7 @@ namespace PlaylistEditor
                     }
 
                     int iNewRows = iRow + lines.Length - dataGridView1.Rows.Count;
-                    if (iNewRows > 0)     //error at last line ????
+                    if (iNewRows > 0)     
                     {
                         if (bFlag)
                             dataGridView1.Rows.Add(iNewRows);
@@ -716,7 +716,7 @@ namespace PlaylistEditor
                             dataGridView1.Rows.Add(iNewRows + 1);
                     }
                     else if (iNewRows == 0 && iRow != dataGridView1.Rows.Count -1 )
-                        dataGridView1.Rows.Add(iNewRows + 1);  //error on last line
+                        dataGridView1.Rows.Add(iNewRows + 1);  
                 }
                 foreach (string line in lines)
                 {
