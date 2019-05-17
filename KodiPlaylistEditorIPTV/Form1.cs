@@ -715,8 +715,8 @@ namespace PlaylistEditor
                         else
                             dataGridView1.Rows.Add(iNewRows + 1);
                     }
-                    else
-                        dataGridView1.Rows.Add(iNewRows + 1);
+                    else if (iNewRows == 0 && iRow != dataGridView1.Rows.Count -1 )
+                        dataGridView1.Rows.Add(iNewRows + 1);  //error on last line
                 }
                 foreach (string line in lines)
                 {
