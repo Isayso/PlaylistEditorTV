@@ -121,7 +121,7 @@ namespace PlaylistEditor
                             break;
 
                         case Keys.P:
-                            button_vlc.PerformClick();
+                            playToolStripMenuItem.PerformClick();
                             break;
                     }
                 }
@@ -365,8 +365,10 @@ namespace PlaylistEditor
                         file.WriteLine("#EXTM3U");
 
                         for (int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
+                    {
+                        //ToDo # remove, "," remove?
+                        //dt.Rows[i][0].Replace("#", " ").Replace(",", " ");
+                        file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
                             file.WriteLine(dt.Rows[i][5]);
                             
                         }
@@ -437,7 +439,10 @@ namespace PlaylistEditor
 
             if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath))
             {
-              
+
+                // Set cursor as hourglass
+                Cursor.Current = Cursors.WaitCursor;
+
                 param = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                
                 System.Diagnostics.ProcessStartInfo ps = new System.Diagnostics.ProcessStartInfo();
@@ -459,6 +464,9 @@ namespace PlaylistEditor
                   //  proc.WaitForExit();
                     
                 }
+                // Set cursor as default arrow
+                Cursor.Current = Cursors.Default;
+
             }
         }
 
@@ -508,6 +516,20 @@ namespace PlaylistEditor
         // contextMenueStrip Entries
         /*--------------------------------------------------------------------------------*/
 
+        private async void playToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.RowCount == 0) return;
+
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
+            string jLink = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+           
+
+            jLink = "{ \"jsonrpc\":\"2.0\",\"method\":\"Player.Open\",\"params\":{ \"item\":{ \"file\":\"" + jLink + "\"} },\"id\":0}";
+
+            //  if (ClassHelp.PingHost(rpi_ip,22))
+            await ClassKodi.Run(jLink);
+
+        }
 
         private void copyRowMenuItem_Click(object sender, EventArgs e)
         {

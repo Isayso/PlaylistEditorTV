@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace PlaylistEditor
 {
@@ -52,6 +53,47 @@ namespace PlaylistEditor
             {
                 return "";
             }
+        }
+
+        /// <summary>
+        /// byte to string / string to byte
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns>string</returns>
+        public static string ByteArrayToString(byte[] arr)
+        {
+            System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
+            return enc.GetString(arr);
+        }
+
+        public static byte[] StringToByteArray(string str)
+        {
+            System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
+            return enc.GetBytes(str);
+        }
+
+        public static async void PopupForm(string label, string color, int delay)
+        {
+            await PopupDelay(label, color, delay);
+            
+        }
+
+
+        /// <summary>
+        /// async thread counter to show popup form
+        /// </summary>
+        /// <param name="item"></param>
+        public static async Task PopupDelay(string label, string color, int delay)
+        {
+            popup2 pop = new popup2();
+            pop.Show();
+            pop.label1.Text = label;
+            pop.color(color);
+           
+            await Task.Delay(delay);
+           
+            pop.Close();
+
         }
 
         /// <summary>

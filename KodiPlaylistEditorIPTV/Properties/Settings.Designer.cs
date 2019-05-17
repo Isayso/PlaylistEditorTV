@@ -166,5 +166,27 @@ namespace PlaylistEditor.Properties {
                 this["vlcpath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public byte[] cipher {
+            get {
+                return ((byte[])(this["cipher"]));
+            }
+            set {
+                this["cipher"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public byte[] entropy {
+            get {
+                return ((byte[])(this["entropy"]));
+            }
+            set {
+                this["entropy"] = value;
+            }
+        }
     }
 }
