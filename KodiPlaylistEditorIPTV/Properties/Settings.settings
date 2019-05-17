@@ -38,5 +38,11 @@
     <Setting Name="vlcpath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="cipher" Type="System.Byte[]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="entropy" Type="System.Byte[]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

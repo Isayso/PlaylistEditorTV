@@ -13,6 +13,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace PlaylistEditor
@@ -31,13 +32,28 @@ namespace PlaylistEditor
         public settings()
         {
             InitializeComponent();
-          
-           
+
+            textBox2.Text = Properties.Settings.Default.rpi;
+            textBox_Port.Text = Properties.Settings.Default.port;
+            textBox_Username.Text = Properties.Settings.Default.username;
+
             comboBox1.SelectedIndex = Properties.Settings.Default.colSearch;
             comboBox2.SelectedIndex = Properties.Settings.Default.colDupli;
             textBox1.Text = "0";
-        
-            
+
+            //password
+            if (Properties.Settings.Default.cipher != null && Properties.Settings.Default.entropy != null)
+            {
+                byte[] plaintext = ProtectedData.Unprotect(Properties.Settings.Default.cipher, Properties.Settings.Default.entropy,
+                  DataProtectionScope.CurrentUser);
+                textBox_Password.Text = ClassHelp.ByteArrayToString(plaintext);
+            }
+            else
+            {
+                textBox_Password.Text = "";
+            }
+
+
         }
 
         private void button_cancel_Click(object sender, EventArgs e)
@@ -47,7 +63,27 @@ namespace PlaylistEditor
 
         private void button_ok_Click(object sender, EventArgs e)
         {
-       
+            Properties.Settings.Default.rpi = textBox2.Text;
+            Properties.Settings.Default.port = textBox_Port.Text;
+            Properties.Settings.Default.username = textBox_Username.Text;
+            
+            // Data to protect. Convert a string to a byte[] using Encoding.UTF8.GetBytes().
+            byte[] plaintext = System.Text.ASCIIEncoding.Default.GetBytes(textBox_Password.Text); ;
+
+
+            // Generate additional entropy (will be used as the Initialization vector)
+            byte[] entropy = new byte[20];
+            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(entropy);
+            }
+
+            byte[] ciphertext = ProtectedData.Protect(plaintext, entropy,
+                DataProtectionScope.CurrentUser);
+
+            //https://stackoverflow.com/questions/1766610/how-to-store-int-array-in-application-settings
+            Properties.Settings.Default.cipher = ciphertext;
+            Properties.Settings.Default.entropy = entropy;
             //  write preferences settings
             Properties.Settings.Default.Save();
         }

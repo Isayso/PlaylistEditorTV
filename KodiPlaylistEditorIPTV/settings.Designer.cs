@@ -40,8 +40,18 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox_Password = new System.Windows.Forms.TextBox();
+            this.textBox_Username = new System.Windows.Forms.TextBox();
+            this.textBox_Port = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_ok
@@ -71,6 +81,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(-4, 13);
@@ -163,6 +174,116 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Colum search";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabPage1.Controls.Add(this.textBox_Password);
+            this.tabPage1.Controls.Add(this.textBox_Username);
+            this.tabPage1.Controls.Add(this.textBox_Port);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(467, 323);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Kodi";
+            // 
+            // textBox_Password
+            // 
+            this.textBox_Password.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Password.Location = new System.Drawing.Point(202, 203);
+            this.textBox_Password.Name = "textBox_Password";
+            this.textBox_Password.PasswordChar = '*';
+            this.textBox_Password.Size = new System.Drawing.Size(167, 27);
+            this.textBox_Password.TabIndex = 32;
+            this.toolTip1.SetToolTip(this.textBox_Password, "IP of nfs connected drive");
+            // 
+            // textBox_Username
+            // 
+            this.textBox_Username.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Username.Location = new System.Drawing.Point(202, 167);
+            this.textBox_Username.Name = "textBox_Username";
+            this.textBox_Username.Size = new System.Drawing.Size(167, 27);
+            this.textBox_Username.TabIndex = 31;
+            this.textBox_Username.Text = "kodi";
+            this.toolTip1.SetToolTip(this.textBox_Username, "IP of nfs connected drive");
+            // 
+            // textBox_Port
+            // 
+            this.textBox_Port.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox_Port.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Port.Location = new System.Drawing.Point(202, 131);
+            this.textBox_Port.Name = "textBox_Port";
+            this.textBox_Port.Size = new System.Drawing.Size(167, 27);
+            this.textBox_Port.TabIndex = 30;
+            this.textBox_Port.Text = "8080";
+            this.toolTip1.SetToolTip(this.textBox_Port, "IP of nfs connected drive");
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(98, 206);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 20);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Password";
+            this.toolTip1.SetToolTip(this.label6, "nfs path on Kodi system");
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(98, 167);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 20);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Username";
+            this.toolTip1.SetToolTip(this.label5, "nfs path on Kodi system");
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(98, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 20);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Port";
+            this.toolTip1.SetToolTip(this.label4, "nfs path on Kodi system");
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(202, 93);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(167, 27);
+            this.textBox2.TabIndex = 26;
+            this.textBox2.Text = "192.168.178.91";
+            this.toolTip1.SetToolTip(this.textBox2, "IP of nfs connected drive");
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(98, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Kodi IP";
+            this.toolTip1.SetToolTip(this.label3, "nfs path on Kodi system");
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +300,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -195,5 +318,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TextBox textBox_Password;
+        private System.Windows.Forms.TextBox textBox_Username;
+        private System.Windows.Forms.TextBox textBox_Port;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
     }
 }
