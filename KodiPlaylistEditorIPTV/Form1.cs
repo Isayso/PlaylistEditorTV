@@ -149,7 +149,9 @@ namespace PlaylistEditor
                     saveFileDialog1.ShowDialog();
             }
 
-         
+            Application.Exit();
+
+          //  Environment.Exit(Environment.ExitCode);  //to close all threads??
         }
 
 
@@ -171,18 +173,35 @@ namespace PlaylistEditor
                 _isIt = !_isIt;
                 textBox_find.Visible = false;
             }
-            ///test
+            
         }
 
 
         private void button_open_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
+            Cursor.Current = Cursors.WaitCursor;
+            string openpath = Properties.Settings.Default.openpath;
+            if (!string.IsNullOrEmpty(openpath) && !ClassHelp.MyDirectoryExists(openpath, 4000)) openpath = "c:\\";
 
-                importDataset(openFileDialog1.FileName, false);
-                button_revert.Visible = true;
+            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            {
+                openFileDialog1.InitialDirectory = openpath;
+                openFileDialog1.RestoreDirectory = false;
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    importDataset(openFileDialog1.FileName, false);
+                    button_revert.Visible = true;
+                }
+                else  //cancel
+                {
+                    return;
+                }
+                
+                Properties.Settings.Default.openpath = Path.GetDirectoryName(openFileDialog1.FileName);
+                Properties.Settings.Default.Save();
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void button_Info_Click(object sender, EventArgs e)

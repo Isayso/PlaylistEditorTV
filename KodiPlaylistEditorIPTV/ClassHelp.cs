@@ -97,6 +97,22 @@ namespace PlaylistEditor
         }
 
         /// <summary>
+        /// checks if Diectory exists with timeout
+        /// </summary>
+        /// <param name="openpath">path</param>
+        /// <param name="timeout">timeout</param>
+        /// <returns>true/false</returns>
+        public static bool MyDirectoryExists(string openpath, int timeout)
+        {
+            var task = new Task<bool>(() => { var info = new DirectoryInfo(openpath); return info.Exists; });
+            task.Start();
+
+            return task.Wait(timeout) && task.Result;
+
+        }
+
+
+        /// <summary>
         /// function to get the path of installed vlc
         /// </summary>
         /// <returns>path or empty</returns>
