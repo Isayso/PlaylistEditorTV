@@ -147,11 +147,12 @@ namespace PlaylistEditor
                 "Save Playlist", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogSave == DialogResult.Yes)
                     saveFileDialog1.ShowDialog();
+                isModified = false;
             }
 
             Application.Exit();
 
-          //  Environment.Exit(Environment.ExitCode);  //to close all threads??
+         
         }
 
 
@@ -579,7 +580,6 @@ namespace PlaylistEditor
         private void pasteRowMenuItem_Click(object sender, EventArgs e)
         {
             
-
             bool _dtEmpty = false;
 
             if (dataGridView1.RowCount == 0)
@@ -598,12 +598,10 @@ namespace PlaylistEditor
            
             if (Clipboard.ContainsText())
             {
-               
-                
                 try
                 {
                     int a = 0;
-                    if (!_dtEmpty)  a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
+                    if (!_dtEmpty) a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
 
                     string[] pastedRows = Regex.Split(o.GetData(DataFormats.Text).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
                     foreach (string pastedRow in pastedRows)
