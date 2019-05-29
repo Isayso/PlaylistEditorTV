@@ -8,7 +8,7 @@ Editor for TV m3u files (with vlc media player support)
 - Play links on Windows with installed VLC player 
 
 
-![UI](PlaylistEditorTV2.png)
+![UI](playlisteditTV1.png)
 
 ## Getting Started
 
