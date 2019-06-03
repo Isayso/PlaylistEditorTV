@@ -348,19 +348,24 @@ namespace PlaylistEditor
 
         private void button_save_Click(object sender, EventArgs e)  
         {
-            saveFileDialog1.FileName = plabel_Filename.Text;
+          
 
-            //check if path is avaliable to avoid network timeout
-            var savepath = Path.GetDirectoryName(plabel_Filename.Text);
-            if (!string.IsNullOrEmpty(savepath) && !ClassHelp.MyDirectoryExists(savepath, 4000))
-            {
-                saveFileDialog1.FileName = "C:\\" + Path.GetFileName(plabel_Filename.Text);
-            }
+            
             
 
             if (Control.ModifierKeys == Keys.Shift && !string.IsNullOrEmpty(plabel_Filename.Text))
             {
                 // ((Control)sender).Hide();
+                saveFileDialog1.FileName = plabel_Filename.Text;
+
+                //check if path is avaliable to avoid network timeout
+                //var savepath = Path.GetDirectoryName(plabel_Filename.Text);
+                //if (!string.IsNullOrEmpty(savepath) && !ClassHelp.MyDirectoryExists(savepath, 4000))
+                //{
+                //    saveFileDialog1.FileName = "C:\\" + Path.GetFileName(plabel_Filename.Text);
+                //}
+
+
 
                 using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
                 {
