@@ -182,7 +182,8 @@ namespace PlaylistEditor
         {
             Cursor.Current = Cursors.WaitCursor;
             string openpath = Properties.Settings.Default.openpath;
-            if (!string.IsNullOrEmpty(openpath) && !ClassHelp.MyDirectoryExists(openpath, 4000)) openpath = "c:\\";
+            if (!string.IsNullOrEmpty(openpath) && !ClassHelp.MyDirectoryExists(openpath, 4000))
+                openpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
 
             using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
             {
@@ -348,25 +349,15 @@ namespace PlaylistEditor
 
         private void button_save_Click(object sender, EventArgs e)  
         {
-          
+            Cursor.Current = Cursors.WaitCursor;
 
-            
-            
-
-            if (Control.ModifierKeys == Keys.Shift && !string.IsNullOrEmpty(plabel_Filename.Text))
+            if (Control.ModifierKeys == Keys.Shift && !string.IsNullOrEmpty(plabel_Filename.Text) 
+                && ClassHelp.MyDirectoryExists(Path.GetDirectoryName(plabel_Filename.Text), 4000))
             {
-                // ((Control)sender).Hide();
+                
                 saveFileDialog1.FileName = plabel_Filename.Text;
 
-                //check if path is avaliable to avoid network timeout
-                //var savepath = Path.GetDirectoryName(plabel_Filename.Text);
-                //if (!string.IsNullOrEmpty(savepath) && !ClassHelp.MyDirectoryExists(savepath, 4000))
-                //{
-                //    saveFileDialog1.FileName = "C:\\" + Path.GetFileName(plabel_Filename.Text);
-                //}
-
-
-
+         
                 using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
                 {
 
@@ -386,35 +377,36 @@ namespace PlaylistEditor
                 
             }
 
-            else if (saveFileDialog1.ShowDialog() == DialogResult.OK)  
+            else if (saveFileDialog1.ShowDialog() == DialogResult.OK)  //open file dialog
             {
                 plabel_Filename.Text = saveFileDialog1.FileName;
-               // try
-               // {
-                    using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
-                    {
-                        
-                        file.NewLine = "\n";  // win: LF
-                        file.WriteLine("#EXTM3U");
+                // try
+                // {
+                using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
+                {
 
-                        for (int i = 0; i < dt.Rows.Count; i++)
+                    file.NewLine = "\n";  // win: LF
+                    file.WriteLine("#EXTM3U");
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         //ToDo # remove, "," remove?
                         //dt.Rows[i][0].Replace("#", " ").Replace(",", " ");
                         file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
-                            file.WriteLine(dt.Rows[i][5]);
-                            
-                        }
-                     
+                        file.WriteLine(dt.Rows[i][5]);
+
                     }
-                    
-                    toSave(false);
+
+                }
+
+                toSave(false);
                 //}
                 //catch (Exception ex) when (ex is IOException || ex is ObjectDisposedException)
                 //{
                 //    MessageBox.Show("Write Error " + ex);
                 //}
                 button_revert.Visible = true;
+                Cursor.Current = Cursors.Default;
             }
         }
 
