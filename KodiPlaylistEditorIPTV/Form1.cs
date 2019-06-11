@@ -14,6 +14,7 @@
 
 using System;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -37,7 +38,11 @@ namespace PlaylistEditor
        
         public bool _isIt = true;
         public bool _found = false;
-           
+
+        //zoom of fonts
+        public float zoomf = 1;
+        private static readonly int ROWHEIGHT = 47;
+        private static readonly float FONTSIZE = 9.163636F;
 
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
@@ -123,6 +128,26 @@ namespace PlaylistEditor
                         case Keys.P:
                             playToolStripMenuItem.PerformClick();
                             break;
+
+                        case Keys.Add:    //change font size
+                            zoomf += 0.1F;
+                            ZoomGrid(zoomf);
+                            break;
+
+                        case Keys.Oemplus:      //change font size
+                            zoomf += 0.1F;
+                            ZoomGrid(zoomf);
+                            break;
+
+                        case Keys.Subtract:    //change font size
+                            zoomf -= 0.1F;
+                            ZoomGrid(zoomf);
+                            break;
+
+                        case Keys.OemMinus:     //change font size
+                            zoomf -= 0.1F;
+                            ZoomGrid(zoomf);
+                            break;
                     }
                 }
                 if (e.KeyCode == Keys.Delete)
@@ -137,7 +162,19 @@ namespace PlaylistEditor
 
         }
 
+        /// <summary>
+        /// change font size of datagrid
+        /// </summary>
+        /// <param name="f">change factor float</param>
+        public void ZoomGrid(float f)
+        {
+           
+            dataGridView1.Font = new Font(dataGridView1.Font.FontFamily,
+                                         FONTSIZE * f, dataGridView1.Font.Style);
 
+            dataGridView1.RowTemplate.Height = (int)(ROWHEIGHT * f);
+
+        }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
