@@ -1,0 +1,9 @@
+v1.1.1
+[New]
+strg-s save
+strg-+/-  change font size
+
+
+v1.1
+[New]
+send link to Kodi
