@@ -38,10 +38,11 @@ namespace PlaylistEditor
        
         public bool _isIt = true;
         public bool _found = false;
+        public bool _savenow = false;
 
         //zoom of fonts
-        public float zoomf = 1;
-        private static readonly int ROWHEIGHT = 47;
+        public float zoomf = 1F;
+       // private static readonly int ROWHEIGHT = 47;
         private static readonly float FONTSIZE = 9.163636F;
 
         DataSet ds = new DataSet();
@@ -129,6 +130,11 @@ namespace PlaylistEditor
                             playToolStripMenuItem.PerformClick();
                             break;
 
+                        case Keys.S:
+                            _savenow = true;
+                            button_save.PerformClick();
+                            break;
+
                         case Keys.Add:    //change font size
                             zoomf += 0.1F;
                             ZoomGrid(zoomf);
@@ -172,7 +178,7 @@ namespace PlaylistEditor
             dataGridView1.Font = new Font(dataGridView1.Font.FontFamily,
                                          FONTSIZE * f, dataGridView1.Font.Style);
 
-            dataGridView1.RowTemplate.Height = (int)(ROWHEIGHT * f);
+          //  dataGridView1.RowTemplate.Height = (int)(ROWHEIGHT * f);
 
         }
 
@@ -388,7 +394,7 @@ namespace PlaylistEditor
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            if (Control.ModifierKeys == Keys.Shift && !string.IsNullOrEmpty(plabel_Filename.Text) 
+            if ((Control.ModifierKeys == Keys.Shift || _savenow) && !string.IsNullOrEmpty(plabel_Filename.Text) 
                 && ClassHelp.MyDirectoryExists(Path.GetDirectoryName(plabel_Filename.Text), 4000))
             {
                 
@@ -411,6 +417,8 @@ namespace PlaylistEditor
                 }
                 toSave(false);
                 button_revert.Visible = true;
+                _savenow = false;
+                
                 
             }
 
@@ -510,7 +518,7 @@ namespace PlaylistEditor
                 System.Diagnostics.ProcessStartInfo ps = new System.Diagnostics.ProcessStartInfo();
                 ps.FileName = vlcpath + "\\" + "vlc.exe";
                 ps.ErrorDialog = false;
-                ps.Arguments =  " " + param;
+                ps.Arguments = " --no-video-title-show " + param;
                 
                 ps.CreateNoWindow = true; 
                 ps.UseShellExecute = false; 
