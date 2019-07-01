@@ -1,0 +1,25 @@
+Strg+C	copy cells
+
+Strg+V	paste cells
+
+Strg+R	copy row
+
+Strg+I	insert row
+
+Strg+X	cut row
+
+Strg+F	search string
+
+Strg+S	save file
+
+Strg++	larger font
+
+Strg+-	smaller font
+
+Strg+P	send link to Kodi
+
+Delete	delete row
+
+Shift+[save button]	save file
+
+Shift+[duplicate button]	find and delete duplicates	
