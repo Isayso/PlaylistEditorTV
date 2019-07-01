@@ -126,6 +126,11 @@ namespace PlaylistEditor
                             cutRowMenuItem.PerformClick();
                             break;
 
+                        case Keys.N:
+                            var info = new System.Diagnostics.ProcessStartInfo(Application.ExecutablePath);
+                            System.Diagnostics.Process.Start(info);
+                            break;
+
                         case Keys.P:
                             playToolStripMenuItem.PerformClick();
                             break;
