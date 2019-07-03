@@ -981,6 +981,8 @@ namespace PlaylistEditor
         /// <param name="direction">-1 up 1 down</param>
         public void MoveLine(int direction)
         {
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
+
             if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
             {
                 var row = dataGridView1.SelectedRows[0];
@@ -1016,12 +1018,15 @@ namespace PlaylistEditor
         /// </summary>
         public void MoveLineTop()
         {
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
+
             if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
             {
                 var row = dataGridView1.SelectedRows[0];
                 var maxrow = dataGridView1.RowCount - 1;
                 int n = 0;
-                do
+
+                while (n < maxrow - 1) 
                 {
                     row = dataGridView1.SelectedRows[0];
 
@@ -1048,7 +1053,7 @@ namespace PlaylistEditor
                         //dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[0];  //scroll automatic to cell
                     }
                     n += 1;
-                } while (n < maxrow -1);
+                } 
 
                 toSave(true);
             }
@@ -1098,8 +1103,16 @@ namespace PlaylistEditor
 
     }
 
+    /// <summary>
+    /// DataGridView Method extensions
+    /// </summary>
     public static class ExtensionMethods
     {
+        /// <summary>
+        /// double buffer on for large files speed up
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <param name="setting"></param>
         public static void DoubleBuffered(this DataGridView dgv, bool setting)
         {
             Type dgvType = dgv.GetType();
