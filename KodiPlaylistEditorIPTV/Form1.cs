@@ -14,6 +14,7 @@
 
 using System;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -37,7 +38,12 @@ namespace PlaylistEditor
        
         public bool _isIt = true;
         public bool _found = false;
-           
+        public bool _savenow = false;
+
+        //zoom of fonts
+        public float zoomf = 1F;
+       // private static readonly int ROWHEIGHT = 47;
+        private static readonly float FONTSIZE = 9.163636F;
 
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
@@ -76,6 +82,7 @@ namespace PlaylistEditor
 
             //  dataGridView1.AllowUserToAddRows = true;
 
+            dataGridView1.DoubleBuffered(true);
 
             //command line arguments [1]
             string[] args = Environment.GetCommandLineArgs();
@@ -120,8 +127,42 @@ namespace PlaylistEditor
                             cutRowMenuItem.PerformClick();
                             break;
 
+                        case Keys.N:
+                            var info = new System.Diagnostics.ProcessStartInfo(Application.ExecutablePath);
+                            System.Diagnostics.Process.Start(info);
+                            break;
+
                         case Keys.P:
                             playToolStripMenuItem.PerformClick();
+                            break;
+
+                        case Keys.S:
+                            _savenow = true;
+                            button_save.PerformClick();
+                            break;
+
+                        case Keys.T:  //move line to top
+                            MoveLineTop();
+                            break;
+
+                        case Keys.Add:    //change font size
+                            zoomf += 0.1F;
+                            ZoomGrid(zoomf);
+                            break;
+
+                        case Keys.Oemplus:      //change font size
+                            zoomf += 0.1F;
+                            ZoomGrid(zoomf);
+                            break;
+
+                        case Keys.Subtract:    //change font size
+                            zoomf -= 0.1F;
+                            ZoomGrid(zoomf);
+                            break;
+
+                        case Keys.OemMinus:     //change font size
+                            zoomf -= 0.1F;
+                            ZoomGrid(zoomf);
                             break;
                     }
                 }
@@ -137,7 +178,19 @@ namespace PlaylistEditor
 
         }
 
+        /// <summary>
+        /// change font size of datagrid
+        /// </summary>
+        /// <param name="f">change factor float</param>
+        public void ZoomGrid(float f)
+        {
+           
+            dataGridView1.Font = new Font(dataGridView1.Font.FontFamily,
+                                         FONTSIZE * f, dataGridView1.Font.Style);
 
+          //  dataGridView1.RowTemplate.Height = (int)(ROWHEIGHT * f);
+
+        }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -147,7 +200,10 @@ namespace PlaylistEditor
                 "Save Playlist", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogSave == DialogResult.Yes)
                     saveFileDialog1.ShowDialog();
+                isModified = false;
             }
+
+            Application.Exit();
 
          
         }
@@ -171,18 +227,36 @@ namespace PlaylistEditor
                 _isIt = !_isIt;
                 textBox_find.Visible = false;
             }
-            ///test
+            
         }
 
 
         private void button_open_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
+            Cursor.Current = Cursors.WaitCursor;
+            string openpath = Properties.Settings.Default.openpath;
+            if (!string.IsNullOrEmpty(openpath) && !ClassHelp.MyDirectoryExists(openpath, 4000))
+                openpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
 
-                importDataset(openFileDialog1.FileName, false);
-                button_revert.Visible = true;
+            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            {
+                openFileDialog1.InitialDirectory = openpath;
+                openFileDialog1.RestoreDirectory = false;
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    importDataset(openFileDialog1.FileName, false);
+                    button_revert.Visible = true;
+                }
+                else  //cancel
+                {
+                    return;
+                }
+                
+                Properties.Settings.Default.openpath = Path.GetDirectoryName(openFileDialog1.FileName);
+                Properties.Settings.Default.Save();
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void button_Info_Click(object sender, EventArgs e)
@@ -328,12 +402,15 @@ namespace PlaylistEditor
 
         private void button_save_Click(object sender, EventArgs e)  
         {
-            saveFileDialog1.FileName = plabel_Filename.Text;
+            Cursor.Current = Cursors.WaitCursor;
 
-            if (Control.ModifierKeys == Keys.Shift && !string.IsNullOrEmpty(plabel_Filename.Text))
+            if ((Control.ModifierKeys == Keys.Shift || _savenow) && !string.IsNullOrEmpty(plabel_Filename.Text) 
+                && ClassHelp.MyDirectoryExists(Path.GetDirectoryName(plabel_Filename.Text), 4000))
             {
-                // ((Control)sender).Hide();
+                
+                saveFileDialog1.FileName = plabel_Filename.Text;
 
+         
                 using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
                 {
 
@@ -350,38 +427,41 @@ namespace PlaylistEditor
                 }
                 toSave(false);
                 button_revert.Visible = true;
+                _savenow = false;
+                
                 
             }
 
-            else if (saveFileDialog1.ShowDialog() == DialogResult.OK)  
+            else if (saveFileDialog1.ShowDialog() == DialogResult.OK)  //open file dialog
             {
                 plabel_Filename.Text = saveFileDialog1.FileName;
-               // try
-               // {
-                    using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
-                    {
-                        
-                        file.NewLine = "\n";  // win: LF
-                        file.WriteLine("#EXTM3U");
+                // try
+                // {
+                using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
+                {
 
-                        for (int i = 0; i < dt.Rows.Count; i++)
+                    file.NewLine = "\n";  // win: LF
+                    file.WriteLine("#EXTM3U");
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         //ToDo # remove, "," remove?
                         //dt.Rows[i][0].Replace("#", " ").Replace(",", " ");
                         file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
-                            file.WriteLine(dt.Rows[i][5]);
-                            
-                        }
-                     
+                        file.WriteLine(dt.Rows[i][5]);
+
                     }
-                    
-                    toSave(false);
+
+                }
+
+                toSave(false);
                 //}
                 //catch (Exception ex) when (ex is IOException || ex is ObjectDisposedException)
                 //{
                 //    MessageBox.Show("Write Error " + ex);
                 //}
                 button_revert.Visible = true;
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -389,7 +469,15 @@ namespace PlaylistEditor
 
         private void button_moveUp_Click(object sender, EventArgs e)
         {
-            MoveLine(-1); 
+            if ((Control.ModifierKeys == Keys.Control))
+            {
+                MoveLineTop();
+            }
+            else
+            {
+                MoveLine(-1);
+            }
+            
         }
 
         private void button_moveDown_Click(object sender, EventArgs e)
@@ -448,7 +536,7 @@ namespace PlaylistEditor
                 System.Diagnostics.ProcessStartInfo ps = new System.Diagnostics.ProcessStartInfo();
                 ps.FileName = vlcpath + "\\" + "vlc.exe";
                 ps.ErrorDialog = false;
-                ps.Arguments =  " " + param;
+                ps.Arguments = " --no-video-title-show " + param;
                 
                 ps.CreateNoWindow = true; 
                 ps.UseShellExecute = false; 
@@ -560,7 +648,6 @@ namespace PlaylistEditor
         private void pasteRowMenuItem_Click(object sender, EventArgs e)
         {
             
-
             bool _dtEmpty = false;
 
             if (dataGridView1.RowCount == 0)
@@ -579,12 +666,10 @@ namespace PlaylistEditor
            
             if (Clipboard.ContainsText())
             {
-               
-                
                 try
                 {
                     int a = 0;
-                    if (!_dtEmpty)  a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
+                    if (!_dtEmpty) a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
 
                     string[] pastedRows = Regex.Split(o.GetData(DataFormats.Text).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
                     foreach (string pastedRow in pastedRows)
@@ -891,11 +976,13 @@ namespace PlaylistEditor
 
 
         /// <summary>
-        /// move the marked line up or down
+        /// move the selected line up or down
         /// </summary>
         /// <param name="direction">-1 up 1 down</param>
         public void MoveLine(int direction)
         {
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
+
             if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
             {
                 var row = dataGridView1.SelectedRows[0];
@@ -925,6 +1012,53 @@ namespace PlaylistEditor
                 toSave(true);
             }  
         }
+
+        /// <summary>
+        /// move the selected row to top of list
+        /// </summary>
+        public void MoveLineTop()
+        {
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
+
+            if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
+            {
+                var row = dataGridView1.SelectedRows[0];
+                var maxrow = dataGridView1.RowCount - 1;
+                int n = 0;
+
+                while (n < maxrow - 1) 
+                {
+                    row = dataGridView1.SelectedRows[0];
+
+                    if (row != null)
+                    {
+                        if ((row.Index == 0 /*&& direction == -1*/) || (row.Index == maxrow/* && direction == 1*/)) return;  //check end of dataGridView1
+
+                        var swapRow = dataGridView1.Rows[row.Index - 1  /*+ direction*/];
+
+                        object[] values = new object[swapRow.Cells.Count];
+
+                        foreach (DataGridViewCell cell in swapRow.Cells)
+                        {
+                            values[cell.ColumnIndex] = cell.Value;
+                            cell.Value = row.Cells[cell.ColumnIndex].Value;
+                        }
+
+                        foreach (DataGridViewCell cell in row.Cells)
+                            cell.Value = values[cell.ColumnIndex];
+
+                        dataGridView1.Rows[row.Index].Selected = false;
+                        dataGridView1.Rows[row.Index - 1 /*+ direction*/].Selected = true;
+                        
+                        //dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[0];  //scroll automatic to cell
+                    }
+                    n += 1;
+                } 
+
+                toSave(true);
+            }
+        }
+
         /// <summary>
         /// changes icon if file is modified
         /// </summary>
@@ -964,6 +1098,27 @@ namespace PlaylistEditor
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath)) button_vlc.PerformClick();
+        }
+
+
+    }
+
+    /// <summary>
+    /// DataGridView Method extensions
+    /// </summary>
+    public static class ExtensionMethods
+    {
+        /// <summary>
+        /// double buffer on for large files speed up
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <param name="setting"></param>
+        public static void DoubleBuffered(this DataGridView dgv, bool setting)
+        {
+            Type dgvType = dgv.GetType();
+            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+                BindingFlags.Instance | BindingFlags.NonPublic);
+            pi.SetValue(dgv, setting, null);
         }
     }
 }

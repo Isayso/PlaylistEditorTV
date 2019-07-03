@@ -44,5 +44,8 @@
     <Setting Name="entropy" Type="System.Byte[]" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="openpath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

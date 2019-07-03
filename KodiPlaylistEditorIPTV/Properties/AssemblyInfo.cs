@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Playlist Editor TV")]
 [assembly: AssemblyDescription("Edit m3u playlist files from Kodi")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("github: Isayso/PlaylistEditorTV")]
+[assembly: AssemblyCompany("GitHub Isayso")]
 [assembly: AssemblyProduct("Playlist Editor TV")]
 [assembly: AssemblyCopyright("Copyright ©  2018 MIT License")]
 [assembly: AssemblyTrademark("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyVersion("1.2.0.0")]
+[assembly: AssemblyFileVersion("1.2.0.0")]

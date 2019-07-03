@@ -188,5 +188,17 @@ namespace PlaylistEditor.Properties {
                 this["entropy"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string openpath {
+            get {
+                return ((string)(this["openpath"]));
+            }
+            set {
+                this["openpath"] = value;
+            }
+        }
     }
 }
