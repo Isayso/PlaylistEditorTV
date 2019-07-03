@@ -82,6 +82,7 @@ namespace PlaylistEditor
 
             //  dataGridView1.AllowUserToAddRows = true;
 
+            dataGridView1.DoubleBuffered(true);
 
             //command line arguments [1]
             string[] args = Environment.GetCommandLineArgs();
@@ -138,6 +139,10 @@ namespace PlaylistEditor
                         case Keys.S:
                             _savenow = true;
                             button_save.PerformClick();
+                            break;
+
+                        case Keys.T:  //move line to top
+                            MoveLineTop();
                             break;
 
                         case Keys.Add:    //change font size
@@ -464,7 +469,15 @@ namespace PlaylistEditor
 
         private void button_moveUp_Click(object sender, EventArgs e)
         {
-            MoveLine(-1); 
+            if ((Control.ModifierKeys == Keys.Control))
+            {
+                MoveLineTop();
+            }
+            else
+            {
+                MoveLine(-1);
+            }
+            
         }
 
         private void button_moveDown_Click(object sender, EventArgs e)
@@ -963,7 +976,7 @@ namespace PlaylistEditor
 
 
         /// <summary>
-        /// move the marked line up or down
+        /// move the selected line up or down
         /// </summary>
         /// <param name="direction">-1 up 1 down</param>
         public void MoveLine(int direction)
@@ -997,6 +1010,50 @@ namespace PlaylistEditor
                 toSave(true);
             }  
         }
+
+        /// <summary>
+        /// move the selected row to top of list
+        /// </summary>
+        public void MoveLineTop()
+        {
+            if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
+            {
+                var row = dataGridView1.SelectedRows[0];
+                var maxrow = dataGridView1.RowCount - 1;
+                int n = 0;
+                do
+                {
+                    row = dataGridView1.SelectedRows[0];
+
+                    if (row != null)
+                    {
+                        if ((row.Index == 0 /*&& direction == -1*/) || (row.Index == maxrow/* && direction == 1*/)) return;  //check end of dataGridView1
+
+                        var swapRow = dataGridView1.Rows[row.Index - 1  /*+ direction*/];
+
+                        object[] values = new object[swapRow.Cells.Count];
+
+                        foreach (DataGridViewCell cell in swapRow.Cells)
+                        {
+                            values[cell.ColumnIndex] = cell.Value;
+                            cell.Value = row.Cells[cell.ColumnIndex].Value;
+                        }
+
+                        foreach (DataGridViewCell cell in row.Cells)
+                            cell.Value = values[cell.ColumnIndex];
+
+                        dataGridView1.Rows[row.Index].Selected = false;
+                        dataGridView1.Rows[row.Index - 1 /*+ direction*/].Selected = true;
+                        
+                        //dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[0];  //scroll automatic to cell
+                    }
+                    n += 1;
+                } while (n < maxrow -1);
+
+                toSave(true);
+            }
+        }
+
         /// <summary>
         /// changes icon if file is modified
         /// </summary>
@@ -1036,6 +1093,19 @@ namespace PlaylistEditor
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath)) button_vlc.PerformClick();
+        }
+
+
+    }
+
+    public static class ExtensionMethods
+    {
+        public static void DoubleBuffered(this DataGridView dgv, bool setting)
+        {
+            Type dgvType = dgv.GetType();
+            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+                BindingFlags.Instance | BindingFlags.NonPublic);
+            pi.SetValue(dgv, setting, null);
         }
     }
 }
