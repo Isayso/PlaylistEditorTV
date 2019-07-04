@@ -34,6 +34,7 @@ PlaylistEditorTV.exe
 
 You can connect the .m3u filename extension with the program or open files with drag and drop on the icon.
 
+
 ## Built With
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/) - C# with .NET 4.6.2
@@ -46,3 +47,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 * Inspired from various IPTV editors for Kodi
+
+## Keyboard shortcuts
+- Strg + C copy cells
+- Strg + V paste cells
+- Strg + F find string
+- Strg + R copy row
+- Strg + I insert row
+- Strg + X cut row
+- Strg + N open new window
+- Strg + S save
+- Strg + P send link to Kodi
+- Strg + T move line to top of list
+- Strg + +/- change font size
+- delete delete selected row
+
+
