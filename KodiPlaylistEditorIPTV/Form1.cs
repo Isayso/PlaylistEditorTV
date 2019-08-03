@@ -23,7 +23,7 @@ using System.Windows.Forms;
 
 
 
-
+//ToDo bug no move after sorting, no reload, binding problem?
 
 namespace PlaylistEditor
 {
@@ -48,8 +48,7 @@ namespace PlaylistEditor
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         DataRow dr;
-
-        string vlcpath = Properties.Settings.Default.vlcpath;
+        readonly string vlcpath = Properties.Settings.Default.vlcpath;
 
 
 
@@ -481,7 +480,11 @@ namespace PlaylistEditor
         }
 
         private void button_moveDown_Click(object sender, EventArgs e)
-        {           
+        {
+            //bug remove sorting -> .sort="" -> write table before
+            dt.DefaultView.Sort = "";
+            dataGridView1.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
+
             MoveLine(1);
         }
 
@@ -671,7 +674,7 @@ namespace PlaylistEditor
                     int a = 0;
                     if (!_dtEmpty) a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
 
-                    string[] pastedRows = Regex.Split(o.GetData(DataFormats.Text).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
+                    string[] pastedRows = Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
                     foreach (string pastedRow in pastedRows)
                     {
                         string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
@@ -982,6 +985,7 @@ namespace PlaylistEditor
         public void MoveLine(int direction)
         {
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
+          
 
             if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
             {
@@ -1009,6 +1013,7 @@ namespace PlaylistEditor
                     dataGridView1.Rows[row.Index].Selected = false;
                     dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[0];  //scroll automatic to cell
                 }
+                
                 toSave(true);
             }  
         }
@@ -1082,7 +1087,21 @@ namespace PlaylistEditor
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             toSave(true);
+
+            //if (dataGridView1.SortOrder.ToString() == "Descending") // Check if sorting is Descending
+            //{
+            //    dt.DefaultView.Sort = dataGridView1.SortedColumn.Name + " DESC"; // Get Sorted Column name and sort it in Descending order
+            //}
+            //else
+            //{
+            //    dt.DefaultView.Sort = dataGridView1.SortedColumn.Name + " ASC";  // Otherwise sort it in Ascending order
+            //}
+            dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
+            dt = dt.DefaultView.ToTable("IPTV");
         }
+
+       
+        
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
@@ -1115,6 +1134,8 @@ namespace PlaylistEditor
         /// <param name="setting"></param>
         public static void DoubleBuffered(this DataGridView dgv, bool setting)
         {
+            //http://bitmatic.com/c/fixing-a-slow-scrolling-datagridview
+
             Type dgvType = dgv.GetType();
             PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
                 BindingFlags.Instance | BindingFlags.NonPublic);

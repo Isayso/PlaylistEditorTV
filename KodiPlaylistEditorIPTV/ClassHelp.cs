@@ -118,9 +118,7 @@ namespace PlaylistEditor
         /// <returns>path or empty</returns>
         public static string GetVlcPath()
         {
-            string VlcPath = "";
             object line;
-            string softwareinstallpath = string.Empty;
             string registry_key = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
             using (var baseKey = Microsoft.Win32.RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
             {
@@ -134,8 +132,8 @@ namespace PlaylistEditor
                             if (line != null && (line.ToString().ToUpper().Contains("VLC")))
                             {
 
-                                VlcPath = subKey.GetValue("InstallLocation").ToString();
-                                
+                                string VlcPath = subKey.GetValue("InstallLocation").ToString();
+
                                 Properties.Settings.Default.vlcpath = VlcPath;
                                 Properties.Settings.Default.Save();
                                 return VlcPath;

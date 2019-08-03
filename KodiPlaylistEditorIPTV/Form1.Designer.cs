@@ -305,7 +305,7 @@
             this.button_open.Size = new System.Drawing.Size(45, 49);
             this.button_open.TabIndex = 0;
             this.button_open.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_open, "open m3u");
+            this.toolTip1.SetToolTip(this.button_open, "open m3u\r\ndouble click empty background\r\n");
             this.button_open.UseVisualStyleBackColor = true;
             this.button_open.Click += new System.EventHandler(this.button_open_Click);
             // 

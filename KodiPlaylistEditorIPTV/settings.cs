@@ -24,9 +24,9 @@ namespace PlaylistEditor
         public string serverName;
         public  bool isLinux ;
         public bool replaceDrive ;
-        static int unicode = Properties.Settings.Default.hotkey;
-        static char character = (char)unicode;
-        string hotText = character.ToString();
+        static readonly int unicode = Properties.Settings.Default.hotkey;
+       // static char character = (char)unicode;
+       // readonly string hotText = character.ToString();
 
 
         public settings()
@@ -107,9 +107,7 @@ namespace PlaylistEditor
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           int val = 0;
-
-            if (!Int32.TryParse(textBox1.Text, out val))
+            if (!Int32.TryParse(textBox1.Text, out int val))
             {
                 textBox1.Text = "";
             }
