@@ -1119,7 +1119,47 @@ namespace PlaylistEditor
             if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath)) button_vlc.PerformClick();
         }
 
+        private void Button_check_Click(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
 
+            Cursor.Current = Cursors.WaitCursor;
+
+            if (dataGridView1.Rows.Count > 0)
+            {
+
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
+                    //dataGridView1.Rows[item.Index].Cells[1].Value.ToString().Contains(".m")
+                    dataGridView1.Rows[item.Index].Cells[0].Style.BackColor = System.Drawing.Color.White;
+
+                    if (!ClassHelp.UrlIsValid(iLink))
+                    {
+                        // dataGridView1.Rows[item.Index].Cells[1].Style.BackColor = System.Drawing.Color.LightGreen; //item.Cells = System.Drawing.Color.Black;
+                        dataGridView1.Rows[item.Index].Selected = true;
+
+                        for (int i = 0; i < 6; i++)
+                        {
+                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightSalmon;
+                        }
+                        
+                        dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
+
+                    }
+                    //else if (_taglocal)
+                    //{
+                    //    // dataGridView1.Rows[item.Index].Cells[1].Style.BackColor = System.Drawing.Color.White; //item.Cells = System.Drawing.Color.Black;
+                    //    dataGridView1.Rows[item.Index].Selected = false;
+
+                    //}
+
+                }
+            }
+
+            Cursor.Current = Cursors.Default;
+
+        }
     }
 
     /// <summary>

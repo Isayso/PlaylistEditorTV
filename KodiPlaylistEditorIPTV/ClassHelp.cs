@@ -1,5 +1,8 @@
 ﻿using Microsoft.Win32;
+using System;
+using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace PlaylistEditor
@@ -89,9 +92,9 @@ namespace PlaylistEditor
             pop.Show();
             pop.label1.Text = label;
             pop.color(color);
-           
+
             await Task.Delay(delay);
-           
+
             pop.Close();
 
         }
@@ -147,6 +150,50 @@ namespace PlaylistEditor
            
         }
 
+        /// <summary>
+        /// This method will check a url to see that it does not return server or protocol errors
+        /// https://stackoverflow.com/questions/924679/c-sharp-how-can-i-check-if-a-url-exists-is-valid
+        /// </summary>
+        /// <param name="url">The path to check</param>
+        /// <returns></returns>
+        public static bool UrlIsValid(string url)
+        {
+            try
+            {
+                HttpWebRequest request = HttpWebRequest.Create(url) as HttpWebRequest;
+                request.Timeout = 4000; //set the timeout
+                request.Method = "HEAD"; //only header
+
+                using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+                {
+                    int statusCode = (int)response.StatusCode;
+                    if (statusCode >= 100 && statusCode < 400) //Good requests
+                    {
+                        return true;
+                    }
+                    else if (statusCode >= 500 && statusCode <= 510) //Server Errors
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                if (ex.Status == WebExceptionStatus.ProtocolError) //400 errors
+                {
+                    return false;
+                }
+                else
+                {
+                  Console.WriteLine(String.Format("Unhandled status [{0}] returned for url: {1}", ex.Status, url), ex);
+                }
+            }
+            catch (Exception ex)
+            {
+                   Console.WriteLine(String.Format("Could not test url {0}.", url), ex);
+            }
+            return false;
+        }
 
     }
 }

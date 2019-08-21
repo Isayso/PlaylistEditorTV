@@ -188,6 +188,17 @@
         7hDvYXeI97A7xHvYHeI97A7xHnaHeA+7Q1xVVfWF5/kDBf86G2b0KnUAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="button_check.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA9klEQVRoQ+3U0Y6CMBSEYd7aS/fSt9aB
+        /au4lkVKJmmT+RITW9qeOShMEREREfFyN6OMD3VsKONDHRvK+FDHhjIR4cKzZkMZH+rYUMaHOjaU8aGO
+        DWUO09YffW4Mx0L4YqwmFHgdvhijCQWthZ9dWdIvhWwLz6JmHPNG04ceQNbX7N95FjbjmCdNrcPsNqE1
+        5/42LG7GMQsNa2E2m9C1c+FnbGjGMQsNL7+zHz6a0Nz58A4KsNuEvvcZvlCQrYDz/OY1tvdBgbZ+iZo+
+        7vxfCvZNE32GLxTwvyb6Dl8oaK2JMcIXCrxuYqzwhYIvbyGGERERB03TA/g7H0I+nbubAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
   <data name="button_settings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
