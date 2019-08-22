@@ -156,32 +156,34 @@ namespace PlaylistEditor
         /// </summary>
         /// <param name="url">The path to check</param>
         /// <returns></returns>
-        public static bool UrlIsValid(string url)
+        public static int UrlIsValid(string url, out int ecode)
         {
             try
             {
                 HttpWebRequest request = HttpWebRequest.Create(url) as HttpWebRequest;
-                request.Timeout = 4000; //set the timeout
+                request.Timeout = 5000; //set the timeout
                 request.Method = "HEAD"; //only header
+                request.AllowAutoRedirect = true;
+                request.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)";
 
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
-                    int statusCode = (int)response.StatusCode;
-                    if (statusCode >= 100 && statusCode < 400) //Good requests
-                    {
-                        return true;
-                    }
-                    else if (statusCode >= 500 && statusCode <= 510) //Server Errors
-                    {
-                        return false;
-                    }
+                    
+                    var success = response.StatusCode == HttpStatusCode.OK && response.ContentLength > 0;
+
+                    if (success) return ecode = 1;
+                    else return ecode = -1;
+                
                 }
             }
             catch (WebException ex)
             {
                 if (ex.Status == WebExceptionStatus.ProtocolError) //400 errors
                 {
-                    return false;
+                    Console.WriteLine(String.Format("Unhandled status [{0}] returned for url: {1}", ex.Status, url), ex);
+                    return ecode = 0;
+                    
+                    //return false;
                 }
                 else
                 {
@@ -192,7 +194,8 @@ namespace PlaylistEditor
             {
                    Console.WriteLine(String.Format("Could not test url {0}.", url), ex);
             }
-            return false;
+            return ecode = -1;
+            //return false;
         }
 
     }

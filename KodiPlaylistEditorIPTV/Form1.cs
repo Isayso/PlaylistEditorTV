@@ -163,6 +163,14 @@ namespace PlaylistEditor
                             zoomf -= 0.1F;
                             ZoomGrid(zoomf);
                             break;
+
+                        case Keys.Up:
+                            MoveLine(-1);
+                            break;
+
+                        case Keys.Down:
+                            MoveLine(1);
+                            break;
                     }
                 }
                 if (e.KeyCode == Keys.Delete)
@@ -468,22 +476,22 @@ namespace PlaylistEditor
 
         private void button_moveUp_Click(object sender, EventArgs e)
         {
-            if ((Control.ModifierKeys == Keys.Control))
-            {
-                MoveLineTop();
-            }
-            else
-            {
+            //if ((Control.ModifierKeys == Keys.Control))
+            //{
+            //    MoveLineTop();
+            //}
+            //else
+          //  {
                 MoveLine(-1);
-            }
+          //  }
             
         }
 
         private void button_moveDown_Click(object sender, EventArgs e)
         {
             //bug remove sorting -> .sort="" -> write table before
-            dt.DefaultView.Sort = "";
-            dataGridView1.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
+            //dt.DefaultView.Sort = "";
+            //dataGridView1.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
 
             MoveLine(1);
         }
@@ -1121,7 +1129,14 @@ namespace PlaylistEditor
 
         private void Button_check_Click(object sender, EventArgs e)
         {
-            dataGridView1.ClearSelection();
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                colorclear();
+                return;
+            }
+
+
+                dataGridView1.ClearSelection();
 
             Cursor.Current = Cursors.WaitCursor;
 
@@ -1131,33 +1146,50 @@ namespace PlaylistEditor
                 foreach (DataGridViewRow item in dataGridView1.Rows)
                 {
                     var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
-                    //dataGridView1.Rows[item.Index].Cells[1].Value.ToString().Contains(".m")
-                    dataGridView1.Rows[item.Index].Cells[0].Style.BackColor = System.Drawing.Color.White;
 
-                    if (!ClassHelp.UrlIsValid(iLink))
+                    for (int j = 0; j < 6; j++)
                     {
-                        // dataGridView1.Rows[item.Index].Cells[1].Style.BackColor = System.Drawing.Color.LightGreen; //item.Cells = System.Drawing.Color.Black;
-                        dataGridView1.Rows[item.Index].Selected = true;
+                        dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = System.Drawing.Color.White;
+                    }
+
+                    if (ClassHelp.UrlIsValid(iLink, out int ecode) < 1)   //error (0,-1) 0 error 400
+                    {
 
                         for (int i = 0; i < 6; i++)
                         {
-                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightSalmon;
+                            if (ecode == 0)
+                            {
+                                //error 400
+                               // dataGridView1.Rows[item.Index].Selected = true;
+                                dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightSalmon;
+                            }
+                            else
+                            {
+                                dataGridView1.Rows[item.Index].Selected = true;
+                                dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightCoral;
+                            }
+                            
                         }
                         
                         dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
 
                     }
-                    //else if (_taglocal)
-                    //{
-                    //    // dataGridView1.Rows[item.Index].Cells[1].Style.BackColor = System.Drawing.Color.White; //item.Cells = System.Drawing.Color.Black;
-                    //    dataGridView1.Rows[item.Index].Selected = false;
-
-                    //}
-
+                    
                 }
             }
 
             Cursor.Current = Cursors.Default;
+
+            void colorclear()
+            {
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    for (int j = 0; j < 6; j++)
+                    {
+                        dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = System.Drawing.Color.White;
+                    }
+                }
+            }
 
         }
     }
