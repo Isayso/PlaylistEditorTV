@@ -168,12 +168,20 @@ namespace PlaylistEditor
 
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
-                    
-                    var success = response.StatusCode == HttpStatusCode.OK && response.ContentLength > 0;
+                                    
+                    int statusCode = (int)response.StatusCode;
+                    if (statusCode >= 100 && statusCode < 400) //Good requests
+                    {
+                        return ecode = 1;
+                       // return true;
+                    }
+                    else if (statusCode >= 500 && statusCode <= 510) //Server Errors
+                    {
+                         Console.WriteLine(String.Format("The remote server has thrown an internal error. Url is not valid: {0}", url));
+                        return ecode = -1;
+                       // return false;
+                    }
 
-                    if (success) return ecode = 1;
-                    else return ecode = -1;
-                
                 }
             }
             catch (WebException ex)

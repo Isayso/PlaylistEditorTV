@@ -164,19 +164,15 @@ namespace PlaylistEditor
                             ZoomGrid(zoomf);
                             break;
 
-                        case Keys.Up:
-                            MoveLine(-1);
-                            break;
-
-                        case Keys.Down:
-                            MoveLine(1);
-                            break;
+                       
                     }
                 }
                 if (e.KeyCode == Keys.Delete)
                 {
                     button_delLine.PerformClick();
                 }
+
+               
             }
             catch (Exception ex)
             {
@@ -476,14 +472,14 @@ namespace PlaylistEditor
 
         private void button_moveUp_Click(object sender, EventArgs e)
         {
-            //if ((Control.ModifierKeys == Keys.Control))
-            //{
-            //    MoveLineTop();
-            //}
-            //else
-          //  {
+            if ((Control.ModifierKeys == Keys.Control))
+            {
+                MoveLineTop();
+            }
+            else
+            {
                 MoveLine(-1);
-          //  }
+            }
             
         }
 
@@ -1022,7 +1018,7 @@ namespace PlaylistEditor
                     dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[0];  //scroll automatic to cell
                 }
                 
-                toSave(true);
+              //  toSave(true);
             }  
         }
 
@@ -1192,6 +1188,7 @@ namespace PlaylistEditor
             }
 
         }
+
     }
 
     /// <summary>
