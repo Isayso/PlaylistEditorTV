@@ -1,6 +1,10 @@
 # Playlist Editor TV
 Editor for TV m3u files (with vlc media player support)
 
+- NEW in 1.3: Check if stream is responding. 
+
+![UI](KodiPlaylistEditorTV1.3a.PNG)
+
 - NEW in 1.2: Move line to top of list for faster sorting of favorites. Double buffer for better UI performance.
 - NEW in 1.1: Send link to Kodi device e.g. Raspberry PI
 - You can edit and create Kodi IPTV playlists, add, rename, move and delete playlist entries, drag&drop m3u files to add to list. 
