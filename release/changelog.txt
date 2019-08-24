@@ -1,3 +1,7 @@
+v1.3
+[New]
+function to check if link is alive
+
 v1.2
 [New]
 strg-S save
