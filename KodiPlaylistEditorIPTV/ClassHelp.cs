@@ -1,8 +1,10 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Net.Configuration;
 using System.Threading.Tasks;
 
 namespace PlaylistEditor
@@ -150,60 +152,31 @@ namespace PlaylistEditor
            
         }
 
-        /// <summary>
-        /// This method will check a url to see that it does not return server or protocol errors
-        /// https://stackoverflow.com/questions/924679/c-sharp-how-can-i-check-if-a-url-exists-is-valid
-        /// </summary>
-        /// <param name="url">The path to check</param>
-        /// <returns></returns>
-        public static int UrlIsValid(string url, out int ecode)
+    /// <summary>
+    /// method to get first 1k of stream data to check if stream alive
+    /// </summary>
+    /// <param name="uri">URL to check</param>
+    /// <returns>bool</returns>
+        public static bool CheckIPTVStream(string uri)
         {
             try
             {
-                HttpWebRequest request = HttpWebRequest.Create(url) as HttpWebRequest;
-                request.Timeout = 5000; //set the timeout
-                request.Method = "HEAD"; //only header
-                request.AllowAutoRedirect = true;
-                request.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)";
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
+                req.Timeout = 5000; //set the timeout
+               
+                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
-                using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
-                {
-                                    
-                    int statusCode = (int)response.StatusCode;
-                    if (statusCode >= 100 && statusCode < 400) //Good requests
-                    {
-                        return ecode = 1;
-                       // return true;
-                    }
-                    else if (statusCode >= 500 && statusCode <= 510) //Server Errors
-                    {
-                         Console.WriteLine(String.Format("The remote server has thrown an internal error. Url is not valid: {0}", url));
-                        return ecode = -1;
-                       // return false;
-                    }
-
-                }
+                StreamReader sr = new StreamReader(resp.GetResponseStream());
+                // results = sr.ReadToEnd();
+                char[] buffer = new char[1024];
+                int results1 = sr.Read(buffer,0,1023);
+                sr.Close();
             }
-            catch (WebException ex)
+            catch (Exception)
             {
-                if (ex.Status == WebExceptionStatus.ProtocolError) //400 errors
-                {
-                    Console.WriteLine(String.Format("Unhandled status [{0}] returned for url: {1}", ex.Status, url), ex);
-                    return ecode = 0;
-                    
-                    //return false;
-                }
-                else
-                {
-                  Console.WriteLine(String.Format("Unhandled status [{0}] returned for url: {1}", ex.Status, url), ex);
-                }
+                return false;
             }
-            catch (Exception ex)
-            {
-                   Console.WriteLine(String.Format("Could not test url {0}.", url), ex);
-            }
-            return ecode = -1;
-            //return false;
+            return true;
         }
 
     }

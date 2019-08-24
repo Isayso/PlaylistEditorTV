@@ -13,10 +13,12 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Configuration;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -56,6 +58,8 @@ namespace PlaylistEditor
         public Form1()
         {
             InitializeComponent();
+
+           
 
             this.Text = String.Format("PlaylistEditor TV " + " v{0}" , Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 
@@ -1125,52 +1129,40 @@ namespace PlaylistEditor
 
         private void Button_check_Click(object sender, EventArgs e)
         {
+            bool _mark = false;
             if (Control.ModifierKeys == Keys.Shift)
             {
                 colorclear();
                 return;
             }
+            if (Control.ModifierKeys == Keys.Control)
+            {
+                _mark = true;
+            }
 
-
-                dataGridView1.ClearSelection();
+            dataGridView1.ClearSelection();
 
             Cursor.Current = Cursors.WaitCursor;
 
             if (dataGridView1.Rows.Count > 0)
             {
+                colorclear();
 
                 foreach (DataGridViewRow item in dataGridView1.Rows)
                 {
                     var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
 
-                    for (int j = 0; j < 6; j++)
-                    {
-                        dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = System.Drawing.Color.White;
-                    }
-
-                    if (ClassHelp.UrlIsValid(iLink, out int ecode) < 1)   //error (0,-1) 0 error 400
+                    if (!ClassHelp.CheckIPTVStream(iLink))
                     {
 
                         for (int i = 0; i < 6; i++)
                         {
-                            if (ecode == 0)
-                            {
-                                //error 400
-                               // dataGridView1.Rows[item.Index].Selected = true;
-                                dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightSalmon;
-                            }
-                            else
-                            {
-                                dataGridView1.Rows[item.Index].Selected = true;
-                                dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightCoral;
-                            }
-                            
+                            if (_mark) dataGridView1.Rows[item.Index].Selected = true;
+                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightSalmon;
                         }
-                        
                         dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
-
                     }
-                    
+
                 }
             }
 

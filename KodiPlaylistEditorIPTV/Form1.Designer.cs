@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -54,11 +54,11 @@
             this.button_open = new System.Windows.Forms.Button();
             this.button_vlc = new System.Windows.Forms.Button();
             this.button_check = new System.Windows.Forms.Button();
-            this.button_moveDown = new RepeatingButton();
-            this.button_moveUp = new RepeatingButton();
             this.textBox_find = new System.Windows.Forms.TextBox();
             this.button_settings = new System.Windows.Forms.Button();
             this.button_Info = new System.Windows.Forms.Button();
+            this.button_moveDown = new RepeatingButton();
+            this.button_moveUp = new RepeatingButton();
             this.plabel_Filename = new PathLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -75,14 +75,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(-3, 59);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
@@ -341,41 +341,9 @@
             this.button_check.Name = "button_check";
             this.button_check.Size = new System.Drawing.Size(25, 37);
             this.button_check.TabIndex = 38;
-            this.toolTip1.SetToolTip(this.button_check, "check for invalid links\r\n+ shift reset colors");
+            this.toolTip1.SetToolTip(this.button_check, "check for invalid links\r\n+ shift reset colors\r\n+ strg select links");
             this.button_check.UseVisualStyleBackColor = true;
             this.button_check.Click += new System.EventHandler(this.Button_check_Click);
-            // 
-            // button_moveDown
-            // 
-            this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
-            this.button_moveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_moveDown.FlatAppearance.BorderSize = 0;
-            this.button_moveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_moveDown.Location = new System.Drawing.Point(205, 11);
-            this.button_moveDown.Margin = new System.Windows.Forms.Padding(0);
-            this.button_moveDown.Name = "button_moveDown";
-            this.button_moveDown.Size = new System.Drawing.Size(30, 32);
-            this.button_moveDown.TabIndex = 32;
-            this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveDown, "move row down");
-            this.button_moveDown.UseVisualStyleBackColor = true;
-            this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
-            // 
-            // button_moveUp
-            // 
-            this.button_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
-            this.button_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_moveUp.FlatAppearance.BorderSize = 0;
-            this.button_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_moveUp.Location = new System.Drawing.Point(175, 9);
-            this.button_moveUp.Margin = new System.Windows.Forms.Padding(0);
-            this.button_moveUp.Name = "button_moveUp";
-            this.button_moveUp.Size = new System.Drawing.Size(30, 32);
-            this.button_moveUp.TabIndex = 31;
-            this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Strg move to top\r\nStrg+T move to top");
-            this.button_moveUp.UseVisualStyleBackColor = true;
-            this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
             // 
             // textBox_find
             // 
@@ -421,6 +389,38 @@
             this.button_Info.TabIndex = 24;
             this.button_Info.UseVisualStyleBackColor = true;
             this.button_Info.Click += new System.EventHandler(this.button_Info_Click);
+            // 
+            // button_moveDown
+            // 
+            this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
+            this.button_moveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveDown.FlatAppearance.BorderSize = 0;
+            this.button_moveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveDown.Location = new System.Drawing.Point(205, 11);
+            this.button_moveDown.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveDown.Name = "button_moveDown";
+            this.button_moveDown.Size = new System.Drawing.Size(30, 32);
+            this.button_moveDown.TabIndex = 32;
+            this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveDown, "move row down");
+            this.button_moveDown.UseVisualStyleBackColor = true;
+            this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
+            // 
+            // button_moveUp
+            // 
+            this.button_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
+            this.button_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveUp.FlatAppearance.BorderSize = 0;
+            this.button_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveUp.Location = new System.Drawing.Point(175, 9);
+            this.button_moveUp.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveUp.Name = "button_moveUp";
+            this.button_moveUp.Size = new System.Drawing.Size(30, 32);
+            this.button_moveUp.TabIndex = 31;
+            this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Strg move to top\r\nStrg+T move to top");
+            this.button_moveUp.UseVisualStyleBackColor = true;
+            this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
             // 
             // plabel_Filename
             // 
