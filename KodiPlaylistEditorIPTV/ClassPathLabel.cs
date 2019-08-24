@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-class PathLabel : Label
+class PathLabel : System.Windows.Forms.Label
 {
     [Browsable(false)]
     public override bool AutoSize

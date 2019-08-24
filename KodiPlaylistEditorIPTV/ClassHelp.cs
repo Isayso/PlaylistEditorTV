@@ -1,5 +1,10 @@
 ﻿using Microsoft.Win32;
+using System;
+using System.Configuration;
+using System.Diagnostics;
 using System.IO;
+using System.Net;
+using System.Net.Configuration;
 using System.Threading.Tasks;
 
 namespace PlaylistEditor
@@ -89,9 +94,9 @@ namespace PlaylistEditor
             pop.Show();
             pop.label1.Text = label;
             pop.color(color);
-           
+
             await Task.Delay(delay);
-           
+
             pop.Close();
 
         }
@@ -118,9 +123,7 @@ namespace PlaylistEditor
         /// <returns>path or empty</returns>
         public static string GetVlcPath()
         {
-            string VlcPath = "";
             object line;
-            string softwareinstallpath = string.Empty;
             string registry_key = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
             using (var baseKey = Microsoft.Win32.RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
             {
@@ -134,8 +137,8 @@ namespace PlaylistEditor
                             if (line != null && (line.ToString().ToUpper().Contains("VLC")))
                             {
 
-                                VlcPath = subKey.GetValue("InstallLocation").ToString();
-                                
+                                string VlcPath = subKey.GetValue("InstallLocation").ToString();
+
                                 Properties.Settings.Default.vlcpath = VlcPath;
                                 Properties.Settings.Default.Save();
                                 return VlcPath;
@@ -149,6 +152,32 @@ namespace PlaylistEditor
            
         }
 
+    /// <summary>
+    /// method to get first 1k of stream data to check if stream alive
+    /// </summary>
+    /// <param name="uri">URL to check</param>
+    /// <returns>bool</returns>
+        public static bool CheckIPTVStream(string uri)
+        {
+            try
+            {
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
+                req.Timeout = 5000; //set the timeout
+               
+                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+
+                StreamReader sr = new StreamReader(resp.GetResponseStream());
+                // results = sr.ReadToEnd();
+                char[] buffer = new char[1024];
+                int results1 = sr.Read(buffer,0,1023);
+                sr.Close();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
 
     }
 }

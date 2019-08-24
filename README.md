@@ -1,3 +1,4 @@
+
 # Playlist Editor TV
 Editor for TV m3u files (with vlc media player support)
 
@@ -65,5 +66,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Strg + T move line to top of list
 - Strg + +/- change font size
 - delete delete selected row
-
 

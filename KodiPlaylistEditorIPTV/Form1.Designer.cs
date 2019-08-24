@@ -53,11 +53,12 @@
             this.button_save = new System.Windows.Forms.Button();
             this.button_open = new System.Windows.Forms.Button();
             this.button_vlc = new System.Windows.Forms.Button();
+            this.button_check = new System.Windows.Forms.Button();
             this.textBox_find = new System.Windows.Forms.TextBox();
             this.button_settings = new System.Windows.Forms.Button();
             this.button_Info = new System.Windows.Forms.Button();
-            this.buttonR_MoveDown = new RepeatingButton();
-            this.buttonR_moveUp = new RepeatingButton();
+            this.button_moveDown = new RepeatingButton();
+            this.button_moveUp = new RepeatingButton();
             this.plabel_Filename = new PathLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -85,6 +86,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(-3, 59);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 47;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1126, 321);
             this.dataGridView1.TabIndex = 5;
@@ -305,7 +307,7 @@
             this.button_open.Size = new System.Drawing.Size(45, 49);
             this.button_open.TabIndex = 0;
             this.button_open.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_open, "open m3u");
+            this.toolTip1.SetToolTip(this.button_open, "open m3u\r\ndouble click empty background\r\n");
             this.button_open.UseVisualStyleBackColor = true;
             this.button_open.Click += new System.EventHandler(this.button_open_Click);
             // 
@@ -317,7 +319,7 @@
             this.button_vlc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_vlc.FlatAppearance.BorderSize = 0;
             this.button_vlc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_vlc.Location = new System.Drawing.Point(869, 11);
+            this.button_vlc.Location = new System.Drawing.Point(843, 11);
             this.button_vlc.Margin = new System.Windows.Forms.Padding(0);
             this.button_vlc.Name = "button_vlc";
             this.button_vlc.Size = new System.Drawing.Size(38, 37);
@@ -325,6 +327,23 @@
             this.toolTip1.SetToolTip(this.button_vlc, "play with vlc\r\nSTRG+p\r\ndouble click cell");
             this.button_vlc.UseVisualStyleBackColor = true;
             this.button_vlc.Click += new System.EventHandler(this.button_vlc_Click);
+            // 
+            // button_check
+            // 
+            this.button_check.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_check.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_check.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_check.BackgroundImage")));
+            this.button_check.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_check.FlatAppearance.BorderSize = 0;
+            this.button_check.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_check.Location = new System.Drawing.Point(928, 14);
+            this.button_check.Margin = new System.Windows.Forms.Padding(0);
+            this.button_check.Name = "button_check";
+            this.button_check.Size = new System.Drawing.Size(25, 37);
+            this.button_check.TabIndex = 38;
+            this.toolTip1.SetToolTip(this.button_check, "check for invalid links\r\n+ shift reset colors\r\n+ strg select links");
+            this.button_check.UseVisualStyleBackColor = true;
+            this.button_check.Click += new System.EventHandler(this.Button_check_Click);
             // 
             // textBox_find
             // 
@@ -371,37 +390,37 @@
             this.button_Info.UseVisualStyleBackColor = true;
             this.button_Info.Click += new System.EventHandler(this.button_Info_Click);
             // 
-            // buttonR_MoveDown
+            // button_moveDown
             // 
-            this.buttonR_MoveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
-            this.buttonR_MoveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonR_MoveDown.FlatAppearance.BorderSize = 0;
-            this.buttonR_MoveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonR_MoveDown.Location = new System.Drawing.Point(205, 11);
-            this.buttonR_MoveDown.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonR_MoveDown.Name = "buttonR_MoveDown";
-            this.buttonR_MoveDown.Size = new System.Drawing.Size(30, 32);
-            this.buttonR_MoveDown.TabIndex = 32;
-            this.buttonR_MoveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.buttonR_MoveDown, "move row down");
-            this.buttonR_MoveDown.UseVisualStyleBackColor = true;
-            this.buttonR_MoveDown.Click += new System.EventHandler(this.button_moveDown_Click);
+            this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
+            this.button_moveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveDown.FlatAppearance.BorderSize = 0;
+            this.button_moveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveDown.Location = new System.Drawing.Point(205, 11);
+            this.button_moveDown.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveDown.Name = "button_moveDown";
+            this.button_moveDown.Size = new System.Drawing.Size(30, 32);
+            this.button_moveDown.TabIndex = 32;
+            this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveDown, "move row down");
+            this.button_moveDown.UseVisualStyleBackColor = true;
+            this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
             // 
-            // buttonR_moveUp
+            // button_moveUp
             // 
-            this.buttonR_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
-            this.buttonR_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonR_moveUp.FlatAppearance.BorderSize = 0;
-            this.buttonR_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonR_moveUp.Location = new System.Drawing.Point(175, 9);
-            this.buttonR_moveUp.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonR_moveUp.Name = "buttonR_moveUp";
-            this.buttonR_moveUp.Size = new System.Drawing.Size(30, 32);
-            this.buttonR_moveUp.TabIndex = 31;
-            this.buttonR_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.buttonR_moveUp, "move row up\r\n+ Strg move to top\r\nStrg+T move to top");
-            this.buttonR_moveUp.UseVisualStyleBackColor = true;
-            this.buttonR_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
+            this.button_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
+            this.button_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveUp.FlatAppearance.BorderSize = 0;
+            this.button_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveUp.Location = new System.Drawing.Point(175, 9);
+            this.button_moveUp.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveUp.Name = "button_moveUp";
+            this.button_moveUp.Size = new System.Drawing.Size(30, 32);
+            this.button_moveUp.TabIndex = 31;
+            this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Strg move to top\r\nStrg+T move to top");
+            this.button_moveUp.UseVisualStyleBackColor = true;
+            this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
             // 
             // plabel_Filename
             // 
@@ -421,13 +440,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1122, 378);
+            this.Controls.Add(this.button_check);
             this.Controls.Add(this.button_vlc);
             this.Controls.Add(this.button_revert);
             this.Controls.Add(this.button_dup);
             this.Controls.Add(this.textBox_find);
             this.Controls.Add(this.button_search);
-            this.Controls.Add(this.buttonR_MoveDown);
-            this.Controls.Add(this.buttonR_moveUp);
+            this.Controls.Add(this.button_moveDown);
+            this.Controls.Add(this.button_moveUp);
             this.Controls.Add(this.button_del_all);
             this.Controls.Add(this.button_settings);
             this.Controls.Add(this.button_add);
@@ -468,8 +488,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem copyRowMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteRowMenuItem;
-        private RepeatingButton buttonR_moveUp;
-        private RepeatingButton buttonR_MoveDown;
+        private RepeatingButton button_moveUp;
+        private RepeatingButton button_moveDown;
         private System.Windows.Forms.Button button_search;
         private System.Windows.Forms.TextBox textBox_find;
         private System.Windows.Forms.Button button_dup;
@@ -481,6 +501,7 @@
         private System.Windows.Forms.Button button_vlc;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem playToolStripMenuItem;
+        private System.Windows.Forms.Button button_check;
     }
 }
 
