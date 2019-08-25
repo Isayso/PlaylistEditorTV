@@ -2,7 +2,7 @@
 # Playlist Editor TV
 Editor for TV m3u files (with vlc media player support)
 
-- NEW in 1.3: Check if stream is responding. 
+- NEW in 1.3: Check if stream is responding, this is time consuming. Function tries to read first 1k bytes of the stream content.
 
 ![UI](KodiPlaylistEditorTV1.3a.PNG)
 
