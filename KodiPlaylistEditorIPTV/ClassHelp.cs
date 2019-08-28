@@ -162,7 +162,7 @@ namespace PlaylistEditor
             try
             {
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
-                req.Timeout = 5000; //set the timeout
+                req.Timeout = 6000; //set the timeout
                
                 HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 

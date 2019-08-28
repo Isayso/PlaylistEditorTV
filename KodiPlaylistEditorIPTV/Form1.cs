@@ -41,6 +41,7 @@ namespace PlaylistEditor
         public bool _isIt = true;
         public bool _found = false;
         public bool _savenow = false;
+        public bool _taglink = false;
 
         //zoom of fonts
         public float zoomf = 1F;
@@ -240,6 +241,8 @@ namespace PlaylistEditor
 
         private void button_open_Click(object sender, EventArgs e)
         {
+            if (_taglink) button_check.PerformClick();
+
             Cursor.Current = Cursors.WaitCursor;
             string openpath = Properties.Settings.Default.openpath;
             if (!string.IsNullOrEmpty(openpath) && !ClassHelp.MyDirectoryExists(openpath, 4000))
@@ -574,6 +577,8 @@ namespace PlaylistEditor
 
         private void button_del_all_Click(object sender, EventArgs e)  
         {
+            if (_taglink) button_check.PerformClick();
+
             if (dataGridView1.RowCount > 0)
             {
                 switch (MessageBox.Show("Delete List?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
@@ -597,6 +602,7 @@ namespace PlaylistEditor
 
         private void button_revert_Click(object sender, EventArgs e)
         {
+            if (_taglink) button_check.PerformClick();
             //message box -> delete all -> open filename
             switch (MessageBox.Show("Reload File?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
             {
@@ -1130,14 +1136,41 @@ namespace PlaylistEditor
         private void Button_check_Click(object sender, EventArgs e)
         {
             bool _mark = false;
-            if (Control.ModifierKeys == Keys.Shift)
+
+
+            if (!_taglink)
             {
+                _taglink = true;
+                button_check.BackColor = Color.LightSalmon;
+
+            }
+            else if (_taglink)
+            {
+                _taglink = false;
+                button_check.BackColor = Color.MidnightBlue;
                 colorclear();
                 return;
+
             }
+
+
+
+
+
+            //if (Control.ModifierKeys == Keys.Shift)
+            //{
+            //    colorclear();
+            //    return;
+            //}
             if (Control.ModifierKeys == Keys.Control)
             {
                 _mark = true;
+            }
+
+            if (!ClassHelp.CheckIPTVStream("http://www.google.com"))
+            {
+                MessageBox.Show("No internet connection found!");
+                return;
             }
 
             dataGridView1.ClearSelection();
