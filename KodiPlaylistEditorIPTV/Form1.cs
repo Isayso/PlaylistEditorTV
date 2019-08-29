@@ -13,12 +13,10 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net.Configuration;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -41,6 +39,7 @@ namespace PlaylistEditor
         public bool _isIt = true;
         public bool _found = false;
         public bool _savenow = false;
+        public bool _taglink = false;
 
         //zoom of fonts
         public float zoomf = 1F;
@@ -240,6 +239,8 @@ namespace PlaylistEditor
 
         private void button_open_Click(object sender, EventArgs e)
         {
+            if (_taglink) button_check.PerformClick();
+
             Cursor.Current = Cursors.WaitCursor;
             string openpath = Properties.Settings.Default.openpath;
             if (!string.IsNullOrEmpty(openpath) && !ClassHelp.MyDirectoryExists(openpath, 4000))
@@ -574,6 +575,8 @@ namespace PlaylistEditor
 
         private void button_del_all_Click(object sender, EventArgs e)  
         {
+            if (_taglink) button_check.PerformClick();
+
             if (dataGridView1.RowCount > 0)
             {
                 switch (MessageBox.Show("Delete List?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
@@ -597,6 +600,7 @@ namespace PlaylistEditor
 
         private void button_revert_Click(object sender, EventArgs e)
         {
+            if (_taglink) button_check.PerformClick();
             //message box -> delete all -> open filename
             switch (MessageBox.Show("Reload File?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
             {
@@ -701,7 +705,6 @@ namespace PlaylistEditor
                                 }
                                 else
                                 {
-
                                     dt.Rows.InsertAt(dr, a);  
                                 }
 
@@ -732,7 +735,6 @@ namespace PlaylistEditor
             //copy selection to whatever
             if (dataGridView1.CurrentCell.Value != null && dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
             {
-
                
                 dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
 
@@ -752,7 +754,6 @@ namespace PlaylistEditor
 
                         dt.Rows.RemoveAt(selectedRow);
                     }
-
 
                 }
                 catch (System.Runtime.InteropServices.ExternalException)
@@ -823,7 +824,6 @@ namespace PlaylistEditor
                         {
                             if (iCol + i < this.dataGridView1.ColumnCount)
                             {
-
                                 oCell = dataGridView1[iCol + i, iRow];
                                 oCell.Value = Convert.ChangeType(sCells[i].Replace("\r", "").Remove(0, leftshift), oCell.ValueType);
                             }
@@ -1130,14 +1130,30 @@ namespace PlaylistEditor
         private void Button_check_Click(object sender, EventArgs e)
         {
             bool _mark = false;
-            if (Control.ModifierKeys == Keys.Shift)
+
+            if (!_taglink)
             {
+                _taglink = true;
+                button_check.BackColor = Color.LightSalmon;
+            }
+            else if (_taglink)
+            {
+                _taglink = false;
+                button_check.BackColor = Color.MidnightBlue;
                 colorclear();
                 return;
             }
+
+
             if (Control.ModifierKeys == Keys.Control)
             {
                 _mark = true;
+            }
+
+            if (!ClassHelp.CheckIPTVStream("http://www.google.com"))
+            {
+                MessageBox.Show("No internet connection found!");
+                return;
             }
 
             dataGridView1.ClearSelection();
