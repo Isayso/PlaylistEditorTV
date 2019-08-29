@@ -13,12 +13,10 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net.Configuration;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -707,7 +705,6 @@ namespace PlaylistEditor
                                 }
                                 else
                                 {
-
                                     dt.Rows.InsertAt(dr, a);  
                                 }
 
@@ -738,7 +735,6 @@ namespace PlaylistEditor
             //copy selection to whatever
             if (dataGridView1.CurrentCell.Value != null && dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
             {
-
                
                 dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
 
@@ -758,7 +754,6 @@ namespace PlaylistEditor
 
                         dt.Rows.RemoveAt(selectedRow);
                     }
-
 
                 }
                 catch (System.Runtime.InteropServices.ExternalException)
@@ -829,7 +824,6 @@ namespace PlaylistEditor
                         {
                             if (iCol + i < this.dataGridView1.ColumnCount)
                             {
-
                                 oCell = dataGridView1[iCol + i, iRow];
                                 oCell.Value = Convert.ChangeType(sCells[i].Replace("\r", "").Remove(0, leftshift), oCell.ValueType);
                             }
@@ -1137,12 +1131,10 @@ namespace PlaylistEditor
         {
             bool _mark = false;
 
-
             if (!_taglink)
             {
                 _taglink = true;
                 button_check.BackColor = Color.LightSalmon;
-
             }
             else if (_taglink)
             {
@@ -1150,18 +1142,9 @@ namespace PlaylistEditor
                 button_check.BackColor = Color.MidnightBlue;
                 colorclear();
                 return;
-
             }
 
 
-
-
-
-            //if (Control.ModifierKeys == Keys.Shift)
-            //{
-            //    colorclear();
-            //    return;
-            //}
             if (Control.ModifierKeys == Keys.Control)
             {
                 _mark = true;
