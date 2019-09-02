@@ -992,6 +992,8 @@ namespace PlaylistEditor
         /// <param name="direction">-1 up 1 down</param>
         public void MoveLine(int direction)
         {
+            if (_taglink) button_check.PerformClick();
+
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
           
 
@@ -1031,6 +1033,8 @@ namespace PlaylistEditor
         /// </summary>
         public void MoveLineTop()
         {
+            if (_taglink) button_check.PerformClick();
+
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
 
             if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
@@ -1077,6 +1081,8 @@ namespace PlaylistEditor
         /// </summary>
         public void toSave(bool hasChanged)
         {
+           
+
             isModified = hasChanged;
 
             if (hasChanged)
@@ -1094,6 +1100,8 @@ namespace PlaylistEditor
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+
+
             toSave(true);
 
             //if (dataGridView1.SortOrder.ToString() == "Descending") // Check if sorting is Descending
@@ -1129,8 +1137,7 @@ namespace PlaylistEditor
 
         private void Button_check_Click(object sender, EventArgs e)
         {
-            bool _mark = false;
-
+            
             if (!_taglink)
             {
                 _taglink = true;
@@ -1138,17 +1145,27 @@ namespace PlaylistEditor
             }
             else if (_taglink)
             {
+                if (Control.ModifierKeys == Keys.Control)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightSalmon)
+                        {
+                            dataGridView1.Rows[row.Index].Selected = true;  
+                        }
+                    }
+                    return;
+                }
+
                 _taglink = false;
                 button_check.BackColor = Color.MidnightBlue;
                 colorclear();
                 return;
             }
 
-
-            if (Control.ModifierKeys == Keys.Control)
-            {
-                _mark = true;
-            }
+            bool _mark = false;
+            if (Control.ModifierKeys == Keys.Control) _mark = true;  //select links
+          
 
             if (!ClassHelp.CheckIPTVStream("http://www.google.com"))
             {
@@ -1170,7 +1187,6 @@ namespace PlaylistEditor
 
                     if (!ClassHelp.CheckIPTVStream(iLink))
                     {
-
                         for (int i = 0; i < 6; i++)
                         {
                             if (_mark) dataGridView1.Rows[item.Index].Selected = true;
