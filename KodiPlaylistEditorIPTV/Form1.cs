@@ -13,6 +13,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -29,6 +30,12 @@ namespace PlaylistEditor
 {
     public partial class Form1 : Form
     {
+
+        Stack<object[][]> undoStack = new Stack<object[][]>();
+        Stack<object[][]> redoStack = new Stack<object[][]>();
+
+        Boolean ignore = false;
+
         bool isModified = false;
 
       
@@ -1213,7 +1220,95 @@ namespace PlaylistEditor
 
         }
 
+        private void UndoButton_Click(object sender, EventArgs e)
+        {
+            if (dt.Rows.Count == 0) return;
+            if (redoStack.Count == 0 || redoStack.LoadItem(dataGridView1))
+            {
+                redoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()).ToArray());
+            }
+
+            if (undoStack.Count > 0)
+            {
+                object[][] gridrows = undoStack.Pop();
+                while (gridrows.ItemEquals(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).ToArray()))
+                {
+                    // if (undoStack.Count > 0)
+                    {
+                        gridrows = undoStack.Pop();  //TODO eception stack empty?
+                    }
+                }
+                ignore = true;
+               // dataGridView1.Rows.Clear();
+
+                dt.Clear();  // row clear
+              //  dt.Columns.Clear();  // col clear
+
+                for (int x = 0; x <= gridrows.GetUpperBound(0); x++)
+                {
+                   //  dataGridView1.Rows.Add(gridrows[x]);
+                    dt.Rows.Add(gridrows[x]);
+                    // string[][] name2 = (string[][])rows[x];
+                    // string[] name2=rows[x].Cast<string>().ToArray();
+                    //string[] stringArray = gridrows[x].Select(o => o.ToString()).ToArray();   //?? syntax?
+
+                    //entries.Add(new PlayEntry(Name: stringArray[0], Link: stringArray[1]));
+                    //x++;
+                }
+
+                ignore = false;
+
+                UndoButton.Enabled = undoStack.Count > 0;
+                RedoButton.Enabled = redoStack.Count > 0;
+            }
+        }
+
+        private void RedoButton_Click(object sender, EventArgs e)
+        {
+
+            if (dt.Rows.Count == 0) return;
+            if (undoStack.Count == 0 || undoStack.LoadItem(dataGridView1))
+            {
+                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()).ToArray());
+            }
+            if (redoStack.Count > 0)
+            {
+                object[][] gridrows = redoStack.Pop();  //TODO exception!!
+
+
+                while (gridrows.ItemEquals(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).ToArray()))
+                {
+                    gridrows = redoStack.Pop();
+                }
+                ignore = true;
+                dt.Clear();
+                for (int x = 0; x <= gridrows.GetUpperBound(0); x++)
+                {
+                    //string[] stringArray = gridrows[x].Select(o => o.ToString()).ToArray();   //?? syntax?
+
+                    //entries.Add(new PlayEntry(Name: stringArray[0], Link: stringArray[1]));
+                     dt.Rows.Add(gridrows[x]);
+                }
+
+                ignore = false;
+
+                RedoButton.Enabled = redoStack.Count > 0;
+                UndoButton.Enabled = undoStack.Count > 0;
+            }
+        }
+
+        private void DataGridView1_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            if (ignore) { return; }
+            if (undoStack.LoadItem(dataGridView1))
+            {
+                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()).ToArray());
+            }
+            UndoButton.Enabled = undoStack.Count > 1;
+            RedoButton.Enabled = redoStack.Count > 1;
+        }
     }
+}
 
     /// <summary>
     /// DataGridView Method extensions
@@ -1235,5 +1330,5 @@ namespace PlaylistEditor
             pi.SetValue(dgv, setting, null);
         }
     }
-}
+
 
