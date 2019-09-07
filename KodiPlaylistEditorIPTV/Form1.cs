@@ -1233,27 +1233,23 @@ namespace PlaylistEditor
                 object[][] gridrows = undoStack.Pop();
                 while (gridrows.ItemEquals(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).ToArray()))
                 {
-                    // if (undoStack.Count > 0)
                     {
-                        gridrows = undoStack.Pop();  //TODO eception stack empty?
+                        try
+                        {
+                            gridrows = undoStack.Pop();  
+                        }
+                       catch (Exception) { }
                     }
                 }
                 ignore = true;
-               // dataGridView1.Rows.Clear();
-
+               
                 dt.Clear();  // row clear
-              //  dt.Columns.Clear();  // col clear
+              
 
                 for (int x = 0; x <= gridrows.GetUpperBound(0); x++)
                 {
-                   //  dataGridView1.Rows.Add(gridrows[x]);
-                    dt.Rows.Add(gridrows[x]);
-                    // string[][] name2 = (string[][])rows[x];
-                    // string[] name2=rows[x].Cast<string>().ToArray();
-                    //string[] stringArray = gridrows[x].Select(o => o.ToString()).ToArray();   //?? syntax?
-
-                    //entries.Add(new PlayEntry(Name: stringArray[0], Link: stringArray[1]));
-                    //x++;
+                   
+                    dt.Rows.Add(gridrows[x]);              
                 }
 
                 ignore = false;
@@ -1273,7 +1269,7 @@ namespace PlaylistEditor
             }
             if (redoStack.Count > 0)
             {
-                object[][] gridrows = redoStack.Pop();  //TODO exception!!
+                object[][] gridrows = redoStack.Pop();  
 
 
                 while (gridrows.ItemEquals(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).ToArray()))
@@ -1284,9 +1280,7 @@ namespace PlaylistEditor
                 dt.Clear();
                 for (int x = 0; x <= gridrows.GetUpperBound(0); x++)
                 {
-                    //string[] stringArray = gridrows[x].Select(o => o.ToString()).ToArray();   //?? syntax?
-
-                    //entries.Add(new PlayEntry(Name: stringArray[0], Link: stringArray[1]));
+                    
                      dt.Rows.Add(gridrows[x]);
                 }
 
