@@ -130,6 +130,17 @@
     <value>346, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button_check.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA9klEQVRoQ+3U0Y6CMBSEYd7aS/fSt9aB
+        /au4lkVKJmmT+RITW9qeOShMEREREfFyN6OMD3VsKONDHRvK+FDHhjIR4cKzZkMZH+rYUMaHOjaU8aGO
+        DWUO09YffW4Mx0L4YqwmFHgdvhijCQWthZ9dWdIvhWwLz6JmHPNG04ceQNbX7N95FjbjmCdNrcPsNqE1
+        5/42LG7GMQsNa2E2m9C1c+FnbGjGMQsNL7+zHz6a0Nz58A4KsNuEvvcZvlCQrYDz/OY1tvdBgbZ+iZo+
+        7vxfCvZNE32GLxTwvyb6Dl8oaK2JMcIXCrxuYqzwhYIvbyGGERERB03TA/g7H0I+nbubAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
   <data name="button_dup.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -186,17 +197,6 @@
         LMYN26AKhVEr8VNVVVVV/z7DnJnjzhhn5rgzxpk57oxxpqqm+GtjnAlxiM/pGeNMiEN8Ts8YZ0Ic4nN6
         xjgT4hDvYXeI97A7xHvYHeI97A7xOT3H1IT4GrXvvDumJsTXqH3n3TE1Ib5G7TvvjqkJ8TVqf4ddId7D
         7hDvYXeI97A7xHvYHeI97A7xHnaHeA+7Q1xVVfWF5/kDBf86G2b0KnUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="button_check.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA9klEQVRoQ+3U0Y6CMBSEYd7aS/fSt9aB
-        /au4lkVKJmmT+RITW9qeOShMEREREfFyN6OMD3VsKONDHRvK+FDHhjIR4cKzZkMZH+rYUMaHOjaU8aGO
-        DWUO09YffW4Mx0L4YqwmFHgdvhijCQWthZ9dWdIvhWwLz6JmHPNG04ceQNbX7N95FjbjmCdNrcPsNqE1
-        5/42LG7GMQsNa2E2m9C1c+FnbGjGMQsNL7+zHz6a0Nz58A4KsNuEvvcZvlCQrYDz/OY1tvdBgbZ+iZo+
-        7vxfCvZNE32GLxTwvyb6Dl8oaK2JMcIXCrxuYqzwhYIvbyGGERERB03TA/g7H0I+nbubAAAAAElFTkSu
-        QmCC
 </value>
   </data>
   <data name="button_settings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
