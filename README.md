@@ -2,6 +2,7 @@
 # Playlist Editor TV
 Editor for TV m3u files (with vlc media player support)
 
+- NEW in 1.3.6: [ADD] undo/redo button [FIX] Strg+ check link only selects rows and does not rescan all
 - NEW in 1.3.5: change the check stream button to toggle functionality. 
 - NEW in 1.3: Check if stream is responding, this is time consuming. Function tries to read first 1k bytes of the stream content.
 
