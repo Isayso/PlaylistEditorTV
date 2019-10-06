@@ -186,7 +186,7 @@ namespace PlaylistEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Copy/paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Key press operation failed. " + ex.Message, "Key press", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -323,33 +323,34 @@ namespace PlaylistEditor
 
             while ((line = playlistFile.ReadLine()) != null)
             {
+                //issue #11 empty cells
 
                 if (line.StartsWith("#EXTINF"))
                 {
                    
                     col[0] = ClassHelp.GetPartString(line, "tvg-name=\"", "\"");
                  
-                    if (col[0] == "") col[0] = "Name N/A";
-                    
+                    if (col[0] == "") col[0] = ""; 
+                                                   
 
-                     col[1] = ClassHelp.GetPartString(line, "tvg-id=\"", "\"");
+                    col[1] = ClassHelp.GetPartString(line, "tvg-id=\"", "\"");
                  
-                    if (col[1] == "") col[1] = "id N/A";
+                    if (col[1] == "") col[1] = ""; 
                    
 
                      col[2] = ClassHelp.GetPartString(line, "group-title=\"", "\"");
                    
-                    if (col[2] == "") col[2] = "Title N/A";
+                    if (col[2] == "") col[2] = "";
                     
 
                      col[3] = ClassHelp.GetPartString(line, "tvg-logo=\"", "\"");
                    
-                    if (col[3] == "") col[3] = "logo N/A";
+                    if (col[3] == "") col[3] = "";
 
                   
                      col[4] = line.Split(',').Last();
                     
-                    if (col[4] == "") col[4] = "Name2 N/A";
+                    if (col[4] == "") col[4] = "";
 
                     continue;
 
@@ -1300,6 +1301,22 @@ namespace PlaylistEditor
             }
             UndoButton.Enabled = undoStack.Count > 1;
             RedoButton.Enabled = redoStack.Count > 1;
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        { //issue #11
+
+            dataGridView1.Columns[dataGridView1.CurrentCell.OwningColumn.Name].Visible = false;
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        { //issue #11
+
+            for (int i = 0; i < dataGridView1.ColumnCount; i++)
+            {              
+                dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = true;
+            }
+                
         }
     }
 }
