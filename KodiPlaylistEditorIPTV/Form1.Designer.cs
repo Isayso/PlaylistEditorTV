@@ -189,7 +189,7 @@
             this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
             this.hideToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.hideToolStripMenuItem.Text = "Hide column";
-            this.hideToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 

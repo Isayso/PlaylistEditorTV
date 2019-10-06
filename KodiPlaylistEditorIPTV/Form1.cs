@@ -330,27 +330,23 @@ namespace PlaylistEditor
                    
                     col[0] = ClassHelp.GetPartString(line, "tvg-name=\"", "\"");
                  
-                    if (col[0] == "") col[0] = ""; 
-                                                   
+                                               
 
                     col[1] = ClassHelp.GetPartString(line, "tvg-id=\"", "\"");
                  
-                    if (col[1] == "") col[1] = ""; 
-                   
+               
 
                      col[2] = ClassHelp.GetPartString(line, "group-title=\"", "\"");
                    
-                    if (col[2] == "") col[2] = "";
-                    
+               
 
                      col[3] = ClassHelp.GetPartString(line, "tvg-logo=\"", "\"");
                    
-                    if (col[3] == "") col[3] = "";
-
+              
                   
                      col[4] = line.Split(',').Last();
                     
-                    if (col[4] == "") col[4] = "";
+               
 
                     continue;
 
@@ -1303,10 +1299,15 @@ namespace PlaylistEditor
             RedoButton.Enabled = redoStack.Count > 1;
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void hideToolStripMenuItem_Click(object sender, EventArgs e)
         { //issue #11
+          
+            foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+            {             
+               
+                dataGridView1.Columns[dataGridView1.Columns[cell.ColumnIndex].HeaderText].Visible = false;
+            }
 
-            dataGridView1.Columns[dataGridView1.CurrentCell.OwningColumn.Name].Visible = false;
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
