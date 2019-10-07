@@ -26,6 +26,7 @@ using System.Windows.Forms;
 
 //ToDo bug no move after sorting, no reload, binding problem?
 
+
 namespace PlaylistEditor
 {
     public partial class Form1 : Form
@@ -47,6 +48,7 @@ namespace PlaylistEditor
         public bool _found = false;
         public bool _savenow = false;
         public bool _taglink = false;
+        public bool _isSingle = false;
 
         //zoom of fonts
         public float zoomf = 1F;
@@ -92,6 +94,7 @@ namespace PlaylistEditor
             //  dataGridView1.AllowUserToAddRows = true;
 
             dataGridView1.DoubleBuffered(true);
+            dataGridView1.BringToFront();
 
             //command line arguments [1]
             string[] args = Environment.GetCommandLineArgs();
@@ -228,6 +231,7 @@ namespace PlaylistEditor
 
         private void button_search_Click(object sender, EventArgs e)
         {
+            textBox_find.BringToFront();
 
             if (_isIt)
             {
@@ -1319,6 +1323,67 @@ namespace PlaylistEditor
             }
                 
         }
+
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+          
+            int formWidth = this.Width;   //321/378
+            SetFormWidth(formWidth);
+            
+        }
+
+        private void singleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //get col width, index, hide all others, set form width to col width
+           if (!_isSingle)
+            {
+                int columnIndex = dataGridView1.CurrentCell.ColumnIndex;
+                int colw = dataGridView1.Columns[columnIndex].Width;
+
+
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    if (i != columnIndex)
+                        dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = false;
+                }
+
+                this.Size = new Size(Math.Max(colw, 400), 422);
+
+                SetFormWidth(colw);
+                contextMenuStrip1.Items[12].Text = "Single column mode Off";
+                _isSingle = true;
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = true;
+                }
+                this.Size = new Size(1140, 422);
+                SetFormWidth(1140);
+                contextMenuStrip1.Items[12].Text = "Single column mode";
+                _isSingle = false;
+            }
+        }
+
+        /// <summary>
+        /// set dataGridView width, resize
+        /// </summary>
+        /// <param name="formWidth">width in pt</param>
+        private void SetFormWidth(int formWidth)
+        {
+            if (formWidth < 500)
+            {
+                dataGridView1.Size = new Size(400, 387);
+                dataGridView1.Location = new Point(0, 0);
+            }
+            else if (formWidth > 500 )
+            {
+                dataGridView1.Size = new Size(formWidth - 18, 321);
+                dataGridView1.Location = new Point(0, 59);                
+            }
+        }
+
     }
 }
 
