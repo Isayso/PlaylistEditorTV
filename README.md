@@ -7,8 +7,9 @@ Editor for TV m3u files (with vlc media player support)
 - NEW in 1.3.5: change the check stream button to toggle functionality. 
 - NEW in 1.3: Check if stream is responding, this is time consuming. Function tries to read first 1k bytes of the stream content.
   
-![UI](Singlecolumn.jpg)
+
 ![UI](KodiPlaylistEditorTV1.3a.PNG)
+![UI](Singlecolumn.jpg)
 
 - NEW in 1.2: Move line to top of list for faster sorting of favorites. Double buffer for better UI performance.
 - NEW in 1.1: Send link to Kodi device e.g. Raspberry PI
