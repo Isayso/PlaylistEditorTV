@@ -73,5 +73,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - delete delete selected row
 
 
-![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.3.6/total)
+
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.3.7/total)
