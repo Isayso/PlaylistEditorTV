@@ -59,7 +59,7 @@ namespace PlaylistEditor
         DataRow dr;
         readonly string vlcpath = Properties.Settings.Default.vlcpath;
 
-
+        public int[] colShow = new int[6];
 
 
         public Form1()
@@ -311,7 +311,7 @@ namespace PlaylistEditor
 
             dataGridView1.DataSource = dt;
             string[] col = new string[6];
-            int[] colShow = new int[4];
+            Array.Clear(colShow, 0, 6);
 
             StreamReader playlistFile = new StreamReader(filename);
             if (!append)  //append false
@@ -405,6 +405,8 @@ namespace PlaylistEditor
             if (colShow[1] != 1) dataGridView1.Columns["id"].Visible = false;
             if (colShow[2] != 1) dataGridView1.Columns["Title"].Visible = false;
             if (colShow[3] != 1) dataGridView1.Columns["logo"].Visible = false;
+            colShow[4] = 1;
+            colShow[5] = 1;
 
 
 
@@ -1395,6 +1397,7 @@ namespace PlaylistEditor
                 {
                     if (i != columnIndex)
                         dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = false;
+                  //  colShow[columnIndex] = 0;  //issue #12 doesn'work
                 }
 
                 this.Size = new Size(Math.Max(colw, 400), 422);
@@ -1407,12 +1410,14 @@ namespace PlaylistEditor
             {
                 for (int i = 0; i < dataGridView1.ColumnCount; i++)
                 {
-                    dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = true;
+                    if(colShow[i] == 1) dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = true;
                 }
+               
                 this.Size = new Size(1140, 422);
                 SetFormWidth(1140);
                 contextMenuStrip1.Items[12].Text = "Single column mode";
                 _isSingle = false;
+
             }
         }
 
