@@ -54,7 +54,6 @@ namespace PlaylistEditor
         public float zoomf = 1F;
        // private static readonly int ROWHEIGHT = 47;
         private static readonly float FONTSIZE = 9.163636F;
-
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         DataRow dr;
@@ -312,6 +311,7 @@ namespace PlaylistEditor
 
             dataGridView1.DataSource = dt;
             string[] col = new string[6];
+            int[] colShow = new int[4];
 
             StreamReader playlistFile = new StreamReader(filename);
             if (!append)  //append false
@@ -335,19 +335,24 @@ namespace PlaylistEditor
                    
                     col[0] = ClassHelp.GetPartString(line, "tvg-name=\"", "\"");
                     if (col[0] == "") col[0] = "N/A";
+                    else if (col[0].Contains("N/A")) colShow[0] = 0;
+                    else colShow[0] = 1;
 
 
                     col[1] = ClassHelp.GetPartString(line, "tvg-id=\"", "\"");
                     if (col[1] == "") col[1] = "N/A";
-
+                    else if (col[1].Contains("N/A")) colShow[1] = 0;
+                    else colShow[1] = 1;
 
                     col[2] = ClassHelp.GetPartString(line, "group-title=\"", "\"");
                     if (col[2] == "") col[2] = "N/A";
-
+                    else if (col[2].Contains("N/A")) colShow[2] = 0;
+                    else colShow[2] = 1;
 
                     col[3] = ClassHelp.GetPartString(line, "tvg-logo=\"", "\"");
                     if (col[3] == "") col[3] = "N/A";
-
+                    else if (col[3].Contains("N/A")) colShow[3] = 0;
+                    else colShow[3] = 1;
 
                     col[4] = line.Split(',').Last();
                     if (col[4] == "") col[4] = "N/A";
@@ -395,7 +400,14 @@ namespace PlaylistEditor
             {
                 MessageBox.Show("Wrong file structure! ", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+            if (colShow[0] != 1) dataGridView1.Columns["Name"].Visible = false;
+            if (colShow[1] != 1) dataGridView1.Columns["id"].Visible = false;
+            if (colShow[2] != 1) dataGridView1.Columns["Title"].Visible = false;
+            if (colShow[3] != 1) dataGridView1.Columns["logo"].Visible = false;
+
+
+
         }
 
         private void button_delLine_Click(object sender, EventArgs e) 
@@ -433,11 +445,27 @@ namespace PlaylistEditor
 
                     file.NewLine = "\n";  // win: LF
                     file.WriteLine("#EXTM3U");
+                    string writestring = "";
 
                     for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
+                    {//issue #12  write only visible columns
+                        writestring = "#EXTINF:-1 ";
+                        if (dataGridView1.Columns["Name"].Visible) writestring += "tvg-name=\"" + dt.Rows[i][0] + "\"";
+                        if (dataGridView1.Columns["id"].Visible) writestring += " tvg-id=\"" + dt.Rows[i][1] + "\"";
+                        if (dataGridView1.Columns["Title"].Visible) writestring += " group-title=\"" + dt.Rows[i][2] + "\"";
+                        if (dataGridView1.Columns["logo"].Visible) writestring += " tvg-logo=\"" + dt.Rows[i][3] + "\"";
+                     
+                            writestring += "," + dt.Rows[i][4];
+
+
+                        file.WriteLine(writestring);
                         file.WriteLine(dt.Rows[i][5]);
+
+
+
+
+                        //file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
+                        //file.WriteLine(dt.Rows[i][5]);
 
                     }
 
@@ -459,13 +487,27 @@ namespace PlaylistEditor
 
                     file.NewLine = "\n";  // win: LF
                     file.WriteLine("#EXTM3U");
+                    string writestring = "";
 
                     for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        //ToDo # remove, "," remove?
-                        //dt.Rows[i][0].Replace("#", " ").Replace(",", " ");
-                        file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
+                    {//issue #12  write only visible columns
+                        writestring = "#EXTINF:-1 ";
+                        if (dataGridView1.Columns["Name"].Visible) writestring += "tvg-name=\"" + dt.Rows[i][0] + "\"";
+                        if (dataGridView1.Columns["id"].Visible) writestring += " tvg-id=\"" + dt.Rows[i][1] + "\"";
+                        if (dataGridView1.Columns["Title"].Visible) writestring += " group-title=\"" + dt.Rows[i][2] + "\"";
+                        if (dataGridView1.Columns["logo"].Visible) writestring += " tvg-logo=\"" + dt.Rows[i][3] + "\"";
+                       
+                        writestring += "," + dt.Rows[i][4];
+
+
+                        file.WriteLine(writestring);
                         file.WriteLine(dt.Rows[i][5]);
+
+
+                        //ToDo # remove, "," remove?
+                        ////dt.Rows[i][0].Replace("#", " ").Replace(",", " ");
+                        //file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
+                        //file.WriteLine(dt.Rows[i][5]);
 
                     }
 
