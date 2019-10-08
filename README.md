@@ -75,3 +75,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.3.7/total)
+
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.3.8/total)
