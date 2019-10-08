@@ -435,6 +435,23 @@ namespace PlaylistEditor
         {
             Cursor.Current = Cursors.WaitCursor;
 
+            for (int i = 0; i < dataGridView1.ColumnCount; i++)
+            {
+                if (dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible == false)
+                {
+                    switch (MessageBox.Show("Hidden Columns avaliable, continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                    {
+                        case DialogResult.Yes:
+                            break;
+
+                        case DialogResult.No:
+                            return;
+                            // break;
+                    }
+                    break;
+                }
+            }
+
             if ((Control.ModifierKeys == Keys.Shift || _savenow) && !string.IsNullOrEmpty(plabel_Filename.Text) 
                 && ClassHelp.MyDirectoryExists(Path.GetDirectoryName(plabel_Filename.Text), 4000))
             {
@@ -459,12 +476,8 @@ namespace PlaylistEditor
                      
                             writestring += "," + dt.Rows[i][4];
 
-
                         file.WriteLine(writestring);
                         file.WriteLine(dt.Rows[i][5]);
-
-
-
 
                         //file.WriteLine("#EXTINF:-1 tvg-name=\"" + dt.Rows[i][0] + "\" tvg-id=\"" + dt.Rows[i][1] + "\" group-title=\"" + dt.Rows[i][2] + "\" tvg-logo=\"" + dt.Rows[i][3] + "\"," + dt.Rows[i][4]);
                         //file.WriteLine(dt.Rows[i][5]);
@@ -482,8 +495,7 @@ namespace PlaylistEditor
             else if (saveFileDialog1.ShowDialog() == DialogResult.OK)  //open file dialog
             {
                 plabel_Filename.Text = saveFileDialog1.FileName;
-                // try
-                // {
+
                 using (StreamWriter file = new StreamWriter(saveFileDialog1.FileName, false /*, Encoding.UTF8*/))   //false: file ovewrite
                 {
 
@@ -501,10 +513,8 @@ namespace PlaylistEditor
                        
                         writestring += "," + dt.Rows[i][4];
 
-
                         file.WriteLine(writestring);
                         file.WriteLine(dt.Rows[i][5]);
-
 
                         //ToDo # remove, "," remove?
                         ////dt.Rows[i][0].Replace("#", " ").Replace(",", " ");
@@ -516,11 +526,7 @@ namespace PlaylistEditor
                 }
 
                 toSave(false);
-                //}
-                //catch (Exception ex) when (ex is IOException || ex is ObjectDisposedException)
-                //{
-                //    MessageBox.Show("Write Error " + ex);
-                //}
+ 
                 button_revert.Visible = true;
                 Cursor.Current = Cursors.Default;
             }
@@ -1190,7 +1196,15 @@ namespace PlaylistEditor
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath)) button_vlc.PerformClick();
+            if (Control.ModifierKeys == Keys.Control)
+            {
+                playToolStripMenuItem.PerformClick();
+            }
+            else
+            {
+                if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath)) button_vlc.PerformClick();
+            }
+                
         }
 
         private void Button_check_Click(object sender, EventArgs e)
@@ -1397,7 +1411,7 @@ namespace PlaylistEditor
                 {
                     if (i != columnIndex)
                         dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = false;
-                  //  colShow[columnIndex] = 0;  //issue #12 doesn'work
+                 
                 }
 
                 this.Size = new Size(Math.Max(colw, 400), 422);

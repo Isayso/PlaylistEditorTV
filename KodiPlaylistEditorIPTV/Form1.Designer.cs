@@ -44,6 +44,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -65,8 +67,6 @@
             this.button_settings = new System.Windows.Forms.Button();
             this.button_Info = new System.Windows.Forms.Button();
             this.plabel_Filename = new PathLabel();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -123,7 +123,7 @@
             this.toolStripSeparator4,
             this.singleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 269);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 244);
             // 
             // copyRowMenuItem
             // 
@@ -181,6 +181,7 @@
             this.playToolStripMenuItem.ShortcutKeyDisplayString = "Strg+P";
             this.playToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.playToolStripMenuItem.Text = "Kodi play";
+            this.playToolStripMenuItem.ToolTipText = "Strg double click on cell";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
@@ -201,6 +202,18 @@
             this.showToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.showToolStripMenuItem.Text = "Show all columns";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(199, 6);
+            // 
+            // singleToolStripMenuItem
+            // 
+            this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
+            this.singleToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.singleToolStripMenuItem.Text = "Single column mode";
+            this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -498,18 +511,6 @@
             this.plabel_Filename.Size = new System.Drawing.Size(385, 23);
             this.plabel_Filename.TabIndex = 26;
             this.plabel_Filename.Text = "pathLabel1";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(199, 6);
-            // 
-            // singleToolStripMenuItem
-            // 
-            this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
-            this.singleToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.singleToolStripMenuItem.Text = "Single column mode";
-            this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
             // 
             // Form1
             // 
