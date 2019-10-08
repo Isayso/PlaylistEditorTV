@@ -41,6 +41,9 @@
             this.toolStripPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -49,8 +52,6 @@
             this.button_revert = new System.Windows.Forms.Button();
             this.button_dup = new System.Windows.Forms.Button();
             this.button_search = new System.Windows.Forms.Button();
-            this.button_moveDown = new RepeatingButton();
-            this.button_moveUp = new RepeatingButton();
             this.button_del_all = new System.Windows.Forms.Button();
             this.button_add = new System.Windows.Forms.Button();
             this.button_delLine = new System.Windows.Forms.Button();
@@ -58,10 +59,14 @@
             this.button_open = new System.Windows.Forms.Button();
             this.UndoButton = new System.Windows.Forms.Button();
             this.RedoButton = new System.Windows.Forms.Button();
+            this.button_moveDown = new RepeatingButton();
+            this.button_moveUp = new RepeatingButton();
             this.textBox_find = new System.Windows.Forms.TextBox();
-            this.plabel_Filename = new PathLabel();
             this.button_settings = new System.Windows.Forms.Button();
             this.button_Info = new System.Windows.Forms.Button();
+            this.plabel_Filename = new PathLabel();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -85,12 +90,12 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(-3, 59);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 59);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 47;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1126, 321);
+            this.dataGridView1.Size = new System.Drawing.Size(1122, 321);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             this.dataGridView1.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValidated);
@@ -111,15 +116,20 @@
             this.toolStripCopy,
             this.toolStripPaste,
             this.toolStripSeparator2,
-            this.playToolStripMenuItem});
+            this.playToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.hideToolStripMenuItem,
+            this.showToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.singleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 160);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 269);
             // 
             // copyRowMenuItem
             // 
             this.copyRowMenuItem.Name = "copyRowMenuItem";
             this.copyRowMenuItem.ShortcutKeyDisplayString = "Strg+R";
-            this.copyRowMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.copyRowMenuItem.Size = new System.Drawing.Size(202, 24);
             this.copyRowMenuItem.Text = "Copy Row";
             this.copyRowMenuItem.Click += new System.EventHandler(this.copyRowMenuItem_Click);
             // 
@@ -127,7 +137,7 @@
             // 
             this.pasteRowMenuItem.Name = "pasteRowMenuItem";
             this.pasteRowMenuItem.ShortcutKeyDisplayString = "Strg+I";
-            this.pasteRowMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.pasteRowMenuItem.Size = new System.Drawing.Size(202, 24);
             this.pasteRowMenuItem.Text = "Insert Row";
             this.pasteRowMenuItem.Click += new System.EventHandler(this.pasteRowMenuItem_Click);
             // 
@@ -135,20 +145,20 @@
             // 
             this.cutRowMenuItem.Name = "cutRowMenuItem";
             this.cutRowMenuItem.ShortcutKeyDisplayString = "Strg+X";
-            this.cutRowMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.cutRowMenuItem.Size = new System.Drawing.Size(202, 24);
             this.cutRowMenuItem.Text = "Cut Row";
             this.cutRowMenuItem.Click += new System.EventHandler(this.cutRowMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(193, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(199, 6);
             // 
             // toolStripCopy
             // 
             this.toolStripCopy.Name = "toolStripCopy";
             this.toolStripCopy.ShortcutKeyDisplayString = "Strg+C";
-            this.toolStripCopy.Size = new System.Drawing.Size(196, 24);
+            this.toolStripCopy.Size = new System.Drawing.Size(202, 24);
             this.toolStripCopy.Text = "Copy Cells";
             this.toolStripCopy.Click += new System.EventHandler(this.toolStripCopy_Click);
             // 
@@ -156,22 +166,41 @@
             // 
             this.toolStripPaste.Name = "toolStripPaste";
             this.toolStripPaste.ShortcutKeyDisplayString = "Strg+V";
-            this.toolStripPaste.Size = new System.Drawing.Size(196, 24);
+            this.toolStripPaste.Size = new System.Drawing.Size(202, 24);
             this.toolStripPaste.Text = "Paste Cells";
             this.toolStripPaste.Click += new System.EventHandler(this.toolStripPaste_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(199, 6);
             // 
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
             this.playToolStripMenuItem.ShortcutKeyDisplayString = "Strg+P";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.playToolStripMenuItem.Text = "Kodi play";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
+            // 
+            // hideToolStripMenuItem
+            // 
+            this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
+            this.hideToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.hideToolStripMenuItem.Text = "Hide column";
+            this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.showToolStripMenuItem.Text = "Show all columns";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -267,38 +296,6 @@
             this.toolTip1.SetToolTip(this.button_search, "search\r\nStrg+F");
             this.button_search.UseVisualStyleBackColor = true;
             this.button_search.Click += new System.EventHandler(this.button_search_Click);
-            // 
-            // button_moveDown
-            // 
-            this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
-            this.button_moveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_moveDown.FlatAppearance.BorderSize = 0;
-            this.button_moveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_moveDown.Location = new System.Drawing.Point(233, 11);
-            this.button_moveDown.Margin = new System.Windows.Forms.Padding(0);
-            this.button_moveDown.Name = "button_moveDown";
-            this.button_moveDown.Size = new System.Drawing.Size(30, 32);
-            this.button_moveDown.TabIndex = 32;
-            this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveDown, "move row down");
-            this.button_moveDown.UseVisualStyleBackColor = true;
-            this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
-            // 
-            // button_moveUp
-            // 
-            this.button_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
-            this.button_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_moveUp.FlatAppearance.BorderSize = 0;
-            this.button_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_moveUp.Location = new System.Drawing.Point(203, 9);
-            this.button_moveUp.Margin = new System.Windows.Forms.Padding(0);
-            this.button_moveUp.Name = "button_moveUp";
-            this.button_moveUp.Size = new System.Drawing.Size(30, 32);
-            this.button_moveUp.TabIndex = 31;
-            this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Strg move to top\r\nStrg+T move to top");
-            this.button_moveUp.UseVisualStyleBackColor = true;
-            this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
             // 
             // button_del_all
             // 
@@ -412,11 +409,44 @@
             this.RedoButton.UseVisualStyleBackColor = true;
             this.RedoButton.Click += new System.EventHandler(this.RedoButton_Click);
             // 
+            // button_moveDown
+            // 
+            this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
+            this.button_moveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveDown.FlatAppearance.BorderSize = 0;
+            this.button_moveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveDown.Location = new System.Drawing.Point(233, 11);
+            this.button_moveDown.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveDown.Name = "button_moveDown";
+            this.button_moveDown.Size = new System.Drawing.Size(30, 32);
+            this.button_moveDown.TabIndex = 32;
+            this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveDown, "move row down");
+            this.button_moveDown.UseVisualStyleBackColor = true;
+            this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
+            // 
+            // button_moveUp
+            // 
+            this.button_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
+            this.button_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveUp.FlatAppearance.BorderSize = 0;
+            this.button_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveUp.Location = new System.Drawing.Point(203, 9);
+            this.button_moveUp.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveUp.Name = "button_moveUp";
+            this.button_moveUp.Size = new System.Drawing.Size(30, 32);
+            this.button_moveUp.TabIndex = 31;
+            this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Strg move to top\r\nStrg+T move to top");
+            this.button_moveUp.UseVisualStyleBackColor = true;
+            this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
+            // 
             // textBox_find
             // 
             this.textBox_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_find.Location = new System.Drawing.Point(934, 66);
+            this.textBox_find.MaximumSize = new System.Drawing.Size(167, 28);
             this.textBox_find.Name = "textBox_find";
             this.textBox_find.Size = new System.Drawing.Size(167, 28);
             this.textBox_find.TabIndex = 34;
@@ -424,18 +454,6 @@
             this.textBox_find.Visible = false;
             this.textBox_find.Click += new System.EventHandler(this.textBox_selectAll_Click);
             this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChanged);
-            // 
-            // plabel_Filename
-            // 
-            this.plabel_Filename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.plabel_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
-            this.plabel_Filename.Location = new System.Drawing.Point(405, 16);
-            this.plabel_Filename.Name = "plabel_Filename";
-            this.plabel_Filename.Size = new System.Drawing.Size(385, 23);
-            this.plabel_Filename.TabIndex = 26;
-            this.plabel_Filename.Text = "pathLabel1";
             // 
             // button_settings
             // 
@@ -469,6 +487,30 @@
             this.button_Info.UseVisualStyleBackColor = true;
             this.button_Info.Click += new System.EventHandler(this.button_Info_Click);
             // 
+            // plabel_Filename
+            // 
+            this.plabel_Filename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.plabel_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
+            this.plabel_Filename.Location = new System.Drawing.Point(405, 16);
+            this.plabel_Filename.Name = "plabel_Filename";
+            this.plabel_Filename.Size = new System.Drawing.Size(385, 23);
+            this.plabel_Filename.TabIndex = 26;
+            this.plabel_Filename.Text = "pathLabel1";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(199, 6);
+            // 
+            // singleToolStripMenuItem
+            // 
+            this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
+            this.singleToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.singleToolStripMenuItem.Text = "Single column mode";
+            this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,6 +542,7 @@
             this.Name = "Form1";
             this.Text = "Playlist Editor TV";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -541,6 +584,11 @@
         private System.Windows.Forms.Button button_check;
         private System.Windows.Forms.Button UndoButton;
         private System.Windows.Forms.Button RedoButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem singleToolStripMenuItem;
     }
 }
 

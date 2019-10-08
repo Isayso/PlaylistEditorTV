@@ -26,6 +26,7 @@ using System.Windows.Forms;
 
 //ToDo bug no move after sorting, no reload, binding problem?
 
+
 namespace PlaylistEditor
 {
     public partial class Form1 : Form
@@ -47,6 +48,7 @@ namespace PlaylistEditor
         public bool _found = false;
         public bool _savenow = false;
         public bool _taglink = false;
+        public bool _isSingle = false;
 
         //zoom of fonts
         public float zoomf = 1F;
@@ -92,6 +94,7 @@ namespace PlaylistEditor
             //  dataGridView1.AllowUserToAddRows = true;
 
             dataGridView1.DoubleBuffered(true);
+            dataGridView1.BringToFront();
 
             //command line arguments [1]
             string[] args = Environment.GetCommandLineArgs();
@@ -151,6 +154,7 @@ namespace PlaylistEditor
                             break;
 
                         case Keys.T:  //move line to top
+                            
                             MoveLineTop();
                             break;
 
@@ -186,7 +190,7 @@ namespace PlaylistEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Copy/paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Key press operation failed. " + ex.Message, "Key press", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -228,6 +232,7 @@ namespace PlaylistEditor
 
         private void button_search_Click(object sender, EventArgs e)
         {
+            textBox_find.BringToFront();
 
             if (_isIt)
             {
@@ -323,33 +328,30 @@ namespace PlaylistEditor
 
             while ((line = playlistFile.ReadLine()) != null)
             {
+                
 
                 if (line.StartsWith("#EXTINF"))
                 {
                    
                     col[0] = ClassHelp.GetPartString(line, "tvg-name=\"", "\"");
-                 
-                    if (col[0] == "") col[0] = "Name N/A";
-                    
+                    if (col[0] == "") col[0] = "N/A";
 
-                     col[1] = ClassHelp.GetPartString(line, "tvg-id=\"", "\"");
-                 
-                    if (col[1] == "") col[1] = "id N/A";
-                   
 
-                     col[2] = ClassHelp.GetPartString(line, "group-title=\"", "\"");
-                   
-                    if (col[2] == "") col[2] = "Title N/A";
-                    
+                    col[1] = ClassHelp.GetPartString(line, "tvg-id=\"", "\"");
+                    if (col[1] == "") col[1] = "N/A";
 
-                     col[3] = ClassHelp.GetPartString(line, "tvg-logo=\"", "\"");
-                   
-                    if (col[3] == "") col[3] = "logo N/A";
 
-                  
-                     col[4] = line.Split(',').Last();
-                    
-                    if (col[4] == "") col[4] = "Name2 N/A";
+                    col[2] = ClassHelp.GetPartString(line, "group-title=\"", "\"");
+                    if (col[2] == "") col[2] = "N/A";
+
+
+                    col[3] = ClassHelp.GetPartString(line, "tvg-logo=\"", "\"");
+                    if (col[3] == "") col[3] = "N/A";
+
+
+                    col[4] = line.Split(',').Last();
+                    if (col[4] == "") col[4] = "N/A";
+
 
                     continue;
 
@@ -1040,14 +1042,19 @@ namespace PlaylistEditor
         /// </summary>
         public void MoveLineTop()
         {
-            if (_taglink) button_check.PerformClick();
+            _taglink = false;
+            button_check.BackColor = Color.MidnightBlue;
+            colorclear();
+
+
+          //  if (_taglink) button_check.PerformClick();
 
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
 
             if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
             {
                 var row = dataGridView1.SelectedRows[0];
-                var maxrow = dataGridView1.RowCount - 1;
+                var maxrow = dataGridView1.RowCount /*- 1*/;
                 int n = 0;
 
                 while (n < maxrow - 1) 
@@ -1056,9 +1063,9 @@ namespace PlaylistEditor
 
                     if (row != null)
                     {
-                        if ((row.Index == 0 /*&& direction == -1*/) || (row.Index == maxrow/* && direction == 1*/)) return;  //check end of dataGridView1
+                        if ((row.Index == 0 ) || (row.Index == maxrow )) return;  //check end of dataGridView1
 
-                        var swapRow = dataGridView1.Rows[row.Index - 1  /*+ direction*/];
+                        var swapRow = dataGridView1.Rows[row.Index - 1 ];
 
                         object[] values = new object[swapRow.Cells.Count];
 
@@ -1072,9 +1079,9 @@ namespace PlaylistEditor
                             cell.Value = values[cell.ColumnIndex];
 
                         dataGridView1.Rows[row.Index].Selected = false;
-                        dataGridView1.Rows[row.Index - 1 /*+ direction*/].Selected = true;
+                        dataGridView1.Rows[row.Index - 1 ].Selected = true;
                         
-                        //dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[0];  //scroll automatic to cell
+                       
                     }
                     n += 1;
                 } 
@@ -1207,17 +1214,19 @@ namespace PlaylistEditor
 
             Cursor.Current = Cursors.Default;
 
-            void colorclear()
+           
+
+        }
+
+        private void colorclear()
+        {
+            foreach (DataGridViewRow item in dataGridView1.Rows)
             {
-                foreach (DataGridViewRow item in dataGridView1.Rows)
+                for (int j = 0; j < 6; j++)
                 {
-                    for (int j = 0; j < 6; j++)
-                    {
-                        dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = System.Drawing.Color.White;
-                    }
+                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = System.Drawing.Color.White;
                 }
             }
-
         }
 
         private void UndoButton_Click(object sender, EventArgs e)
@@ -1301,6 +1310,88 @@ namespace PlaylistEditor
             UndoButton.Enabled = undoStack.Count > 1;
             RedoButton.Enabled = redoStack.Count > 1;
         }
+
+        private void hideToolStripMenuItem_Click(object sender, EventArgs e)
+        { //issue #11
+          
+            foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+            {             
+               
+                dataGridView1.Columns[dataGridView1.Columns[cell.ColumnIndex].HeaderText].Visible = false;
+            }
+
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        { //issue #11
+
+            for (int i = 0; i < dataGridView1.ColumnCount; i++)
+            {              
+                dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = true;
+            }
+                
+        }
+
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+          
+            int formWidth = this.Width;   //321/378
+            SetFormWidth(formWidth);
+            
+        }
+
+        private void singleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //get col width, index, hide all others, set form width to col width
+           if (!_isSingle)
+            {
+                int columnIndex = dataGridView1.CurrentCell.ColumnIndex;
+                int colw = dataGridView1.Columns[columnIndex].Width;
+
+
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    if (i != columnIndex)
+                        dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = false;
+                }
+
+                this.Size = new Size(Math.Max(colw, 400), 422);
+
+                SetFormWidth(colw);
+                contextMenuStrip1.Items[12].Text = "Single column mode Off";
+                _isSingle = true;
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = true;
+                }
+                this.Size = new Size(1140, 422);
+                SetFormWidth(1140);
+                contextMenuStrip1.Items[12].Text = "Single column mode";
+                _isSingle = false;
+            }
+        }
+
+        /// <summary>
+        /// set dataGridView width, resize
+        /// </summary>
+        /// <param name="formWidth">width in pt</param>
+        private void SetFormWidth(int formWidth)
+        {
+            if (formWidth < 500)
+            {
+                dataGridView1.Size = new Size(400, 387);
+                dataGridView1.Location = new Point(0, 0);
+            }
+            else if (formWidth > 500 )
+            {
+                dataGridView1.Size = new Size(formWidth - 18, 321);
+                dataGridView1.Location = new Point(0, 59);                
+            }
+        }
+
     }
 }
 
