@@ -19,6 +19,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -334,28 +335,23 @@ namespace PlaylistEditor
                 {
                    
                     col[0] = ClassHelp.GetPartString(line, "tvg-name=\"", "\"");
-                    if (col[0] == "") col[0] = "N/A";
-                    else if (col[0].Contains("N/A")) colShow[0] = 0;
-                    else colShow[0] = 1;
+                    CheckEntry(0);
 
 
                     col[1] = ClassHelp.GetPartString(line, "tvg-id=\"", "\"");
-                    if (col[1] == "") col[1] = "N/A";
-                    else if (col[1].Contains("N/A")) colShow[1] = 0;
-                    else colShow[1] = 1;
+                    CheckEntry(1);
 
+            
                     col[2] = ClassHelp.GetPartString(line, "group-title=\"", "\"");
-                    if (col[2] == "") col[2] = "N/A";
-                    else if (col[2].Contains("N/A")) colShow[2] = 0;
-                    else colShow[2] = 1;
+                    CheckEntry(2);
 
+                
                     col[3] = ClassHelp.GetPartString(line, "tvg-logo=\"", "\"");
-                    if (col[3] == "") col[3] = "N/A";
-                    else if (col[3].Contains("N/A")) colShow[3] = 0;
-                    else colShow[3] = 1;
+                    CheckEntry(3);
 
+                   
                     col[4] = line.Split(',').Last();
-                    if (col[4] == "") col[4] = "N/A";
+                    if (string.IsNullOrEmpty(col[4])) col[4] = "N/A";
 
 
                     continue;
@@ -409,8 +405,24 @@ namespace PlaylistEditor
             colShow[5] = 1;
 
 
+            void CheckEntry(int v)
+            {//issue #12
+                if (string.IsNullOrEmpty(col[v]) || (col[v].Contains("N/A") && colShow[v] == 0))
+                {
+                    col[v] = "N/A";
+                    colShow[v] = 0;
+                }
+                else
+                {
+                    colShow[v] = 1;
+                }
+               
+
+            }
 
         }
+
+       
 
         private void button_delLine_Click(object sender, EventArgs e) 
         {
@@ -435,22 +447,22 @@ namespace PlaylistEditor
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            for (int i = 0; i < dataGridView1.ColumnCount; i++)
-            {
-                if (dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible == false)
-                {
-                    switch (MessageBox.Show("Hidden Columns avaliable, continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-                    {
-                        case DialogResult.Yes:
-                            break;
+            //for (int i = 0; i < dataGridView1.ColumnCount; i++)
+            //{
+            //    if (dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible == false)
+            //    {
+            //        switch (MessageBox.Show("Hidden Columns avaliable, continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            //        {
+            //            case DialogResult.Yes:
+            //                break;
 
-                        case DialogResult.No:
-                            return;
-                            // break;
-                    }
-                    break;
-                }
-            }
+            //            case DialogResult.No:
+            //                return;
+            //                // break;
+            //        }
+            //        break;
+            //    }
+            //}
 
             if ((Control.ModifierKeys == Keys.Shift || _savenow) && !string.IsNullOrEmpty(plabel_Filename.Text) 
                 && ClassHelp.MyDirectoryExists(Path.GetDirectoryName(plabel_Filename.Text), 4000))
@@ -699,14 +711,27 @@ namespace PlaylistEditor
             //copy selection to whatever
             if (dataGridView1.CurrentCell.Value != null && dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
             {
-
+                int rowIndex = dataGridView1.CurrentCell.RowIndex;
                 dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
 
                 try
                {
                     // Add the selection to the clipboard.
                    
-                    Clipboard.SetDataObject(this.dataGridView1.GetClipboardContent());
+                //    Clipboard.SetDataObject(this.dataGridView1.GetClipboardContent());
+  
+                    //issue #12
+                    StringBuilder rowString = new StringBuilder();
+                   
+                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    {
+                        for (int i = 0; i < 6; i++)
+                        {
+                            rowString.Append(dataGridView1[i, row.Index].Value.ToString().Trim()).Append("\t");
+                        }
+                        rowString.Append("\r\n");
+                    }
+                    Clipboard.SetText(rowString.ToString());
 #if DEBUG
                     Console.WriteLine(Clipboard.GetText());  
 #endif
@@ -721,6 +746,7 @@ namespace PlaylistEditor
 
         private void pasteRowMenuItem_Click(object sender, EventArgs e)
         {
+            //bug error on hidden columns
             
             bool _dtEmpty = false;
 
@@ -801,7 +827,21 @@ namespace PlaylistEditor
                 {
                     // Add the selection to the clipboard.
 
-                    Clipboard.SetDataObject(this.dataGridView1.GetClipboardContent());
+                 //   Clipboard.SetDataObject(this.dataGridView1.GetClipboardContent());
+
+                    //issue #12
+                    StringBuilder rowString = new StringBuilder();
+                   
+                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    {
+                        for (int i = 0; i < 6; i++)
+                        {
+                            rowString.Append(dataGridView1[i, row.Index].Value.ToString().Trim()).Append("\t");
+                        }
+                        rowString.Append("\r\n");
+                    }
+                    Clipboard.SetText(rowString.ToString());
+
                     button_delLine.PerformClick();
 #if DEBUG
                     Console.WriteLine(Clipboard.GetText());
@@ -1054,7 +1094,12 @@ namespace PlaylistEditor
             if (_taglink) button_check.PerformClick();
 
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
-          
+
+            int i;
+            for ( i = 0; i < dataGridView1.ColumnCount; i++)
+            {
+                if (dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible) break;
+            }
 
             if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
             {
@@ -1080,7 +1125,10 @@ namespace PlaylistEditor
 
                     dataGridView1.Rows[row.Index + direction].Selected = true;
                     dataGridView1.Rows[row.Index].Selected = false;
-                    dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[0];  //scroll automatic to cell
+
+                    //get first not hidden col and scroll to it  //issue #12
+
+                    dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[i];  //scroll automatic to cell
                 }
                 
               //  toSave(true);

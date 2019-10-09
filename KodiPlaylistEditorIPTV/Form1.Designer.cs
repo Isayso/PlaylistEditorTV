@@ -128,7 +128,7 @@
             // copyRowMenuItem
             // 
             this.copyRowMenuItem.Name = "copyRowMenuItem";
-            this.copyRowMenuItem.ShortcutKeyDisplayString = "Strg+R";
+            this.copyRowMenuItem.ShortcutKeyDisplayString = "Ctrl+R";
             this.copyRowMenuItem.Size = new System.Drawing.Size(202, 24);
             this.copyRowMenuItem.Text = "Copy Row";
             this.copyRowMenuItem.Click += new System.EventHandler(this.copyRowMenuItem_Click);
@@ -136,7 +136,7 @@
             // pasteRowMenuItem
             // 
             this.pasteRowMenuItem.Name = "pasteRowMenuItem";
-            this.pasteRowMenuItem.ShortcutKeyDisplayString = "Strg+I";
+            this.pasteRowMenuItem.ShortcutKeyDisplayString = "Ctrl+I";
             this.pasteRowMenuItem.Size = new System.Drawing.Size(202, 24);
             this.pasteRowMenuItem.Text = "Insert Row";
             this.pasteRowMenuItem.Click += new System.EventHandler(this.pasteRowMenuItem_Click);
@@ -144,7 +144,7 @@
             // cutRowMenuItem
             // 
             this.cutRowMenuItem.Name = "cutRowMenuItem";
-            this.cutRowMenuItem.ShortcutKeyDisplayString = "Strg+X";
+            this.cutRowMenuItem.ShortcutKeyDisplayString = "Ctrl+X";
             this.cutRowMenuItem.Size = new System.Drawing.Size(202, 24);
             this.cutRowMenuItem.Text = "Cut Row";
             this.cutRowMenuItem.Click += new System.EventHandler(this.cutRowMenuItem_Click);
@@ -157,7 +157,7 @@
             // toolStripCopy
             // 
             this.toolStripCopy.Name = "toolStripCopy";
-            this.toolStripCopy.ShortcutKeyDisplayString = "Strg+C";
+            this.toolStripCopy.ShortcutKeyDisplayString = "Ctrl+C";
             this.toolStripCopy.Size = new System.Drawing.Size(202, 24);
             this.toolStripCopy.Text = "Copy Cells";
             this.toolStripCopy.Click += new System.EventHandler(this.toolStripCopy_Click);
@@ -165,7 +165,7 @@
             // toolStripPaste
             // 
             this.toolStripPaste.Name = "toolStripPaste";
-            this.toolStripPaste.ShortcutKeyDisplayString = "Strg+V";
+            this.toolStripPaste.ShortcutKeyDisplayString = "Ctrl+V";
             this.toolStripPaste.Size = new System.Drawing.Size(202, 24);
             this.toolStripPaste.Text = "Paste Cells";
             this.toolStripPaste.Click += new System.EventHandler(this.toolStripPaste_Click);
@@ -178,10 +178,10 @@
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.ShortcutKeyDisplayString = "Strg+P";
+            this.playToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+P";
             this.playToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.playToolStripMenuItem.Text = "Kodi play";
-            this.playToolStripMenuItem.ToolTipText = "Strg double click on cell";
+            this.playToolStripMenuItem.ToolTipText = "Ctrl double click on cell";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
@@ -238,7 +238,7 @@
             this.button_check.Name = "button_check";
             this.button_check.Size = new System.Drawing.Size(25, 37);
             this.button_check.TabIndex = 38;
-            this.toolTip1.SetToolTip(this.button_check, "check for invalid links\r\n+ strg select links");
+            this.toolTip1.SetToolTip(this.button_check, "check for invalid links\r\n+ ctrl select links");
             this.button_check.UseVisualStyleBackColor = true;
             this.button_check.Click += new System.EventHandler(this.Button_check_Click);
             // 
@@ -255,7 +255,7 @@
             this.button_vlc.Name = "button_vlc";
             this.button_vlc.Size = new System.Drawing.Size(38, 37);
             this.button_vlc.TabIndex = 37;
-            this.toolTip1.SetToolTip(this.button_vlc, "play with vlc\r\nSTRG+p\r\ndouble click cell");
+            this.toolTip1.SetToolTip(this.button_vlc, "play with vlc\r\nCtrl+p\r\ndouble click cell");
             this.button_vlc.UseVisualStyleBackColor = true;
             this.button_vlc.Click += new System.EventHandler(this.button_vlc_Click);
             // 
@@ -306,7 +306,7 @@
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(25, 37);
             this.button_search.TabIndex = 33;
-            this.toolTip1.SetToolTip(this.button_search, "search\r\nStrg+F");
+            this.toolTip1.SetToolTip(this.button_search, "search\r\nCtrl+F");
             this.button_search.UseVisualStyleBackColor = true;
             this.button_search.Click += new System.EventHandler(this.button_search_Click);
             // 
@@ -322,7 +322,7 @@
             this.button_del_all.Size = new System.Drawing.Size(30, 32);
             this.button_del_all.TabIndex = 29;
             this.button_del_all.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_del_all, "delete list\r\nStrg+N open new window");
+            this.toolTip1.SetToolTip(this.button_del_all, "delete list\r\nCtrl+N open new window");
             this.button_del_all.UseVisualStyleBackColor = true;
             this.button_del_all.Click += new System.EventHandler(this.button_del_all_Click);
             // 
@@ -370,7 +370,7 @@
             this.button_save.Size = new System.Drawing.Size(45, 49);
             this.button_save.TabIndex = 1;
             this.button_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_save, "save as\r\n+shift save overwrite\r\nStrg+S save");
+            this.toolTip1.SetToolTip(this.button_save, "save as\r\n+shift save overwrite\r\nCtrl+S save");
             this.button_save.UseVisualStyleBackColor = true;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
@@ -450,7 +450,7 @@
             this.button_moveUp.Size = new System.Drawing.Size(30, 32);
             this.button_moveUp.TabIndex = 31;
             this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Strg move to top\r\nStrg+T move to top");
+            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Ctrl move to top\r\nCtrl+T move to top");
             this.button_moveUp.UseVisualStyleBackColor = true;
             this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
             // 
