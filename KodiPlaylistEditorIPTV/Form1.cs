@@ -22,6 +22,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 
 
@@ -132,6 +133,8 @@ namespace PlaylistEditor
                             break;
 
                         case Keys.I:
+                            if (ClassHelp.CheckClipboard()) 
+                                contextMenuStrip1.Items[1].Enabled = true;
                             pasteRowMenuItem.PerformClick();
                             break;
 
@@ -375,12 +378,10 @@ namespace PlaylistEditor
               
                     try
                     {
-                        
                         dr = dt.NewRow();
                         dr["Name"] = col[0].Trim(); dr["id"] = col[1].Trim(); dr["Title"] = col[2].Trim();
                         dr["logo"] = col[3].Trim(); dr["Name2"] = col[4].Trim(); dr["Link"] = col[5].Trim();
                         dt.Rows.Add(dr);
-                      
                     }
                     catch (System.ArgumentOutOfRangeException)
                     {
@@ -389,21 +390,24 @@ namespace PlaylistEditor
                     }
             }
             playlistFile.Close();
-
-            dataGridView1.AllowUserToAddRows = false;
+           
+            dataGridView1.AllowUserToAddRows = false;  //???
 
             if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Wrong file structure! ", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Wrong data structure! ", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            if (colShow[0] != 1) dataGridView1.Columns["Name"].Visible = false;
+                if (colShow[0] != 1) dataGridView1.Columns["Name"].Visible = false;
             if (colShow[1] != 1) dataGridView1.Columns["id"].Visible = false;
             if (colShow[2] != 1) dataGridView1.Columns["Title"].Visible = false;
             if (colShow[3] != 1) dataGridView1.Columns["logo"].Visible = false;
             colShow[4] = 1;
             colShow[5] = 1;
 
+            dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[5];
+            dataGridView1.Rows[0].Selected = true;
 
             void CheckEntry(int v)
             {//issue #12
@@ -500,8 +504,10 @@ namespace PlaylistEditor
                 toSave(false);
                 button_revert.Visible = true;
                 _savenow = false;
-                
-                
+
+                ClassHelp.PopupForm("Playlist Saved", "green", 1500);
+
+
             }
 
             else if (saveFileDialog1.ShowDialog() == DialogResult.OK)  //open file dialog
@@ -693,7 +699,7 @@ namespace PlaylistEditor
         private async void playToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridView1.RowCount == 0) return;
-
+           
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
             string jLink = dataGridView1.CurrentRow.Cells[5].Value.ToString();
            
@@ -707,8 +713,12 @@ namespace PlaylistEditor
 
         private void copyRowMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            // if (!dataGridView1.Rows[0].Cells[0].Selected) return;
+           // if (dataGridView1.SelectedCells.Count == 0) 
+
+                dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             //copy selection to whatever
+            //bug error when no cell is selected 
             if (dataGridView1.CurrentCell.Value != null && dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
             {
                 int rowIndex = dataGridView1.CurrentCell.RowIndex;
@@ -746,15 +756,15 @@ namespace PlaylistEditor
 
         private void pasteRowMenuItem_Click(object sender, EventArgs e)
         {
-            //bug error on hidden columns
-            
+           
+
             bool _dtEmpty = false;
 
             if (dataGridView1.RowCount == 0)
             {
-               _dtEmpty = true;
+                _dtEmpty = true;
                 DataRow dr = dt.NewRow();
-              
+
                 dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
                 dataGridView1.DataSource = dt;
@@ -874,13 +884,15 @@ namespace PlaylistEditor
 
         private void toolStripPaste_Click(object sender, EventArgs e)   //ctrl+v
         {
-           
-            if (dataGridView1.RowCount == 0)       // when empty
+           //feature req  import whole list from clipboard
+
+            if (dataGridView1.RowCount == 0 && ClassHelp.CheckClipboard())       // when empty
             {
                 pasteRowMenuItem.PerformClick();
                 return;
             }
 
+            if (ClassHelp.CheckClipboard()) return;
              
 
             int leftshift = Properties.Settings.Default.leftshift;
@@ -1193,7 +1205,8 @@ namespace PlaylistEditor
         /// </summary>
         public void toSave(bool hasChanged)
         {
-           
+
+            if (isModified == hasChanged) return;
 
             isModified = hasChanged;
 
@@ -1448,6 +1461,7 @@ namespace PlaylistEditor
 
         private void singleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0) return;
             //get col width, index, hide all others, set form width to col width
            if (!_isSingle)
             {
@@ -1462,9 +1476,11 @@ namespace PlaylistEditor
                  
                 }
 
-                this.Size = new Size(Math.Max(colw, 400), 422);
+               // this.Size = new Size(Math.Min(colw, 400), 422);  //max or min??
+                this.Size = new Size(400, 422);  //max or min??
 
-                SetFormWidth(colw);
+              //  SetFormWidth(Math.Min(colw, 400));
+                SetFormWidth(400);
                 contextMenuStrip1.Items[12].Text = "Single column mode Off";
                 _isSingle = true;
             }
@@ -1501,6 +1517,159 @@ namespace PlaylistEditor
             }
         }
 
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {           
+            if (dataGridView1.Rows.Count == 0)
+            {
+                for (int i = 0; i < contextMenuStrip1.Items.Count; i++)
+                {
+                    contextMenuStrip1.Items[i].Enabled = false;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < contextMenuStrip1.Items.Count; i++)
+                {
+                    contextMenuStrip1.Items[i].Enabled = true;
+                }
+                contextMenuStrip1.Items[1].Enabled = false;
+            }
+
+            if (ClassHelp.CheckClipboard()) contextMenuStrip1.Items[1].Enabled = true;
+
+         
+
+        }
+
+        private void button_import_Click(object sender, EventArgs e)
+        {
+            if (ClassHelp.CheckClipboard() || dataGridView1.Rows.Count > 0) return;
+
+                dt.TableName = "IPTV";
+
+
+            dataGridView1.DataSource = dt;
+            string[] col = new string[6];
+            Array.Clear(colShow, 0, 6);
+ 
+                dt.Clear();  // row clear
+                dt.Columns.Clear();  // col clear
+
+                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
+                dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
+
+
+            DataObject o = (DataObject)Clipboard.GetDataObject();
+
+            if (Clipboard.ContainsText())
+            {
+               
+                string line;
+
+                using (System.IO.StringReader playlistFile = new System.IO.StringReader(o.GetData(DataFormats.UnicodeText).ToString()))
+                {
+                   
+                    while ((line = playlistFile.ReadLine()) != null)
+                    {
+
+
+                        if (line.StartsWith("#EXTINF"))
+                        {
+
+                            col[0] = ClassHelp.GetPartString(line, "tvg-name=\"", "\"");
+                            CheckEntry(0);
+
+
+                            col[1] = ClassHelp.GetPartString(line, "tvg-id=\"", "\"");
+                            CheckEntry(1);
+
+
+                            col[2] = ClassHelp.GetPartString(line, "group-title=\"", "\"");
+                            CheckEntry(2);
+
+
+                            col[3] = ClassHelp.GetPartString(line, "tvg-logo=\"", "\"");
+                            CheckEntry(3);
+
+
+                            col[4] = line.Split(',').Last();
+                            if (string.IsNullOrEmpty(col[4])) col[4] = "N/A";
+
+
+                            continue;
+
+                        }
+
+                        else if (line.StartsWith("ht") && (line.Contains("//") || line.Contains(":\\")))
+                        {
+                            col[5] = line;
+                        }
+                        //else if (line.StartsWith("#") || line.StartsWith("."))
+                        //{
+
+                        //    continue;
+                        //}
+                        else
+                        {
+                            continue;  //if file has irregular linefeed.
+                        }
+
+
+                        try
+                        {
+                            dr = dt.NewRow();
+                            dr["Name"] = col[0].Trim(); dr["id"] = col[1].Trim(); dr["Title"] = col[2].Trim();
+                            dr["logo"] = col[3].Trim(); dr["Name2"] = col[4].Trim(); dr["Link"] = col[5].Trim();
+                            dt.Rows.Add(dr);
+                        }
+                        catch (System.ArgumentOutOfRangeException)
+                        {
+                            MessageBox.Show("Argument out of range error. Wrong format.");
+                            continue;
+                        }
+                    }
+                }
+
+
+            }
+
+          
+
+            dataGridView1.AllowUserToAddRows = false;  //???
+
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Wrong data structure! ", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (colShow[0] != 1) dataGridView1.Columns["Name"].Visible = false;
+            if (colShow[1] != 1) dataGridView1.Columns["id"].Visible = false;
+            if (colShow[2] != 1) dataGridView1.Columns["Title"].Visible = false;
+            if (colShow[3] != 1) dataGridView1.Columns["logo"].Visible = false;
+            colShow[4] = 1;
+            colShow[5] = 1;
+
+        
+            dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[5];
+            dataGridView1.Rows[0].Selected = true;
+
+
+            void CheckEntry(int v)
+            {
+                if (string.IsNullOrEmpty(col[v]) || (col[v].Contains("N/A") && colShow[v] == 0))
+                {
+                    col[v] = "N/A";
+                    colShow[v] = 0;
+                }
+                else
+                {
+                    colShow[v] = 1;
+                }
+
+
+            }
+        }
     }
 }
 

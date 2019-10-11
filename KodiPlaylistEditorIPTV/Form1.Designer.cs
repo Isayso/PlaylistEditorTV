@@ -61,11 +61,12 @@
             this.button_open = new System.Windows.Forms.Button();
             this.UndoButton = new System.Windows.Forms.Button();
             this.RedoButton = new System.Windows.Forms.Button();
-            this.button_moveDown = new RepeatingButton();
-            this.button_moveUp = new RepeatingButton();
+            this.button_import = new System.Windows.Forms.Button();
             this.textBox_find = new System.Windows.Forms.TextBox();
             this.button_settings = new System.Windows.Forms.Button();
             this.button_Info = new System.Windows.Forms.Button();
+            this.button_moveDown = new RepeatingButton();
+            this.button_moveUp = new RepeatingButton();
             this.plabel_Filename = new PathLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -123,7 +124,8 @@
             this.toolStripSeparator4,
             this.singleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 244);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 269);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // copyRowMenuItem
             // 
@@ -135,10 +137,11 @@
             // 
             // pasteRowMenuItem
             // 
+            this.pasteRowMenuItem.Enabled = false;
             this.pasteRowMenuItem.Name = "pasteRowMenuItem";
             this.pasteRowMenuItem.ShortcutKeyDisplayString = "Ctrl+I";
             this.pasteRowMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.pasteRowMenuItem.Text = "Insert Row";
+            this.pasteRowMenuItem.Text = "Paste Row";
             this.pasteRowMenuItem.Click += new System.EventHandler(this.pasteRowMenuItem_Click);
             // 
             // cutRowMenuItem
@@ -233,7 +236,7 @@
             this.button_check.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_check.FlatAppearance.BorderSize = 0;
             this.button_check.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_check.Location = new System.Drawing.Point(928, 14);
+            this.button_check.Location = new System.Drawing.Point(931, 14);
             this.button_check.Margin = new System.Windows.Forms.Padding(0);
             this.button_check.Name = "button_check";
             this.button_check.Size = new System.Drawing.Size(25, 37);
@@ -250,7 +253,7 @@
             this.button_vlc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_vlc.FlatAppearance.BorderSize = 0;
             this.button_vlc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_vlc.Location = new System.Drawing.Point(843, 11);
+            this.button_vlc.Location = new System.Drawing.Point(817, 11);
             this.button_vlc.Margin = new System.Windows.Forms.Padding(0);
             this.button_vlc.Name = "button_vlc";
             this.button_vlc.Size = new System.Drawing.Size(38, 37);
@@ -422,37 +425,22 @@
             this.RedoButton.UseVisualStyleBackColor = true;
             this.RedoButton.Click += new System.EventHandler(this.RedoButton_Click);
             // 
-            // button_moveDown
+            // button_import
             // 
-            this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
-            this.button_moveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_moveDown.FlatAppearance.BorderSize = 0;
-            this.button_moveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_moveDown.Location = new System.Drawing.Point(233, 11);
-            this.button_moveDown.Margin = new System.Windows.Forms.Padding(0);
-            this.button_moveDown.Name = "button_moveDown";
-            this.button_moveDown.Size = new System.Drawing.Size(30, 32);
-            this.button_moveDown.TabIndex = 32;
-            this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveDown, "move row down");
-            this.button_moveDown.UseVisualStyleBackColor = true;
-            this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
-            // 
-            // button_moveUp
-            // 
-            this.button_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
-            this.button_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_moveUp.FlatAppearance.BorderSize = 0;
-            this.button_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_moveUp.Location = new System.Drawing.Point(203, 9);
-            this.button_moveUp.Margin = new System.Windows.Forms.Padding(0);
-            this.button_moveUp.Name = "button_moveUp";
-            this.button_moveUp.Size = new System.Drawing.Size(30, 32);
-            this.button_moveUp.TabIndex = 31;
-            this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Ctrl move to top\r\nCtrl+T move to top");
-            this.button_moveUp.UseVisualStyleBackColor = true;
-            this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
+            this.button_import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_import.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_import.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_import.BackgroundImage")));
+            this.button_import.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_import.FlatAppearance.BorderSize = 0;
+            this.button_import.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_import.Location = new System.Drawing.Point(889, 14);
+            this.button_import.Margin = new System.Windows.Forms.Padding(0);
+            this.button_import.Name = "button_import";
+            this.button_import.Size = new System.Drawing.Size(25, 37);
+            this.button_import.TabIndex = 64;
+            this.toolTip1.SetToolTip(this.button_import, "Import full list from clipboard");
+            this.button_import.UseVisualStyleBackColor = true;
+            this.button_import.Click += new System.EventHandler(this.button_import_Click);
             // 
             // textBox_find
             // 
@@ -500,6 +488,38 @@
             this.button_Info.UseVisualStyleBackColor = true;
             this.button_Info.Click += new System.EventHandler(this.button_Info_Click);
             // 
+            // button_moveDown
+            // 
+            this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
+            this.button_moveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveDown.FlatAppearance.BorderSize = 0;
+            this.button_moveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveDown.Location = new System.Drawing.Point(233, 11);
+            this.button_moveDown.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveDown.Name = "button_moveDown";
+            this.button_moveDown.Size = new System.Drawing.Size(30, 32);
+            this.button_moveDown.TabIndex = 32;
+            this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveDown, "move row down");
+            this.button_moveDown.UseVisualStyleBackColor = true;
+            this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
+            // 
+            // button_moveUp
+            // 
+            this.button_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
+            this.button_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveUp.FlatAppearance.BorderSize = 0;
+            this.button_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveUp.Location = new System.Drawing.Point(203, 9);
+            this.button_moveUp.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveUp.Name = "button_moveUp";
+            this.button_moveUp.Size = new System.Drawing.Size(30, 32);
+            this.button_moveUp.TabIndex = 31;
+            this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Ctrl move to top\r\nCtrl+T move to top");
+            this.button_moveUp.UseVisualStyleBackColor = true;
+            this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
+            // 
             // plabel_Filename
             // 
             this.plabel_Filename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -518,6 +538,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1122, 378);
+            this.Controls.Add(this.button_import);
             this.Controls.Add(this.RedoButton);
             this.Controls.Add(this.UndoButton);
             this.Controls.Add(this.button_check);
@@ -590,6 +611,7 @@
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem singleToolStripMenuItem;
+        private System.Windows.Forms.Button button_import;
     }
 }
 

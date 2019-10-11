@@ -201,6 +201,34 @@ namespace PlaylistEditor
             return !Enumerable.Range(0, instance.GetLength(0)).Any(x => !instance[x].SequenceEqual(dgvRows[x].Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()));
         }
 
+        public static bool CheckClipboard()
+        {
+            DataObject o = (DataObject)Clipboard.GetDataObject();
 
+            if (Clipboard.ContainsText())
+            {
+                try
+                {
+
+                    string[] pastedRows = System.Text.RegularExpressions.Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
+                    string[] pastedRowCells = pastedRows[0].Split(new char[] { '\t' });
+
+                    if (pastedRowCells.Length == 7)  return true;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
+            return false;
+        }
+
+      
+
+
+        //here new methods
     }
+
 }
