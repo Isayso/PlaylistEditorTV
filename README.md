@@ -2,6 +2,7 @@
 # Playlist Editor TV
 Editor for TV m3u files (with vlc media player support)
 
+1.3.8 ongoing work, pre-release is avaliable. 
 - NEW in 1.3.7: [ADD] Single column UI mode, hide selected colums [FIX] small errors
 - NEW in 1.3.6: [ADD] undo/redo button [FIX] Strg+ check link only selects rows and does not rescan all
 - NEW in 1.3.5: change the check stream button to toggle functionality. 
