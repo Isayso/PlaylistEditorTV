@@ -62,11 +62,12 @@
             this.UndoButton = new System.Windows.Forms.Button();
             this.RedoButton = new System.Windows.Forms.Button();
             this.button_import = new System.Windows.Forms.Button();
+            this.button_moveDown = new RepeatingButton();
+            this.button_moveUp = new RepeatingButton();
+            this.button_kodi = new System.Windows.Forms.Button();
             this.textBox_find = new System.Windows.Forms.TextBox();
             this.button_settings = new System.Windows.Forms.Button();
             this.button_Info = new System.Windows.Forms.Button();
-            this.button_moveDown = new RepeatingButton();
-            this.button_moveUp = new RepeatingButton();
             this.plabel_Filename = new PathLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -96,7 +97,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 47;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1122, 321);
+            this.dataGridView1.Size = new System.Drawing.Size(1122, 319);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             this.dataGridView1.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValidated);
@@ -124,7 +125,7 @@
             this.toolStripSeparator4,
             this.singleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 269);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 244);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // copyRowMenuItem
@@ -249,16 +250,16 @@
             // 
             this.button_vlc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_vlc.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_vlc.BackgroundImage = global::PlaylistEditor.Properties.Resources.play;
+            this.button_vlc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_vlc.BackgroundImage")));
             this.button_vlc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_vlc.FlatAppearance.BorderSize = 0;
             this.button_vlc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_vlc.Location = new System.Drawing.Point(817, 11);
+            this.button_vlc.Location = new System.Drawing.Point(773, 12);
             this.button_vlc.Margin = new System.Windows.Forms.Padding(0);
             this.button_vlc.Name = "button_vlc";
             this.button_vlc.Size = new System.Drawing.Size(38, 37);
             this.button_vlc.TabIndex = 37;
-            this.toolTip1.SetToolTip(this.button_vlc, "play with vlc\r\nCtrl+p\r\ndouble click cell");
+            this.toolTip1.SetToolTip(this.button_vlc, "play with vlc\r\ndouble click cell");
             this.button_vlc.UseVisualStyleBackColor = true;
             this.button_vlc.Click += new System.EventHandler(this.button_vlc_Click);
             // 
@@ -442,6 +443,55 @@
             this.button_import.UseVisualStyleBackColor = true;
             this.button_import.Click += new System.EventHandler(this.button_import_Click);
             // 
+            // button_moveDown
+            // 
+            this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
+            this.button_moveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveDown.FlatAppearance.BorderSize = 0;
+            this.button_moveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveDown.Location = new System.Drawing.Point(233, 11);
+            this.button_moveDown.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveDown.Name = "button_moveDown";
+            this.button_moveDown.Size = new System.Drawing.Size(30, 32);
+            this.button_moveDown.TabIndex = 32;
+            this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveDown, "move row down");
+            this.button_moveDown.UseVisualStyleBackColor = true;
+            this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
+            // 
+            // button_moveUp
+            // 
+            this.button_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
+            this.button_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_moveUp.FlatAppearance.BorderSize = 0;
+            this.button_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_moveUp.Location = new System.Drawing.Point(203, 9);
+            this.button_moveUp.Margin = new System.Windows.Forms.Padding(0);
+            this.button_moveUp.Name = "button_moveUp";
+            this.button_moveUp.Size = new System.Drawing.Size(30, 32);
+            this.button_moveUp.TabIndex = 31;
+            this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Ctrl move to top\r\nCtrl+T move to top");
+            this.button_moveUp.UseVisualStyleBackColor = true;
+            this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
+            // 
+            // button_kodi
+            // 
+            this.button_kodi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_kodi.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_kodi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_kodi.BackgroundImage")));
+            this.button_kodi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_kodi.FlatAppearance.BorderSize = 0;
+            this.button_kodi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_kodi.Location = new System.Drawing.Point(820, 12);
+            this.button_kodi.Margin = new System.Windows.Forms.Padding(0);
+            this.button_kodi.Name = "button_kodi";
+            this.button_kodi.Size = new System.Drawing.Size(38, 37);
+            this.button_kodi.TabIndex = 65;
+            this.toolTip1.SetToolTip(this.button_kodi, "play with Kodi\r\nCtrl+p\r\nCtrl + double click cell");
+            this.button_kodi.UseVisualStyleBackColor = true;
+            this.button_kodi.Click += new System.EventHandler(this.button1_Click);
+            // 
             // textBox_find
             // 
             this.textBox_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -488,38 +538,6 @@
             this.button_Info.UseVisualStyleBackColor = true;
             this.button_Info.Click += new System.EventHandler(this.button_Info_Click);
             // 
-            // button_moveDown
-            // 
-            this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
-            this.button_moveDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_moveDown.FlatAppearance.BorderSize = 0;
-            this.button_moveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_moveDown.Location = new System.Drawing.Point(233, 11);
-            this.button_moveDown.Margin = new System.Windows.Forms.Padding(0);
-            this.button_moveDown.Name = "button_moveDown";
-            this.button_moveDown.Size = new System.Drawing.Size(30, 32);
-            this.button_moveDown.TabIndex = 32;
-            this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveDown, "move row down");
-            this.button_moveDown.UseVisualStyleBackColor = true;
-            this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
-            // 
-            // button_moveUp
-            // 
-            this.button_moveUp.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_up_bold_1_;
-            this.button_moveUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_moveUp.FlatAppearance.BorderSize = 0;
-            this.button_moveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_moveUp.Location = new System.Drawing.Point(203, 9);
-            this.button_moveUp.Margin = new System.Windows.Forms.Padding(0);
-            this.button_moveUp.Name = "button_moveUp";
-            this.button_moveUp.Size = new System.Drawing.Size(30, 32);
-            this.button_moveUp.TabIndex = 31;
-            this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Ctrl move to top\r\nCtrl+T move to top");
-            this.button_moveUp.UseVisualStyleBackColor = true;
-            this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
-            // 
             // plabel_Filename
             // 
             this.plabel_Filename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -538,6 +556,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1122, 378);
+            this.Controls.Add(this.button_kodi);
             this.Controls.Add(this.button_import);
             this.Controls.Add(this.RedoButton);
             this.Controls.Add(this.UndoButton);
@@ -564,7 +583,6 @@
             this.Name = "Form1";
             this.Text = "Playlist Editor TV";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -612,6 +630,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem singleToolStripMenuItem;
         private System.Windows.Forms.Button button_import;
+        private System.Windows.Forms.Button button_kodi;
     }
 }
 

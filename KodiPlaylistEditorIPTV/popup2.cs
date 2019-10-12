@@ -20,18 +20,15 @@ namespace PlaylistEditor
             switch (backgcl)
             {
                 case "green":
-                    this.BackColor = System.Drawing.Color.DarkGreen;
-                    //label1.Text = "Kodi says: OK";
+                    this.BackColor = System.Drawing.Color.DarkGreen;                   
                     break;
 
                 case "red":
-                    this.BackColor = System.Drawing.Color.DarkRed;
-                    //label1.Text = "Kodi says: ERROR";
+                    this.BackColor = System.Drawing.Color.DarkRed;                    
                     break;
 
                 case "blue":
-                    this.BackColor = System.Drawing.Color.MidnightBlue;
-                   // label1.Text = "YouTube Link added";
+                    this.BackColor = System.Drawing.Color.MidnightBlue;                  
                     break;
 
             }

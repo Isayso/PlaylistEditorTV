@@ -22,7 +22,6 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 
 
@@ -59,7 +58,7 @@ namespace PlaylistEditor
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         DataRow dr;
-        readonly string vlcpath = Properties.Settings.Default.vlcpath;
+        string vlcpath = Properties.Settings.Default.vlcpath;
 
         public int[] colShow = new int[6];
 
@@ -74,19 +73,19 @@ namespace PlaylistEditor
 
             var spec_key = Properties.Settings.Default.specKey;
             var hotlabel = Properties.Settings.Default.hotkey;
-           
-            
-           
-            if (!string.IsNullOrEmpty(vlcpath))
-            {
-                button_vlc.Visible = true;
-            }
-            else if (string.IsNullOrEmpty(vlcpath))  //first run
-            {
-                vlcpath = ClassHelp.GetVlcPath();
-                if (string.IsNullOrEmpty(vlcpath)) button_vlc.Visible = false; //no vlc installed
-            }
-           
+
+
+
+            //if (!string.IsNullOrEmpty(vlcpath))
+            //{
+            //    button_vlc.Visible = true;
+            //}
+            //else if (string.IsNullOrEmpty(vlcpath))  //first run
+            //{
+            //    vlcpath = ClassHelp.GetVlcPath();
+            //    if (string.IsNullOrEmpty(vlcpath)) ClassHelp.PopupForm("VLC player not found", "red", 3000);
+            //    // button_vlc.Visible = false; //no vlc installed
+            //}
 
             plabel_Filename.Text = "";
             button_revert.Visible = false;
@@ -451,22 +450,6 @@ namespace PlaylistEditor
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            //for (int i = 0; i < dataGridView1.ColumnCount; i++)
-            //{
-            //    if (dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible == false)
-            //    {
-            //        switch (MessageBox.Show("Hidden Columns avaliable, continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-            //        {
-            //            case DialogResult.Yes:
-            //                break;
-
-            //            case DialogResult.No:
-            //                return;
-            //                // break;
-            //        }
-            //        break;
-            //    }
-            //}
 
             if ((Control.ModifierKeys == Keys.Shift || _savenow) && !string.IsNullOrEmpty(plabel_Filename.Text) 
                 && ClassHelp.MyDirectoryExists(Path.GetDirectoryName(plabel_Filename.Text), 4000))
@@ -611,8 +594,13 @@ namespace PlaylistEditor
 
         private void button_vlc_Click(object sender, EventArgs e)
         {
-            
-            string param = "";
+            if (string.IsNullOrEmpty(vlcpath))  
+            {
+                vlcpath = ClassHelp.GetVlcPath();
+                if (string.IsNullOrEmpty(vlcpath))
+                    ClassHelp.PopupForm("VLC player not found", "red", 3000);
+                return;
+            }
 
             if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath))
             {
@@ -620,8 +608,7 @@ namespace PlaylistEditor
                 // Set cursor as hourglass
                 Cursor.Current = Cursors.WaitCursor;
 
-                param = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-               
+                string param = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                 System.Diagnostics.ProcessStartInfo ps = new System.Diagnostics.ProcessStartInfo();
                 ps.FileName = vlcpath + "\\" + "vlc.exe";
                 ps.ErrorDialog = false;
@@ -1451,36 +1438,34 @@ namespace PlaylistEditor
                 
         }
 
-        private void Form1_ResizeEnd(object sender, EventArgs e)
-        {
-          
-            int formWidth = this.Width;   //321/378
-            SetFormWidth(formWidth);
-            
-        }
-
+      
         private void singleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0) return;
+            if (dataGridView1.SelectedRows.Count > 0 
+                || this.WindowState == FormWindowState.Maximized) return;
+            //int formHeight = this.Height; //422
+            //int formWidth = this.Width;  //1140
+            //int gridHeight = dataGridView1.Height; //319
+            //int gridWidth = dataGridView1.Width;  //1122
+          
             //get col width, index, hide all others, set form width to col width
-           if (!_isSingle)
+            if (!_isSingle)
             {
                 int columnIndex = dataGridView1.CurrentCell.ColumnIndex;
                 int colw = dataGridView1.Columns[columnIndex].Width;
-
 
                 for (int i = 0; i < dataGridView1.ColumnCount; i++)
                 {
                     if (i != columnIndex)
                         dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = false;
                  
-                }
+                }               
+               
+                this.Size = new Size(400, 422);  
+             
+                dataGridView1.Size = new Size(382, 422-44); 
+                dataGridView1.Location = new Point(0, 0);
 
-               // this.Size = new Size(Math.Min(colw, 400), 422);  //max or min??
-                this.Size = new Size(400, 422);  //max or min??
-
-              //  SetFormWidth(Math.Min(colw, 400));
-                SetFormWidth(400);
                 contextMenuStrip1.Items[12].Text = "Single column mode Off";
                 _isSingle = true;
             }
@@ -1492,31 +1477,17 @@ namespace PlaylistEditor
                 }
                
                 this.Size = new Size(1140, 422);
-                SetFormWidth(1140);
+              
+                dataGridView1.Size = new Size(1122, 319); 
+                dataGridView1.Location = new Point(0, 59);
+
                 contextMenuStrip1.Items[12].Text = "Single column mode";
                 _isSingle = false;
 
             }
         }
 
-        /// <summary>
-        /// set dataGridView width, resize
-        /// </summary>
-        /// <param name="formWidth">width in pt</param>
-        private void SetFormWidth(int formWidth)
-        {
-            if (formWidth < 500)
-            {
-                dataGridView1.Size = new Size(400, 387);
-                dataGridView1.Location = new Point(0, 0);
-            }
-            else if (formWidth > 500 )
-            {
-                dataGridView1.Size = new Size(formWidth - 18, 321);
-                dataGridView1.Location = new Point(0, 59);                
-            }
-        }
-
+       
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {           
             if (dataGridView1.Rows.Count == 0)
@@ -1533,6 +1504,9 @@ namespace PlaylistEditor
                     contextMenuStrip1.Items[i].Enabled = true;
                 }
                 contextMenuStrip1.Items[1].Enabled = false;
+                
+                if (this.WindowState == FormWindowState.Maximized)
+                    contextMenuStrip1.Items[12].Enabled = false;
             }
 
             if (ClassHelp.CheckClipboard()) contextMenuStrip1.Items[1].Enabled = true;
@@ -1543,6 +1517,8 @@ namespace PlaylistEditor
 
         private void button_import_Click(object sender, EventArgs e)
         {
+            //todo add option?
+
             if (ClassHelp.CheckClipboard() || dataGridView1.Rows.Count > 0) return;
 
                 dt.TableName = "IPTV";
@@ -1600,7 +1576,8 @@ namespace PlaylistEditor
 
                         }
 
-                        else if (line.StartsWith("ht") && (line.Contains("//") || line.Contains(":\\")))
+                        else if (line.StartsWith("ht") && (line.Contains("//") || line.Contains(":\\")) 
+                            && !string.IsNullOrEmpty(col[0]))
                         {
                             col[5] = line;
                         }
@@ -1614,9 +1591,12 @@ namespace PlaylistEditor
                             continue;  //if file has irregular linefeed.
                         }
 
+                       
+
 
                         try
-                        {
+                        {                           
+
                             dr = dt.NewRow();
                             dr["Name"] = col[0].Trim(); dr["id"] = col[1].Trim(); dr["Title"] = col[2].Trim();
                             dr["logo"] = col[3].Trim(); dr["Name2"] = col[4].Trim(); dr["Link"] = col[5].Trim();
@@ -1639,7 +1619,7 @@ namespace PlaylistEditor
 
             if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Wrong data structure! ", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Wrong input! ", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -1669,6 +1649,11 @@ namespace PlaylistEditor
 
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            playToolStripMenuItem.PerformClick();
         }
     }
 }

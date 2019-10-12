@@ -1,12 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Configuration;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -80,6 +77,12 @@ namespace PlaylistEditor
             return enc.GetBytes(str);
         }
 
+        /// <summary>
+        /// shows a popup form
+        /// </summary>
+        /// <param name="label">text to show</param>
+        /// <param name="color">green OR blue OR red</param>
+        /// <param name="delay">show time</param>
         public static async void PopupForm(string label, string color, int delay)
         {
             await PopupDelay(label, color, delay);
@@ -90,7 +93,7 @@ namespace PlaylistEditor
         /// <summary>
         /// async thread counter to show popup form
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="item">text, color[green,blue,red], showtime</param>
         public static async Task PopupDelay(string label, string color, int delay)
         {
             popup2 pop = new popup2();

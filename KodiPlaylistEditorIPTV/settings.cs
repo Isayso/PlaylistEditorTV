@@ -115,6 +115,12 @@ namespace PlaylistEditor
 
         }
 
+        private void ComboBox_Click(object sender, EventArgs e)
+        {
+            ComboBox obj = sender as ComboBox;
+            obj.DroppedDown = true;
+        }
+
         private void tabPage1_Click(object sender, EventArgs e)
         {
 

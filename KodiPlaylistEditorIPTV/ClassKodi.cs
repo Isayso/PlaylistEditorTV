@@ -37,7 +37,6 @@ namespace PlaylistEditor
             var values = new Dictionary<string, string>
             {
                 { kodiUser,kodiPass}
-
             };
 
             string url = "http://" + kodiIP + ":" + kodiPort + "/jsonrpc?request=";
@@ -69,8 +68,6 @@ namespace PlaylistEditor
                 else if (responseText.Contains("error") /*&& link.Contains("Playlist.Add")*/)
                 {
                     ClassHelp.PopupForm("Kodi response: ERROR", "red", 1300);
-
-
                 }
 
                 kodiPass = "";  //to be safe
