@@ -34,11 +34,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyRowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteRowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cutRowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.pasteReplaceRowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripPaste = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutRowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteRowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -62,9 +62,9 @@
             this.UndoButton = new System.Windows.Forms.Button();
             this.RedoButton = new System.Windows.Forms.Button();
             this.button_import = new System.Windows.Forms.Button();
+            this.button_kodi = new System.Windows.Forms.Button();
             this.button_moveDown = new RepeatingButton();
             this.button_moveUp = new RepeatingButton();
-            this.button_kodi = new System.Windows.Forms.Button();
             this.textBox_find = new System.Windows.Forms.TextBox();
             this.button_settings = new System.Windows.Forms.Button();
             this.button_Info = new System.Windows.Forms.Button();
@@ -82,6 +82,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gray;
+            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -106,17 +107,18 @@
             this.dataGridView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragDrop);
             this.dataGridView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragEnter);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyRowMenuItem,
-            this.pasteRowMenuItem,
-            this.cutRowMenuItem,
-            this.toolStripSeparator1,
+            this.pasteReplaceRowMenuItem,
             this.toolStripCopy,
             this.toolStripPaste,
+            this.cutRowMenuItem,
+            this.pasteRowMenuItem,
             this.toolStripSeparator2,
             this.playToolStripMenuItem,
             this.toolStripSeparator3,
@@ -125,65 +127,74 @@
             this.toolStripSeparator4,
             this.singleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 244);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(222, 262);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // copyRowMenuItem
             // 
+            this.copyRowMenuItem.Enabled = false;
             this.copyRowMenuItem.Name = "copyRowMenuItem";
             this.copyRowMenuItem.ShortcutKeyDisplayString = "Ctrl+R";
-            this.copyRowMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.copyRowMenuItem.Size = new System.Drawing.Size(221, 24);
             this.copyRowMenuItem.Text = "Copy Row";
+            this.copyRowMenuItem.Visible = false;
             this.copyRowMenuItem.Click += new System.EventHandler(this.copyRowMenuItem_Click);
+            // 
+            // pasteReplaceRowMenuItem
+            // 
+            this.pasteReplaceRowMenuItem.Enabled = false;
+            this.pasteReplaceRowMenuItem.Name = "pasteReplaceRowMenuItem";
+            this.pasteReplaceRowMenuItem.ShortcutKeyDisplayString = "Ctrl+V";
+            this.pasteReplaceRowMenuItem.Size = new System.Drawing.Size(221, 24);
+            this.pasteReplaceRowMenuItem.Text = "Paste Row";
+            this.pasteReplaceRowMenuItem.Visible = false;
+            this.pasteReplaceRowMenuItem.Click += new System.EventHandler(this.pasteReplaceRowMenuItem_Click);
+            // 
+            // toolStripCopy
+            // 
+            this.toolStripCopy.Name = "toolStripCopy";
+            this.toolStripCopy.ShortcutKeyDisplayString = "Ctrl+C";
+            this.toolStripCopy.Size = new System.Drawing.Size(221, 24);
+            this.toolStripCopy.Text = "Copy";
+            this.toolStripCopy.Click += new System.EventHandler(this.toolStripCopy_Click);
+            // 
+            // toolStripPaste
+            // 
+            this.toolStripPaste.Enabled = false;
+            this.toolStripPaste.Name = "toolStripPaste";
+            this.toolStripPaste.ShortcutKeyDisplayString = "Ctrl+V";
+            this.toolStripPaste.Size = new System.Drawing.Size(221, 24);
+            this.toolStripPaste.Text = "Paste";
+            this.toolStripPaste.Click += new System.EventHandler(this.toolStripPaste_Click);
+            // 
+            // cutRowMenuItem
+            // 
+            this.cutRowMenuItem.Enabled = false;
+            this.cutRowMenuItem.Name = "cutRowMenuItem";
+            this.cutRowMenuItem.ShortcutKeyDisplayString = "Ctrl+X";
+            this.cutRowMenuItem.Size = new System.Drawing.Size(221, 24);
+            this.cutRowMenuItem.Text = "Cut Row";
+            this.cutRowMenuItem.Click += new System.EventHandler(this.cutRowMenuItem_Click);
             // 
             // pasteRowMenuItem
             // 
             this.pasteRowMenuItem.Enabled = false;
             this.pasteRowMenuItem.Name = "pasteRowMenuItem";
             this.pasteRowMenuItem.ShortcutKeyDisplayString = "Ctrl+I";
-            this.pasteRowMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.pasteRowMenuItem.Text = "Paste Row";
+            this.pasteRowMenuItem.Size = new System.Drawing.Size(221, 24);
+            this.pasteRowMenuItem.Text = "Paste+Add Row";
             this.pasteRowMenuItem.Click += new System.EventHandler(this.pasteRowMenuItem_Click);
-            // 
-            // cutRowMenuItem
-            // 
-            this.cutRowMenuItem.Name = "cutRowMenuItem";
-            this.cutRowMenuItem.ShortcutKeyDisplayString = "Ctrl+X";
-            this.cutRowMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.cutRowMenuItem.Text = "Cut Row";
-            this.cutRowMenuItem.Click += new System.EventHandler(this.cutRowMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(199, 6);
-            // 
-            // toolStripCopy
-            // 
-            this.toolStripCopy.Name = "toolStripCopy";
-            this.toolStripCopy.ShortcutKeyDisplayString = "Ctrl+C";
-            this.toolStripCopy.Size = new System.Drawing.Size(202, 24);
-            this.toolStripCopy.Text = "Copy Cells";
-            this.toolStripCopy.Click += new System.EventHandler(this.toolStripCopy_Click);
-            // 
-            // toolStripPaste
-            // 
-            this.toolStripPaste.Name = "toolStripPaste";
-            this.toolStripPaste.ShortcutKeyDisplayString = "Ctrl+V";
-            this.toolStripPaste.Size = new System.Drawing.Size(202, 24);
-            this.toolStripPaste.Text = "Paste Cells";
-            this.toolStripPaste.Click += new System.EventHandler(this.toolStripPaste_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(218, 6);
             // 
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
             this.playToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+P";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(221, 24);
             this.playToolStripMenuItem.Text = "Kodi play";
             this.playToolStripMenuItem.ToolTipText = "Ctrl double click on cell";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
@@ -191,31 +202,31 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(218, 6);
             // 
             // hideToolStripMenuItem
             // 
             this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
-            this.hideToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.hideToolStripMenuItem.Size = new System.Drawing.Size(221, 24);
             this.hideToolStripMenuItem.Text = "Hide column";
             this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(221, 24);
             this.showToolStripMenuItem.Text = "Show all columns";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(218, 6);
             // 
             // singleToolStripMenuItem
             // 
             this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
-            this.singleToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.singleToolStripMenuItem.Size = new System.Drawing.Size(221, 24);
             this.singleToolStripMenuItem.Text = "Single column mode";
             this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
             // 
@@ -443,6 +454,23 @@
             this.button_import.UseVisualStyleBackColor = true;
             this.button_import.Click += new System.EventHandler(this.button_import_Click);
             // 
+            // button_kodi
+            // 
+            this.button_kodi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_kodi.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_kodi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_kodi.BackgroundImage")));
+            this.button_kodi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_kodi.FlatAppearance.BorderSize = 0;
+            this.button_kodi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_kodi.Location = new System.Drawing.Point(820, 12);
+            this.button_kodi.Margin = new System.Windows.Forms.Padding(0);
+            this.button_kodi.Name = "button_kodi";
+            this.button_kodi.Size = new System.Drawing.Size(38, 37);
+            this.button_kodi.TabIndex = 65;
+            this.toolTip1.SetToolTip(this.button_kodi, "play with Kodi\r\nCtrl+p\r\nCtrl + double click cell");
+            this.button_kodi.UseVisualStyleBackColor = true;
+            this.button_kodi.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button_moveDown
             // 
             this.button_moveDown.BackgroundImage = global::PlaylistEditor.Properties.Resources.arrow_down_bold_1_;
@@ -474,23 +502,6 @@
             this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\n+ Ctrl move to top\r\nCtrl+T move to top");
             this.button_moveUp.UseVisualStyleBackColor = true;
             this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
-            // 
-            // button_kodi
-            // 
-            this.button_kodi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_kodi.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_kodi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_kodi.BackgroundImage")));
-            this.button_kodi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_kodi.FlatAppearance.BorderSize = 0;
-            this.button_kodi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_kodi.Location = new System.Drawing.Point(820, 12);
-            this.button_kodi.Margin = new System.Windows.Forms.Padding(0);
-            this.button_kodi.Name = "button_kodi";
-            this.button_kodi.Size = new System.Drawing.Size(38, 37);
-            this.button_kodi.TabIndex = 65;
-            this.toolTip1.SetToolTip(this.button_kodi, "play with Kodi\r\nCtrl+p\r\nCtrl + double click cell");
-            this.button_kodi.UseVisualStyleBackColor = true;
-            this.button_kodi.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox_find
             // 
@@ -613,7 +624,6 @@
         private System.Windows.Forms.Button button_search;
         private System.Windows.Forms.TextBox textBox_find;
         private System.Windows.Forms.Button button_dup;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripCopy;
         private System.Windows.Forms.ToolStripMenuItem toolStripPaste;
         private System.Windows.Forms.ToolStripMenuItem cutRowMenuItem;
@@ -631,6 +641,7 @@
         private System.Windows.Forms.ToolStripMenuItem singleToolStripMenuItem;
         private System.Windows.Forms.Button button_import;
         private System.Windows.Forms.Button button_kodi;
+        private System.Windows.Forms.ToolStripMenuItem pasteReplaceRowMenuItem;
     }
 }
 

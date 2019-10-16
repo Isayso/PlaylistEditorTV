@@ -121,9 +121,5 @@ namespace PlaylistEditor
             obj.DroppedDown = true;
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

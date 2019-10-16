@@ -18,23 +18,31 @@ namespace PlaylistEditor
         /// <returns>true if IPTV</returns>
         public static bool FileIsIPTV(string filename)
         {
-            string line;
-            using (StreamReader playlistFile = new StreamReader(filename))
+            try
             {
-                while ((line = playlistFile.ReadLine()) != null)
+                string line;
+                using (StreamReader playlistFile = new StreamReader(filename))
                 {
-                    if (line.StartsWith("#EXTM3U"))
+                    while ((line = playlistFile.ReadLine()) != null)
                     {
-                        return true;  //is IPTV
-                    }
-                    else if (line.StartsWith("#EXTCPlayListM3U::M3U"))
-                    {
-                        return false;  //is Video
-                    }
+                        if (line.StartsWith("#EXTM3U"))
+                        {
+                            return true;  //is IPTV
+                        }
+                        else if (line.StartsWith("#EXTCPlayListM3U::M3U"))
+                        {
+                            return false;  //is Video
+                        }
 
+                    }
+                    return false;
                 }
+            }
+            catch (Exception )
+            {
                 return false;
             }
+            
 
         }
 
@@ -204,6 +212,10 @@ namespace PlaylistEditor
             return !Enumerable.Range(0, instance.GetLength(0)).Any(x => !instance[x].SequenceEqual(dgvRows[x].Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()));
         }
 
+        /// <summary>
+        /// checks if a full row (6) is in clipboard
+        /// </summary>
+        /// <returns></returns>
         public static bool CheckClipboard()
         {
             DataObject o = (DataObject)Clipboard.GetDataObject();
@@ -216,7 +228,9 @@ namespace PlaylistEditor
                     string[] pastedRows = System.Text.RegularExpressions.Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
                     string[] pastedRowCells = pastedRows[0].Split(new char[] { '\t' });
 
-                    if (pastedRowCells.Length == 7)  return true;
+                    if (pastedRowCells.Length == 6)  return true;  
+                    // check for visible rows
+                   
 
                 }
                 catch (Exception ex)
@@ -228,10 +242,11 @@ namespace PlaylistEditor
             return false;
         }
 
-      
 
 
         //here new methods
     }
+
+  
 
 }
