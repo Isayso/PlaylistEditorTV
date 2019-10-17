@@ -463,7 +463,7 @@ namespace PlaylistEditor
             else
             {
                 Int32 selectedCellCount = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
-                if (selectedCellCount > 1)
+                if (selectedCellCount > 0)
                 {
                     for (int i = 0; i < selectedCellCount; i++)
                     {
@@ -1170,6 +1170,10 @@ namespace PlaylistEditor
 
                 Clipboard.SetText(cpString.ToString());
 
+            }
+            else if (selectedCellCount == 1)
+            {
+                Clipboard.SetText(dataGridView1.SelectedCells[0].Value.ToString() + "\r\n");
             }
 
         }
