@@ -18,7 +18,7 @@ NEW in 1.4: Re-design of copy/paste function and context menu. Imports a full li
 - Play links on Windows with installed VLC player 
 
 
-![UI](playlisteditTV1.png)
+
 
 ## Getting Started
 
