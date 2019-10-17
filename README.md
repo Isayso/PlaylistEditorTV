@@ -2,18 +2,16 @@
 # Playlist Editor TV
 Editor for TV m3u files (with vlc media player support)
 
-1.3.8 ongoing work, pre-release is avaliable. 
-- NEW in 1.3.7: [ADD] Single column UI mode, hide selected colums [FIX] small errors
-- NEW in 1.3.6: [ADD] undo/redo button [FIX] Strg+ check link only selects rows and does not rescan all
-- NEW in 1.3.5: change the check stream button to toggle functionality. 
-- NEW in 1.3: Check if stream is responding, this is time consuming. Function tries to read first 1k bytes of the stream content.
-  
+1.4 coming soon. pre-release is avaliable. 
+
+NEW: Re-design of copy/paste function and context menu. Imports a full list from clipboard, no file save before necessary.  Single column mode for better play with vlc. Send to Kodi button. Auto hide empty columns on file load. Check button if link is responding. 
+  Special thanks to dobbelina for helpful ideas and testing, improved the usablility a lot. 
 
 ![UI](KodiPlaylistEditorTV1.3a.PNG)
-![UI](Singlecolumn.jpg)
 
-- NEW in 1.2: Move line to top of list for faster sorting of favorites. Double buffer for better UI performance.
-- NEW in 1.1: Send link to Kodi device e.g. Raspberry PI
+
+- Move line to top of list for faster sorting of favorites. Double buffer for better UI performance.
+- Send link to Kodi device e.g. Raspberry PI
 - You can edit and create Kodi IPTV playlists, add, rename, move and delete playlist entries, drag&drop m3u files to add to list. 
 - Search for names and find duplicate links to merge files. 
 - Copy/paste links to other editor window. 
