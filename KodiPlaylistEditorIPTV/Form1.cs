@@ -457,11 +457,36 @@ namespace PlaylistEditor
 
                     dt.Rows.RemoveAt(selectedRow);
                 }
+                toSave(true);
+
+            }
+            else
+            {
+                Int32 selectedCellCount = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
+                if (selectedCellCount > 1)
+                {
+                    for (int i = 0; i < selectedCellCount; i++)
+                    {
+                        dataGridView1.Rows[dataGridView1.SelectedCells[i].RowIndex]
+                            .Cells[dataGridView1.SelectedCells[i].ColumnIndex].Value = string.Empty;
+                    }
+                }
+
+                //foreach (var cell in from DataGridViewRow row in dataGridView1.Rows
+                //                     from DataGridViewCell cell in row.Cells
+                //                     select cell)
+                //{
+                //    cell.Value = string.Empty;
+                //}
 
 
                 toSave(true);
 
             }
+
+             
+
+            
         }
 
         private void button_save_Click(object sender, EventArgs e)
@@ -495,8 +520,6 @@ namespace PlaylistEditor
 
                         file.WriteLine(writestring);
                         file.WriteLine(dt.Rows[i][5]);
-
-
 
                     }
 
@@ -1638,7 +1661,7 @@ namespace PlaylistEditor
                 }
                 ignore = true;
 
-                dt.Clear();  // row clear
+                dt.Clear();  // row clear  
 
 
                 for (int x = 0; x <= gridrows.GetUpperBound(0); x++)
