@@ -1,12 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Configuration;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,23 +18,31 @@ namespace PlaylistEditor
         /// <returns>true if IPTV</returns>
         public static bool FileIsIPTV(string filename)
         {
-            string line;
-            using (StreamReader playlistFile = new StreamReader(filename))
+            try
             {
-                while ((line = playlistFile.ReadLine()) != null)
+                string line;
+                using (StreamReader playlistFile = new StreamReader(filename))
                 {
-                    if (line.StartsWith("#EXTM3U"))
+                    while ((line = playlistFile.ReadLine()) != null)
                     {
-                        return true;  //is IPTV
-                    }
-                    else if (line.StartsWith("#EXTCPlayListM3U::M3U"))
-                    {
-                        return false;  //is Video
-                    }
+                        if (line.StartsWith("#EXTM3U"))
+                        {
+                            return true;  //is IPTV
+                        }
+                        else if (line.StartsWith("#EXTCPlayListM3U::M3U"))
+                        {
+                            return false;  //is Video
+                        }
 
+                    }
+                    return false;
                 }
+            }
+            catch (Exception )
+            {
                 return false;
             }
+            
 
         }
 
@@ -80,6 +85,12 @@ namespace PlaylistEditor
             return enc.GetBytes(str);
         }
 
+        /// <summary>
+        /// shows a popup form
+        /// </summary>
+        /// <param name="label">text to show</param>
+        /// <param name="color">green OR blue OR red</param>
+        /// <param name="delay">show time</param>
         public static async void PopupForm(string label, string color, int delay)
         {
             await PopupDelay(label, color, delay);
@@ -90,7 +101,7 @@ namespace PlaylistEditor
         /// <summary>
         /// async thread counter to show popup form
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="item">text, color[green,blue,red], showtime</param>
         public static async Task PopupDelay(string label, string color, int delay)
         {
             popup2 pop = new popup2();
@@ -201,6 +212,41 @@ namespace PlaylistEditor
             return !Enumerable.Range(0, instance.GetLength(0)).Any(x => !instance[x].SequenceEqual(dgvRows[x].Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()));
         }
 
+        /// <summary>
+        /// checks if a full row (6) is in clipboard
+        /// </summary>
+        /// <returns></returns>
+        public static bool CheckClipboard()
+        {
+            DataObject o = (DataObject)Clipboard.GetDataObject();
 
+            if (Clipboard.ContainsText())
+            {
+                try
+                {
+
+                    string[] pastedRows = System.Text.RegularExpressions.Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
+                    string[] pastedRowCells = pastedRows[0].Split(new char[] { '\t' });
+
+                    if (pastedRowCells.Length == 6)  return true;  
+                    // check for visible rows
+                   
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
+            return false;
+        }
+
+
+
+        //here new methods
     }
+
+  
+
 }

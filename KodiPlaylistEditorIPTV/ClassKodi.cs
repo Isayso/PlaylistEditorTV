@@ -37,7 +37,6 @@ namespace PlaylistEditor
             var values = new Dictionary<string, string>
             {
                 { kodiUser,kodiPass}
-
             };
 
             string url = "http://" + kodiIP + ":" + kodiPort + "/jsonrpc?request=";
@@ -52,25 +51,18 @@ namespace PlaylistEditor
 
                 if (responseText.Contains("OK") /*&& link.Contains("Playlist.Add")*/)
                 {
-                    // Form pop = new popup2();
+                    
                     ClassHelp.PopupForm("Kodi response: OK", "green", 1800);
-
-
-
-
 #if DEBUG
                     MessageBox.Show(responseText);
                     Console.WriteLine(responseText);
                     Console.ReadLine();
 #endif
 
-
                 }
                 else if (responseText.Contains("error") /*&& link.Contains("Playlist.Add")*/)
                 {
                     ClassHelp.PopupForm("Kodi response: ERROR", "red", 1300);
-
-
                 }
 
                 kodiPass = "";  //to be safe
@@ -79,8 +71,6 @@ namespace PlaylistEditor
             {
                 MessageBox.Show("Kodi not responding. " + ex.Message, "Play", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-
 
         }
 
