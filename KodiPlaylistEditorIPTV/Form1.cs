@@ -15,6 +15,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -108,7 +109,47 @@ namespace PlaylistEditor
                 {
                     switch (e.KeyCode)
                     {
-                       
+
+                        case Keys.C:
+                            if (dataGridView1.SelectedRows.Count > 0)
+                            {
+                                contextMenuStrip1.Items[5].Enabled = true;
+                                CopyRow();
+                            }
+                            else toolStripCopy.PerformClick();
+                            break;
+
+                        case Keys.V:
+                            contextMenuStrip1.Items[3].Enabled = true;
+                            toolStripPaste.PerformClick();
+                            break;
+
+
+                        case Keys.R:
+                            copyRowMenuItem.PerformClick();
+                            break;
+
+                        case Keys.I:
+                            if (dataGridView1.SelectedRows.Count > 0 || dataGridView1.Rows.Count == 0
+                                || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard()))
+                                contextMenuStrip1.Items[5].Enabled = true;  //paste add
+
+                            pasteRowMenuItem.PerformClick();
+                            break;
+
+                        case Keys.X:
+                            if (dataGridView1.SelectedRows.Count > 0)
+                            {
+                                contextMenuStrip1.Items[4].Enabled = true;
+                                cutRowMenuItem.PerformClick();
+                            }
+                            break;
+
+                        case Keys.T:  //move line to top
+
+                            MoveLineTop();
+                            break;
+
                         case Keys.F:
                             button_search.PerformClick();
                             break;
@@ -168,44 +209,7 @@ namespace PlaylistEditor
                 {
                     switch (e.KeyCode)
                     {
-                        
-                        case Keys.C:
-                            if (dataGridView1.SelectedRows.Count > 0)
-                            {
-                                contextMenuStrip1.Items[5].Enabled = true;
-                                CopyRow();
-                            }
-                            else toolStripCopy.PerformClick();
-                            break;
-
-                        case Keys.V:
-                                contextMenuStrip1.Items[3].Enabled = true;
-                                toolStripPaste.PerformClick();
-                            break;
-
-
-                        case Keys.R:
-                            copyRowMenuItem.PerformClick();
-                            break;
-
-                        case Keys.I:
-                            if (dataGridView1.SelectedRows.Count > 0 || dataGridView1.Rows.Count == 0)
-                                contextMenuStrip1.Items[5].Enabled = true; //must be enabled first
-                            pasteRowMenuItem.PerformClick();
-                            break;
-
-                        case Keys.X:
-                            if (dataGridView1.SelectedRows.Count > 0)
-                            {
-                                contextMenuStrip1.Items[4].Enabled = true;
-                                cutRowMenuItem.PerformClick();
-                            }
-                            break;
-
-                        case Keys.T:  //move line to top
-
-                            MoveLineTop();
-                            break;
+                       
                     }
                 }
 
@@ -639,6 +643,17 @@ namespace PlaylistEditor
                 return;
             }
 
+            if (_isSingle)
+            {
+                Process[] processes = null;
+                processes = Process.GetProcessesByName("vlc");
+                foreach (Process process in processes)
+                {
+                    process.Kill();
+                }
+            }
+
+
             if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath))
             {
 
@@ -723,7 +738,7 @@ namespace PlaylistEditor
         private async void playToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridView1.RowCount == 0) return;
-
+          
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
             string jLink = dataGridView1.CurrentRow.Cells[5].Value.ToString();
 
@@ -813,7 +828,7 @@ namespace PlaylistEditor
 
             bool _dtEmpty = false;
 
-            if (dataGridView1.RowCount == 0)
+            if (dataGridView1.RowCount == 0 && dataGridView1.ColumnCount == 0)
             {
                 _dtEmpty = true;
                 DataRow dr = dt.NewRow();
@@ -848,6 +863,7 @@ namespace PlaylistEditor
                                 else
                                 {
                                     dt.Rows.InsertAt(dr, a);  //insert above marked row  
+                                    a++;
                                 }
                     }
                     toSave(true);
@@ -883,6 +899,7 @@ namespace PlaylistEditor
                         else
                         {
                             dt.Rows.InsertAt(dr, a);  //insert above marked row  
+                            a++;
                         }
                     }
                     toSave(true);
@@ -901,7 +918,7 @@ namespace PlaylistEditor
         {
             bool _dtEmpty = false;
 
-            if (dataGridView1.RowCount == 0)
+            if (dataGridView1.RowCount == 0 && dataGridView1.ColumnCount == 0)
             {
                 _dtEmpty = true;
                 DataRow dr = dt.NewRow();
@@ -923,6 +940,9 @@ namespace PlaylistEditor
 
                     //   string[] pastedRows = Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
                     string[] pastedRows = Regex.Split(fullRowContent.TrimEnd("\r\n".ToCharArray()), "\r\n");
+                    
+                  //  for (int i = 0; i < pastedRows.Count(); i++)
+
                     foreach (string pastedRow in pastedRows)
                     {
                         string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
@@ -937,7 +957,7 @@ namespace PlaylistEditor
                         }
                         else
                         {
-                            dt.Rows.RemoveAt(a);
+                            dt.Rows.RemoveAt(a);       //overwrite
                             dt.Rows.InsertAt(dr, a);
                             a++;
                         }
@@ -975,7 +995,9 @@ namespace PlaylistEditor
                         }
                         else
                         {
+                            if (dataGridView1.RowCount > 0) dt.Rows.RemoveAt(a);       //overwrite
                             dt.Rows.InsertAt(dr, a);  //insert above marked row  
+                            a++;
                         }
                     }
                     toSave(true);
@@ -1047,7 +1069,7 @@ namespace PlaylistEditor
 
             bool _dtEmpty = false;
 
-            if (dataGridView1.RowCount == 0)
+            if (dataGridView1.RowCount == 0 && dataGridView1.ColumnCount == 0)
             {
                 _dtEmpty = true;
                 DataRow dr = dt.NewRow();
@@ -1540,7 +1562,7 @@ namespace PlaylistEditor
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
+            if (dataGridView1.Rows.Count == 0)  //when datagridview empty
             {
                 button_open.PerformClick();
             }
@@ -1769,7 +1791,7 @@ namespace PlaylistEditor
                 dataGridView1.Size = new Size(382, 422 - 44);
                 dataGridView1.Location = new Point(0, 0);
 
-                contextMenuStrip1.Items[12].Text = "Single column mode Off";
+                contextMenuStrip1.Items[12].Text = "Single column mode OFF";
                 _isSingle = true;
             }
             else
@@ -1827,8 +1849,12 @@ namespace PlaylistEditor
                 //   if (ClassHelp.CheckClipboard())
                 if (!string.IsNullOrEmpty(fullRowContent))
                     contextMenuStrip1.Items[5].Enabled = true;  //paste add
-                else if
-                    (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard()) ;
+                else if (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard())
+                    contextMenuStrip1.Items[5].Enabled = true;  //paste add
+
+                //else if (string.IsNullOrEmpty(fullRowContent) && Clipboard.ContainsText())
+                //    contextMenuStrip1.Items[5].Enabled = true;  //paste add
+
                 else
                     contextMenuStrip1.Items[5].Enabled = false;
 
@@ -1840,7 +1866,7 @@ namespace PlaylistEditor
 
         private void button_import_Click(object sender, EventArgs e)
         {
-            //todo add option?
+           
 
             if (ClassHelp.CheckClipboard() || dataGridView1.Rows.Count > 0) return;
 
@@ -1851,7 +1877,7 @@ namespace PlaylistEditor
             string[] col = new string[6];
             Array.Clear(colShow, 0, 6);
 
-            if (dataGridView1.Rows.Count == 0)
+            if (dataGridView1.Rows.Count == 0 && dataGridView1.ColumnCount == 0)
             {
                 dt.Clear();  // row clear
                 dt.Columns.Clear();  // col clear
