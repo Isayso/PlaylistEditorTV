@@ -196,7 +196,7 @@ namespace PlaylistEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Key press operation failed. " /*+ ex.Message*/, "Key press", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Key press operation failed. " /*+ ex.Message*/, "Key press", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
           
         }
@@ -676,7 +676,7 @@ namespace PlaylistEditor
 
             if (dataGridView1.RowCount > 0)
             {
-                switch (MessageBox.Show("Delete List?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                switch (MessageBox.Show("Delete List?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.None))
                 {
                     case DialogResult.Yes:
 
@@ -699,7 +699,7 @@ namespace PlaylistEditor
         {
             if (_taglink) button_check.PerformClick();
             //message box -> delete all -> open filename
-            switch (MessageBox.Show("Reload File?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            switch (MessageBox.Show("Reload File?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.None))
             {
                 case DialogResult.Yes:
                     importDataset(plabel_Filename.Text, false);
@@ -851,7 +851,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
             }
             else if (string.IsNullOrEmpty(fullRowContent) && Clipboard.ContainsText())
@@ -887,7 +887,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
 
             }
@@ -948,7 +948,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
             }
             else if (string.IsNullOrEmpty(fullRowContent) && Clipboard.ContainsText())
@@ -985,7 +985,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
 
             }
@@ -1098,7 +1098,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
             }
         }
