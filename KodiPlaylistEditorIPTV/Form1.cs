@@ -196,31 +196,12 @@ namespace PlaylistEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Key press operation failed. " + ex.Message, "Key press", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Key press operation failed. " /*+ ex.Message*/, "Key press", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
           
         }
 
-        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Modifiers == Keys.Control)
-                {
-                    switch (e.KeyCode)
-                    {
-                       
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Key press operation failed. " + ex.Message, "Key press", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-        }
-
+     
         /// <summary>
         /// change font size of datagrid
         /// </summary>
