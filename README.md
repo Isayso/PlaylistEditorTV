@@ -59,18 +59,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 * Inspired from various IPTV editors for Kodi
 
 ## Keyboard shortcuts
-- Ctrl + C copy cells
-- Ctrl + V paste cells
+- Ctrl + C copy rows/cells
+- Ctrl + V paste rows/cells
 - Ctrl + F find string
-- Ctrl + R copy row
-- Ctrl + I insert row
+- Ctrl + I paste insert row
 - Ctrl + X cut row
 - Ctrl + N open new window
 - Ctrl + S save
 - Ctrl + P send link to Kodi
 - Ctrl + T move line to top of list
 - Ctrl + +/- change font size
-- delete delete selected row
+- del    delete selected row
 
 
 
