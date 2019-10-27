@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -175,8 +176,15 @@ namespace PlaylistEditor
         {
             try
             {
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
+               
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest; 
                 req.Timeout = 6000; //set the timeout
+           
+                req.ContentType = "application/x-www-form-urlencoded";
+             //   req.KeepAlive = true;
+          //issue #15
+                req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
+
                
                 HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
@@ -185,6 +193,8 @@ namespace PlaylistEditor
                 char[] buffer = new char[1024];
                 int results1 = sr.Read(buffer,0,1023);
                 sr.Close();
+
+               
             }
             catch (Exception)
             {

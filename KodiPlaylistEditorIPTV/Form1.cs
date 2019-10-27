@@ -53,6 +53,9 @@ namespace PlaylistEditor
         public bool _taglink = false;
         public bool _isSingle = false;
 
+        const int mActionHotKeyID = 1;  //var for key hook listener
+
+
         //zoom of fonts
         public float zoomf = 1F;
         // private static readonly int ROWHEIGHT = 47;
@@ -69,14 +72,20 @@ namespace PlaylistEditor
         {
             InitializeComponent();
 
-#if DEBUG
-          //  Clipboard.Clear();
-#endif
-
             this.Text = String.Format("PlaylistEditor TV " + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 
-            var spec_key = Properties.Settings.Default.specKey;
+#if DEBUG
+            //  Clipboard.Clear();
+            this.Text = String.Format("PlaylistEditor TV DEBUG" + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
+#endif
+          
+
+            var spec_key = Properties.Settings.Default.specKey;  //for key listener
             var hotlabel = Properties.Settings.Default.hotkey;
+
+            //Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8  must be added
+            //   RegisterHotKey(this.Handle, mActionHotKeyID, 1, (int)Keys.Y);  //ALT-Y
+            NativeMethods.RegisterHotKey(this.Handle, mActionHotKeyID, spec_key, hotlabel);  //ALT-Y
 
 
             plabel_Filename.Text = "";
@@ -101,7 +110,34 @@ namespace PlaylistEditor
             }
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+
+
+        /// <summary>
+        /// listener to hotkey for import of links from clipboard
+        /// </summary>
+        /// <param name="m"></param>
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyID)
+            {
+                // key pressed matches our listener
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    ClassHelp.PopupForm("editor not empty", "red", 1500);
+                    return;
+                }
+                
+                ClassHelp.PopupForm("List import.....", "blue", 1500);
+
+                button_import.PerformClick();
+                
+
+            }
+            base.WndProc(ref m);
+        }
+
+
+                private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -338,7 +374,7 @@ namespace PlaylistEditor
 
             while ((line = playlistFile.ReadLine()) != null)
             {
-
+                line = line.Trim();  //remove spaces
 
                 if (line.StartsWith("#EXTINF"))
                 {
@@ -587,6 +623,7 @@ namespace PlaylistEditor
             if (dataGridView1.RowCount > 0)
             {
                 int a = dataGridView1.SelectedCells[0].RowIndex;  // row index in a datatable
+                
                 dr[0] = "Name"; dr[1] = "id"; dr[2] = "Title"; dr[3] = "Logo";
                 dr[4] = "Name2"; dr[5] = "Link";
 
@@ -820,7 +857,11 @@ namespace PlaylistEditor
 
             }
 
-            if (!string.IsNullOrEmpty(fullRowContent))
+#if DEBUG
+            Console.WriteLine(Clipboard.GetText());
+#endif
+
+            if (!string.IsNullOrEmpty(fullRowContent) && Clipboard.GetText() == fullRowContent)    //new bugfix 1.4.1  todo compare clipboard to fullrowcontent only not equal
             {
                 try
                 {
@@ -854,7 +895,7 @@ namespace PlaylistEditor
                     MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
             }
-            else if (string.IsNullOrEmpty(fullRowContent) && Clipboard.ContainsText())
+            else // if ((string.IsNullOrEmpty(fullRowContent) || Clipboard.GetText() != fullRowContent) && Clipboard.ContainsText())  //todo null or not equal
             {
                 DataObject o = (DataObject)Clipboard.GetDataObject();
 
@@ -912,7 +953,12 @@ namespace PlaylistEditor
 
             //  DataObject o = (DataObject)Clipboard.GetDataObject();
 
-            if (!string.IsNullOrEmpty(fullRowContent))
+            //if (Clipboard.GetText() != fullRowContent)
+            //{
+            //    fullRowContent = Clipboard.GetText();
+            //}
+
+            if (!string.IsNullOrEmpty(fullRowContent) && Clipboard.GetText() == fullRowContent)    //new bugfix 1.4.1
             {
                 try
                 {
@@ -951,7 +997,7 @@ namespace PlaylistEditor
                     MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
             }
-            else if (string.IsNullOrEmpty(fullRowContent) && Clipboard.ContainsText())
+            else // if (string.IsNullOrEmpty(fullRowContent) && Clipboard.ContainsText())
             {
                 DataObject o = (DataObject)Clipboard.GetDataObject();
 
@@ -1065,6 +1111,7 @@ namespace PlaylistEditor
 #if DEBUG
             Console.WriteLine(Clipboard.GetText());
 #endif
+            //todo check if clipboard has new content
 
             if (!string.IsNullOrEmpty(fullRowContent))
             {
@@ -1109,6 +1156,7 @@ namespace PlaylistEditor
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 contextMenuStrip1.Items[5].Enabled = true;
+                
                 CopyRow();
                 return;
             }
@@ -1597,7 +1645,7 @@ namespace PlaylistEditor
             if (Control.ModifierKeys == Keys.Control) _mark = true;  //select links
 
 
-            if (!ClassHelp.CheckIPTVStream("http://www.google.com"))
+            if (!ClassHelp.CheckIPTVStream("http://www.google.com"))  
             {
                 MessageBox.Show("No internet connection found!");
                 return;
@@ -1828,7 +1876,7 @@ namespace PlaylistEditor
                     contextMenuStrip1.Items[3].Enabled = true;  //paste
 
                 //   if (ClassHelp.CheckClipboard())
-                if (!string.IsNullOrEmpty(fullRowContent))
+                if (!string.IsNullOrEmpty(fullRowContent))  //for paste to new window
                     contextMenuStrip1.Items[5].Enabled = true;  //paste add
                 else if (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard())
                     contextMenuStrip1.Items[5].Enabled = true;  //paste add
@@ -1839,8 +1887,8 @@ namespace PlaylistEditor
                 else
                     contextMenuStrip1.Items[5].Enabled = false;
 
-                if (this.WindowState == FormWindowState.Maximized)
-                    contextMenuStrip1.Items[12].Enabled = false;
+                if (this.WindowState == FormWindowState.Maximized)  
+                    contextMenuStrip1.Items[12].Enabled = false;  //no single col mode for fullscreen
             }
 
         }
@@ -1878,9 +1926,9 @@ namespace PlaylistEditor
                 using (System.IO.StringReader playlistFile = new System.IO.StringReader(o.GetData(DataFormats.UnicodeText).ToString()))
                 {
 
-                    while ((line = playlistFile.ReadLine()) != null)
+                    while ((line = playlistFile.ReadLine()) != null)  
                     {
-
+                        line = line.Trim();  //remove spaces
 
                         if (line.StartsWith("#EXTINF"))
                         {

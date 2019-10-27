@@ -9,7 +9,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="hotkey" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">89</Value>
+      <Value Profile="(Default)">73</Value>
     </Setting>
     <Setting Name="specKey" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
