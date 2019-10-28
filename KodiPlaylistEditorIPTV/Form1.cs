@@ -22,6 +22,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -1613,8 +1615,9 @@ namespace PlaylistEditor
 
         }
 
-        private void Button_check_Click(object sender, EventArgs e)
+        private async void Button_check_Click(object sender, EventArgs e)
         {
+            var cts = new CancellationTokenSource();
 
             if (!_taglink)
             {
@@ -1638,11 +1641,12 @@ namespace PlaylistEditor
                 _taglink = false;
                 button_check.BackColor = Color.MidnightBlue;
                 colorclear();
+                cts.Cancel();
                 return;
             }
 
-            bool _mark = false;
-            if (Control.ModifierKeys == Keys.Control) _mark = true;  //select links
+            //bool _mark = false;
+            //if (Control.ModifierKeys == Keys.Control) _mark = true;  //select links
 
 
             if (!ClassHelp.CheckIPTVStream("http://www.google.com"))  
@@ -1653,34 +1657,82 @@ namespace PlaylistEditor
 
             dataGridView1.ClearSelection();
 
-            Cursor.Current = Cursors.WaitCursor;
+            //      Cursor.Current = Cursors.WaitCursor;
+            dataGridView1.Enabled = false;
+            button_check.Enabled = false;
+         
+
+            //var tokenSource = new CancellationTokenSource();
+            //var token = tokenSource.Token;
+
 
             if (dataGridView1.Rows.Count > 0)
             {
                 colorclear();
 
-                foreach (DataGridViewRow item in dataGridView1.Rows)
+                popup popup = new popup();
+             //   popup.Canceled += () => RunStreamCheck.CancelAsync();
+
+                var x = Location.X + (Width - popup.Width) / 2;
+                var y = Location.Y + (Height - popup.Height) / 2;
+                popup.Location = new Point(Math.Max(x, 0), Math.Max(y, 0));
+                popup.StartPosition = FormStartPosition.Manual;
+                popup.Owner = this;  //child over parent
+
+                popup.Show();
+
+                Progress<string> progress = new Progress<string>();
+                progress.ProgressChanged += (_, text) =>
+                    popup.updateProgressBar(text);
+
+              
+
+                try
                 {
-                    var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
-
-                    if (!ClassHelp.CheckIPTVStream(iLink))
-                    {
-                        for (int i = 0; i < 6; i++)
-                        {
-                            if (_mark) dataGridView1.Rows[item.Index].Selected = true;
-                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightSalmon;
-                        }
-                        dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
-                    }
-
+                    await Task.Run(() => RunStreamCheck(progress, cts.Token));
                 }
+                catch (OperationCanceledException ex)
+                {
+                    //Do stuff to handle cancellation
+                    popup.Close();
+                }
+               
+                popup.Close();
+
+
             }
-
-            Cursor.Current = Cursors.Default;
-
-
+            dataGridView1.Enabled = true;
+            button_check.Enabled = true;
+          
+            //       Cursor.Current = Cursors.Default;
 
         }
+
+        private void RunStreamCheck(IProgress<string> progress, CancellationToken ct)
+        {
+            bool _mark = false;
+            if (Control.ModifierKeys == Keys.Control) _mark = true;  //select links
+
+            string maxrows = dataGridView1.Rows.Count.ToString();
+             
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
+               
+                progress.Report(item.Index.ToString() + " / " + maxrows);
+              
+                if (!ClassHelp.CheckIPTVStream(iLink))
+                {
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (_mark) dataGridView1.Rows[item.Index].Selected = true;
+                        dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightSalmon;
+                    }
+                    dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
+                }
+            }
+        }
+
 
         private void colorclear()
         {
@@ -1859,8 +1911,13 @@ namespace PlaylistEditor
             }
             else  //open 
             {
-                contextMenuStrip1.Items[2].Enabled = true;  //copy
+                int[] itemsList = new int[] { 2, 7, 9, 10, 12 };
 
+                for (int i = 0; i < itemsList.Length; i++)
+                {
+                    contextMenuStrip1.Items[itemsList[i]].Enabled = true;
+                }
+             
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     contextMenuStrip1.Items[4].Enabled = true;  //cut
@@ -2033,8 +2090,9 @@ namespace PlaylistEditor
             playToolStripMenuItem.PerformClick();
         }
 
+       
 
-      
+
     }
 }
 
@@ -2069,10 +2127,6 @@ public static class ExtensionMethods
         for (int i = source.SelectedRows.Count - 1; i >= 0; i--)
             yield return source.SelectedRows[i];
     }
-
-
-
-
 
 
 }
