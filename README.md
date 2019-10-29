@@ -2,7 +2,9 @@
 # Playlist Editor TV
 Editor for TV m3u files (with vlc media player and kodi support)
 
-1.4 avaliable. 
+1.4.1 avaliable. 
+
+NEW progress window with cancel for link check.
 
 NEW in 1.4: Re-design of copy/paste function and context menu. Imports a full list from clipboard, no file save before necessary.  Single column mode for better play with vlc. Send to Kodi button. Auto hide empty columns on file load. Check button if link is responding. 
   Special thanks to dobbelina for helpful ideas and testing, improved the usablility a lot. 
@@ -74,3 +76,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.4/total)
+
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.4.1/total)
