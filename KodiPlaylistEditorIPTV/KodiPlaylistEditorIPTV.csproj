@@ -103,6 +103,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="popup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popup.Designer.cs">
+      <DependentUpon>popup.cs</DependentUpon>
+    </Compile>
     <Compile Include="popup2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popup.resx">
+      <DependentUpon>popup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popup2.resx">
       <DependentUpon>popup2.cs</DependentUpon>

@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -49,10 +50,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox_w = new System.Windows.Forms.CheckBox();
+            this.textBox_hot = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.checkBox_a = new System.Windows.Forms.CheckBox();
+            this.checkBox_s = new System.Windows.Forms.CheckBox();
+            this.checkBox_c = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_ok
@@ -190,10 +198,21 @@
             this.label1.Text = "Remove first characters";
             this.toolTip1.SetToolTip(this.label1, "number of characters to delete");
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(56, 196);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 20);
+            this.label2.TabIndex = 10;
+            this.label2.Text = " on paste cells";
+            this.toolTip1.SetToolTip(this.label2, "number of characters to delete");
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(-4, 13);
@@ -290,15 +309,101 @@
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Kodi";
             // 
-            // label2
+            // tabPage2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 196);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 20);
-            this.label2.TabIndex = 10;
-            this.label2.Text = " on paste cells";
-            this.toolTip1.SetToolTip(this.label2, "number of characters to delete");
+            this.tabPage2.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabPage2.Controls.Add(this.checkBox_w);
+            this.tabPage2.Controls.Add(this.textBox_hot);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.checkBox_a);
+            this.tabPage2.Controls.Add(this.checkBox_s);
+            this.tabPage2.Controls.Add(this.checkBox_c);
+            this.tabPage2.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(467, 323);
+            this.tabPage2.TabIndex = 4;
+            this.tabPage2.Text = "Hotkey";
+            // 
+            // checkBox_w
+            // 
+            this.checkBox_w.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_w.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_w.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_w.Location = new System.Drawing.Point(136, 192);
+            this.checkBox_w.Name = "checkBox_w";
+            this.checkBox_w.Size = new System.Drawing.Size(60, 24);
+            this.checkBox_w.TabIndex = 23;
+            this.checkBox_w.Text = "WIN";
+            this.toolTip1.SetToolTip(this.checkBox_w, "Restart to take effect");
+            this.checkBox_w.UseVisualStyleBackColor = true;
+            // 
+            // textBox_hot
+            // 
+            this.textBox_hot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox_hot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_hot.Location = new System.Drawing.Point(255, 72);
+            this.textBox_hot.MaxLength = 1;
+            this.textBox_hot.Name = "textBox_hot";
+            this.textBox_hot.Size = new System.Drawing.Size(33, 27);
+            this.textBox_hot.TabIndex = 22;
+            this.textBox_hot.Text = "I";
+            this.textBox_hot.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.textBox_hot, "Restart to take effect");
+            this.textBox_hot.TextChanged += new System.EventHandler(this.textBox_hot_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.Location = new System.Drawing.Point(31, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(392, 20);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Import from Clipboard Hotkey (restart after change)";
+            // 
+            // checkBox_a
+            // 
+            this.checkBox_a.Checked = true;
+            this.checkBox_a.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_a.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_a.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_a.Location = new System.Drawing.Point(137, 152);
+            this.checkBox_a.Name = "checkBox_a";
+            this.checkBox_a.Size = new System.Drawing.Size(59, 24);
+            this.checkBox_a.TabIndex = 20;
+            this.checkBox_a.Text = "ALT";
+            this.toolTip1.SetToolTip(this.checkBox_a, "Restart to take effect");
+            this.checkBox_a.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_s
+            // 
+            this.checkBox_s.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_s.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_s.Location = new System.Drawing.Point(137, 113);
+            this.checkBox_s.Name = "checkBox_s";
+            this.checkBox_s.Size = new System.Drawing.Size(76, 24);
+            this.checkBox_s.TabIndex = 19;
+            this.checkBox_s.Text = "SHIFT";
+            this.toolTip1.SetToolTip(this.checkBox_s, "Restart to take effect");
+            this.checkBox_s.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_c
+            // 
+            this.checkBox_c.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_c.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_c.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_c.Location = new System.Drawing.Point(137, 72);
+            this.checkBox_c.Name = "checkBox_c";
+            this.checkBox_c.Size = new System.Drawing.Size(72, 24);
+            this.checkBox_c.TabIndex = 18;
+            this.checkBox_c.Text = "CTRL";
+            this.toolTip1.SetToolTip(this.checkBox_c, "Restart to take effect");
+            this.checkBox_c.UseVisualStyleBackColor = true;
             // 
             // settings
             // 
@@ -318,6 +423,8 @@
             this.tabPage3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -344,5 +451,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.CheckBox checkBox_w;
+        private System.Windows.Forms.TextBox textBox_hot;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox checkBox_a;
+        private System.Windows.Forms.CheckBox checkBox_s;
+        private System.Windows.Forms.CheckBox checkBox_c;
     }
 }
