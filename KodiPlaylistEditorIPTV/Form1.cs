@@ -41,6 +41,9 @@ namespace PlaylistEditor
 
         Boolean ignore = false;
 
+        CancellationTokenSource tokenSource;
+
+
         bool isModified = false;
 
         public string fullRowContent = "";
@@ -54,6 +57,7 @@ namespace PlaylistEditor
         public bool _savenow = false;
         public bool _taglink = false;
         public bool _isSingle = false;
+        public bool _mark = false;
 
         const int mActionHotKeyID = 1;  //var for key hook listener
 
@@ -80,7 +84,7 @@ namespace PlaylistEditor
             //  Clipboard.Clear();
             this.Text = String.Format("PlaylistEditor TV DEBUG" + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 #endif
-          
+
 
             var spec_key = Properties.Settings.Default.specKey;  //for key listener
             var hotlabel = Properties.Settings.Default.hotkey;
@@ -98,9 +102,9 @@ namespace PlaylistEditor
 
             dataGridView1.DoubleBuffered(true);
             dataGridView1.BringToFront();
-        //    dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            //    dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
-          
+
             //command line arguments [1]
             string[] args = Environment.GetCommandLineArgs();
 
@@ -123,23 +127,23 @@ namespace PlaylistEditor
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyID)
             {
                 // key pressed matches our listener
-                if (dataGridView1.Rows.Count > 0)
-                {
-                    ClassHelp.PopupForm("editor not empty", "red", 1500);
-                    return;
-                }
-                
+                //if (dataGridView1.Rows.Count > 0)
+                //{
+                //    ClassHelp.PopupForm("editor not empty", "red", 1500);
+                //    return;
+                //}
+
                 ClassHelp.PopupForm("List import.....", "blue", 1500);
 
                 button_import.PerformClick();
-                
+               
 
             }
             base.WndProc(ref m);
         }
 
 
-                private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -236,10 +240,10 @@ namespace PlaylistEditor
             {
                 MessageBox.Show("Key press operation failed. " /*+ ex.Message*/, "Key press", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
-          
+
         }
 
-     
+
         /// <summary>
         /// change font size of datagrid
         /// </summary>
@@ -431,7 +435,7 @@ namespace PlaylistEditor
             }
             playlistFile.Close();
 
-            dataGridView1.AllowUserToAddRows = false;  //???
+            dataGridView1.AllowUserToAddRows = false;  
 
             if (dt.Rows.Count == 0)
             {
@@ -507,9 +511,9 @@ namespace PlaylistEditor
 
             }
 
-             
 
-            
+
+
         }
 
         private void button_save_Click(object sender, EventArgs e)
@@ -580,8 +584,6 @@ namespace PlaylistEditor
                         file.WriteLine(writestring);
                         file.WriteLine(dt.Rows[i][5]);
 
-
-
                     }
 
                 }
@@ -625,7 +627,7 @@ namespace PlaylistEditor
             if (dataGridView1.RowCount > 0)
             {
                 int a = dataGridView1.SelectedCells[0].RowIndex;  // row index in a datatable
-                
+
                 dr[0] = "Name"; dr[1] = "id"; dr[2] = "Title"; dr[3] = "Logo";
                 dr[4] = "Name2"; dr[5] = "Link";
 
@@ -758,7 +760,7 @@ namespace PlaylistEditor
         private async void playToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridView1.RowCount == 0) return;
-          
+
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
             string jLink = dataGridView1.CurrentRow.Cells[5].Value.ToString();
 
@@ -793,7 +795,7 @@ namespace PlaylistEditor
                         rowString.Append(dataGridView1[5, row.Index].Value.ToString().Trim());
                         rowString.Append("\r\n");
                     }
-                   // Clipboard.SetText(rowString.ToString());
+                    // Clipboard.SetText(rowString.ToString());
                     Clipboard.SetDataObject(rowString.ToString());
 #if DEBUG
                     Console.WriteLine(Clipboard.GetText());
@@ -802,7 +804,7 @@ namespace PlaylistEditor
                 catch (System.Runtime.InteropServices.ExternalException)
                 {
                     MessageBox.Show("The Clipboard could not be accessed. Please try again.");
-                  //  Clipboard.Clear();
+                    //  Clipboard.Clear();
                 }
             }
         }
@@ -814,7 +816,7 @@ namespace PlaylistEditor
 
                 try
                 {
-                       StringBuilder rowString = new StringBuilder();
+                    StringBuilder rowString = new StringBuilder();
 
                     foreach (DataGridViewRow row in dataGridView1.GetSelectedRows())
                     {
@@ -828,7 +830,7 @@ namespace PlaylistEditor
                     // Clipboard.SetText(rowString.ToString());
                     Clipboard.SetDataObject(rowString.ToString());
                     fullRowContent = rowString.ToString();
-                   
+
                 }
                 catch (System.Runtime.InteropServices.ExternalException)
                 {
@@ -870,25 +872,25 @@ namespace PlaylistEditor
                     int a = 0;
                     if (!_dtEmpty) a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
 
-                 //   string[] pastedRows = Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
+                    //   string[] pastedRows = Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
                     string[] pastedRows = Regex.Split(fullRowContent.TrimEnd("\r\n".ToCharArray()), "\r\n");
                     foreach (string pastedRow in pastedRows)
                     {
                         string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
 
-                                dr = dt.NewRow();
-                                dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Title"] = pastedRowCells[2];
-                                dr["logo"] = pastedRowCells[3]; dr["Name2"] = pastedRowCells[4]; dr["Link"] = pastedRowCells[5];
+                        dr = dt.NewRow();
+                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Title"] = pastedRowCells[2];
+                        dr["logo"] = pastedRowCells[3]; dr["Name2"] = pastedRowCells[4]; dr["Link"] = pastedRowCells[5];
 
-                                if (_dtEmpty)
-                                {
-                                    dt.Rows.Add(dr);
-                                }
-                                else
-                                {
-                                    dt.Rows.InsertAt(dr, a);  //insert above marked row  
-                                    a++;
-                                }
+                        if (_dtEmpty)
+                        {
+                            dt.Rows.Add(dr);
+                        }
+                        else
+                        {
+                            dt.Rows.InsertAt(dr, a);  //insert above marked row  
+                            a++;
+                        }
                     }
                     toSave(true);
                 }
@@ -907,7 +909,7 @@ namespace PlaylistEditor
                     if (!_dtEmpty) a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
 
                     string[] pastedRows = Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
-                 //   string[] pastedRows = Regex.Split(fullRowContent.TrimEnd("\r\n".ToCharArray()), "\r\n");
+                    //   string[] pastedRows = Regex.Split(fullRowContent.TrimEnd("\r\n".ToCharArray()), "\r\n");
                     foreach (string pastedRow in pastedRows)
                     {
                         string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
@@ -969,8 +971,8 @@ namespace PlaylistEditor
 
                     //   string[] pastedRows = Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
                     string[] pastedRows = Regex.Split(fullRowContent.TrimEnd("\r\n".ToCharArray()), "\r\n");
-                    
-                  //  for (int i = 0; i < pastedRows.Count(); i++)
+
+                    //  for (int i = 0; i < pastedRows.Count(); i++)
 
                     foreach (string pastedRow in pastedRows)
                     {
@@ -1109,7 +1111,7 @@ namespace PlaylistEditor
 
             }
 
-       //     DataObject o = (DataObject)Clipboard.GetDataObject();
+            //     DataObject o = (DataObject)Clipboard.GetDataObject();
 #if DEBUG
             Console.WriteLine(Clipboard.GetText());
 #endif
@@ -1138,8 +1140,8 @@ namespace PlaylistEditor
                         }
                         else
                         {
-                            dt.Rows.RemoveAt(a);  
-                            dt.Rows.InsertAt(dr, a); 
+                            dt.Rows.RemoveAt(a);
+                            dt.Rows.InsertAt(dr, a);
                             a++;
                         }
                     }
@@ -1158,7 +1160,7 @@ namespace PlaylistEditor
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 contextMenuStrip1.Items[5].Enabled = true;
-                
+
                 CopyRow();
                 return;
             }
@@ -1206,7 +1208,7 @@ namespace PlaylistEditor
 
                     dataGridView1.Rows[x].Cells[y].Selected = true;
                     //for manual clipboard
-                   // fullCopyContent += dataGridView1.Rows[x].Cells[y].Value.ToString();
+                    // fullCopyContent += dataGridView1.Rows[x].Cells[y].Value.ToString();
                 }
 
                 StringBuilder cpString = new StringBuilder();
@@ -1233,8 +1235,8 @@ namespace PlaylistEditor
 
         private void toolStripPaste_Click(object sender, EventArgs e)   //ctrl+v
         {
-            
-            if (/*(dataGridView1.SelectedRows == 0 &&*/ ClassHelp.CheckClipboard())       
+
+            if (/*(dataGridView1.SelectedRows == 0 &&*/ ClassHelp.CheckClipboard())
             {
                 PasteRow();
                 return;
@@ -1244,7 +1246,7 @@ namespace PlaylistEditor
             try
             {
                 string s = Clipboard.GetText();
-             //   string[] lines = s.Split('\n');  //bug ??? \r\n
+                //   string[] lines = s.Split('\n');  //bug ??? \r\n
 
                 string[] lines = Regex.Split(s.TrimEnd("\r\n".ToCharArray()), "\r\n");
 
@@ -1266,9 +1268,9 @@ namespace PlaylistEditor
                     int iNewRows = iRow + lines.Length - dataGridView1.Rows.Count;
                     if (iNewRows > 0)
                     {
-                        
+
                         if (bFlag)
-                            dt.Rows.Add(iNewRows);   
+                            dt.Rows.Add(iNewRows);
                         else
                             dt.Rows.Add(iNewRows + 1);
                     }
@@ -1617,7 +1619,6 @@ namespace PlaylistEditor
 
         private async void Button_check_Click(object sender, EventArgs e)
         {
-            var cts = new CancellationTokenSource();
 
             if (!_taglink)
             {
@@ -1641,15 +1642,16 @@ namespace PlaylistEditor
                 _taglink = false;
                 button_check.BackColor = Color.MidnightBlue;
                 colorclear();
-                cts.Cancel();
+                //  cts.Cancel();
                 return;
             }
 
-            //bool _mark = false;
-            //if (Control.ModifierKeys == Keys.Control) _mark = true;  //select links
+
+            if (Control.ModifierKeys == Keys.Control) _mark = true;
+            else _mark = false; //select links
 
 
-            if (!ClassHelp.CheckIPTVStream("http://www.google.com"))  
+            if (!ClassHelp.CheckIPTVStream("http://www.google.com"))
             {
                 MessageBox.Show("No internet connection found!");
                 return;
@@ -1658,9 +1660,9 @@ namespace PlaylistEditor
             dataGridView1.ClearSelection();
 
             //      Cursor.Current = Cursors.WaitCursor;
-            dataGridView1.Enabled = false;
+            //    dataGridView1.Enabled = false;
             button_check.Enabled = false;
-         
+
 
             //var tokenSource = new CancellationTokenSource();
             //var token = tokenSource.Token;
@@ -1671,7 +1673,8 @@ namespace PlaylistEditor
                 colorclear();
 
                 popup popup = new popup();
-             //   popup.Canceled += () => RunStreamCheck.CancelAsync();
+
+                popup.FormClosed += new FormClosedEventHandler(FormP_Closed);
 
                 var x = Location.X + (Width - popup.Width) / 2;
                 var y = Location.Y + (Height - popup.Height) / 2;
@@ -1685,42 +1688,56 @@ namespace PlaylistEditor
                 progress.ProgressChanged += (_, text) =>
                     popup.updateProgressBar(text);
 
-              
+                tokenSource = new CancellationTokenSource();
+                var token = tokenSource.Token;
 
-                try
-                {
-                    await Task.Run(() => RunStreamCheck(progress, cts.Token));
-                }
-                catch (OperationCanceledException ex)
-                {
-                    //Do stuff to handle cancellation
-                    popup.Close();
-                }
-               
+
+                //try
+                //{
+
+                await Task.Run(() => RunStreamCheck(token, progress));
+                //}
+                //catch (OperationCanceledException ex)
+                //{
+                //    //Do stuff to handle cancellation
+                //    popup.Close();
+                //}
+
                 popup.Close();
 
 
             }
-            dataGridView1.Enabled = true;
+
             button_check.Enabled = true;
-          
-            //       Cursor.Current = Cursors.Default;
+
 
         }
 
-        private void RunStreamCheck(IProgress<string> progress, CancellationToken ct)
+        void FormP_Closed(object sender, FormClosedEventArgs e)
         {
-            bool _mark = false;
-            if (Control.ModifierKeys == Keys.Control) _mark = true;  //select links
+            popup popup = (popup)sender;
+
+            tokenSource.Cancel();
+            // MessageBox.Show(popup.Name);
+        }
+
+        private void RunStreamCheck(CancellationToken token, IProgress<string> progress)
+        {
 
             string maxrows = dataGridView1.Rows.Count.ToString();
-             
+
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
+                if (token.IsCancellationRequested)
+                {
+                    // MessageBox.Show("test");
+                    break;
+                }
+
                 var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
-               
+
                 progress.Report(item.Index.ToString() + " / " + maxrows);
-              
+
                 if (!ClassHelp.CheckIPTVStream(iLink))
                 {
                     for (int i = 0; i < 6; i++)
@@ -1731,6 +1748,7 @@ namespace PlaylistEditor
                     dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
                 }
             }
+
         }
 
 
@@ -1902,10 +1920,10 @@ namespace PlaylistEditor
                 {
                     contextMenuStrip1.Items[i].Enabled = false;
                 }
-                if (!string.IsNullOrEmpty(fullRowContent) 
+                if (!string.IsNullOrEmpty(fullRowContent)
                     || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard()))
                     contextMenuStrip1.Items[5].Enabled = true;  //paste add
-               
+
                 else
                     contextMenuStrip1.Items[5].Enabled = false;
             }
@@ -1917,7 +1935,7 @@ namespace PlaylistEditor
                 {
                     contextMenuStrip1.Items[itemsList[i]].Enabled = true;
                 }
-             
+
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     contextMenuStrip1.Items[4].Enabled = true;  //cut
@@ -1925,8 +1943,8 @@ namespace PlaylistEditor
                 }
                 else
                 {
-                    contextMenuStrip1.Items[4].Enabled = false; 
-                   // contextMenuStrip1.Items[5].Enabled = false;  //paste add
+                    contextMenuStrip1.Items[4].Enabled = false;
+                    // contextMenuStrip1.Items[5].Enabled = false;  //paste add
                 }
 
                 if (Clipboard.ContainsText())
@@ -1944,7 +1962,7 @@ namespace PlaylistEditor
                 else
                     contextMenuStrip1.Items[5].Enabled = false;
 
-                if (this.WindowState == FormWindowState.Maximized)  
+                if (this.WindowState == FormWindowState.Maximized)
                     contextMenuStrip1.Items[12].Enabled = false;  //no single col mode for fullscreen
             }
 
@@ -1952,9 +1970,9 @@ namespace PlaylistEditor
 
         private void button_import_Click(object sender, EventArgs e)
         {
-           
 
-            if (ClassHelp.CheckClipboard() || dataGridView1.Rows.Count > 0) return;
+
+            //   if (ClassHelp.CheckClipboard() || dataGridView1.Rows.Count > 0) return;
 
             dt.TableName = "IPTV";
 
@@ -1983,7 +2001,7 @@ namespace PlaylistEditor
                 using (System.IO.StringReader playlistFile = new System.IO.StringReader(o.GetData(DataFormats.UnicodeText).ToString()))
                 {
 
-                    while ((line = playlistFile.ReadLine()) != null)  
+                    while ((line = playlistFile.ReadLine()) != null)
                     {
                         line = line.Trim();  //remove spaces
 
@@ -2044,7 +2062,7 @@ namespace PlaylistEditor
                     }
                 }
 
-
+                toSave(true);
             }
 
 
@@ -2089,8 +2107,6 @@ namespace PlaylistEditor
         {
             playToolStripMenuItem.PerformClick();
         }
-
-       
 
 
     }
