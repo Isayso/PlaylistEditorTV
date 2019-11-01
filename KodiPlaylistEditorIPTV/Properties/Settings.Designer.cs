@@ -200,5 +200,17 @@ namespace PlaylistEditor.Properties {
                 this["openpath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool vlc_fullsreen {
+            get {
+                return ((bool)(this["vlc_fullsreen"]));
+            }
+            set {
+                this["vlc_fullsreen"] = value;
+            }
+        }
     }
 }

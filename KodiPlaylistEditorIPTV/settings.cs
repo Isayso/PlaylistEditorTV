@@ -16,6 +16,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using PlaylistEditor.Properties;
 
 namespace PlaylistEditor
 {
@@ -25,7 +26,7 @@ namespace PlaylistEditor
         public string serverName;
         public  bool isLinux ;
         public bool replaceDrive ;
-        static readonly int unicode = Properties.Settings.Default.hotkey;
+        static readonly int unicode = Settings.Default.hotkey;
         static char character = (char)unicode;
         string hotText = character.ToString();
 
@@ -34,18 +35,20 @@ namespace PlaylistEditor
         {
             InitializeComponent();
 
-            textBox2.Text = Properties.Settings.Default.rpi;
-            textBox_Port.Text = Properties.Settings.Default.port;
-            textBox_Username.Text = Properties.Settings.Default.username;
+            textBox2.Text = Settings.Default.rpi;
+            textBox_Port.Text = Settings.Default.port;
+            textBox_Username.Text = Settings.Default.username;
 
-            comboBox1.SelectedIndex = Properties.Settings.Default.colSearch;
-            comboBox2.SelectedIndex = Properties.Settings.Default.colDupli;
+            checkBox_vlc.Checked = Settings.Default.vlc_fullsreen;
+
+            comboBox1.SelectedIndex = Settings.Default.colSearch;
+            comboBox2.SelectedIndex = Settings.Default.colDupli;
             textBox1.Text = "0";
 
             //password
-            if (Properties.Settings.Default.cipher != null && Properties.Settings.Default.entropy != null)
+            if (Settings.Default.cipher != null && Settings.Default.entropy != null)
             {
-                byte[] plaintext = ProtectedData.Unprotect(Properties.Settings.Default.cipher, Properties.Settings.Default.entropy,
+                byte[] plaintext = ProtectedData.Unprotect(Settings.Default.cipher, Settings.Default.entropy,
                   DataProtectionScope.CurrentUser);
                 textBox_Password.Text = ClassHelp.ByteArrayToString(plaintext);
             }
@@ -69,12 +72,14 @@ namespace PlaylistEditor
         {
             getHotkeyInt();
 
-            Properties.Settings.Default.rpi = textBox2.Text;
-            Properties.Settings.Default.port = textBox_Port.Text;
-            Properties.Settings.Default.username = textBox_Username.Text;
+            Settings.Default.rpi = textBox2.Text;
+            Settings.Default.port = textBox_Port.Text;
+            Settings.Default.username = textBox_Username.Text;
+            Settings.Default.vlc_fullsreen = checkBox_vlc.Checked;
+
             
             // Data to protect. Convert a string to a byte[] using Encoding.UTF8.GetBytes().
-            byte[] plaintext = System.Text.ASCIIEncoding.Default.GetBytes(textBox_Password.Text); ;
+            byte[] plaintext = Encoding.Default.GetBytes(textBox_Password.Text); ;
 
 
             // Generate additional entropy (will be used as the Initialization vector)
@@ -88,10 +93,10 @@ namespace PlaylistEditor
                 DataProtectionScope.CurrentUser);
 
             //https://stackoverflow.com/questions/1766610/how-to-store-int-array-in-application-settings
-            Properties.Settings.Default.cipher = ciphertext;
-            Properties.Settings.Default.entropy = entropy;
+            Settings.Default.cipher = ciphertext;
+            Settings.Default.entropy = entropy;
             //  write preferences settings
-            Properties.Settings.Default.Save();
+            Settings.Default.Save();
         }
 
       
@@ -103,12 +108,12 @@ namespace PlaylistEditor
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.colSearch = comboBox1.SelectedIndex;
+            Settings.Default.colSearch = comboBox1.SelectedIndex;
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.colDupli = comboBox2.SelectedIndex;
+            Settings.Default.colDupli = comboBox2.SelectedIndex;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -117,7 +122,7 @@ namespace PlaylistEditor
             {
                 textBox1.Text = "";
             }
-            Properties.Settings.Default.leftshift = val;
+            Settings.Default.leftshift = val;
 
         }
 
@@ -141,8 +146,8 @@ namespace PlaylistEditor
             Console.WriteLine(charByte[0]);
 #endif
             int spec_key = spec_a + spec_c + spec_s + spec_w;
-            Properties.Settings.Default.specKey = spec_key;
-            Properties.Settings.Default.hotkey = charByte[0];
+            Settings.Default.specKey = spec_key;
+            Settings.Default.hotkey = charByte[0];
             //         NativeMethods.RegisterHotKey(this.Handle, 1, spec_key, charByte[0]);  //ALT-Y
 
         }
@@ -155,7 +160,7 @@ namespace PlaylistEditor
             checkBox_w.Checked = false;
 
             //Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8  must be added
-            var spec_key = Properties.Settings.Default.specKey;
+            var spec_key = Settings.Default.specKey;
             var binary = Convert.ToString(spec_key, 2);
             binary = binary.PadLeft(4, '0');
             char a = binary[3]; if (a.Equals('1')) checkBox_a.Checked = true;
@@ -163,7 +168,7 @@ namespace PlaylistEditor
             char s = binary[1]; if (s.Equals('1')) checkBox_s.Checked = true;
             char w = binary[0]; if (w.Equals('1')) checkBox_w.Checked = true;
 
-            var hotlabel = (char)Properties.Settings.Default.hotkey;
+            var hotlabel = (char)Settings.Default.hotkey;
             textBox_hot.Text = hotlabel.ToString();
 
 

@@ -25,10 +25,13 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PlaylistEditor.Properties;
 
 
 
 //ToDo bug no move after sorting, no reload, binding problem? .NET problem
+//ToDo feature search all cells
+//ToDo selective dead link check?
 
 
 namespace PlaylistEditor
@@ -69,7 +72,7 @@ namespace PlaylistEditor
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         DataRow dr;
-        string vlcpath = Properties.Settings.Default.vlcpath;
+        string vlcpath = Settings.Default.vlcpath;
 
         public int[] colShow = new int[6];
 
@@ -86,8 +89,8 @@ namespace PlaylistEditor
 #endif
 
 
-            var spec_key = Properties.Settings.Default.specKey;  //for key listener
-            var hotlabel = Properties.Settings.Default.hotkey;
+            var spec_key = Settings.Default.specKey;  //for key listener
+            var hotlabel = Settings.Default.hotkey;
 
             //Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8  must be added
             //   RegisterHotKey(this.Handle, mActionHotKeyID, 1, (int)Keys.Y);  //ALT-Y
@@ -197,8 +200,8 @@ namespace PlaylistEditor
                             break;
 
                         case Keys.N:
-                            var info = new System.Diagnostics.ProcessStartInfo(Application.ExecutablePath);
-                            System.Diagnostics.Process.Start(info);
+                            var info = new ProcessStartInfo(Application.ExecutablePath);
+                            Process.Start(info);
                             break;
 
                         case Keys.P:
@@ -231,7 +234,7 @@ namespace PlaylistEditor
                             break;
                     }
                 }
-                if (e.KeyCode == Keys.Delete)
+                if (e.KeyCode == Keys.Delete && dataGridView1.IsCurrentCellInEditMode == false)
                 {
                     button_delLine.PerformClick();
                 }
@@ -303,7 +306,7 @@ namespace PlaylistEditor
             if (_taglink) button_check.PerformClick();
 
             Cursor.Current = Cursors.WaitCursor;
-            string openpath = Properties.Settings.Default.openpath;
+            string openpath = Settings.Default.openpath;
             if (!string.IsNullOrEmpty(openpath) && !ClassHelp.MyDirectoryExists(openpath, 4000))
                 openpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
 
@@ -323,8 +326,8 @@ namespace PlaylistEditor
                     return;
                 }
 
-                Properties.Settings.Default.openpath = Path.GetDirectoryName(openFileDialog1.FileName);
-                Properties.Settings.Default.Save();
+                Settings.Default.openpath = Path.GetDirectoryName(openFileDialog1.FileName);
+                Settings.Default.Save();
             }
             Cursor.Current = Cursors.Default;
         }
@@ -521,7 +524,7 @@ namespace PlaylistEditor
             Cursor.Current = Cursors.WaitCursor;
 
 
-            if ((Control.ModifierKeys == Keys.Shift || _savenow) && !string.IsNullOrEmpty(plabel_Filename.Text)
+            if ((ModifierKeys == Keys.Shift || _savenow) && !string.IsNullOrEmpty(plabel_Filename.Text)
                 && ClassHelp.MyDirectoryExists(Path.GetDirectoryName(plabel_Filename.Text), 4000))
             {
 
@@ -572,7 +575,7 @@ namespace PlaylistEditor
                     string writestring = "";
 
                     for (int i = 0; i < dt.Rows.Count; i++)
-                    {//issue #12  write only visible columns
+                    {  //issue #12  write only visible columns
                         writestring = "#EXTINF:-1 ";
                         if (dataGridView1.Columns["Name"].Visible) writestring += "tvg-name=\"" + dt.Rows[i][0] + "\"";
                         if (dataGridView1.Columns["id"].Visible) writestring += " tvg-id=\"" + dt.Rows[i][1] + "\"";
@@ -599,7 +602,7 @@ namespace PlaylistEditor
 
         private void button_moveUp_Click(object sender, EventArgs e)
         {
-            if ((Control.ModifierKeys == Keys.Control))
+            if ((ModifierKeys == Keys.Control))
             {
                 MoveLineTop();
             }
@@ -665,15 +668,15 @@ namespace PlaylistEditor
                 return;
             }
 
-            if (_isSingle)
-            {
-                Process[] processes = null;
-                processes = Process.GetProcessesByName("vlc");
-                foreach (Process process in processes)
-                {
-                    process.Kill();
-                }
-            }
+            //if (_isSingle)
+            //{
+            //    //Process[] processes = null;
+            //    //processes = Process.GetProcessesByName("vlc");
+            //    //foreach (Process process in processes)
+            //    //{
+            //    //    process.Kill();
+            //    //}
+            //}
 
 
             if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath))
@@ -683,18 +686,25 @@ namespace PlaylistEditor
                 Cursor.Current = Cursors.WaitCursor;
 
                 string param = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                System.Diagnostics.ProcessStartInfo ps = new System.Diagnostics.ProcessStartInfo();
+                ProcessStartInfo ps = new ProcessStartInfo();
                 ps.FileName = vlcpath + "\\" + "vlc.exe";
                 ps.ErrorDialog = false;
-                ps.Arguments = " --no-video-title-show " + param;
+                
+                if (_isSingle && Settings.Default.vlc_fullsreen) 
+                    ps.Arguments = " --one-instance --fullscreen --no-video-title-show " + param; 
+
+                else if (_isSingle && !Settings.Default.vlc_fullsreen)
+                    ps.Arguments = " --one-instance --no-video-title-show " + param;
+                
+                else ps.Arguments = " --no-video-title-show " + param;
 
                 ps.CreateNoWindow = true;
                 ps.UseShellExecute = false;
 
                 ps.RedirectStandardOutput = true;
-                ps.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                ps.WindowStyle = ProcessWindowStyle.Hidden;
 
-                using (System.Diagnostics.Process proc = new System.Diagnostics.Process())
+                using (Process proc = new Process())
                 {
                     proc.StartInfo = ps;
 
@@ -839,7 +849,7 @@ namespace PlaylistEditor
                 }
             }
 #if DEBUG
-            Console.WriteLine("Copy "+Clipboard.GetText());
+            Console.WriteLine("Copy " + Clipboard.GetText());
 #endif
 
 
@@ -1242,7 +1252,7 @@ namespace PlaylistEditor
                 return;
             }
 
-            int leftshift = Properties.Settings.Default.leftshift;
+            int leftshift = Settings.Default.leftshift;
             try
             {
                 string s = Clipboard.GetText();
@@ -1320,7 +1330,7 @@ namespace PlaylistEditor
 
         private void textBox_find_TextChanged(object sender, EventArgs e)
         {
-            var colS = Properties.Settings.Default.colSearch;
+            var colS = Settings.Default.colSearch;
 
             if (dataGridView1.Rows.Count > 0)
             {
@@ -1343,13 +1353,13 @@ namespace PlaylistEditor
 
 
                         _found = true;
-                        textBox_find.ForeColor = System.Drawing.Color.Black;
+                        textBox_find.ForeColor = Color.Black;
                     }
 
 
                 }
                 if (!_found)//text red 
-                    textBox_find.ForeColor = System.Drawing.Color.Red;
+                    textBox_find.ForeColor = Color.Red;
             }
 
 
@@ -1360,7 +1370,7 @@ namespace PlaylistEditor
         private void button_dup_Click(object sender, EventArgs e)
         {
 
-            var colD = Properties.Settings.Default.colDupli;
+            var colD = Settings.Default.colDupli;
 
             dataGridView1.ClearSelection();
 
@@ -1382,7 +1392,7 @@ namespace PlaylistEditor
                 }
             }
 
-            if (Control.ModifierKeys == Keys.Shift)
+            if (ModifierKeys == Keys.Shift)
             {
                 button_delLine.PerformClick();
             }
@@ -1560,10 +1570,10 @@ namespace PlaylistEditor
             isModified = hasChanged;
 
             if (hasChanged)
-                button_save.BackgroundImage = Properties.Resources.content_save_modified;
+                button_save.BackgroundImage = Resources.content_save_modified;
 
             if (!hasChanged)
-                button_save.BackgroundImage = Properties.Resources.content_save_1_;
+                button_save.BackgroundImage = Resources.content_save_1_;
 
         }
 
@@ -1606,7 +1616,7 @@ namespace PlaylistEditor
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (Control.ModifierKeys == Keys.Control)
+            if (ModifierKeys == Keys.Control)
             {
                 playToolStripMenuItem.PerformClick();
             }
@@ -1627,7 +1637,7 @@ namespace PlaylistEditor
             }
             else if (_taglink)
             {
-                if (Control.ModifierKeys == Keys.Control)
+                if (ModifierKeys == Keys.Control)
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
@@ -1647,7 +1657,7 @@ namespace PlaylistEditor
             }
 
 
-            if (Control.ModifierKeys == Keys.Control) _mark = true;
+            if (ModifierKeys == Keys.Control) _mark = true;
             else _mark = false; //select links
 
 
@@ -1691,26 +1701,12 @@ namespace PlaylistEditor
                 tokenSource = new CancellationTokenSource();
                 var token = tokenSource.Token;
 
-
-                //try
-                //{
-
                 await Task.Run(() => RunStreamCheck(token, progress));
-                //}
-                //catch (OperationCanceledException ex)
-                //{
-                //    //Do stuff to handle cancellation
-                //    popup.Close();
-                //}
-
+              
                 popup.Close();
-
-
             }
 
             button_check.Enabled = true;
-
-
         }
 
         void FormP_Closed(object sender, FormClosedEventArgs e)
@@ -1718,7 +1714,7 @@ namespace PlaylistEditor
             popup popup = (popup)sender;
 
             tokenSource.Cancel();
-            // MessageBox.Show(popup.Name);
+           
         }
 
         private void RunStreamCheck(CancellationToken token, IProgress<string> progress)
@@ -1729,8 +1725,7 @@ namespace PlaylistEditor
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
                 if (token.IsCancellationRequested)
-                {
-                    // MessageBox.Show("test");
+                {                   
                     break;
                 }
 
@@ -1743,12 +1738,11 @@ namespace PlaylistEditor
                     for (int i = 0; i < 6; i++)
                     {
                         if (_mark) dataGridView1.Rows[item.Index].Selected = true;
-                        dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = System.Drawing.Color.LightSalmon;
+                        dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
                     }
                     dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
                 }
             }
-
         }
 
 
@@ -1758,7 +1752,7 @@ namespace PlaylistEditor
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = System.Drawing.Color.White;
+                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = Color.White;
                 }
             }
         }
@@ -1847,42 +1841,44 @@ namespace PlaylistEditor
 
         private void hideToolStripMenuItem_Click(object sender, EventArgs e)
         { //issue #11
-
             foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
             {
-
                 dataGridView1.Columns[dataGridView1.Columns[cell.ColumnIndex].HeaderText].Visible = false;
             }
-
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
         { //issue #11
-
             for (int i = 0; i < dataGridView1.ColumnCount; i++)
             {
                 dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = true;
             }
-
         }
 
 
         private void singleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0
-                || this.WindowState == FormWindowState.Maximized) return;
+            if (/*dataGridView1.SelectedRows.Count > 0
+                ||*/ this.WindowState == FormWindowState.Maximized) return;
 
             //get col width, index, hide all others, set form width to col width
             if (!_isSingle)
             {
-                int columnIndex = dataGridView1.CurrentCell.ColumnIndex;
-                int colw = dataGridView1.Columns[columnIndex].Width;
+                //int columnIndex = dataGridView1.CurrentCell.ColumnIndex;
+                int columnIndex = 4;  //Name
+                                      //dataGridView1.Columns[columnIndex].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                                      //int widthCol = dataGridView1.Columns[columnIndex].Width;
+                                      //dataGridView1.Columns[columnIndex].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                                      //dataGridView1.Columns[columnIndex].Width = widthCol;
+                                      //dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+
+
+                //int colw = dataGridView1.Columns[columnIndex].Width;
 
                 for (int i = 0; i < dataGridView1.ColumnCount; i++)
                 {
                     if (i != columnIndex)
                         dataGridView1.Columns[dataGridView1.Columns[i].HeaderText].Visible = false;
-
                 }
 
                 this.Size = new Size(400, 422);
@@ -1890,7 +1886,7 @@ namespace PlaylistEditor
                 dataGridView1.Size = new Size(382, 422 - 44);
                 dataGridView1.Location = new Point(0, 0);
 
-                contextMenuStrip1.Items[12].Text = "Single column mode OFF";
+                contextMenuStrip1.Items[12].Text = "Player mode OFF";
                 _isSingle = true;
             }
             else
@@ -1905,9 +1901,8 @@ namespace PlaylistEditor
                 dataGridView1.Size = new Size(1122, 319);
                 dataGridView1.Location = new Point(0, 59);
 
-                contextMenuStrip1.Items[12].Text = "Single column mode";
+                contextMenuStrip1.Items[12].Text = "Player mode";
                 _isSingle = false;
-
             }
         }
 
@@ -1965,17 +1960,13 @@ namespace PlaylistEditor
                 if (this.WindowState == FormWindowState.Maximized)
                     contextMenuStrip1.Items[12].Enabled = false;  //no single col mode for fullscreen
             }
-
         }
 
         private void button_import_Click(object sender, EventArgs e)
         {
-
-
             //   if (ClassHelp.CheckClipboard() || dataGridView1.Rows.Count > 0) return;
 
             dt.TableName = "IPTV";
-
 
             dataGridView1.DataSource = dt;
             string[] col = new string[6];
@@ -1995,7 +1986,6 @@ namespace PlaylistEditor
 
             if (Clipboard.ContainsText())
             {
-
                 string line;
 
                 using (System.IO.StringReader playlistFile = new System.IO.StringReader(o.GetData(DataFormats.UnicodeText).ToString()))
@@ -2043,9 +2033,6 @@ namespace PlaylistEditor
                             continue;  //if file has irregular linefeed.
                         }
 
-
-
-
                         try
                         {
 
@@ -2067,7 +2054,7 @@ namespace PlaylistEditor
 
 
 
-            dataGridView1.AllowUserToAddRows = false;  //???
+         //   dataGridView1.AllowUserToAddRows = false;  //???
 
             if (dt.Rows.Count == 0)
             {

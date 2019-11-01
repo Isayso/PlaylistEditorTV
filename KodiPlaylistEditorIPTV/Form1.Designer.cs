@@ -126,7 +126,7 @@
             this.toolStripSeparator4,
             this.singleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 262);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 287);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // copyRowMenuItem
@@ -226,7 +226,7 @@
             // 
             this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
             this.singleToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
-            this.singleToolStripMenuItem.Text = "Single column mode";
+            this.singleToolStripMenuItem.Text = "Player mode";
             this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
             // 
             // openFileDialog1
