@@ -50,5 +50,8 @@
     <Setting Name="vlc_fullsreen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="user_agent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mozilla/5.0 (X11; Linux i686; rv:42.0) Gecko/20100101 Firefox/42.0 Iceweasel/42.0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

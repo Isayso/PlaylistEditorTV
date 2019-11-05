@@ -212,5 +212,18 @@ namespace PlaylistEditor.Properties {
                 this["vlc_fullsreen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Mozilla/5.0 (X11; Linux i686; rv:42.0) Gecko/20100101 Firefox/42.0 Iceweasel/42.0" +
+            "")]
+        public string user_agent {
+            get {
+                return ((string)(this["user_agent"]));
+            }
+            set {
+                this["user_agent"] = value;
+            }
+        }
     }
 }

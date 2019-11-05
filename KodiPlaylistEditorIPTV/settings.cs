@@ -40,10 +40,13 @@ namespace PlaylistEditor
             textBox_Username.Text = Settings.Default.username;
 
             checkBox_vlc.Checked = Settings.Default.vlc_fullsreen;
+           // checkBox_plugin.Checked = Settings.Default.user_agent;
 
             comboBox1.SelectedIndex = Settings.Default.colSearch;
             comboBox2.SelectedIndex = Settings.Default.colDupli;
             textBox1.Text = "0";
+            textBox_userAgent.Text = Settings.Default.user_agent;
+           
 
             //password
             if (Settings.Default.cipher != null && Settings.Default.entropy != null)
@@ -76,8 +79,11 @@ namespace PlaylistEditor
             Settings.Default.port = textBox_Port.Text;
             Settings.Default.username = textBox_Username.Text;
             Settings.Default.vlc_fullsreen = checkBox_vlc.Checked;
+            //  Settings.Default.user_agent = checkBox_plugin.Checked;
+            Settings.Default.user_agent = textBox_userAgent.Text;
 
-            
+
+
             // Data to protect. Convert a string to a byte[] using Encoding.UTF8.GetBytes().
             byte[] plaintext = Encoding.Default.GetBytes(textBox_Password.Text); ;
 

@@ -46,6 +46,7 @@
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripNumbering = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -69,8 +70,15 @@
             this.button_settings = new System.Windows.Forms.Button();
             this.button_Info = new System.Windows.Forms.Button();
             this.plabel_Filename = new PathLabel();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addUseragentCell = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.editCellCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCellPaste = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCellCut = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -101,9 +109,11 @@
             this.dataGridView1.Size = new System.Drawing.Size(1122, 319);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             this.dataGridView1.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValidated);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
+            this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             this.dataGridView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragDrop);
             this.dataGridView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragEnter);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
@@ -124,9 +134,10 @@
             this.hideToolStripMenuItem,
             this.showToolStripMenuItem,
             this.toolStripSeparator4,
-            this.singleToolStripMenuItem});
+            this.singleToolStripMenuItem,
+            this.toolStripNumbering});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 287);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 286);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // copyRowMenuItem
@@ -228,6 +239,14 @@
             this.singleToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
             this.singleToolStripMenuItem.Text = "Player mode";
             this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
+            // 
+            // toolStripNumbering
+            // 
+            this.toolStripNumbering.Name = "toolStripNumbering";
+            this.toolStripNumbering.Size = new System.Drawing.Size(225, 24);
+            this.toolStripNumbering.Text = "Numbering";
+            this.toolStripNumbering.Visible = false;
+            this.toolStripNumbering.Click += new System.EventHandler(this.toolStripNumbering_Click);
             // 
             // openFileDialog1
             // 
@@ -560,6 +579,56 @@
             this.plabel_Filename.TabIndex = 26;
             this.plabel_Filename.Text = "pathLabel1";
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addUseragentCell,
+            this.toolStripSeparator1,
+            this.editCellCopy,
+            this.editCellPaste,
+            this.editCellCut});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 106);
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
+            // 
+            // addUseragentCell
+            // 
+            this.addUseragentCell.Name = "addUseragentCell";
+            this.addUseragentCell.ShortcutKeyDisplayString = "";
+            this.addUseragentCell.Size = new System.Drawing.Size(172, 24);
+            this.addUseragentCell.Text = "add user-agent";
+            this.addUseragentCell.Click += new System.EventHandler(this.addUseragentCell_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            // 
+            // editCellCopy
+            // 
+            this.editCellCopy.Name = "editCellCopy";
+            this.editCellCopy.ShortcutKeyDisplayString = "Ctrl-C";
+            this.editCellCopy.Size = new System.Drawing.Size(172, 24);
+            this.editCellCopy.Text = "Copy";
+            this.editCellCopy.Click += new System.EventHandler(this.editCellCopy_Click);
+            // 
+            // editCellPaste
+            // 
+            this.editCellPaste.Name = "editCellPaste";
+            this.editCellPaste.ShortcutKeyDisplayString = "Ctrl-V";
+            this.editCellPaste.Size = new System.Drawing.Size(172, 24);
+            this.editCellPaste.Text = "Paste";
+            this.editCellPaste.Click += new System.EventHandler(this.editCellPaste_Click);
+            // 
+            // editCellCut
+            // 
+            this.editCellCut.Name = "editCellCut";
+            this.editCellCut.ShortcutKeyDisplayString = "Ctrl-X";
+            this.editCellCut.Size = new System.Drawing.Size(172, 24);
+            this.editCellCut.Text = "Cut";
+            this.editCellCut.Click += new System.EventHandler(this.editCellCut_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -596,6 +665,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -641,6 +711,13 @@
         private System.Windows.Forms.Button button_import;
         private System.Windows.Forms.Button button_kodi;
         private System.Windows.Forms.ToolStripMenuItem pasteReplaceRowMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripNumbering;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem addUseragentCell;
+        private System.Windows.Forms.ToolStripMenuItem editCellCopy;
+        private System.Windows.Forms.ToolStripMenuItem editCellPaste;
+        private System.Windows.Forms.ToolStripMenuItem editCellCut;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
