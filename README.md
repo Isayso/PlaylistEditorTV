@@ -1,6 +1,6 @@
 
 # Playlist Editor TV
-Editor for TV m3u files (with vlc media player and kodi support)
+Editor for IPTV m3u files (with vlc media player and kodi support)
 
 1.4.1 avaliable. 
 
