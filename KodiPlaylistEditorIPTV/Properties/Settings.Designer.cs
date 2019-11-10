@@ -200,5 +200,42 @@ namespace PlaylistEditor.Properties {
                 this["openpath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool vlc_fullsreen {
+            get {
+                return ((bool)(this["vlc_fullsreen"]));
+            }
+            set {
+                this["vlc_fullsreen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Mozilla/5.0 (X11; Linux i686; rv:42.0) Gecko/20100101 Firefox/42.0 Iceweasel/42.0" +
+            "")]
+        public string user_agent {
+            get {
+                return ((string)(this["user_agent"]));
+            }
+            set {
+                this["user_agent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool autoplayer {
+            get {
+                return ((bool)(this["autoplayer"]));
+            }
+            set {
+                this["autoplayer"] = value;
+            }
+        }
     }
 }

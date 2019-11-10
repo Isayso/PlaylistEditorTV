@@ -1,0 +1,11 @@
+﻿1.4.2
+- fix delete key in cell edit
+- search string in all cells
+- vlc in fullscreen option
+- new player window
+- plugin link support issue #18
+- adds user-agent for m3u8 plugin links
+- checks links with User Agent from link
+- highlight search results string
+- disable automatic tooltip
+- Ctrl-1/2  for MoveLine Up/Down

@@ -104,6 +104,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="NativeMethods.cs" />
+    <Compile Include="player.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="player.Designer.cs">
+      <DependentUpon>player.cs</DependentUpon>
+    </Compile>
     <Compile Include="popup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="player.resx">
+      <DependentUpon>player.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popup.resx">
       <DependentUpon>popup.cs</DependentUpon>
@@ -205,6 +214,7 @@
     <None Include="Resources\information-outline.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Changelog.txt" />
     <Content Include="icon_PlayIPTV2.ico" />
     <Content Include="icon_PlayIPTV3.ico" />
     <Content Include="KodiPlaylistEditor.ico" />
