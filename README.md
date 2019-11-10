@@ -2,11 +2,9 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
-1.4.1 avaliable. 
+1.4.2 New Channel switch window, replacing single column mode. Search stings are now highlighed. Not tested Links are now grey.
 
-NEW progress window with cancel for link check. Hotkey to import from clipboard (defined in settings).
-
-NEW in 1.4: Re-design of copy/paste function and context menu. Imports a full list from clipboard, no file save before necessary.  Single column mode for better play with vlc. Send to Kodi button. Auto hide empty columns on file load. Check button if link is responding. 
+1.4: Re-design of copy/paste function and context menu. Imports a full list from clipboard, no file save before necessary.  Single column mode for better play with vlc. Send to Kodi button. Auto hide empty columns on file load. Check button if link is responding. 
   Special thanks to dobbelina for helpful ideas and testing, improved the usablility a lot. 
 
 ![UI](screenshot_1.4.PNG)
@@ -20,7 +18,6 @@ NEW in 1.4: Re-design of copy/paste function and context menu. Imports a full li
 - Copy/paste links to other editor window. 
 - Play links on Windows with installed VLC player 
 
-![UI](screenshot2_1.4.PNG)
 
 
 ## Getting Started
@@ -75,6 +72,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 
-![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.4/total)
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.4.2/total)
 
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.4.1/total)
