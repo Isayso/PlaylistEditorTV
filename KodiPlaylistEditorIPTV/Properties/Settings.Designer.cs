@@ -225,5 +225,17 @@ namespace PlaylistEditor.Properties {
                 this["user_agent"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool autoplayer {
+            get {
+                return ((bool)(this["autoplayer"]));
+            }
+            set {
+                this["autoplayer"] = value;
+            }
+        }
     }
 }

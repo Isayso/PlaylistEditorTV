@@ -29,12 +29,12 @@ class RepeatingButton : Button
     /// <summary>
     /// The delay in milliseconds between repeats before LoHiChangeTime
     /// </summary>
-    public int LoSpeedWait = 250;
+    public int LoSpeedWait = 400;
 
     /// <summary>
     /// The delay in milliseconds between repeats after LoHiChangeTime
     /// </summary>
-    public int HiSpeedWait = 50;
+    public int HiSpeedWait = 250;
 
     /// <summary>
     /// The changeover time between slow repeats and fast repeats in milliseconds

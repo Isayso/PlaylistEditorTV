@@ -45,8 +45,6 @@
             this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripNumbering = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -133,11 +131,9 @@
             this.toolStripSeparator3,
             this.hideToolStripMenuItem,
             this.showToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.singleToolStripMenuItem,
-            this.toolStripNumbering});
+            this.toolStripSeparator4});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 286);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 238);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // copyRowMenuItem
@@ -232,21 +228,7 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(222, 6);
-            // 
-            // singleToolStripMenuItem
-            // 
-            this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
-            this.singleToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
-            this.singleToolStripMenuItem.Text = "Player mode";
-            this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
-            // 
-            // toolStripNumbering
-            // 
-            this.toolStripNumbering.Name = "toolStripNumbering";
-            this.toolStripNumbering.Size = new System.Drawing.Size(225, 24);
-            this.toolStripNumbering.Text = "Numbering";
-            this.toolStripNumbering.Visible = false;
-            this.toolStripNumbering.Click += new System.EventHandler(this.toolStripNumbering_Click);
+            this.toolStripSeparator4.Visible = false;
             // 
             // openFileDialog1
             // 
@@ -530,7 +512,6 @@
             this.textBox_find.Name = "textBox_find";
             this.textBox_find.Size = new System.Drawing.Size(167, 28);
             this.textBox_find.TabIndex = 34;
-            this.textBox_find.Text = "find";
             this.textBox_find.Visible = false;
             this.textBox_find.Click += new System.EventHandler(this.textBox_selectAll_Click);
             this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChanged);
@@ -676,7 +657,6 @@
         private System.Windows.Forms.Button button_open;
         private System.Windows.Forms.Button button_save;
         private System.Windows.Forms.Button button_delLine;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button_Info;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
@@ -707,17 +687,16 @@
         private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem singleToolStripMenuItem;
         private System.Windows.Forms.Button button_import;
         private System.Windows.Forms.Button button_kodi;
         private System.Windows.Forms.ToolStripMenuItem pasteReplaceRowMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripNumbering;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem addUseragentCell;
         private System.Windows.Forms.ToolStripMenuItem editCellCopy;
         private System.Windows.Forms.ToolStripMenuItem editCellPaste;
         private System.Windows.Forms.ToolStripMenuItem editCellCut;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

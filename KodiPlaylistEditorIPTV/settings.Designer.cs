@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(settings));
             this.button_ok = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -61,6 +62,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_userAgent = new System.Windows.Forms.TextBox();
+            this.checkBox_autoPlayer = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -292,7 +294,6 @@
             this.checkBox_vlc.Size = new System.Drawing.Size(145, 24);
             this.checkBox_vlc.TabIndex = 20;
             this.checkBox_vlc.Text = "VLC fullscreen";
-            this.toolTip1.SetToolTip(this.checkBox_vlc, "Restart to take effect");
             this.checkBox_vlc.UseVisualStyleBackColor = true;
             // 
             // tabControl1
@@ -302,16 +303,17 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(-4, 13);
+            this.tabControl1.Location = new System.Drawing.Point(0, 13);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(475, 356);
+            this.tabControl1.Size = new System.Drawing.Size(467, 356);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabPage3.Controls.Add(this.checkBox_autoPlayer);
             this.tabPage3.Controls.Add(this.checkBox_vlc);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.label2);
@@ -324,7 +326,7 @@
             this.tabPage3.ForeColor = System.Drawing.SystemColors.Control;
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(467, 323);
+            this.tabPage3.Size = new System.Drawing.Size(459, 323);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "options";
             // 
@@ -406,7 +408,7 @@
             this.tabPage1.ForeColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(467, 323);
+            this.tabPage1.Size = new System.Drawing.Size(459, 323);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Kodi";
             // 
@@ -423,7 +425,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(467, 323);
+            this.tabPage2.Size = new System.Drawing.Size(459, 323);
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Hotkey";
             // 
@@ -455,6 +457,20 @@
             this.textBox_userAgent.Size = new System.Drawing.Size(407, 27);
             this.textBox_userAgent.TabIndex = 34;
             // 
+            // checkBox_autoPlayer
+            // 
+            this.checkBox_autoPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_autoPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_autoPlayer.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_autoPlayer.Location = new System.Drawing.Point(180, 269);
+            this.checkBox_autoPlayer.Name = "checkBox_autoPlayer";
+            this.checkBox_autoPlayer.Size = new System.Drawing.Size(167, 24);
+            this.checkBox_autoPlayer.TabIndex = 21;
+            this.checkBox_autoPlayer.Text = "Auto player mode";
+            this.toolTip1.SetToolTip(this.checkBox_autoPlayer, "switches to player after \r\nfirst load of .m3u file");
+            this.checkBox_autoPlayer.UseVisualStyleBackColor = true;
+            this.checkBox_autoPlayer.Visible = false;
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,6 +481,7 @@
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_ok);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "settings";
@@ -512,5 +529,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_userAgent;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox checkBox_autoPlayer;
     }
 }

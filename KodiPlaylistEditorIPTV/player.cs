@@ -4,25 +4,29 @@ using System.Windows.Forms;
 
 namespace PlaylistEditor
 {
-    public partial class player : Form
+    public partial class player : Form 
     {
+        //static Form1 myForm = new Form1();
+        // // Form1 myForm = Application.OpenForms.OfType<Form1>().ElementAt<Form1>(0); //Get current open Form2
+        // DataGridView data =  myForm.dataGridView1;
+        public DataGridView Dgv { get; set; }
+
         public player()
         {
             InitializeComponent();
-
             TopMost = true;
             button_Top.BackColor = Color.DeepSkyBlue;
             button_Top.ForeColor = Color.Black;
 
+           // DataGridView data = form1_.dataGridView1;
+
+          //  data.Rows.Count
+
+            //comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
-
        
-
-
-
-
-
+        //move window with mouse down
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
@@ -49,11 +53,30 @@ namespace PlaylistEditor
 
         private void ComboBox_Click(object sender, EventArgs e)
         {
-            ComboBox obj = sender as ComboBox;
-            obj.DroppedDown = true;
+           
+            //  funData();
+            comboBox1.Items.Clear();
+            for (int i = 0; i < Dgv.Rows.Count; i++)
+            {
+                comboBox1.Items.Add(Dgv.Rows[i].Cells[4].Value.ToString());
+            }
+
+            comboBox1.DroppedDown = true;
+            //ComboBox obj = sender as ComboBox;
+            //obj.DroppedDown = true;
         }
 
-       
+        //public void funData(DataGridView data)
+        //{
+        //    comboBox1.Items.Clear();
+        //    for (int i = 0; i < data.Rows.Count; i++)
+        //    {
+        //        comboBox1.Items.Add(data.Rows[i].Cells[4].Value.ToString());
+        //    }
+        //    comboBox1.DroppedDown = true;
+
+        //    //  label1.Text = txtForm1.Text;
+        //}
 
         private void button_Top_Click(object sender, EventArgs e)
         {
@@ -69,6 +92,11 @@ namespace PlaylistEditor
                 button_Top.BackColor = Color.MidnightBlue;
                 button_Top.ForeColor = SystemColors.Control;
             }
+        }
+
+        private void button_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

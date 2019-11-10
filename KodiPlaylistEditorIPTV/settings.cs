@@ -40,6 +40,8 @@ namespace PlaylistEditor
             textBox_Username.Text = Settings.Default.username;
 
             checkBox_vlc.Checked = Settings.Default.vlc_fullsreen;
+            checkBox_autoPlayer.Checked = Settings.Default.autoplayer;
+           
            // checkBox_plugin.Checked = Settings.Default.user_agent;
 
             comboBox1.SelectedIndex = Settings.Default.colSearch;
@@ -79,6 +81,7 @@ namespace PlaylistEditor
             Settings.Default.port = textBox_Port.Text;
             Settings.Default.username = textBox_Username.Text;
             Settings.Default.vlc_fullsreen = checkBox_vlc.Checked;
+            Settings.Default.autoplayer = checkBox_autoPlayer.Checked;
             //  Settings.Default.user_agent = checkBox_plugin.Checked;
             Settings.Default.user_agent = textBox_userAgent.Text;
 

@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(player));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button_Top = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button_cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -50,6 +52,7 @@
             // 
             // button_Top
             // 
+            this.button_Top.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Top.BackgroundImage")));
             this.button_Top.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_Top.FlatAppearance.BorderSize = 0;
             this.button_Top.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -59,22 +62,40 @@
             this.button_Top.Name = "button_Top";
             this.button_Top.Size = new System.Drawing.Size(30, 32);
             this.button_Top.TabIndex = 62;
-            this.button_Top.Text = "T";
             this.button_Top.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.toolTip1.SetToolTip(this.button_Top, "Set to Foreground");
             this.button_Top.UseVisualStyleBackColor = true;
             this.button_Top.Click += new System.EventHandler(this.button_Top_Click);
+            // 
+            // button_cancel
+            // 
+            this.button_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_cancel.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_cancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_cancel.BackgroundImage")));
+            this.button_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_cancel.FlatAppearance.BorderSize = 0;
+            this.button_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cancel.Location = new System.Drawing.Point(289, 6);
+            this.button_cancel.Margin = new System.Windows.Forms.Padding(0);
+            this.button_cancel.Name = "button_cancel";
+            this.button_cancel.Size = new System.Drawing.Size(33, 37);
+            this.button_cancel.TabIndex = 63;
+            this.toolTip1.SetToolTip(this.button_cancel, "cancel");
+            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(288, 55);
+            this.ClientSize = new System.Drawing.Size(328, 55);
+            this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_Top);
             this.Controls.Add(this.comboBox1);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "player";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "player";
@@ -87,5 +108,6 @@
         public System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button_Top;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button_cancel;
     }
 }
