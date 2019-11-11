@@ -2,7 +2,7 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
-1.4.2 New Channel switch window, replacing single column mode. Search stings are now highlighed. Not tested Links are now grey.
+1.4.2 New Channel switch window, replacing single column mode. Search strings are now highlighed. Not tested Links are grey, dead links orange.
 
 1.4: Re-design of copy/paste function and context menu. Imports a full list from clipboard, no file save before necessary.  Single column mode for better play with vlc. Send to Kodi button. Auto hide empty columns on file load. Check button if link is responding. 
   Special thanks to dobbelina for helpful ideas and testing, improved the usablility a lot. 
