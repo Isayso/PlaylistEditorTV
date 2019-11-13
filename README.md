@@ -68,10 +68,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Ctrl + P send link to Kodi
 - Ctrl + T move line to top of list
 - Ctrl + +/- change font size
+- Ctrl + 1/2 move line up/down
 - del    delete selected row
 
 
 
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.4.2/total)
-
-![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.4.1/total)
