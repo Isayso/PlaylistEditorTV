@@ -18,6 +18,8 @@ Editor for IPTV m3u files (with vlc media player and kodi support)
 - Copy/paste links to other editor window. 
 - Play links on Windows with installed VLC player 
 
+![UI](player.png)
+
 
 
 ## Getting Started
