@@ -98,5 +98,15 @@ namespace PlaylistEditor
         {
             this.Close();
         }
+
+        private async void button_kodi_Click(object sender, EventArgs e)
+        {           
+            string jLink = Dgv.Rows[comboBox1.SelectedIndex].Cells[5].Value.ToString();
+
+            //json string Kodi
+            jLink = "{ \"jsonrpc\":\"2.0\",\"method\":\"Player.Open\",\"params\":{ \"item\":{ \"file\":\"" + jLink + "\"} },\"id\":0}";
+
+            await ClassKodi.Run(jLink);
+        }
     }
 }

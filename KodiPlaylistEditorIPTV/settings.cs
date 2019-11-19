@@ -13,6 +13,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -40,7 +41,7 @@ namespace PlaylistEditor
             textBox_Username.Text = Settings.Default.username;
 
             checkBox_vlc.Checked = Settings.Default.vlc_fullsreen;
-            checkBox_autoPlayer.Checked = Settings.Default.autoplayer;
+            checkBox_F2.Checked = Settings.Default.F2_edit;
            
            // checkBox_plugin.Checked = Settings.Default.user_agent;
 
@@ -48,6 +49,10 @@ namespace PlaylistEditor
             comboBox2.SelectedIndex = Settings.Default.colDupli;
             textBox1.Text = "0";
             textBox_userAgent.Text = Settings.Default.user_agent;
+            textBox_start.Text = Settings.Default.startfile;
+            checkBox_start.Checked = Settings.Default.filestart;
+            checkBox_autostart.Checked = Settings.Default.autoplayer;
+            
            
 
             //password
@@ -81,10 +86,13 @@ namespace PlaylistEditor
             Settings.Default.port = textBox_Port.Text;
             Settings.Default.username = textBox_Username.Text;
             Settings.Default.vlc_fullsreen = checkBox_vlc.Checked;
-            Settings.Default.autoplayer = checkBox_autoPlayer.Checked;
+            Settings.Default.F2_edit = checkBox_F2.Checked;
             //  Settings.Default.user_agent = checkBox_plugin.Checked;
             Settings.Default.user_agent = textBox_userAgent.Text;
-
+            Settings.Default.startfile = textBox_start.Text;
+            Settings.Default.filestart = checkBox_start.Checked;
+            Settings.Default.autoplayer = checkBox_autostart.Checked;
+            Settings.Default.nostart = false;
 
 
             // Data to protect. Convert a string to a byte[] using Encoding.UTF8.GetBytes().
@@ -108,12 +116,6 @@ namespace PlaylistEditor
             Settings.Default.Save();
         }
 
-      
-        private void textBox_hot_Click(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            textBox.SelectAll();
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -187,6 +189,47 @@ namespace PlaylistEditor
         {
             TextBox textBox = (TextBox)sender;
             textBox.SelectAll();
+        }
+
+        private void button_file_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            string openpath = Settings.Default.openpath;
+            if (!string.IsNullOrEmpty(openpath) && !ClassHelp.MyDirectoryExists(openpath, 4000))
+                openpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
+
+            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            {
+                openFileDialog1.InitialDirectory = openpath;
+                openFileDialog1.RestoreDirectory = false;
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    Settings.Default.startfile = openFileDialog1.FileName;
+                    textBox_start.Text = openFileDialog1.FileName;
+                }
+                else  //cancel
+                {
+                    return;
+                }
+
+                Settings.Default.openpath = Path.GetDirectoryName(openFileDialog1.FileName);
+                Settings.Default.Save();
+            }
+            Cursor.Current = Cursors.Default;
+
+        }
+
+        private void checkBox_start_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_start.Checked)
+            {
+                checkBox_autostart.Visible = true;
+            }
+            else
+            {
+                checkBox_autostart.Visible = false;
+            }
         }
     }
 }

@@ -237,5 +237,53 @@ namespace PlaylistEditor.Properties {
                 this["autoplayer"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool F2_edit {
+            get {
+                return ((bool)(this["F2_edit"]));
+            }
+            set {
+                this["F2_edit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string startfile {
+            get {
+                return ((string)(this["startfile"]));
+            }
+            set {
+                this["startfile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool filestart {
+            get {
+                return ((bool)(this["filestart"]));
+            }
+            set {
+                this["filestart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool nostart {
+            get {
+                return ((bool)(this["nostart"]));
+            }
+            set {
+                this["nostart"] = value;
+            }
+        }
     }
 }

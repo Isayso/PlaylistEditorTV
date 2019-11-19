@@ -1,4 +1,9 @@
-﻿1.4.2
+﻿1.4.3
+- fix no save on exit dialog #20
+- start up with pre defined file
+
+
+1.4.2
 - fix delete key in cell edit
 - search string in all cells
 - vlc in fullscreen option
@@ -9,3 +14,6 @@
 - highlight search results string
 - disable automatic tooltip
 - Ctrl-1/2  for MoveLine Up/Down
+
+1.4.1 44 down
+1.4 35 down
