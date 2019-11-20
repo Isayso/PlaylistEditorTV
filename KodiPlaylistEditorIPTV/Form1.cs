@@ -306,13 +306,13 @@ namespace PlaylistEditor
                 DialogResult dialogSave = MessageBox.Show("Do you want to save your current playlist?",
                 "Save Playlist", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogSave == DialogResult.Yes)
-                     button_save.PerformClick();
+                    button_save.PerformClick();
                 isModified = false;
             }
 
 
 
-            Application.Exit();
+          //  Application.Exit();
         }
 
 
@@ -1721,6 +1721,8 @@ namespace PlaylistEditor
 
         private async void Button_check_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count == 0) return;
+
             if (!_taglink)
             {
                 _taglink = true;

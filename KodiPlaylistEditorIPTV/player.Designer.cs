@@ -98,7 +98,7 @@
             this.button_kodi.Name = "button_kodi";
             this.button_kodi.Size = new System.Drawing.Size(34, 31);
             this.button_kodi.TabIndex = 66;
-            this.toolTip1.SetToolTip(this.button_kodi, "play with Kodi\r\nCtrl+p\r\nCtrl + double click cell");
+            this.toolTip1.SetToolTip(this.button_kodi, "play with Kodi");
             this.button_kodi.UseVisualStyleBackColor = true;
             this.button_kodi.Click += new System.EventHandler(this.button_kodi_Click);
             // 
