@@ -295,12 +295,7 @@ namespace PlaylistEditor
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Process[] processes = Process.GetProcessesByName("vlc");
-            //foreach (Process process in processes)
-            //{
-            //    process.Kill();
-            //}
-
+           
             if (isModified == true && dataGridView1.RowCount > 0)
             {
                 DialogResult dialogSave = MessageBox.Show("Do you want to save your current playlist?",
@@ -310,9 +305,6 @@ namespace PlaylistEditor
                 isModified = false;
             }
 
-
-
-          //  Application.Exit();
         }
 
 
@@ -559,6 +551,7 @@ namespace PlaylistEditor
         {
             Cursor.Current = Cursors.WaitCursor;
 
+            saveFileDialog1.FileName = plabel_Filename.Text;
 
             if ((ModifierKeys == Keys.Shift || _savenow) && !string.IsNullOrEmpty(plabel_Filename.Text)
                 && ClassHelp.MyDirectoryExists(Path.GetDirectoryName(plabel_Filename.Text), 4000))
