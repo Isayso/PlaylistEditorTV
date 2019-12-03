@@ -1,10 +1,13 @@
-﻿1.4.3
+﻿1.4.4
+- fix Kodi password not recognized
+
+1.4.3
 - fix no save on exit dialog #20
 - start up with pre defined file
 - fix empty name in save file dialog
 
 
-1.4.2
+1.4.2   32 down
 - fix delete key in cell edit
 - search string in all cells
 - vlc in fullscreen option

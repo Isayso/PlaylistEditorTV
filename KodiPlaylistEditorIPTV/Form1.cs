@@ -530,7 +530,7 @@ namespace PlaylistEditor
                 }
                 toSave(true);
             }
-            else
+            else  //delete cells only
             {
                 Int32 selectedCellCount = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
                 if (selectedCellCount > 0)
@@ -828,7 +828,7 @@ namespace PlaylistEditor
             jLink = "{ \"jsonrpc\":\"2.0\",\"method\":\"Player.Open\",\"params\":{ \"item\":{ \"file\":\"" + jLink + "\"} },\"id\":0}";
 
 
-            await ClassKodi.Run(jLink);
+            await ClassKodi.Run2(jLink);
 
         }
 

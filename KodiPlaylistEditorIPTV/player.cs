@@ -106,7 +106,7 @@ namespace PlaylistEditor
             //json string Kodi
             jLink = "{ \"jsonrpc\":\"2.0\",\"method\":\"Player.Open\",\"params\":{ \"item\":{ \"file\":\"" + jLink + "\"} },\"id\":0}";
 
-            await ClassKodi.Run(jLink);
+            await ClassKodi.Run2(jLink);
         }
     }
 }
