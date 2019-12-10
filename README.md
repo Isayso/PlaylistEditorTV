@@ -2,6 +2,8 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
+1.4.4 send to Kodi button in channel switch window, password error fixed
+
 1.4.3 New option for start-up with defined file, bugfixes.
 
 1.4.2 Channel switch window, replacing single column mode. Search strings are now highlighed. Not tested Links are grey, dead links orange.
