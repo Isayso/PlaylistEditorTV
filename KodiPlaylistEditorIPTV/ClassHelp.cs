@@ -79,11 +79,11 @@ namespace PlaylistEditor
             return enc.GetString(arr);
         }
 
-        public static byte[] StringToByteArray(string str)
-        {
-            System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
-            return enc.GetBytes(str);
-        }
+        //public static byte[] StringToByteArray(string str)
+        //{
+        //    System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
+        //    return enc.GetBytes(str);
+        //}
 
         /// <summary>
         /// shows a popup form
@@ -130,7 +130,17 @@ namespace PlaylistEditor
 
         }
 
-
+        public static bool MyFileExists(string uri, int timeout)
+        {
+            var task = new Task<bool>(() =>
+            {
+                var fi = new FileInfo(uri);
+                return fi.Exists;
+            });
+            task.Start();
+            //return task.Result;
+            return task.Wait(timeout) && task.Result;
+        }
         /// <summary>
         /// function to get the path of installed vlc
         /// </summary>

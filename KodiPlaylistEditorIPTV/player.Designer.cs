@@ -34,6 +34,7 @@
             this.button_Top = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button_cancel = new System.Windows.Forms.Button();
+            this.button_kodi = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -69,13 +70,13 @@
             // 
             // button_cancel
             // 
-            this.button_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_cancel.BackColor = System.Drawing.Color.MidnightBlue;
             this.button_cancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_cancel.BackgroundImage")));
             this.button_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_cancel.FlatAppearance.BorderSize = 0;
             this.button_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_cancel.Location = new System.Drawing.Point(289, 6);
+            this.button_cancel.Location = new System.Drawing.Point(288, 6);
             this.button_cancel.Margin = new System.Windows.Forms.Padding(0);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(33, 37);
@@ -84,12 +85,30 @@
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
+            // button_kodi
+            // 
+            this.button_kodi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_kodi.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_kodi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_kodi.BackgroundImage")));
+            this.button_kodi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_kodi.FlatAppearance.BorderSize = 0;
+            this.button_kodi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_kodi.Location = new System.Drawing.Point(320, 9);
+            this.button_kodi.Margin = new System.Windows.Forms.Padding(0);
+            this.button_kodi.Name = "button_kodi";
+            this.button_kodi.Size = new System.Drawing.Size(34, 31);
+            this.button_kodi.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.button_kodi, "play with Kodi");
+            this.button_kodi.UseVisualStyleBackColor = true;
+            this.button_kodi.Click += new System.EventHandler(this.button_kodi_Click);
+            // 
             // player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(328, 55);
+            this.ClientSize = new System.Drawing.Size(356, 55);
+            this.Controls.Add(this.button_kodi);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_Top);
             this.Controls.Add(this.comboBox1);
@@ -109,5 +128,6 @@
         private System.Windows.Forms.Button button_Top;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button_cancel;
+        private System.Windows.Forms.Button button_kodi;
     }
 }

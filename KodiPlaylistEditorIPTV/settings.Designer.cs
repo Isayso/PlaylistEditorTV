@@ -49,24 +49,31 @@
             this.checkBox_a = new System.Windows.Forms.CheckBox();
             this.checkBox_s = new System.Windows.Forms.CheckBox();
             this.checkBox_c = new System.Windows.Forms.CheckBox();
-            this.checkBox_vlc = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button_file = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
+            this.checkBox_F2 = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox_userAgent = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox_userAgent = new System.Windows.Forms.TextBox();
-            this.checkBox_autoPlayer = new System.Windows.Forms.CheckBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.checkBox_autostart = new System.Windows.Forms.CheckBox();
+            this.checkBox_start = new System.Windows.Forms.CheckBox();
+            this.textBox_start = new System.Windows.Forms.TextBox();
+            this.checkBox_vlc = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_ok
@@ -282,25 +289,39 @@
             this.toolTip1.SetToolTip(this.checkBox_c, "Restart to take effect");
             this.checkBox_c.UseVisualStyleBackColor = true;
             // 
-            // checkBox_vlc
+            // label11
             // 
-            this.checkBox_vlc.Checked = true;
-            this.checkBox_vlc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_vlc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_vlc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_vlc.ForeColor = System.Drawing.SystemColors.Control;
-            this.checkBox_vlc.Location = new System.Drawing.Point(180, 239);
-            this.checkBox_vlc.Name = "checkBox_vlc";
-            this.checkBox_vlc.Size = new System.Drawing.Size(145, 24);
-            this.checkBox_vlc.TabIndex = 20;
-            this.checkBox_vlc.Text = "VLC fullscreen";
-            this.checkBox_vlc.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(27, 230);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(243, 20);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Kodi user agent for *.m3u8 files";
+            this.toolTip1.SetToolTip(this.label11, "add User agent to *.m3u8 files");
+            // 
+            // button_file
+            // 
+            this.button_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_file.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_file.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_file.BackgroundImage")));
+            this.button_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_file.FlatAppearance.BorderSize = 0;
+            this.button_file.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_file.Location = new System.Drawing.Point(348, 165);
+            this.button_file.Margin = new System.Windows.Forms.Padding(0);
+            this.button_file.Name = "button_file";
+            this.button_file.Size = new System.Drawing.Size(38, 37);
+            this.button_file.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.button_file, "select file");
+            this.button_file.UseVisualStyleBackColor = true;
+            this.button_file.Click += new System.EventHandler(this.button_file_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 13);
@@ -313,9 +334,8 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.DarkBlue;
-            this.tabPage3.Controls.Add(this.checkBox_autoPlayer);
-            this.tabPage3.Controls.Add(this.checkBox_vlc);
-            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.checkBox_F2);
+            this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.textBox1);
             this.tabPage3.Controls.Add(this.label1);
@@ -330,14 +350,28 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "options";
             // 
-            // label10
+            // checkBox_F2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(56, 241);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 20);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Player mode";
+            this.checkBox_F2.Checked = true;
+            this.checkBox_F2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_F2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_F2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_F2.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_F2.Location = new System.Drawing.Point(194, 274);
+            this.checkBox_F2.Name = "checkBox_F2";
+            this.checkBox_F2.Size = new System.Drawing.Size(184, 24);
+            this.checkBox_F2.TabIndex = 22;
+            this.checkBox_F2.Text = "(restart necessary)";
+            this.checkBox_F2.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(56, 276);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(132, 20);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "Edit only with F2";
             // 
             // comboBox2
             // 
@@ -412,6 +446,13 @@
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Kodi";
             // 
+            // textBox_userAgent
+            // 
+            this.textBox_userAgent.Location = new System.Drawing.Point(31, 253);
+            this.textBox_userAgent.Name = "textBox_userAgent";
+            this.textBox_userAgent.Size = new System.Drawing.Size(407, 27);
+            this.textBox_userAgent.TabIndex = 34;
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.DarkBlue;
@@ -440,36 +481,78 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "Import from Clipboard Hotkey (restart after change)";
             // 
-            // label11
+            // tabPage4
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 230);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(243, 20);
-            this.label11.TabIndex = 33;
-            this.label11.Text = "Kodi user agent for *.m3u8 files";
-            this.toolTip1.SetToolTip(this.label11, "add User agent to *.m3u8 files");
+            this.tabPage4.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabPage4.Controls.Add(this.checkBox_autostart);
+            this.tabPage4.Controls.Add(this.button_file);
+            this.tabPage4.Controls.Add(this.checkBox_start);
+            this.tabPage4.Controls.Add(this.textBox_start);
+            this.tabPage4.Controls.Add(this.checkBox_vlc);
+            this.tabPage4.Controls.Add(this.label10);
+            this.tabPage4.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(459, 323);
+            this.tabPage4.TabIndex = 5;
+            this.tabPage4.Text = "Start up";
             // 
-            // textBox_userAgent
+            // checkBox_autostart
             // 
-            this.textBox_userAgent.Location = new System.Drawing.Point(31, 253);
-            this.textBox_userAgent.Name = "textBox_userAgent";
-            this.textBox_userAgent.Size = new System.Drawing.Size(407, 27);
-            this.textBox_userAgent.TabIndex = 34;
+            this.checkBox_autostart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_autostart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_autostart.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_autostart.Location = new System.Drawing.Point(147, 221);
+            this.checkBox_autostart.Name = "checkBox_autostart";
+            this.checkBox_autostart.Size = new System.Drawing.Size(177, 24);
+            this.checkBox_autostart.TabIndex = 67;
+            this.checkBox_autostart.Text = "Player autostart";
+            this.checkBox_autostart.UseVisualStyleBackColor = true;
+            this.checkBox_autostart.Visible = false;
             // 
-            // checkBox_autoPlayer
+            // checkBox_start
             // 
-            this.checkBox_autoPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_autoPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_autoPlayer.ForeColor = System.Drawing.SystemColors.Control;
-            this.checkBox_autoPlayer.Location = new System.Drawing.Point(180, 269);
-            this.checkBox_autoPlayer.Name = "checkBox_autoPlayer";
-            this.checkBox_autoPlayer.Size = new System.Drawing.Size(167, 24);
-            this.checkBox_autoPlayer.TabIndex = 21;
-            this.checkBox_autoPlayer.Text = "Auto player mode";
-            this.toolTip1.SetToolTip(this.checkBox_autoPlayer, "switches to player after \r\nfirst load of .m3u file");
-            this.checkBox_autoPlayer.UseVisualStyleBackColor = true;
-            this.checkBox_autoPlayer.Visible = false;
+            this.checkBox_start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_start.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_start.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_start.Location = new System.Drawing.Point(147, 130);
+            this.checkBox_start.Name = "checkBox_start";
+            this.checkBox_start.Size = new System.Drawing.Size(177, 24);
+            this.checkBox_start.TabIndex = 37;
+            this.checkBox_start.Text = "Start-up with file";
+            this.checkBox_start.UseVisualStyleBackColor = true;
+            this.checkBox_start.CheckedChanged += new System.EventHandler(this.checkBox_start_CheckedChanged);
+            // 
+            // textBox_start
+            // 
+            this.textBox_start.Location = new System.Drawing.Point(147, 170);
+            this.textBox_start.Name = "textBox_start";
+            this.textBox_start.Size = new System.Drawing.Size(182, 27);
+            this.textBox_start.TabIndex = 35;
+            // 
+            // checkBox_vlc
+            // 
+            this.checkBox_vlc.Checked = true;
+            this.checkBox_vlc.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_vlc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_vlc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_vlc.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_vlc.Location = new System.Drawing.Point(147, 62);
+            this.checkBox_vlc.Name = "checkBox_vlc";
+            this.checkBox_vlc.Size = new System.Drawing.Size(177, 24);
+            this.checkBox_vlc.TabIndex = 22;
+            this.checkBox_vlc.Text = "Play in fullscreen";
+            this.checkBox_vlc.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(102, 20);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Player mode";
             // 
             // settings
             // 
@@ -492,6 +575,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -525,10 +610,16 @@
         private System.Windows.Forms.CheckBox checkBox_a;
         private System.Windows.Forms.CheckBox checkBox_s;
         private System.Windows.Forms.CheckBox checkBox_c;
-        private System.Windows.Forms.CheckBox checkBox_vlc;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_userAgent;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckBox checkBox_autoPlayer;
+        private System.Windows.Forms.CheckBox checkBox_F2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.CheckBox checkBox_start;
+        private System.Windows.Forms.TextBox textBox_start;
+        private System.Windows.Forms.CheckBox checkBox_vlc;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button_file;
+        private System.Windows.Forms.CheckBox checkBox_autostart;
     }
 }
