@@ -71,7 +71,7 @@ namespace PlaylistEditor
         //zoom of fonts
         public float zoomf = 1F;
         // private static readonly int ROWHEIGHT = 47;
-        private static readonly float FONTSIZE = 9.163636F;
+        private const float FONTSIZE = 9.163636F;
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         DataRow dr;
