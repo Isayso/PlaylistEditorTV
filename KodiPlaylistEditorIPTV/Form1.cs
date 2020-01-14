@@ -67,6 +67,8 @@ namespace PlaylistEditor
 
         const int mActionHotKeyID = 1;  //var for key hook listener
 
+      //   if (Properties.Settings.Default.F1Size.Width==0) Properties.Settings.Default.Upgrade();
+      
 
         //zoom of fonts
         public float zoomf = 1F;
@@ -320,16 +322,20 @@ namespace PlaylistEditor
             {
                 _isIt = !_isIt;
                 textBox_find.Visible = true;
+                button_clearfind.Visible = true;
                 this.ActiveControl = textBox_find;
+                button_clearfind.BringToFront();
             }
             else
             {
                 _isIt = !_isIt;
                 textBox_find.Visible = false;
+                button_clearfind.Visible = false;
             }
 
         }
 
+       
 
         private void button_open_Click(object sender, EventArgs e)
         {
@@ -2376,6 +2382,13 @@ namespace PlaylistEditor
             Settings.Default.Save();
 
         }
+
+        private void button_clearfind_Click(object sender, EventArgs e)
+        {
+            textBox_find.Clear();
+        }
+
+       
     }
 }
 

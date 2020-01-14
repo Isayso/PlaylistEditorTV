@@ -64,8 +64,9 @@
             this.button_kodi = new System.Windows.Forms.Button();
             this.button_moveDown = new RepeatingButton();
             this.button_moveUp = new RepeatingButton();
+            this.button_clearfind = new PlaylistEditor.MyButton();
             this.textBox_find = new System.Windows.Forms.TextBox();
-            this.button_settings = new System.Windows.Forms.Button();
+            this.button_settings = new PlaylistEditor.MyButton();
             this.button_Info = new System.Windows.Forms.Button();
             this.plabel_Filename = new PathLabel();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -503,11 +504,32 @@
             this.button_moveUp.UseVisualStyleBackColor = true;
             this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
             // 
+            // button_clearfind
+            // 
+            this.button_clearfind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_clearfind.BackColor = System.Drawing.Color.White;
+            this.button_clearfind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_clearfind.FlatAppearance.BorderSize = 0;
+            this.button_clearfind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_clearfind.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_clearfind.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_clearfind.Image = ((System.Drawing.Image)(resources.GetObject("button_clearfind.Image")));
+            this.button_clearfind.Location = new System.Drawing.Point(1071, 69);
+            this.button_clearfind.Margin = new System.Windows.Forms.Padding(2);
+            this.button_clearfind.Name = "button_clearfind";
+            this.button_clearfind.Size = new System.Drawing.Size(23, 19);
+            this.button_clearfind.TabIndex = 66;
+            this.button_clearfind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button_clearfind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button_clearfind.UseVisualStyleBackColor = false;
+            this.button_clearfind.Visible = false;
+            this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
+            // 
             // textBox_find
             // 
             this.textBox_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_find.Location = new System.Drawing.Point(934, 66);
+            this.textBox_find.Location = new System.Drawing.Point(932, 66);
             this.textBox_find.MaximumSize = new System.Drawing.Size(167, 28);
             this.textBox_find.Name = "textBox_find";
             this.textBox_find.Size = new System.Drawing.Size(167, 28);
@@ -616,6 +638,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1122, 378);
+            this.Controls.Add(this.button_clearfind);
             this.Controls.Add(this.button_kodi);
             this.Controls.Add(this.button_import);
             this.Controls.Add(this.RedoButton);
@@ -664,7 +687,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private PathLabel plabel_Filename;
         private System.Windows.Forms.Button button_add;
-        private System.Windows.Forms.Button button_settings;
+        private PlaylistEditor.MyButton button_settings;
         private System.Windows.Forms.Button button_del_all;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem copyRowMenuItem;
@@ -698,6 +721,7 @@
         private System.Windows.Forms.ToolStripMenuItem editCellCut;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private PlaylistEditor.MyButton button_clearfind;
     }
 }
 
