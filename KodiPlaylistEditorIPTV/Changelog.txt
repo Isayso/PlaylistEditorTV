@@ -1,4 +1,8 @@
-﻿1.4.4
+﻿1.4.5
+- empty search string button
+- shortcut keys list in info box
+
+1.4.4
 - fix Kodi password not recognized
 
 1.4.3

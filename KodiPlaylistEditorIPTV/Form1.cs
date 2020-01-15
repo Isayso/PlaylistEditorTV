@@ -2306,7 +2306,7 @@ namespace PlaylistEditor
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex >= 0 & e.ColumnIndex >= 0 /*& IsSelected*/)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 /*& IsSelected*/)
             {
                 e.Handled = true;
                 e.PaintBackground(e.CellBounds, true);
@@ -2340,7 +2340,7 @@ namespace PlaylistEditor
                         }
 
                         SolidBrush hl_brush = default(SolidBrush);
-                        if (((e.State & DataGridViewElementStates.Selected) != DataGridViewElementStates.None))
+                        if ((e.State & DataGridViewElementStates.Selected) != DataGridViewElementStates.None)
                         {
                             hl_brush = new SolidBrush(Color.DarkGoldenrod);
                         }
