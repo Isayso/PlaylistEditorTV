@@ -1,6 +1,9 @@
 ﻿1.4.5
+- fix Exeption Error #25
+- fix move line after sort
 - empty search string button
 - shortcut keys list in info box
+
 
 1.4.4
 - fix Kodi password not recognized

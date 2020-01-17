@@ -266,6 +266,7 @@ namespace PlaylistEditor
                 if (e.KeyCode == Keys.Delete && dataGridView1.IsCurrentCellInEditMode == false)
                 {
                     button_delLine.PerformClick();
+                  
                 }
                 if (e.KeyCode == Keys.F2)
                 {
@@ -275,7 +276,9 @@ namespace PlaylistEditor
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show("Key press operation failed. " + ex.Message, "Key press", MessageBoxButtons.OK, MessageBoxIcon.None);
+
             }
 
         }
@@ -527,7 +530,7 @@ namespace PlaylistEditor
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                foreach (DataGridViewRow row in dataGridView1.GetSelectedRows())
                 {
                     // int selectedRow = dataGridView1.SelectedRows[0].Index;
                     int selectedRow = dataGridView1.SelectedCells[0].RowIndex;
@@ -1691,6 +1694,8 @@ namespace PlaylistEditor
             //}
             dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
             dt = dt.DefaultView.ToTable("IPTV");
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
         }
 
 
