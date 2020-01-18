@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace PlaylistEditor
@@ -17,6 +18,7 @@ namespace PlaylistEditor
             TopMost = true;
             button_Top.BackColor = Color.DeepSkyBlue;
             button_Top.ForeColor = Color.Black;
+            
 
            // DataGridView data = form1_.dataGridView1;
 
@@ -56,11 +58,12 @@ namespace PlaylistEditor
            
             //  funData();
             comboBox1.Items.Clear();
+            comboBox1.BeginUpdate();
             for (int i = 0; i < Dgv.Rows.Count; i++)
             {
                 comboBox1.Items.Add(Dgv.Rows[i].Cells[4].Value.ToString());
             }
-
+            comboBox1.EndUpdate();
             comboBox1.DroppedDown = true;
             //ComboBox obj = sender as ComboBox;
             //obj.DroppedDown = true;
@@ -109,4 +112,6 @@ namespace PlaylistEditor
             await ClassKodi.Run2(jLink);
         }
     }
+   
+
 }

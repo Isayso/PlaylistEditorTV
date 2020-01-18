@@ -48,6 +48,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon_PlayIPTV3.ico</ApplicationIcon>
@@ -91,6 +92,9 @@
     <Compile Include="ClassHelp.cs" />
     <Compile Include="ClassKodi.cs" />
     <Compile Include="ClassListItem.cs" />
+    <Compile Include="ClassMyButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ClassPathLabel.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Ctrl + C copy rows/cells
+Ctrl + V paste rows/cells
+Ctrl + F find string
+Ctrl + I paste insert row
+Ctrl + X cut row
+Ctrl + N open new window
+Ctrl + S save
+Ctrl + P send link to Kodi
+Ctrl + T move line to top of list
+Ctrl + +/- change font size
+Ctrl + 1/2 move line up/down
+del delete selected row
+F2 edit cell</value>
+  </data>
 </root>

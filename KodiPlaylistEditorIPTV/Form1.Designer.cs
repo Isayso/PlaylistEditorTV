@@ -48,25 +48,26 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button_check = new System.Windows.Forms.Button();
-            this.button_vlc = new System.Windows.Forms.Button();
-            this.button_revert = new System.Windows.Forms.Button();
-            this.button_dup = new System.Windows.Forms.Button();
-            this.button_search = new System.Windows.Forms.Button();
-            this.button_del_all = new System.Windows.Forms.Button();
-            this.button_add = new System.Windows.Forms.Button();
-            this.button_delLine = new System.Windows.Forms.Button();
-            this.button_save = new System.Windows.Forms.Button();
-            this.button_open = new System.Windows.Forms.Button();
-            this.UndoButton = new System.Windows.Forms.Button();
-            this.RedoButton = new System.Windows.Forms.Button();
-            this.button_import = new System.Windows.Forms.Button();
-            this.button_kodi = new System.Windows.Forms.Button();
+            this.button_check = new PlaylistEditor.MyButton();
+            this.button_vlc = new PlaylistEditor.MyButton();
+            this.button_revert = new PlaylistEditor.MyButton();
+            this.button_dup = new PlaylistEditor.MyButton();
+            this.button_search = new PlaylistEditor.MyButton();
+            this.button_del_all = new PlaylistEditor.MyButton();
+            this.button_add = new PlaylistEditor.MyButton();
+            this.button_delLine = new PlaylistEditor.MyButton();
+            this.button_save = new PlaylistEditor.MyButton();
+            this.button_open = new PlaylistEditor.MyButton();
+            this.UndoButton = new PlaylistEditor.MyButton();
+            this.RedoButton = new PlaylistEditor.MyButton();
+            this.button_import = new PlaylistEditor.MyButton();
+            this.button_kodi = new PlaylistEditor.MyButton();
             this.button_moveDown = new RepeatingButton();
             this.button_moveUp = new RepeatingButton();
+            this.button_clearfind = new PlaylistEditor.MyButton();
             this.textBox_find = new System.Windows.Forms.TextBox();
-            this.button_settings = new System.Windows.Forms.Button();
-            this.button_Info = new System.Windows.Forms.Button();
+            this.button_settings = new PlaylistEditor.MyButton();
+            this.button_Info = new PlaylistEditor.MyButton();
             this.plabel_Filename = new PathLabel();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addUseragentCell = new System.Windows.Forms.ToolStripMenuItem();
@@ -503,11 +504,32 @@
             this.button_moveUp.UseVisualStyleBackColor = true;
             this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
             // 
+            // button_clearfind
+            // 
+            this.button_clearfind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_clearfind.BackColor = System.Drawing.Color.White;
+            this.button_clearfind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_clearfind.FlatAppearance.BorderSize = 0;
+            this.button_clearfind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_clearfind.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_clearfind.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_clearfind.Image = ((System.Drawing.Image)(resources.GetObject("button_clearfind.Image")));
+            this.button_clearfind.Location = new System.Drawing.Point(1071, 69);
+            this.button_clearfind.Margin = new System.Windows.Forms.Padding(2);
+            this.button_clearfind.Name = "button_clearfind";
+            this.button_clearfind.Size = new System.Drawing.Size(23, 19);
+            this.button_clearfind.TabIndex = 66;
+            this.button_clearfind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button_clearfind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button_clearfind.UseVisualStyleBackColor = false;
+            this.button_clearfind.Visible = false;
+            this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
+            // 
             // textBox_find
             // 
             this.textBox_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_find.Location = new System.Drawing.Point(934, 66);
+            this.textBox_find.Location = new System.Drawing.Point(932, 66);
             this.textBox_find.MaximumSize = new System.Drawing.Size(167, 28);
             this.textBox_find.Name = "textBox_find";
             this.textBox_find.Size = new System.Drawing.Size(167, 28);
@@ -616,6 +638,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1122, 378);
+            this.Controls.Add(this.button_clearfind);
             this.Controls.Add(this.button_kodi);
             this.Controls.Add(this.button_import);
             this.Controls.Add(this.RedoButton);
@@ -655,41 +678,41 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button_open;
-        private System.Windows.Forms.Button button_save;
-        private System.Windows.Forms.Button button_delLine;
-        private System.Windows.Forms.Button button_Info;
+        private PlaylistEditor.MyButton button_open;
+        private PlaylistEditor.MyButton button_save;
+        private PlaylistEditor.MyButton button_delLine;
+        private PlaylistEditor.MyButton button_Info;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolTip toolTip1;
         private PathLabel plabel_Filename;
-        private System.Windows.Forms.Button button_add;
-        private System.Windows.Forms.Button button_settings;
-        private System.Windows.Forms.Button button_del_all;
+        private PlaylistEditor.MyButton button_add;
+        private PlaylistEditor.MyButton button_settings;
+        private PlaylistEditor.MyButton button_del_all;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem copyRowMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteRowMenuItem;
         private RepeatingButton button_moveUp;
         private RepeatingButton button_moveDown;
-        private System.Windows.Forms.Button button_search;
+        private PlaylistEditor.MyButton button_search;
         private System.Windows.Forms.TextBox textBox_find;
-        private System.Windows.Forms.Button button_dup;
+        private PlaylistEditor.MyButton button_dup;
         private System.Windows.Forms.ToolStripMenuItem toolStripCopy;
         private System.Windows.Forms.ToolStripMenuItem toolStripPaste;
         private System.Windows.Forms.ToolStripMenuItem cutRowMenuItem;
-        private System.Windows.Forms.Button button_revert;
-        private System.Windows.Forms.Button button_vlc;
+        private PlaylistEditor.MyButton button_revert;
+        private PlaylistEditor.MyButton button_vlc;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem playToolStripMenuItem;
-        private System.Windows.Forms.Button button_check;
-        private System.Windows.Forms.Button UndoButton;
-        private System.Windows.Forms.Button RedoButton;
+        private PlaylistEditor.MyButton button_check;
+        private PlaylistEditor.MyButton UndoButton;
+        private PlaylistEditor.MyButton RedoButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.Button button_import;
-        private System.Windows.Forms.Button button_kodi;
+        private PlaylistEditor.MyButton button_import;
+        private PlaylistEditor.MyButton button_kodi;
         private System.Windows.Forms.ToolStripMenuItem pasteReplaceRowMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem addUseragentCell;
@@ -698,6 +721,7 @@
         private System.Windows.Forms.ToolStripMenuItem editCellCut;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private PlaylistEditor.MyButton button_clearfind;
     }
 }
 

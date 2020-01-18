@@ -67,11 +67,13 @@ namespace PlaylistEditor
 
         const int mActionHotKeyID = 1;  //var for key hook listener
 
+      //   if (Properties.Settings.Default.F1Size.Width==0) Properties.Settings.Default.Upgrade();
+      
 
         //zoom of fonts
         public float zoomf = 1F;
         // private static readonly int ROWHEIGHT = 47;
-        private static readonly float FONTSIZE = 9.163636F;
+        private const float FONTSIZE = 9.163636F;
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         DataRow dr;
@@ -264,6 +266,7 @@ namespace PlaylistEditor
                 if (e.KeyCode == Keys.Delete && dataGridView1.IsCurrentCellInEditMode == false)
                 {
                     button_delLine.PerformClick();
+                  
                 }
                 if (e.KeyCode == Keys.F2)
                 {
@@ -273,7 +276,9 @@ namespace PlaylistEditor
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show("Key press operation failed. " + ex.Message, "Key press", MessageBoxButtons.OK, MessageBoxIcon.None);
+
             }
 
         }
@@ -320,16 +325,20 @@ namespace PlaylistEditor
             {
                 _isIt = !_isIt;
                 textBox_find.Visible = true;
+                button_clearfind.Visible = true;
                 this.ActiveControl = textBox_find;
+                button_clearfind.BringToFront();
             }
             else
             {
                 _isIt = !_isIt;
                 textBox_find.Visible = false;
+                button_clearfind.Visible = false;
             }
 
         }
 
+       
 
         private void button_open_Click(object sender, EventArgs e)
         {
@@ -521,7 +530,7 @@ namespace PlaylistEditor
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                foreach (DataGridViewRow row in dataGridView1.GetSelectedRows())
                 {
                     // int selectedRow = dataGridView1.SelectedRows[0].Index;
                     int selectedRow = dataGridView1.SelectedCells[0].RowIndex;
@@ -1685,6 +1694,8 @@ namespace PlaylistEditor
             //}
             dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
             dt = dt.DefaultView.ToTable("IPTV");
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
         }
 
 
@@ -2300,7 +2311,7 @@ namespace PlaylistEditor
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex >= 0 & e.ColumnIndex >= 0 /*& IsSelected*/)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 /*& IsSelected*/)
             {
                 e.Handled = true;
                 e.PaintBackground(e.CellBounds, true);
@@ -2334,7 +2345,7 @@ namespace PlaylistEditor
                         }
 
                         SolidBrush hl_brush = default(SolidBrush);
-                        if (((e.State & DataGridViewElementStates.Selected) != DataGridViewElementStates.None))
+                        if ((e.State & DataGridViewElementStates.Selected) != DataGridViewElementStates.None)
                         {
                             hl_brush = new SolidBrush(Color.DarkGoldenrod);
                         }
@@ -2376,6 +2387,13 @@ namespace PlaylistEditor
             Settings.Default.Save();
 
         }
+
+        private void button_clearfind_Click(object sender, EventArgs e)
+        {
+            textBox_find.Clear();
+        }
+
+       
     }
 }
 
