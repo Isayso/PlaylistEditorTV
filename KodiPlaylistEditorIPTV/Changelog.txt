@@ -1,4 +1,8 @@
-﻿1.4.5
+﻿1.4.6
+- save player location
+
+
+1.4.5
 - fix Exeption Error #25
 - fix move line after sort
 - empty search string button

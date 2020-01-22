@@ -115,10 +115,13 @@
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "player";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "player";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.popup_MouseDown);
+            this.Move += new System.EventHandler(this.player_Move);
             this.ResumeLayout(false);
 
         }

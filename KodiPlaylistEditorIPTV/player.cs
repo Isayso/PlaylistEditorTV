@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Drawing;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace PlaylistEditor
 {
     public partial class player : Form 
     {
-        //static Form1 myForm = new Form1();
-        // // Form1 myForm = Application.OpenForms.OfType<Form1>().ElementAt<Form1>(0); //Get current open Form2
-        // DataGridView data =  myForm.dataGridView1;
         public DataGridView Dgv { get; set; }
 
         public player()
@@ -18,23 +14,22 @@ namespace PlaylistEditor
             TopMost = true;
             button_Top.BackColor = Color.DeepSkyBlue;
             button_Top.ForeColor = Color.Black;
-            
-
-           // DataGridView data = form1_.dataGridView1;
-
-          //  data.Rows.Count
-
-            //comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.MaximizeBox = false;
 
         }
-       
+
+        private void player_Move(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+        }
+
         //move window with mouse down
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
+        private static extern bool ReleaseCapture();
 
         private void popup_MouseDown(object sender, MouseEventArgs e)
         {
@@ -55,8 +50,6 @@ namespace PlaylistEditor
 
         private void ComboBox_Click(object sender, EventArgs e)
         {
-           
-            //  funData();
             comboBox1.Items.Clear();
             comboBox1.BeginUpdate();
             for (int i = 0; i < Dgv.Rows.Count; i++)
@@ -65,21 +58,8 @@ namespace PlaylistEditor
             }
             comboBox1.EndUpdate();
             comboBox1.DroppedDown = true;
-            //ComboBox obj = sender as ComboBox;
-            //obj.DroppedDown = true;
         }
 
-        //public void funData(DataGridView data)
-        //{
-        //    comboBox1.Items.Clear();
-        //    for (int i = 0; i < data.Rows.Count; i++)
-        //    {
-        //        comboBox1.Items.Add(data.Rows[i].Cells[4].Value.ToString());
-        //    }
-        //    comboBox1.DroppedDown = true;
-
-        //    //  label1.Text = txtForm1.Text;
-        //}
 
         private void button_Top_Click(object sender, EventArgs e)
         {
@@ -99,6 +79,11 @@ namespace PlaylistEditor
 
         private void button_cancel_Click(object sender, EventArgs e)
         {
+            
+                Properties.Settings.Default.F1Location = this.Location;
+           
+            Properties.Settings.Default.Save();
+
             this.Close();
         }
 

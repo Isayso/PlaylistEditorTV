@@ -53,6 +53,7 @@ namespace PlaylistEditor
         public string fileName = "";
         public string line;
         private string path;
+        private string _sort = "";
 
         public bool _isIt = true;
         public bool _found = false;
@@ -1684,16 +1685,21 @@ namespace PlaylistEditor
         {
            toSave(true);
 
-            //if (dataGridView1.SortOrder.ToString() == "Descending") // Check if sorting is Descending
-            //{
-            //    dt.DefaultView.Sort = dataGridView1.SortedColumn.Name + " DESC"; // Get Sorted Column name and sort it in Descending order
-            //}
-            //else
-            //{
-            //    dt.DefaultView.Sort = dataGridView1.SortedColumn.Name + " ASC";  // Otherwise sort it in Ascending order
-            //}
+            if (_sort == "desc")
+            {
+                _sort = "asc";
+                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+            }
+            else
+            {
+                _sort = "desc";
+                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
+            }
+
             dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
             dt = dt.DefaultView.ToTable("IPTV");
+
+            //#25 rebind after sort
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
         }
@@ -2008,8 +2014,17 @@ namespace PlaylistEditor
                 {
                     player.comboBox1.Items.Add(dt.Rows[i][4]);
                 }
-                player.Location = new Point(10, 10);
-                player.StartPosition = FormStartPosition.Manual;
+
+                if (Settings.Default.F1Location.X == 0 || Settings.Default.F1Location.Y == 0)
+                {
+                    // first start
+                    player.Location = new Point(10, 10);
+                }
+                else
+                {
+                    player.Location = Settings.Default.F1Location;
+                }
+                 player.StartPosition = FormStartPosition.Manual;
                 // attach the handler
                 player.FormClosed += ChildFormClosed;
             }
@@ -2391,6 +2406,7 @@ namespace PlaylistEditor
         private void button_clearfind_Click(object sender, EventArgs e)
         {
             textBox_find.Clear();
+            textBox_find.Focus();
         }
 
        
