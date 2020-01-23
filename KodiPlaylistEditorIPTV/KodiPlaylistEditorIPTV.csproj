@@ -91,7 +91,6 @@
     </Compile>
     <Compile Include="ClassHelp.cs" />
     <Compile Include="ClassKodi.cs" />
-    <Compile Include="ClassListItem.cs" />
     <Compile Include="ClassMyButton.cs">
       <SubType>Component</SubType>
     </Compile>

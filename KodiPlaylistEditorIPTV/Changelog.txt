@@ -1,5 +1,6 @@
 ﻿1.4.6
 - save player location
+- full sort capability
 
 
 1.4.5
