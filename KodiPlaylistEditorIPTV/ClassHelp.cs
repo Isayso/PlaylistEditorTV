@@ -130,6 +130,12 @@ namespace PlaylistEditor
 
         }
 
+        /// <summary>
+        /// checks if File Exists with timeout
+        /// </summary>
+        /// <param name="uri">full filename</param>
+        /// <param name="timeout">timeout</param>
+        /// <returns></returns>
         public static bool MyFileExists(string uri, int timeout)
         {
             var task = new Task<bool>(() =>

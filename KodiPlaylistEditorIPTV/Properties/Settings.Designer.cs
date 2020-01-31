@@ -297,5 +297,17 @@ namespace PlaylistEditor.Properties {
                 this["F1Location"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool hotkey_enable {
+            get {
+                return ((bool)(this["hotkey_enable"]));
+            }
+            set {
+                this["hotkey_enable"] = value;
+            }
+        }
     }
 }

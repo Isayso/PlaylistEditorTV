@@ -52,6 +52,7 @@ namespace PlaylistEditor
             textBox_start.Text = Settings.Default.startfile;
             checkBox_start.Checked = Settings.Default.filestart;
             checkBox_autostart.Checked = Settings.Default.autoplayer;
+            checkBox_hotkey.Checked = Settings.Default.hotkey_enable;
             
            
 
@@ -93,6 +94,7 @@ namespace PlaylistEditor
             Settings.Default.filestart = checkBox_start.Checked;
             Settings.Default.autoplayer = checkBox_autostart.Checked;
             Settings.Default.nostart = false;
+            Settings.Default.hotkey_enable = checkBox_hotkey.Checked;
 
 
             // Data to protect. Convert a string to a byte[] using Encoding.UTF8.GetBytes().
@@ -229,6 +231,18 @@ namespace PlaylistEditor
             else
             {
                 checkBox_autostart.Visible = false;
+            }
+        }
+
+        private void checkBox_hotkey_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_hotkey.Checked)
+            {
+                panel1.Visible = true;
+            }
+            else
+            {
+                panel1.Visible = false;
             }
         }
     }

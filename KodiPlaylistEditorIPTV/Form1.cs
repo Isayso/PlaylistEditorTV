@@ -100,7 +100,8 @@ namespace PlaylistEditor
 
             //Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8  must be added
             //   RegisterHotKey(this.Handle, mActionHotKeyID, 1, (int)Keys.Y);  //ALT-Y
-            NativeMethods.RegisterHotKey(this.Handle, mActionHotKeyID, spec_key, hotlabel);  //ALT-Y
+            if (Settings.Default.hotkey_enable)
+                NativeMethods.RegisterHotKey(this.Handle, mActionHotKeyID, spec_key, hotlabel);  //ALT-Y
 
 
             plabel_Filename.Text = "";
@@ -1860,7 +1861,9 @@ namespace PlaylistEditor
             }
         }
 
-
+        /// <summary>
+        /// reset all color settings
+        /// </summary>
         private void colorclear()
         {
             foreach (DataGridViewRow item in dataGridView1.Rows)
