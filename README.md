@@ -2,6 +2,8 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
+1.4.6 player window with opacity, hotkey function can be switched off. 
+
 1.4.5 bugfixes, move row after sort. 
 
 1.4.4 send to Kodi button in channel switch window, password error fixed
