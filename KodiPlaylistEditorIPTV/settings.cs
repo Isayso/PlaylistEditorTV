@@ -12,6 +12,13 @@
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+/*
+ * opacity
+ * hover over form
+ * save form position
+ * 
+ * */
+
 using System;
 using System.IO;
 using System.Security.Cryptography;
@@ -52,8 +59,15 @@ namespace PlaylistEditor
             textBox_start.Text = Settings.Default.startfile;
             checkBox_start.Checked = Settings.Default.filestart;
             checkBox_autostart.Checked = Settings.Default.autoplayer;
-            
-           
+            checkBox_hotkey.Checked = Settings.Default.hotkey_enable;
+
+            double oopc = Settings.Default.opacity * 100.0;
+          //  textBox_opacity.Text = oopc.ToString();
+            numericUpDown1.Value = (decimal)oopc;
+
+            //double.TryParse(textBox_opacity.Text, out double opc);
+            //Settings.Default.opacity = opc * 0.01;
+            //textBox_opacity.Text = (Settings.Default.opacity * 100).ToString();
 
             //password
             if (Settings.Default.cipher != null && Settings.Default.entropy != null)
@@ -93,7 +107,11 @@ namespace PlaylistEditor
             Settings.Default.filestart = checkBox_start.Checked;
             Settings.Default.autoplayer = checkBox_autostart.Checked;
             Settings.Default.nostart = false;
+            Settings.Default.hotkey_enable = checkBox_hotkey.Checked;
 
+            double opc = (double)numericUpDown1.Value;
+            //double.TryParse(textBox_opacity.Text, out double opc);
+            Settings.Default.opacity = opc * 0.01;
 
             // Data to protect. Convert a string to a byte[] using Encoding.UTF8.GetBytes().
             byte[] plaintext = Encoding.Default.GetBytes(textBox_Password.Text); ;
@@ -146,7 +164,7 @@ namespace PlaylistEditor
         private void getHotkeyInt()
         {
 
-            //bin from checkboxes?? 
+            //bin from checkboxes
             int spec_a = checkBox_a.Checked ? 1 : 0;
             int spec_c = checkBox_c.Checked ? 2 : 0;
             int spec_s = checkBox_s.Checked ? 4 : 0;
@@ -230,6 +248,29 @@ namespace PlaylistEditor
             {
                 checkBox_autostart.Visible = false;
             }
+        }
+
+        private void checkBox_hotkey_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_hotkey.Checked)
+            {
+                panel1.Visible = true;
+            }
+            else
+            {
+                panel1.Visible = false;
+            }
+        }
+
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            double opc = (double)numericUpDown1.Value;
+            if (opc > 100) opc = 100;
+            else if (opc <= 1) opc = 1;
+
+            Settings.Default.opacity = opc * 0.01;
+            Settings.Default.Save();
         }
     }
 }

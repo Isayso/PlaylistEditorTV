@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Drawing;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace PlaylistEditor
 {
     public partial class player : Form 
     {
-        //static Form1 myForm = new Form1();
-        // // Form1 myForm = Application.OpenForms.OfType<Form1>().ElementAt<Form1>(0); //Get current open Form2
-        // DataGridView data =  myForm.dataGridView1;
         public DataGridView Dgv { get; set; }
+        private int mouseEnterCount = 0;
+        private double opc;
 
         public player()
         {
@@ -18,23 +16,26 @@ namespace PlaylistEditor
             TopMost = true;
             button_Top.BackColor = Color.DeepSkyBlue;
             button_Top.ForeColor = Color.Black;
-            
+            this.MaximizeBox = false;
 
-           // DataGridView data = form1_.dataGridView1;
-
-          //  data.Rows.Count
-
-            //comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+           
+            opc = Properties.Settings.Default.opacity;
+            this.Opacity = opc;
 
         }
-       
+
+        private void player_Move(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+        }
+
         //move window with mouse down
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
+        private static extern bool ReleaseCapture();
 
         private void popup_MouseDown(object sender, MouseEventArgs e)
         {
@@ -50,13 +51,17 @@ namespace PlaylistEditor
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var channel = comboBox1.SelectedIndex;
-           // int i;
+
+            //if (--mouseEnterCount == 0)
+            //{
+            //    this.Opacity = opc; // Properties.Settings.Default.opacity;
+            //}
+            // int i;
+             // if (--mouseEnterCount == 0)             player_MouseLeave(sender, e);
         }
 
         private void ComboBox_Click(object sender, EventArgs e)
         {
-           
-            //  funData();
             comboBox1.Items.Clear();
             comboBox1.BeginUpdate();
             for (int i = 0; i < Dgv.Rows.Count; i++)
@@ -65,21 +70,8 @@ namespace PlaylistEditor
             }
             comboBox1.EndUpdate();
             comboBox1.DroppedDown = true;
-            //ComboBox obj = sender as ComboBox;
-            //obj.DroppedDown = true;
         }
 
-        //public void funData(DataGridView data)
-        //{
-        //    comboBox1.Items.Clear();
-        //    for (int i = 0; i < data.Rows.Count; i++)
-        //    {
-        //        comboBox1.Items.Add(data.Rows[i].Cells[4].Value.ToString());
-        //    }
-        //    comboBox1.DroppedDown = true;
-
-        //    //  label1.Text = txtForm1.Text;
-        //}
 
         private void button_Top_Click(object sender, EventArgs e)
         {
@@ -99,6 +91,11 @@ namespace PlaylistEditor
 
         private void button_cancel_Click(object sender, EventArgs e)
         {
+            this.Opacity = opc;
+            Properties.Settings.Default.F1Location = this.Location;
+           
+            Properties.Settings.Default.Save();
+
             this.Close();
         }
 
@@ -111,6 +108,32 @@ namespace PlaylistEditor
 
             await ClassKodi.Run2(jLink);
         }
+
+        private void player_MouseHover(object sender, EventArgs e)
+        {
+            if (++mouseEnterCount == 1)
+            {
+                this.Opacity = 1.0;
+            }
+        }
+
+        private void player_MouseLeave(object sender, EventArgs e)
+        {
+
+            if (--mouseEnterCount == 0)
+            {
+                this.Opacity = opc; // Properties.Settings.Default.opacity;
+            } 
+        }
+
+        private void player_MouseEnter(object sender, EventArgs e)
+        {
+            if (++mouseEnterCount == 1)
+            {
+                this.Opacity = 1;
+            }
+        }
+
     }
    
 
