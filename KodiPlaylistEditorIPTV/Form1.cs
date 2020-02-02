@@ -747,17 +747,26 @@ namespace PlaylistEditor
                 Cursor.Current = Cursors.WaitCursor;
 
                 string param = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+
+
+
+
                 ProcessStartInfo ps = new ProcessStartInfo();
                 ps.FileName = vlcpath + "\\" + "vlc.exe";
                 ps.ErrorDialog = false;
 
                 if (_isSingle && Settings.Default.vlc_fullsreen)  //bug 
-                    ps.Arguments = " --one-instance --fullscreen --no-video-title-show " + param;
+                    ps.Arguments = " --one-instance --fullscreen --no-video-title-show " + "\""+ param +"\"";
 
                 else if (_isSingle && !Settings.Default.vlc_fullsreen)
-                    ps.Arguments = " --one-instance --no-video-title-show " + param;
+                    ps.Arguments = " --one-instance --no-video-title-show " + "\"" + param + "\"";//+ param;
 
                 else ps.Arguments = " --no-video-title-show " + param;
+
+#if DEBUG
+                MessageBox.Show("param: " + ps.Arguments.ToString());
+#endif
+
 
                 ps.CreateNoWindow = true;
                 ps.UseShellExecute = false;
@@ -1988,6 +1997,10 @@ namespace PlaylistEditor
 
             var channel = combo.SelectedIndex;
 
+#if DEBUG
+            MessageBox.Show("channel: " + channel);
+#endif
+
             if (channel < 0) return;
 
             dataGridView1.CurrentCell = dataGridView1.Rows[channel].Cells[4];
@@ -1996,6 +2009,8 @@ namespace PlaylistEditor
             _isSingle = true;
 
             PlayOnVlc();
+
+            player.Opacity = Settings.Default.opacity;
 
         }
 
@@ -2018,7 +2033,7 @@ namespace PlaylistEditor
                     player.comboBox1.Items.Add(dt.Rows[i][4]);
                 }
 
-                if (Settings.Default.F1Location.X == 0 || Settings.Default.F1Location.Y == 0)
+                if (Settings.Default.F1Location.X == 0 && Settings.Default.F1Location.Y == 0)
                 {
                     // first start
                     player.Location = new Point(10, 10);

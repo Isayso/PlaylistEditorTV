@@ -7,6 +7,8 @@ namespace PlaylistEditor
     public partial class player : Form 
     {
         public DataGridView Dgv { get; set; }
+        private int mouseEnterCount = 0;
+        private double opc;
 
         public player()
         {
@@ -15,6 +17,10 @@ namespace PlaylistEditor
             button_Top.BackColor = Color.DeepSkyBlue;
             button_Top.ForeColor = Color.Black;
             this.MaximizeBox = false;
+
+           
+            opc = Properties.Settings.Default.opacity;
+            this.Opacity = opc;
 
         }
 
@@ -45,7 +51,13 @@ namespace PlaylistEditor
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var channel = comboBox1.SelectedIndex;
-           // int i;
+
+            //if (--mouseEnterCount == 0)
+            //{
+            //    this.Opacity = opc; // Properties.Settings.Default.opacity;
+            //}
+            // int i;
+             // if (--mouseEnterCount == 0)             player_MouseLeave(sender, e);
         }
 
         private void ComboBox_Click(object sender, EventArgs e)
@@ -79,8 +91,8 @@ namespace PlaylistEditor
 
         private void button_cancel_Click(object sender, EventArgs e)
         {
-            
-                Properties.Settings.Default.F1Location = this.Location;
+            this.Opacity = opc;
+            Properties.Settings.Default.F1Location = this.Location;
            
             Properties.Settings.Default.Save();
 
@@ -96,6 +108,32 @@ namespace PlaylistEditor
 
             await ClassKodi.Run2(jLink);
         }
+
+        private void player_MouseHover(object sender, EventArgs e)
+        {
+            if (++mouseEnterCount == 1)
+            {
+                this.Opacity = 1.0;
+            }
+        }
+
+        private void player_MouseLeave(object sender, EventArgs e)
+        {
+
+            if (--mouseEnterCount == 0)
+            {
+                this.Opacity = opc; // Properties.Settings.Default.opacity;
+            } 
+        }
+
+        private void player_MouseEnter(object sender, EventArgs e)
+        {
+            if (++mouseEnterCount == 1)
+            {
+                this.Opacity = 1;
+            }
+        }
+
     }
    
 
