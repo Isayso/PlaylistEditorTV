@@ -319,6 +319,7 @@ namespace PlaylistEditor
         // Menu Buttons
         /*--------------------------------------------------------------------------------*/
 
+        #region menu buttons
         private void button_search_Click(object sender, EventArgs e)
         {
             textBox_find.BringToFront();
@@ -833,10 +834,44 @@ namespace PlaylistEditor
             }
         }
 
+        private void button_dup_Click(object sender, EventArgs e)
+        {
+            var colD = Settings.Default.colDupli;
+
+            dataGridView1.ClearSelection();
+
+            if (dataGridView1.Rows.Count > 0)
+            {
+
+                for (int row = 0; row < dataGridView1.Rows.Count; row++)
+                {
+                    for (int a = 1; a < dataGridView1.Rows.Count - row; a++)
+                    {
+                        if (dataGridView1.Rows[row].Cells[colD].Value.Equals(dataGridView1.Rows[row + a].Cells[colD].Value))
+                        {
+
+                            dataGridView1.Rows[row + a].Selected = true;
+                            dataGridView1.FirstDisplayedScrollingRowIndex = row + a;
+
+                        }
+                    }
+                }
+            }
+
+            if (ModifierKeys == Keys.Shift)
+            {
+                button_delLine.PerformClick();
+            }
+        }
+
+
+
+        #endregion
+
         /*--------------------------------------------------------------------------------*/
         // contextMenueStrip Entries
         /*--------------------------------------------------------------------------------*/
-
+        #region context menu
         private async void playToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridView1.RowCount == 0) return;
@@ -1390,7 +1425,7 @@ namespace PlaylistEditor
             }
         }
 
-
+        #endregion
 
         private void textBox_selectAll_Click(object sender, EventArgs e)
         {
@@ -1451,37 +1486,7 @@ namespace PlaylistEditor
 
 
 
-        private void button_dup_Click(object sender, EventArgs e)
-        {
-            var colD = Settings.Default.colDupli;
-
-            dataGridView1.ClearSelection();
-
-            if (dataGridView1.Rows.Count > 0)
-            {
-
-                for (int row = 0; row < dataGridView1.Rows.Count; row++)
-                {
-                    for (int a = 1; a < dataGridView1.Rows.Count - row; a++)
-                    {
-                        if (dataGridView1.Rows[row].Cells[colD].Value.Equals(dataGridView1.Rows[row + a].Cells[colD].Value))
-                        {
-
-                            dataGridView1.Rows[row + a].Selected = true;
-                            dataGridView1.FirstDisplayedScrollingRowIndex = row + a;
-
-                        }
-                    }
-                }
-            }
-
-            if (ModifierKeys == Keys.Shift)
-            {
-                button_delLine.PerformClick();
-            }
-        }
-
-
+      
 
         private void dataGridView1_DragDrop(object sender, DragEventArgs e)
         {
@@ -2076,6 +2081,7 @@ namespace PlaylistEditor
 
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            
             if (dataGridView1.Rows.Count == 0)  //empty grid
             {
                 for (int i = 0; i < contextMenuStrip1.Items.Count; i++)  //0,1 enabled
@@ -2091,7 +2097,7 @@ namespace PlaylistEditor
             }
             else  //open 
             {
-                int[] itemsList = new int[] { 2, 7, 9, 10 };
+                int[] itemsList = new int[] { 2, 7, 9, 10, 11, 12 };
 
                 for (int i = 0; i < itemsList.Length; i++)
                 {
@@ -2110,7 +2116,11 @@ namespace PlaylistEditor
                 }
 
                 if (Clipboard.ContainsText())
+                {
                     contextMenuStrip1.Items[3].Enabled = true;  //paste
+                    contextMenuStrip1.Items[12].Enabled = true;  //fill
+                }
+                    
 
                 //   if (ClassHelp.CheckClipboard())
                 if (!string.IsNullOrEmpty(fullRowContent))  //for paste to new window
@@ -2427,7 +2437,21 @@ namespace PlaylistEditor
             textBox_find.Focus();
         }
 
-       
+        private void toolStripFill_Click(object sender, EventArgs e)
+        {
+            if (!ClassHelp.CheckClipboard())
+            {
+                string s = Clipboard.GetText();
+                DataGridViewCell oCell;
+
+                foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+                {
+                    oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
+                    oCell.Value = Convert.ChangeType(s, oCell.ValueType);
+                }
+
+            }
+        }
     }
 }
 
