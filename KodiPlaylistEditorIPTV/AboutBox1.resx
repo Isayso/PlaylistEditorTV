@@ -130,6 +130,7 @@ Ctrl + T move line to top of list
 Ctrl + +/- change font size
 Ctrl + 1/2 move line up/down
 del delete selected row
-F2 edit cell</value>
+F2 edit cell
+&amp; is AND in find box</value>
   </data>
 </root>

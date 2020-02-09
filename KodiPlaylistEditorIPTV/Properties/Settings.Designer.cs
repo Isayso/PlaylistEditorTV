@@ -321,5 +321,17 @@ namespace PlaylistEditor.Properties {
                 this["opacity"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int findresult {
+            get {
+                return ((int)(this["findresult"]));
+            }
+            set {
+                this["findresult"] = value;
+            }
+        }
     }
 }

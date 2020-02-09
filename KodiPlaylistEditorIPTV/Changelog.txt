@@ -1,4 +1,9 @@
-﻿1.4.6  
+﻿1.4.7
+- fill cells from clipboard
+- find with &
+- switch find select target cell/row
+
+1.4.6  
 - save player location
 - full sort capability
 - hotkey optional
