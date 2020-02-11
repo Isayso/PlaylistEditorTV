@@ -54,6 +54,7 @@ namespace PlaylistEditor
 
             comboBox1.SelectedIndex = Settings.Default.colSearch;
             comboBox2.SelectedIndex = Settings.Default.colDupli;
+            comboBox_result.SelectedIndex = Settings.Default.findresult;
             textBox1.Text = "0";
             textBox_userAgent.Text = Settings.Default.user_agent;
             textBox_start.Text = Settings.Default.startfile;
@@ -143,6 +144,11 @@ namespace PlaylistEditor
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             Settings.Default.colDupli = comboBox2.SelectedIndex;
+        }
+
+        private void comboBox_result_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Settings.Default.findresult = comboBox_result.SelectedIndex;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -272,5 +278,6 @@ namespace PlaylistEditor
             Settings.Default.opacity = opc * 0.01;
             Settings.Default.Save();
         }
+
     }
 }
