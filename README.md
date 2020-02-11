@@ -2,7 +2,7 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
-1.4.7 better find function with logical AND (&) and easy switch between selecting cells or row. Selected cell region can be filled from clipboard. (pre-release, can have UI glitches)
+1.4.7 better find function with logical AND (&) and easy switch between selecting cells or row. Selected cell region can be filled from clipboard. 
 
 1.4.6 player window with opacity, hotkey function can be switched off. 
 
