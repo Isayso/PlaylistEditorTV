@@ -134,6 +134,31 @@ namespace PlaylistEditor
 
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (Settings.Default.filestart && !Settings.Default.nostart)  //nostart for ctrl-N 
+            {
+                plabel_Filename.Text = Settings.Default.startfile;
+                //check if path exist
+                if (ClassHelp.MyFileExists(plabel_Filename.Text, 5000))
+                {
+                    importDataset(plabel_Filename.Text, false);
+                    button_revert.Visible = true;
+
+                    if (Settings.Default.autoplayer)
+                    {
+                        button_vlc.PerformClick();
+
+                    }
+                }
+
+
+            }
+            Settings.Default.nostart = false;
+            Settings.Default.Save();
+
+        }
+
 
 
         /// <summary>
@@ -174,7 +199,6 @@ namespace PlaylistEditor
                             contextMenuStrip1.Items[3].Enabled = true;
                             toolStripPaste.PerformClick();
                             break;
-
 
                         case Keys.R:
                             copyRowMenuItem.PerformClick();
@@ -1554,6 +1578,35 @@ namespace PlaylistEditor
             }
         }
 
+        private void toolStripFill_Click(object sender, EventArgs e)
+        {
+            if (!ClassHelp.CheckClipboard())
+            {
+                string s = Clipboard.GetText();
+                DataGridViewCell oCell;
+
+                //  int x = dataGridView1.SelectedCells.Count;
+                // var rowIndexes = dataGridView1.SelectedCells.Cast<DataGridViewCell>()
+                //                   .Select(cell => cell.RowIndex)
+                //                   .Min();  //.Distinct();  //list
+                // var colIndexes = dataGridView1.SelectedCells.Cast<DataGridViewCell>()
+                //                   .Select(cell => cell.ColumnIndex)
+                //                   .First();
+
+                //// Clipboard.SetText(dataGridView1[rowIndexes, colIndexes].ToString());
+                // s = dataGridView1[rowIndexes, colIndexes].Value.ToString();
+
+                foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+                {
+                    oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
+                    oCell.Value = Convert.ChangeType(s, oCell.ValueType);
+                }
+                toSave(true);
+            }
+        }
+
+
+
         #endregion
 
         private void textBox_selectAll_Click(object sender, EventArgs e)
@@ -1643,8 +1696,6 @@ namespace PlaylistEditor
                 string _name = "";
                 List<string> _searchlist = new List<string>();
 
-                //one&two
-
                 if (textBox_find.Text.ToLower().Contains("&"))
                 {
                     string[] _search = textBox_find.Text.ToLower().Split('&');
@@ -1670,7 +1721,6 @@ namespace PlaylistEditor
 
                             //foreach (var item in _searchlist)
                             {
-                            //    if (!_name.Contains(item)) continue;  //logical OR
 
                                 //if (!_searchlist.Any(x => _name.Contains(x)))  //logical OR
                                 //{
@@ -1695,20 +1745,6 @@ namespace PlaylistEditor
 
                             }
 
-
-                            //if (_name.Contains(_searchlist[0]) && textBox_find.Text != "")
-                            //{
-                            //    if (findresult == 0) //sel Rows
-                            //    {
-                            //        dataGridView1.Rows[row.Index].Selected = true;
-                            //    }
-                            //    else
-                            //        dataGridView1.Rows[row.Index].Cells[i].Selected = true;
-
-
-                            //    _found = true;
-                            //    textBox_find.ForeColor = Color.Black;
-                            //}
                         }
                     }
                     else
@@ -1718,7 +1754,6 @@ namespace PlaylistEditor
 
                         //foreach (var item in _searchlist)
                         {
-                            //    if (!_name.Contains(item)) continue;
 
                             if (!_searchlist.All(x => _name.Contains(x)))  //logical AND
                                 continue;
@@ -2527,6 +2562,7 @@ namespace PlaylistEditor
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
+
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0 /*& IsSelected*/)
             {
                 e.Handled = true;
@@ -2534,152 +2570,70 @@ namespace PlaylistEditor
 
                 string[] _search = textBox_find.Text.ToLower().Split('&');
                 string sw = _search[0].Trim();
-               // string sw = textBox_find.Text;
-
+                
                 if (!string.IsNullOrEmpty(sw))
                 {
-                    string val = (string)e.FormattedValue;
-                    int sindx = val.ToLower().IndexOf(sw.ToLower());
-                    if (sindx >= 0)
+                    for (int i = 0; i < _search.Length; i++)
                     {
-                        Rectangle hl_rect = new Rectangle();
-                        hl_rect.Y = e.CellBounds.Y + 2;
-                        hl_rect.Height = e.CellBounds.Height - 5;
-
-                        string sBefore = val.Substring(0, sindx);
-                        string sWord = val.Substring(sindx, sw.Length);
-                        Size s1 = TextRenderer.MeasureText(e.Graphics, sBefore, e.CellStyle.Font, e.CellBounds.Size);
-                        Size s2 = TextRenderer.MeasureText(e.Graphics, sWord, e.CellStyle.Font, e.CellBounds.Size);
-
-                        if (s1.Width > 5)
-                        {
-                            hl_rect.X = e.CellBounds.X + s1.Width - 5;
-                            hl_rect.Width = s2.Width - 6;
-                        }
-                        else
-                        {
-                            hl_rect.X = e.CellBounds.X + 2;
-                            hl_rect.Width = s2.Width - 6;
-                        }
-
-                        SolidBrush hl_brush = default(SolidBrush);
-                        if ((e.State & DataGridViewElementStates.Selected) != DataGridViewElementStates.None)
-                        {
-                            hl_brush = new SolidBrush(Color.DarkGoldenrod);
-                        }
-                        else
-                        {
-                            hl_brush = new SolidBrush(Color.Yellow);
-                        }
-
-                        e.Graphics.FillRectangle(hl_brush, hl_rect);
-
-                        hl_brush.Dispose();
+                        sw = _search[i].Trim();
+                        PaintCells(sw, i);
                     }
                 }
-
-                if (!string.IsNullOrEmpty(sw) && _search.Length > 1)
-                {
-                    sw = _search[1].Trim();
-                    string val = (string)e.FormattedValue;
-                    int sindx = val.ToLower().IndexOf(sw.ToLower());
-                    if (sindx >= 0)
-                    {
-                        Rectangle hl_rect = new Rectangle();
-                        hl_rect.Y = e.CellBounds.Y + 2;
-                        hl_rect.Height = e.CellBounds.Height - 5;
-
-                        string sBefore = val.Substring(0, sindx);
-                        string sWord = val.Substring(sindx, sw.Length);
-                        Size s1 = TextRenderer.MeasureText(e.Graphics, sBefore, e.CellStyle.Font, e.CellBounds.Size);
-                        Size s2 = TextRenderer.MeasureText(e.Graphics, sWord, e.CellStyle.Font, e.CellBounds.Size);
-
-                        if (s1.Width > 5)
-                        {
-                            hl_rect.X = e.CellBounds.X + s1.Width - 5;
-                            hl_rect.Width = s2.Width - 6;
-                        }
-                        else
-                        {
-                            hl_rect.X = e.CellBounds.X + 2;
-                            hl_rect.Width = s2.Width - 6;
-                        }
-
-                        SolidBrush hl_brush = default(SolidBrush);
-                        if ((e.State & DataGridViewElementStates.Selected) != DataGridViewElementStates.None)
-                        {
-                            hl_brush = new SolidBrush(Color.DarkGoldenrod);
-                        }
-                        else
-                        {
-                            hl_brush = new SolidBrush(Color.GreenYellow);
-                        }
-
-                        e.Graphics.FillRectangle(hl_brush, hl_rect);
-
-                        hl_brush.Dispose();
-                    }
-                }
-
-
-
-                e.PaintContent(e.CellBounds);
+                    e.PaintContent(e.CellBounds);
             }
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            if (Settings.Default.filestart && !Settings.Default.nostart)  //nostart for ctrl-N 
+            void PaintCells(string sw, int s_length)
             {
-                plabel_Filename.Text = Settings.Default.startfile;
-                //check if path exist
-                if (ClassHelp.MyFileExists(plabel_Filename.Text, 5000))
-                {
-                    importDataset(plabel_Filename.Text, false);
-                    button_revert.Visible = true;
+                Color[] colors = new Color[] { Color.Yellow, Color.GreenYellow, Color.Orange };
 
-                    if (Settings.Default.autoplayer)
+                string val = (string)e.FormattedValue;
+                int sindx = val.ToLower().IndexOf(sw.ToLower());
+                if (sindx >= 0)
+                {
+                    Rectangle hl_rect = new Rectangle();
+                    hl_rect.Y = e.CellBounds.Y + 2;
+                    hl_rect.Height = e.CellBounds.Height - 5;
+
+                    string sBefore = val.Substring(0, sindx);
+                    string sWord = val.Substring(sindx, sw.Length);
+                    Size s1 = TextRenderer.MeasureText(e.Graphics, sBefore, e.CellStyle.Font, e.CellBounds.Size);
+                    Size s2 = TextRenderer.MeasureText(e.Graphics, sWord, e.CellStyle.Font, e.CellBounds.Size);
+
+                    if (s1.Width > 5)
                     {
-                        button_vlc.PerformClick();
-
+                        hl_rect.X = e.CellBounds.X + s1.Width - 5;
+                        hl_rect.Width = s2.Width - 6;
                     }
-                }
+                    else
+                    {
+                        hl_rect.X = e.CellBounds.X + 2;
+                        hl_rect.Width = s2.Width - 6;
+                    }
 
-                
+                    SolidBrush hl_brush = default(SolidBrush);
+                    if ((e.State & DataGridViewElementStates.Selected) != DataGridViewElementStates.None)
+                    {
+                        hl_brush = new SolidBrush(Color.DarkGoldenrod);
+                    }
+                    else if (s_length < 3)
+                    {
+                        hl_brush = new SolidBrush(colors[s_length]);
+                    }
+                    else
+                    {
+                        hl_brush = new SolidBrush(Color.Yellow);
+                    }
+
+                    e.Graphics.FillRectangle(hl_brush, hl_rect);
+
+                    hl_brush.Dispose();
+                }
             }
-            Settings.Default.nostart = false;
-            Settings.Default.Save();
+
 
         }
 
-
-        private void toolStripFill_Click(object sender, EventArgs e)
-        {
-            if (!ClassHelp.CheckClipboard())
-            {
-                string s = Clipboard.GetText();
-                DataGridViewCell oCell;
-
-              //  int x = dataGridView1.SelectedCells.Count;
-               // var rowIndexes = dataGridView1.SelectedCells.Cast<DataGridViewCell>()
-               //                   .Select(cell => cell.RowIndex)
-               //                   .Min();  //.Distinct();  //list
-               // var colIndexes = dataGridView1.SelectedCells.Cast<DataGridViewCell>()
-               //                   .Select(cell => cell.ColumnIndex)
-               //                   .First();
-
-               //// Clipboard.SetText(dataGridView1[rowIndexes, colIndexes].ToString());
-               // s = dataGridView1[rowIndexes, colIndexes].Value.ToString();
-
-                foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
-                {
-                    oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
-                    oCell.Value = Convert.ChangeType(s, oCell.ValueType);
-                }
-                toSave(true);
-            }
-        }
-
+  
         private void button_refind_Click(object sender, EventArgs e)
         {
             textBox_find_TextChange(sender, e);

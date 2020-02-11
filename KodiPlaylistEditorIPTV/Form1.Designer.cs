@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyRowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +49,18 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.textBox_find = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addUseragentCell = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.editCellCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCellPaste = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCellCut = new System.Windows.Forms.ToolStripMenuItem();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button_refind = new PlaylistEditor.MyButton();
+            this.button_clearfind = new PlaylistEditor.MyButton();
             this.button_kodi = new PlaylistEditor.MyButton();
             this.button_import = new PlaylistEditor.MyButton();
             this.RedoButton = new PlaylistEditor.MyButton();
@@ -61,25 +73,13 @@
             this.button_moveDown = new RepeatingButton();
             this.button_moveUp = new RepeatingButton();
             this.button_del_all = new PlaylistEditor.MyButton();
+            this.button_settings = new PlaylistEditor.MyButton();
             this.button_add = new PlaylistEditor.MyButton();
+            this.plabel_Filename = new PathLabel();
+            this.button_Info = new PlaylistEditor.MyButton();
             this.button_delLine = new PlaylistEditor.MyButton();
             this.button_save = new PlaylistEditor.MyButton();
             this.button_open = new PlaylistEditor.MyButton();
-            this.textBox_find = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addUseragentCell = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.editCellCopy = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCellPaste = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCellCut = new System.Windows.Forms.ToolStripMenuItem();
-            this.button_clearfind = new PlaylistEditor.MyButton();
-            this.button_settings = new PlaylistEditor.MyButton();
-            this.plabel_Filename = new PathLabel();
-            this.button_Info = new PlaylistEditor.MyButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button_refind = new PlaylistEditor.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -95,14 +95,14 @@
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
@@ -220,6 +220,99 @@
             // 
             this.saveFileDialog1.DefaultExt = "m3u";
             resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
+            // 
+            // textBox_find
+            // 
+            resources.ApplyResources(this.textBox_find, "textBox_find");
+            this.textBox_find.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox_find.Name = "textBox_find";
+            this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChange);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addUseragentCell,
+            this.toolStripSeparator1,
+            this.editCellCopy,
+            this.editCellPaste,
+            this.editCellCut});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
+            // 
+            // addUseragentCell
+            // 
+            this.addUseragentCell.Name = "addUseragentCell";
+            resources.ApplyResources(this.addUseragentCell, "addUseragentCell");
+            this.addUseragentCell.Click += new System.EventHandler(this.addUseragentCell_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // editCellCopy
+            // 
+            this.editCellCopy.Name = "editCellCopy";
+            resources.ApplyResources(this.editCellCopy, "editCellCopy");
+            this.editCellCopy.Click += new System.EventHandler(this.editCellCopy_Click);
+            // 
+            // editCellPaste
+            // 
+            this.editCellPaste.Name = "editCellPaste";
+            resources.ApplyResources(this.editCellPaste, "editCellPaste");
+            this.editCellPaste.Click += new System.EventHandler(this.editCellPaste_Click);
+            // 
+            // editCellCut
+            // 
+            this.editCellCut.Name = "editCellCut";
+            resources.ApplyResources(this.editCellCut, "editCellCut");
+            this.editCellCut.Click += new System.EventHandler(this.editCellCut_Click);
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.BackColor = System.Drawing.Color.Gray;
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Name = "label6";
+            this.label6.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Name = "label1";
+            this.label1.Click += new System.EventHandler(this.label_click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Name = "label2";
+            this.label2.Click += new System.EventHandler(this.label_click);
+            // 
+            // button_refind
+            // 
+            resources.ApplyResources(this.button_refind, "button_refind");
+            this.button_refind.BackColor = System.Drawing.Color.White;
+            this.button_refind.FlatAppearance.BorderSize = 0;
+            this.button_refind.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_refind.Name = "button_refind";
+            this.button_refind.UseVisualStyleBackColor = false;
+            this.button_refind.Click += new System.EventHandler(this.button_refind_Click);
+            // 
+            // button_clearfind
+            // 
+            resources.ApplyResources(this.button_clearfind, "button_clearfind");
+            this.button_clearfind.BackColor = System.Drawing.Color.White;
+            this.button_clearfind.FlatAppearance.BorderSize = 0;
+            this.button_clearfind.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_clearfind.Name = "button_clearfind";
+            this.button_clearfind.UseVisualStyleBackColor = false;
+            this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
             // 
             // button_kodi
             // 
@@ -343,6 +436,15 @@
             this.button_del_all.UseVisualStyleBackColor = true;
             this.button_del_all.Click += new System.EventHandler(this.button_del_all_Click);
             // 
+            // button_settings
+            // 
+            resources.ApplyResources(this.button_settings, "button_settings");
+            this.button_settings.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_settings.FlatAppearance.BorderSize = 0;
+            this.button_settings.Name = "button_settings";
+            this.button_settings.UseVisualStyleBackColor = true;
+            this.button_settings.Click += new System.EventHandler(this.button_settings_Click);
+            // 
             // button_add
             // 
             resources.ApplyResources(this.button_add, "button_add");
@@ -351,6 +453,21 @@
             this.toolTip1.SetToolTip(this.button_add, resources.GetString("button_add.ToolTip"));
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
+            // 
+            // plabel_Filename
+            // 
+            resources.ApplyResources(this.plabel_Filename, "plabel_Filename");
+            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
+            this.plabel_Filename.Name = "plabel_Filename";
+            // 
+            // button_Info
+            // 
+            resources.ApplyResources(this.button_Info, "button_Info");
+            this.button_Info.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_Info.FlatAppearance.BorderSize = 0;
+            this.button_Info.Name = "button_Info";
+            this.button_Info.UseVisualStyleBackColor = true;
+            this.button_Info.Click += new System.EventHandler(this.button_Info_Click);
             // 
             // button_delLine
             // 
@@ -381,122 +498,6 @@
             this.toolTip1.SetToolTip(this.button_open, resources.GetString("button_open.ToolTip"));
             this.button_open.UseVisualStyleBackColor = true;
             this.button_open.Click += new System.EventHandler(this.button_open_Click);
-            // 
-            // textBox_find
-            // 
-            resources.ApplyResources(this.textBox_find, "textBox_find");
-            this.textBox_find.Name = "textBox_find";
-            this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChange);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(18, 18);
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addUseragentCell,
-            this.toolStripSeparator1,
-            this.editCellCopy,
-            this.editCellPaste,
-            this.editCellCut});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
-            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
-            // 
-            // addUseragentCell
-            // 
-            this.addUseragentCell.Name = "addUseragentCell";
-            resources.ApplyResources(this.addUseragentCell, "addUseragentCell");
-            this.addUseragentCell.Click += new System.EventHandler(this.addUseragentCell_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            // 
-            // editCellCopy
-            // 
-            this.editCellCopy.Name = "editCellCopy";
-            resources.ApplyResources(this.editCellCopy, "editCellCopy");
-            this.editCellCopy.Click += new System.EventHandler(this.editCellCopy_Click);
-            // 
-            // editCellPaste
-            // 
-            this.editCellPaste.Name = "editCellPaste";
-            resources.ApplyResources(this.editCellPaste, "editCellPaste");
-            this.editCellPaste.Click += new System.EventHandler(this.editCellPaste_Click);
-            // 
-            // editCellCut
-            // 
-            this.editCellCut.Name = "editCellCut";
-            resources.ApplyResources(this.editCellCut, "editCellCut");
-            this.editCellCut.Click += new System.EventHandler(this.editCellCut_Click);
-            // 
-            // button_clearfind
-            // 
-            resources.ApplyResources(this.button_clearfind, "button_clearfind");
-            this.button_clearfind.BackColor = System.Drawing.Color.White;
-            this.button_clearfind.FlatAppearance.BorderSize = 0;
-            this.button_clearfind.ForeColor = System.Drawing.SystemColors.Control;
-            this.button_clearfind.Name = "button_clearfind";
-            this.button_clearfind.UseVisualStyleBackColor = false;
-            this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
-            // 
-            // button_settings
-            // 
-            resources.ApplyResources(this.button_settings, "button_settings");
-            this.button_settings.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_settings.FlatAppearance.BorderSize = 0;
-            this.button_settings.Name = "button_settings";
-            this.button_settings.UseVisualStyleBackColor = true;
-            this.button_settings.Click += new System.EventHandler(this.button_settings_Click);
-            // 
-            // plabel_Filename
-            // 
-            resources.ApplyResources(this.plabel_Filename, "plabel_Filename");
-            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
-            this.plabel_Filename.Name = "plabel_Filename";
-            // 
-            // button_Info
-            // 
-            resources.ApplyResources(this.button_Info, "button_Info");
-            this.button_Info.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_Info.FlatAppearance.BorderSize = 0;
-            this.button_Info.Name = "button_Info";
-            this.button_Info.UseVisualStyleBackColor = true;
-            this.button_Info.Click += new System.EventHandler(this.button_Info_Click);
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.BackColor = System.Drawing.Color.Gray;
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Name = "label6";
-            this.label6.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Name = "label1";
-            this.label1.Click += new System.EventHandler(this.label_click);
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Name = "label2";
-            this.label2.Click += new System.EventHandler(this.label_click);
-            // 
-            // button_refind
-            // 
-            resources.ApplyResources(this.button_refind, "button_refind");
-            this.button_refind.BackColor = System.Drawing.Color.White;
-            this.button_refind.FlatAppearance.BorderSize = 0;
-            this.button_refind.ForeColor = System.Drawing.SystemColors.Control;
-            this.button_refind.Name = "button_refind";
-            this.button_refind.UseVisualStyleBackColor = false;
-            this.button_refind.Click += new System.EventHandler(this.button_refind_Click);
             // 
             // Form1
             // 
