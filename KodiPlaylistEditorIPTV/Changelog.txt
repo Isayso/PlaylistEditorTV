@@ -1,9 +1,13 @@
-﻿1.4.7
+﻿1.4.8
+- shift to first found row
+- player window search with keyboard
+
+1.4.7 +18 down
 - fill cells from clipboard
 - find with &
 - switch find select target cell/row
 
-1.4.6  
+1.4.6  63 down
 - save player location
 - full sort capability
 - hotkey optional

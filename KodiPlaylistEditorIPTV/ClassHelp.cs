@@ -198,7 +198,8 @@ namespace PlaylistEditor
                 req.ContentType = "application/x-www-form-urlencoded";
              //   req.KeepAlive = true;
           //issue #15
-                req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
+                req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
+                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
 
                 if (uri.Contains("|User-Agent") && uri.Contains(".m3u8"))
                 {//#18
@@ -255,7 +256,10 @@ namespace PlaylistEditor
                 try
                 {
 
-                    string[] pastedRows = System.Text.RegularExpressions.Regex.Split(o.GetData(DataFormats.UnicodeText).ToString().TrimEnd("\r\n".ToCharArray()), "\r\n");
+                    string[] pastedRows = System.Text.RegularExpressions.Regex
+                        .Split(o.GetData(DataFormats.UnicodeText).ToString()
+                        .TrimEnd("\r\n".ToCharArray()), "\r\n");
+
                     string[] pastedRowCells = pastedRows[0].Split(new char[] { '\t' });
 
                     if (pastedRowCells.Length == 6)  return true;  

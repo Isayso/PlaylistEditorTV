@@ -18,7 +18,6 @@ namespace PlaylistEditor
             button_Top.ForeColor = Color.Black;
             this.MaximizeBox = false;
 
-           
             opc = Properties.Settings.Default.opacity;
             this.Opacity = opc;
 
@@ -52,12 +51,7 @@ namespace PlaylistEditor
         {
             var channel = comboBox1.SelectedIndex;
 
-            //if (--mouseEnterCount == 0)
-            //{
-            //    this.Opacity = opc; // Properties.Settings.Default.opacity;
-            //}
-            // int i;
-             // if (--mouseEnterCount == 0)             player_MouseLeave(sender, e);
+            //invoke EventHandler
         }
 
         private void ComboBox_Click(object sender, EventArgs e)
@@ -134,6 +128,10 @@ namespace PlaylistEditor
             }
         }
 
+        private void comboBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
    
 
