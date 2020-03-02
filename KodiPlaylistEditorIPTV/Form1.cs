@@ -832,7 +832,7 @@ namespace PlaylistEditor
                 else ps.Arguments = " --no-video-title-show " + param;
 
 #if DEBUG
-                MessageBox.Show("param: " + ps.Arguments.ToString());
+             //   MessageBox.Show("param: " + ps.Arguments.ToString());
 #endif
 
 
@@ -2227,7 +2227,7 @@ namespace PlaylistEditor
             var channel = combo.SelectedIndex;
 
 #if DEBUG
-            MessageBox.Show("channel: " + channel);
+          //  MessageBox.Show("channel: " + channel);
 #endif
 
             if (channel < 0) return;
