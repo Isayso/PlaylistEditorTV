@@ -2,6 +2,9 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
+1.4.8 search TV station with keyboard, shift to first found row. 
+
+
 1.4.7 better find function with logical AND (&) and easy switch between selecting cells or row. Selected cell region can be filled from clipboard. 
 
 1.4.6 player window with opacity, hotkey function can be switched off. 
@@ -84,4 +87,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - del    delete selected row
 
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/total)
-![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.4.7/total)
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.4.8/total)
