@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,6 +10,8 @@ namespace PlaylistEditor
         public DataGridView Dgv { get; set; }
         private int mouseEnterCount = 0;
         private double opc;
+        //public BindingList<string> bindinglist = new BindingList<string>();
+        //public BindingSource bSource = new BindingSource();
 
         public player()
         {
@@ -18,10 +21,20 @@ namespace PlaylistEditor
             button_Top.ForeColor = Color.Black;
             this.MaximizeBox = false;
 
-           
             opc = Properties.Settings.Default.opacity;
             this.Opacity = opc;
 
+            //bSource.DataSource = bindinglist;
+            //comboBox1.DataSource = bSource;
+
+
+
+            //for (int i = 0; i < Dgv.Rows.Count; i++)
+            //{
+            //    bindinglist.Add(Dgv.Rows[i].Cells[4].Value.ToString());
+            //}
+           
+           
         }
 
         private void player_Move(object sender, EventArgs e)
@@ -52,26 +65,29 @@ namespace PlaylistEditor
         {
             var channel = comboBox1.SelectedIndex;
 
-            //if (--mouseEnterCount == 0)
-            //{
-            //    this.Opacity = opc; // Properties.Settings.Default.opacity;
-            //}
-            // int i;
-             // if (--mouseEnterCount == 0)             player_MouseLeave(sender, e);
+            //invoke EventHandler
         }
 
         private void ComboBox_Click(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear();
+
             comboBox1.BeginUpdate();
+            comboBox1.Items.Clear();
+
             for (int i = 0; i < Dgv.Rows.Count; i++)
             {
                 comboBox1.Items.Add(Dgv.Rows[i].Cells[4].Value.ToString());
             }
             comboBox1.EndUpdate();
+           // bindinglist.ResetBindings();
             comboBox1.DroppedDown = true;
         }
 
+        private void ComboBox_Click2(object sender, EventArgs e)
+        {
+            ComboBox obj = sender as ComboBox;
+            obj.DroppedDown = true;
+        }
 
         private void button_Top_Click(object sender, EventArgs e)
         {
@@ -134,6 +150,10 @@ namespace PlaylistEditor
             }
         }
 
+        private void comboBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
    
 

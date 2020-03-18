@@ -832,7 +832,7 @@ namespace PlaylistEditor
                 else ps.Arguments = " --no-video-title-show " + param;
 
 #if DEBUG
-                MessageBox.Show("param: " + ps.Arguments.ToString());
+             //   MessageBox.Show("param: " + ps.Arguments.ToString());
 #endif
 
 
@@ -1710,7 +1710,7 @@ namespace PlaylistEditor
                     
                     
             
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                foreach (DataGridViewRow row in dataGridView1.GetRows())
                 {
                     if (colS == 6)
                     {
@@ -1733,11 +1733,12 @@ namespace PlaylistEditor
                                 }
 
 
-
                                 if (findresult == 0) //sel Rows
                                     dataGridView1.Rows[row.Index].Selected = true;                                
                                 else
                                     dataGridView1.Rows[row.Index].Cells[i].Selected = true;
+
+                                dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
 
 
                                 _found = true;
@@ -1766,6 +1767,8 @@ namespace PlaylistEditor
                             }
                             else
                                 dataGridView1.Rows[row.Index].Cells[colS].Selected = true;
+
+                            dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
 
                             _found = true;
                             textBox_find.ForeColor = Color.Black;
@@ -2224,7 +2227,7 @@ namespace PlaylistEditor
             var channel = combo.SelectedIndex;
 
 #if DEBUG
-            MessageBox.Show("channel: " + channel);
+          //  MessageBox.Show("channel: " + channel);
 #endif
 
             if (channel < 0) return;
@@ -2672,6 +2675,17 @@ public static class ExtensionMethods
     {
         for (int i = source.SelectedRows.Count - 1; i >= 0; i--)
             yield return source.SelectedRows[i];
+    }
+
+    /// <summary>
+    /// reverse order of rows for foreach
+    /// </summary>
+    /// <param name="source"></param>
+    /// <returns></returns>
+    public static IEnumerable<DataGridViewRow> GetRows(this DataGridView source)
+    {
+        for (int i = source.Rows.Count - 1; i >= 0; i--)
+            yield return source.Rows[i];
     }
 
 

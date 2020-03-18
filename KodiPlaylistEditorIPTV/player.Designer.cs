@@ -50,6 +50,7 @@
             this.button_kodi.Name = "button_kodi";
             this.button_kodi.Size = new System.Drawing.Size(34, 31);
             this.button_kodi.TabIndex = 74;
+            this.button_kodi.TabStop = false;
             this.toolTip1.SetToolTip(this.button_kodi, "play with Kodi");
             this.button_kodi.UseVisualStyleBackColor = true;
             this.button_kodi.Click += new System.EventHandler(this.button_kodi_Click);
@@ -69,6 +70,7 @@
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(33, 37);
             this.button_cancel.TabIndex = 73;
+            this.button_cancel.TabStop = false;
             this.toolTip1.SetToolTip(this.button_cancel, "cancel");
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
@@ -87,6 +89,7 @@
             this.button_Top.Name = "button_Top";
             this.button_Top.Size = new System.Drawing.Size(30, 32);
             this.button_Top.TabIndex = 72;
+            this.button_Top.TabStop = false;
             this.button_Top.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.toolTip1.SetToolTip(this.button_Top, "Set to Foreground");
             this.button_Top.UseVisualStyleBackColor = true;
@@ -96,6 +99,8 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.BackColor = System.Drawing.Color.MidnightBlue;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.ForeColor = System.Drawing.SystemColors.Control;
