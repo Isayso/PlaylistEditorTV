@@ -34,7 +34,7 @@
             this.button_kodi = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_Top = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new PlaylistEditor.MyComboBox();
             this.SuspendLayout();
             // 
             // button_kodi
@@ -112,6 +112,7 @@
             this.comboBox1.TabIndex = 71;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.Click += new System.EventHandler(this.ComboBox_Click);
+            this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyDown);
             this.comboBox1.MouseEnter += new System.EventHandler(this.player_MouseEnter);
             this.comboBox1.MouseLeave += new System.EventHandler(this.player_MouseLeave);
             // 
@@ -146,6 +147,6 @@
         private System.Windows.Forms.Button button_kodi;
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.Button button_Top;
-        public System.Windows.Forms.ComboBox comboBox1;
+        public PlaylistEditor.MyComboBox comboBox1;
     }
 }

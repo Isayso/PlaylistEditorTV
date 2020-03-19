@@ -2,7 +2,7 @@
 - shift to first found row
 - player window search with keyboard
 
-1.4.7 +18 down
+1.4.7 +18 down 232  total 838
 - fill cells from clipboard
 - find with &
 - switch find select target cell/row

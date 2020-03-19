@@ -94,6 +94,9 @@
     <Compile Include="ClassMyButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ClassMyCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ClassPathLabel.cs">
       <SubType>Component</SubType>
     </Compile>
