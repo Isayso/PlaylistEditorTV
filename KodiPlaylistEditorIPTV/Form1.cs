@@ -383,7 +383,6 @@ namespace PlaylistEditor
                         break;
                 }
                 Settings.Default.findresult = playswitch;
-               // textBox_find_TextChanged(sender, e);
                 textBox_find_TextChange(sender, e);
             }
          
@@ -393,7 +392,6 @@ namespace PlaylistEditor
 
                 label2.Text = colList[colswitch];
                 Settings.Default.colSearch = colswitch;
-                //textBox_find_TextChanged(sender, e);
                 textBox_find_TextChange(sender, e);
             }
 
@@ -601,7 +599,6 @@ namespace PlaylistEditor
             {
                 foreach (DataGridViewRow row in dataGridView1.GetSelectedRows())
                 {
-                    // int selectedRow = dataGridView1.SelectedRows[0].Index;
                     int selectedRow = dataGridView1.SelectedCells[0].RowIndex;
 
                     dt.Rows.RemoveAt(selectedRow);
@@ -720,10 +717,6 @@ namespace PlaylistEditor
 
         private void button_moveDown_Click(object sender, EventArgs e)
         {
-            //bug remove sorting -> .sort="" -> write table before
-            //dt.DefaultView.Sort = "";
-            //dataGridView1.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
-
             MoveLine(1);
         }
 
@@ -774,7 +767,7 @@ namespace PlaylistEditor
                 vlcpath = ClassHelp.GetVlcPath();
                 if (string.IsNullOrEmpty(vlcpath))
                     ClassHelp.PopupForm("VLC player not found", "red", 3000);
-                return;
+                //return; 
             }
             else if (dataGridView1.RowCount > 0 && vlclink.StartsWith("plugin"))
             {
@@ -799,7 +792,6 @@ namespace PlaylistEditor
             if (dataGridView1.RowCount > 0)
             {
                 
-               // if (player.comboBox1.SelectedIndex == dataGridView1.CurrentRow.Index) PlayOnVlc();
                 player.comboBox1.SelectedIndex = dataGridView1.CurrentRow.Index;  //trigger eventHandler
             }
                 
@@ -980,8 +972,6 @@ namespace PlaylistEditor
 
             dataGridView1.ClearSelection();
 
-            //      Cursor.Current = Cursors.WaitCursor;
-            //    dataGridView1.Enabled = false;
             button_check.Enabled = false;
 
             if (dataGridView1.Rows.Count > 0)
@@ -1609,72 +1599,72 @@ namespace PlaylistEditor
 
         #endregion
 
-        private void textBox_selectAll_Click(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            textBox.SelectAll();
-        }
+        //private void textBox_selectAll_Click(object sender, EventArgs e)
+        //{
+        //    TextBox textBox = (TextBox)sender;
+        //    textBox.SelectAll();
+        //}
 
-        private void textBox_find_TextChanged(object sender, EventArgs e)
-        {
-            var colS = Settings.Default.colSearch;
-            int findresult = Settings.Default.findresult;  //0: Row   1: Cell
+        //private void textBox_find_TextChanged(object sender, EventArgs e)
+        //{
+        //    var colS = Settings.Default.colSearch;
+        //    int findresult = Settings.Default.findresult;  //0: Row   1: Cell
 
-            if (dataGridView1.Rows.Count > 0)
-            {
-                dataGridView1.ClearSelection();
-                _found = false;
+        //    if (dataGridView1.Rows.Count > 0)
+        //    {
+        //        dataGridView1.ClearSelection();
+        //        _found = false;
 
-                string _name = "";
+        //        string _name = "";
 
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (colS == 6)
-                    {
-                        for (int i = 0; i < 6; i++)
-                        {
-                            if (row.Cells[0].Value != null)
-                                _name = dt.Rows[row.Index][i].ToString().ToLower();
+        //        foreach (DataGridViewRow row in dataGridView1.Rows)
+        //        {
+        //            if (colS == 6)
+        //            {
+        //                for (int i = 0; i < 6; i++)
+        //                {
+        //                    if (row.Cells[0].Value != null)
+        //                        _name = dt.Rows[row.Index][i].ToString().ToLower();
 
-                            if (_name.Contains(textBox_find.Text.ToLower()) && textBox_find.Text != "")
-                            {
-                                if (findresult == 0)
-                                    dataGridView1.Rows[row.Index].Selected = true;
-                                else
-                                    dataGridView1.Rows[row.Index].Cells[i].Selected = true;
-
-
-                                _found = true;
-                                textBox_find.ForeColor = Color.Black;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (row.Cells[0].Value != null)
-                            _name = dt.Rows[row.Index][colS].ToString().ToLower();
-
-                        if (_name.Contains(textBox_find.Text.ToLower()) && textBox_find.Text != "")
-                        {
-                            if (findresult == 0)
-                                dataGridView1.Rows[row.Index].Selected = true;
-                            else
-                                dataGridView1.Rows[row.Index].Cells[colS].Selected = true;
-
-                            _found = true;
-                            textBox_find.ForeColor = Color.Black;
-                        }
-                    }
+        //                    if (_name.Contains(textBox_find.Text.ToLower()) && textBox_find.Text != "")
+        //                    {
+        //                        if (findresult == 0)
+        //                            dataGridView1.Rows[row.Index].Selected = true;
+        //                        else
+        //                            dataGridView1.Rows[row.Index].Cells[i].Selected = true;
 
 
+        //                        _found = true;
+        //                        textBox_find.ForeColor = Color.Black;
+        //                    }
+        //                }
+        //            }
+        //            else
+        //            {
+        //                if (row.Cells[0].Value != null)
+        //                    _name = dt.Rows[row.Index][colS].ToString().ToLower();
 
-                }
-                if (!_found)//text red 
-                    textBox_find.ForeColor = Color.Red;
-            }
+        //                if (_name.Contains(textBox_find.Text.ToLower()) && textBox_find.Text != "")
+        //                {
+        //                    if (findresult == 0)
+        //                        dataGridView1.Rows[row.Index].Selected = true;
+        //                    else
+        //                        dataGridView1.Rows[row.Index].Cells[colS].Selected = true;
 
-            dataGridView1.Refresh();
-        }
+        //                    _found = true;
+        //                    textBox_find.ForeColor = Color.Black;
+        //                }
+        //            }
+
+
+
+        //        }
+        //        if (!_found)//text red 
+        //            textBox_find.ForeColor = Color.Red;
+        //    }
+
+        //    dataGridView1.Refresh();
+        //}
 
 
         private void textBox_find_TextChange(object sender, EventArgs e)
@@ -1906,9 +1896,6 @@ namespace PlaylistEditor
             _endofLoop = false;
             button_check.BackColor = Color.MidnightBlue;
             colorclear();
-
-
-            //  if (_taglink) button_check.PerformClick();
 
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
 

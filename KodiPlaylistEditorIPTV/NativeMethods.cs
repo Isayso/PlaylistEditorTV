@@ -1,8 +1,6 @@
 ﻿// GNU GENERAL PUBLIC LICENSE                       Version 3, 29 June 2007
-using Microsoft.Win32;
 using System;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace PlaylistEditor
 {

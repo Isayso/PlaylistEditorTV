@@ -1,4 +1,9 @@
-﻿1.4.8
+﻿1.5
+- fix enter bug
+- fix first player load bug
+- code clean up
+
+1.4.8
 - shift to first found row
 - player window search with keyboard
 

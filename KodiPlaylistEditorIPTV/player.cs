@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,8 +9,6 @@ namespace PlaylistEditor
         public DataGridView Dgv { get; set; }
         private int mouseEnterCount = 0;
         private double opc;
-        //public BindingList<string> bindinglist = new BindingList<string>();
-        //public BindingSource bSource = new BindingSource();
 
         public player()
         {
@@ -24,17 +21,6 @@ namespace PlaylistEditor
             opc = Properties.Settings.Default.opacity;
             this.Opacity = opc;
 
-            //bSource.DataSource = bindinglist;
-            //comboBox1.DataSource = bSource;
-
-
-
-            //for (int i = 0; i < Dgv.Rows.Count; i++)
-            //{
-            //    bindinglist.Add(Dgv.Rows[i].Cells[4].Value.ToString());
-            //}
-           
-           
         }
 
         private void player_Move(object sender, EventArgs e)
@@ -79,7 +65,6 @@ namespace PlaylistEditor
                 comboBox1.Items.Add(Dgv.Rows[i].Cells[4].Value.ToString());
             }
             comboBox1.EndUpdate();
-           // bindinglist.ResetBindings();
             comboBox1.DroppedDown = true;
         }
 
@@ -154,8 +139,7 @@ namespace PlaylistEditor
         {
             if (e.KeyCode == Keys.Enter)
             {
-                // comboBox1.Focus();
-                e.Handled = false;
+                comboBox1.Focus();
             }
         }
     }

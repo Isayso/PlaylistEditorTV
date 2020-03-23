@@ -209,11 +209,11 @@ namespace PlaylistEditor
 
         }
 
-        private void textBox_hot_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            textBox.SelectAll();
-        }
+        //private void textBox_hot_TextChanged(object sender, EventArgs e)
+        //{
+        //    TextBox textBox = (TextBox)sender;
+        //    textBox.SelectAll();
+        //}
 
         private void button_file_Click(object sender, EventArgs e)
         {
