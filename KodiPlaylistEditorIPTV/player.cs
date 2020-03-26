@@ -1,4 +1,18 @@
-﻿using System;
+﻿//  MIT License
+//  Copyright (c) 2018 github/isayso
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy,
+//  modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+//  subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,6 +23,7 @@ namespace PlaylistEditor
         public DataGridView Dgv { get; set; }
         private int mouseEnterCount = 0;
         private double opc;
+        public int comboheigh;
 
         public player()
         {
@@ -20,8 +35,8 @@ namespace PlaylistEditor
 
             opc = Properties.Settings.Default.opacity;
             this.Opacity = opc;
-
         }
+
 
         private void player_Move(object sender, EventArgs e)
         {
@@ -50,29 +65,14 @@ namespace PlaylistEditor
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var channel = comboBox1.SelectedIndex;
-
             //invoke EventHandler
         }
 
         private void ComboBox_Click(object sender, EventArgs e)
         {
-
-            comboBox1.BeginUpdate();
-            comboBox1.Items.Clear();
-
-            for (int i = 0; i < Dgv.Rows.Count; i++)
-            {
-                comboBox1.Items.Add(Dgv.Rows[i].Cells[4].Value.ToString());
-            }
-            comboBox1.EndUpdate();
             comboBox1.DroppedDown = true;
         }
 
-        private void ComboBox_Click2(object sender, EventArgs e)
-        {
-            ComboBox obj = sender as ComboBox;
-            obj.DroppedDown = true;
-        }
 
         private void button_Top_Click(object sender, EventArgs e)
         {
@@ -110,13 +110,6 @@ namespace PlaylistEditor
             await ClassKodi.Run2(jLink);
         }
 
-        private void player_MouseHover(object sender, EventArgs e)
-        {
-            if (++mouseEnterCount == 1)
-            {
-                this.Opacity = 1.0;
-            }
-        }
 
         private void player_MouseLeave(object sender, EventArgs e)
         {
@@ -142,6 +135,41 @@ namespace PlaylistEditor
                 comboBox1.Focus();
             }
         }
+
+        private void playerCombo_MouseEnter(object sender, EventArgs e)
+        {
+            if (++mouseEnterCount == 1)
+            {
+                this.Opacity = 1;
+            }
+
+            if (!CompItemsWithBox())
+            {
+                comboBox1.BeginUpdate();
+                comboBox1.Items.Clear();
+
+                for (int i = 0; i < Dgv.Rows.Count; i++)
+                {
+                    comboBox1.Items.Add(Dgv.Rows[i].Cells[4].Value.ToString());
+                }
+                comboBox1.EndUpdate();
+            }
+        }
+
+        /// <summary>
+        /// compares datagrid with combobox entries
+        /// </summary>
+        /// <returns>bool</returns>
+        private bool CompItemsWithBox()
+        {
+            for (int i = 0; i < Dgv.Rows.Count; i++)
+            {
+                if (comboBox1.Items[i].ToString() != Dgv.Rows[i].Cells[4].Value.ToString()) return false;
+            }
+
+            return true;
+        }
+
     }
    
 

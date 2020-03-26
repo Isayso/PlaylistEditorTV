@@ -135,7 +135,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "player";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.popup_MouseDown);
-            this.MouseEnter += new System.EventHandler(this.player_MouseEnter);
+            this.MouseEnter += new System.EventHandler(this.playerCombo_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.player_MouseLeave);
             this.Move += new System.EventHandler(this.player_Move);
             this.ResumeLayout(false);

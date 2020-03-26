@@ -2270,12 +2270,18 @@ namespace PlaylistEditor
         private void player_FormClosed(object sender, FormClosedEventArgs e)
         {
             //close vlc
-          
-            Process[] processes = null;
-            processes = Process.GetProcessesByName("vlc");
-            foreach (Process process in processes)
+            try
             {
-                process.Kill();
+                Process[] processes = null;
+                processes = Process.GetProcessesByName("vlc");
+                foreach (Process process in processes)
+                {
+                    process.Kill();
+                }
+            }
+            catch (ArgumentException)
+            {
+
             }
            
         }
