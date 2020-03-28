@@ -2,6 +2,8 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
+1.5 bugfixes in player UI, fade-out effect
+
 1.4.8 search TV station with keyboard, shift to first found row. 
 
 
