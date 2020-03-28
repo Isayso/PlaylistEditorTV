@@ -164,7 +164,8 @@ namespace PlaylistEditor
         {
             for (int i = 0; i < Dgv.Rows.Count; i++)
             {
-                if (comboBox1.Items[i].ToString() != Dgv.Rows[i].Cells[4].Value.ToString()) return false;
+                if (comboBox1.Items[i].ToString() != Dgv.Rows[i].Cells[4].Value.ToString())
+                    return false;
             }
 
             return true;

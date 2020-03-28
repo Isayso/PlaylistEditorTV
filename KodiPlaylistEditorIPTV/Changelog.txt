@@ -3,6 +3,7 @@
 - fix first player load bug
 - fix UI bug
 - fix vlc process kill bug
+- disable vlc error dialog
 - code clean up
 
 1.4.8

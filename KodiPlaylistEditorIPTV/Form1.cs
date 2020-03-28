@@ -823,6 +823,8 @@ namespace PlaylistEditor
 
                 else ps.Arguments = " --no-video-title-show " + param;
 
+                ps.Arguments += " --no-qt-error-dialogs";
+
 #if DEBUG
              //   MessageBox.Show("param: " + ps.Arguments.ToString());
 #endif
