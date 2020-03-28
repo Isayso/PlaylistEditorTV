@@ -21,9 +21,9 @@ namespace PlaylistEditor
     public partial class player : Form 
     {
         public DataGridView Dgv { get; set; }
-        private int mouseEnterCount = 0;
-        private double opc;
+        private readonly double opc;
         public int comboheigh;
+        private double opacity = 1;
 
         public player()
         {
@@ -35,6 +35,43 @@ namespace PlaylistEditor
 
             opc = Properties.Settings.Default.opacity;
             this.Opacity = opc;
+
+            MouseMove += OnMouseMove;
+            MouseLeave += OnMouseLeave;
+
+            HookMouseMove(this.Controls);
+
+        }
+
+        private void OnMouseMove(object sender, MouseEventArgs e)
+        {
+            Control ctl = sender as Control;
+            if (ctl != null)
+            {
+                opacity = 1;
+                timer1.Enabled = false;
+                this.Opacity = 1;
+               
+            }
+        }
+
+        private void OnMouseLeave(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+
+        }
+
+        /// <summary>
+        /// hook event to all controls on form
+        /// </summary>
+        /// <param name="ctls"></param>
+        private void HookMouseMove(Control.ControlCollection ctls)
+        {
+            foreach (Control ctl in ctls)
+            {
+                ctl.MouseMove += OnMouseMove;
+                HookMouseMove(ctl.Controls);
+            }
         }
 
 
@@ -64,8 +101,13 @@ namespace PlaylistEditor
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var channel = comboBox1.SelectedIndex;
             //invoke EventHandler
+            timer1.Enabled = true;
+        }
+
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
         }
 
         private void ComboBox_Click(object sender, EventArgs e)
@@ -111,23 +153,6 @@ namespace PlaylistEditor
         }
 
 
-        private void player_MouseLeave(object sender, EventArgs e)
-        {
-
-            if (--mouseEnterCount == 0)
-            {
-                this.Opacity = opc; // Properties.Settings.Default.opacity;
-            } 
-        }
-
-        private void player_MouseEnter(object sender, EventArgs e)
-        {
-            if (++mouseEnterCount == 1)
-            {
-                this.Opacity = 1;
-            }
-        }
-
         private void comboBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -138,10 +163,6 @@ namespace PlaylistEditor
 
         private void playerCombo_MouseEnter(object sender, EventArgs e)
         {
-            if (++mouseEnterCount == 1)
-            {
-                this.Opacity = 1;
-            }
 
             if (!CompItemsWithBox())
             {
@@ -167,10 +188,26 @@ namespace PlaylistEditor
                 if (comboBox1.Items[i].ToString() != Dgv.Rows[i].Cells[4].Value.ToString())
                     return false;
             }
-
             return true;
         }
 
+        /// <summary>
+        /// timer to fade out
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            opacity -= 0.03;
+            this.Opacity = opacity;
+            if (opacity < opc)
+            {
+                timer1.Enabled = false;
+            }
+            Invalidate();
+        }
+
+       
     }
    
 
