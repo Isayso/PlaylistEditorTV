@@ -1,12 +1,12 @@
 ﻿1.5
 - fix enter bug
-- fix first player load bug
+- fix first player load new list bug
 - fix UI bug
 - fix vlc process kill bug
 - disable vlc error dialog
 - code clean up
 
-1.4.8
+1.4.8  85 downloads
 - shift to first found row
 - player window search with keyboard
 
