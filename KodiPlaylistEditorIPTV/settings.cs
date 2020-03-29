@@ -12,12 +12,6 @@
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-/*
- * opacity
- * hover over form
- * save form position
- * 
- * */
 
 using System;
 using System.IO;
@@ -209,11 +203,11 @@ namespace PlaylistEditor
 
         }
 
-        private void textBox_hot_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            textBox.SelectAll();
-        }
+        //private void textBox_hot_TextChanged(object sender, EventArgs e)
+        //{
+        //    TextBox textBox = (TextBox)sender;
+        //    textBox.SelectAll();
+        //}
 
         private void button_file_Click(object sender, EventArgs e)
         {

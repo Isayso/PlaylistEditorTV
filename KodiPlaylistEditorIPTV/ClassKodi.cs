@@ -1,11 +1,23 @@
-﻿// GNU GENERAL PUBLIC LICENSE                       Version 3, 29 June 2007
+﻿//  MIT License
+//  Copyright (c) 2018 github/isayso
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy,
+//  modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+//  subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 using PlaylistEditor.Properties;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,98 +28,6 @@ namespace PlaylistEditor
     class ClassKodi
     {
         private static readonly HttpClient _Client = new HttpClient();
-
-
-        public static async Task Run(string link)
-        {
-            string kodiIP = Properties.Settings.Default.rpi;
-            string kodiUser = Properties.Settings.Default.username;
-            string kodiPort = Properties.Settings.Default.port;
-            //  string kodiPass = Properties.Settings.Default.password; https://stackoverflow.com/questions/12657792/how-to-securely-save-username-password-local
-            byte[] plaintext = null;
-            string kodiPass = "";
-
-            if (Properties.Settings.Default.cipher != null && Properties.Settings.Default.entropy != null)
-            {
-                plaintext = ProtectedData.Unprotect(Properties.Settings.Default.cipher, Properties.Settings.Default.entropy,
-                                                    DataProtectionScope.CurrentUser);
-                kodiPass = ClassHelp.ByteArrayToString(plaintext);
-            }
-
-
-
-            var values = new Dictionary<string, string>
-            {
-                { kodiUser,kodiPass}
-            };
-
-            string url = "http://" + kodiIP + ":" + kodiPort + "/jsonrpc?request=";
-
-
-            //url = "http://192.168.178.91:8080/jsonrpc"; //?request=";
-
-            try
-            {
-                var response = await Request(HttpMethod.Post, url, link, values);
-                string responseText = await response.Content.ReadAsStringAsync();
-
-                if (responseText.Contains("OK") /*&& link.Contains("Playlist.Add")*/)
-                {
-                    
-                    ClassHelp.PopupForm("Kodi response: OK", "green", 1800);
-#if DEBUG
-                    MessageBox.Show(responseText);
-                    Console.WriteLine(responseText);
-                    Console.ReadLine();
-#endif
-
-                }
-                else if (responseText.Contains("error") /*&& link.Contains("Playlist.Add")*/)
-                {
-                    ClassHelp.PopupForm("Kodi response: ERROR", "red", 1300);
-                }
-
-                kodiPass = "";  //to be safe
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Kodi not responding. " + ex.Message, "Play", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-        }
-
-
-        /// <summary>
-        /// Makes an async HTTP Request
-        /// </summary>
-        /// <param name="pMethod">Those methods you know: GET, POST, HEAD, etc...</param>
-        /// <param name="pUrl">Very predictable...</param>
-        /// <param name="pJsonContent">String data to POST on the server</param>
-        /// <param name="pHeaders">If you use some kind of Authorization you should use this</param>
-        /// <returns></returns>
-        static async Task<HttpResponseMessage> Request(HttpMethod pMethod, string pUrl, string pJsonContent, Dictionary<string, string> pHeaders)
-        {
-            var httpRequestMessage = new HttpRequestMessage();
-            httpRequestMessage.Method = pMethod;
-            httpRequestMessage.RequestUri = new Uri(pUrl);
-            foreach (var head in pHeaders)
-            {
-                httpRequestMessage.Headers.Add(head.Key, head.Value);
-            }
-            switch (pMethod.Method)
-            {
-                case "POST":
-                    HttpContent httpContent = new StringContent(pJsonContent, Encoding.UTF8, "application/json");
-
-                    httpRequestMessage.Content = httpContent;
-                    break;
-
-            }
-
-            return await _Client.SendAsync(httpRequestMessage);
-        }
-
-
 
         public static async Task<bool> Run2(string link)
         {
@@ -151,7 +71,6 @@ namespace PlaylistEditor
     
                     if (response.Contains("OK") /*&& link.Contains("Playlist.Add")*/)
                     {
-                        // Form pop = new popup2();
                         ClassHelp.PopupForm("Kodi response: OK", "ok", 1300);
 
 #if DEBUG

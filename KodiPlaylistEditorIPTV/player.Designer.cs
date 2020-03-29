@@ -34,7 +34,8 @@
             this.button_kodi = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_Top = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.comboBox1 = new PlaylistEditor.MyComboBox();
             this.SuspendLayout();
             // 
             // button_kodi
@@ -54,8 +55,6 @@
             this.toolTip1.SetToolTip(this.button_kodi, "play with Kodi");
             this.button_kodi.UseVisualStyleBackColor = true;
             this.button_kodi.Click += new System.EventHandler(this.button_kodi_Click);
-            this.button_kodi.MouseEnter += new System.EventHandler(this.player_MouseEnter);
-            this.button_kodi.MouseLeave += new System.EventHandler(this.player_MouseLeave);
             // 
             // button_cancel
             // 
@@ -74,8 +73,6 @@
             this.toolTip1.SetToolTip(this.button_cancel, "cancel");
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
-            this.button_cancel.MouseEnter += new System.EventHandler(this.player_MouseEnter);
-            this.button_cancel.MouseLeave += new System.EventHandler(this.player_MouseLeave);
             // 
             // button_Top
             // 
@@ -94,8 +91,11 @@
             this.toolTip1.SetToolTip(this.button_Top, "Set to Foreground");
             this.button_Top.UseVisualStyleBackColor = true;
             this.button_Top.Click += new System.EventHandler(this.button_Top_Click);
-            this.button_Top.MouseEnter += new System.EventHandler(this.player_MouseEnter);
-            this.button_Top.MouseLeave += new System.EventHandler(this.player_MouseLeave);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 20;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // comboBox1
             // 
@@ -111,9 +111,9 @@
             this.comboBox1.Size = new System.Drawing.Size(241, 30);
             this.comboBox1.TabIndex = 71;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             this.comboBox1.Click += new System.EventHandler(this.ComboBox_Click);
-            this.comboBox1.MouseEnter += new System.EventHandler(this.player_MouseEnter);
-            this.comboBox1.MouseLeave += new System.EventHandler(this.player_MouseLeave);
+            this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyDown);
             // 
             // player
             // 
@@ -134,8 +134,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "player";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.popup_MouseDown);
-            this.MouseEnter += new System.EventHandler(this.player_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.player_MouseLeave);
+            this.MouseEnter += new System.EventHandler(this.playerCombo_MouseEnter);
             this.Move += new System.EventHandler(this.player_Move);
             this.ResumeLayout(false);
 
@@ -146,6 +145,7 @@
         private System.Windows.Forms.Button button_kodi;
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.Button button_Top;
-        public System.Windows.Forms.ComboBox comboBox1;
+        public PlaylistEditor.MyComboBox comboBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

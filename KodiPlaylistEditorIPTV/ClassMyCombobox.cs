@@ -16,15 +16,22 @@ using System.Windows.Forms;
 
 namespace PlaylistEditor
 {
-    class MyButton : Button
+    public class MyComboBox : ComboBox
     {
-        protected override bool ShowFocusCues
+        protected override bool IsInputKey(Keys keyData)
         {
-            get
+            switch ((keyData & (Keys.Alt | Keys.KeyCode)))
             {
-                // return base.ShowFocusCues;
-                return false;
+                case Keys.Enter:
+                case Keys.Escape:
+                    if (this.DroppedDown)
+                    {
+                        this.DroppedDown = false;
+                        return false;
+                    }
+                    break;
             }
+            return base.IsInputKey(keyData);
         }
     }
 }

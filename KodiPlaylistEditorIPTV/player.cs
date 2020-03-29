@@ -1,5 +1,18 @@
-﻿using System;
-using System.ComponentModel;
+﻿//  MIT License
+//  Copyright (c) 2018 github/isayso
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy,
+//  modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+//  subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,10 +21,9 @@ namespace PlaylistEditor
     public partial class player : Form 
     {
         public DataGridView Dgv { get; set; }
-        private int mouseEnterCount = 0;
-        private double opc;
-        //public BindingList<string> bindinglist = new BindingList<string>();
-        //public BindingSource bSource = new BindingSource();
+        private readonly double opc;
+        public int comboheigh;
+        private double opacity = 1;
 
         public player()
         {
@@ -24,18 +36,44 @@ namespace PlaylistEditor
             opc = Properties.Settings.Default.opacity;
             this.Opacity = opc;
 
-            //bSource.DataSource = bindinglist;
-            //comboBox1.DataSource = bSource;
+            MouseMove += OnMouseMove;
+            MouseLeave += OnMouseLeave;
 
+            HookMouseMove(this.Controls);
 
-
-            //for (int i = 0; i < Dgv.Rows.Count; i++)
-            //{
-            //    bindinglist.Add(Dgv.Rows[i].Cells[4].Value.ToString());
-            //}
-           
-           
         }
+
+        private void OnMouseMove(object sender, MouseEventArgs e)
+        {
+            Control ctl = sender as Control;
+            if (ctl != null)
+            {
+                opacity = 1;
+                timer1.Enabled = false;
+                this.Opacity = 1;
+               
+            }
+        }
+
+        private void OnMouseLeave(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+
+        }
+
+        /// <summary>
+        /// hook event to all controls on form
+        /// </summary>
+        /// <param name="ctls"></param>
+        private void HookMouseMove(Control.ControlCollection ctls)
+        {
+            foreach (Control ctl in ctls)
+            {
+                ctl.MouseMove += OnMouseMove;
+                HookMouseMove(ctl.Controls);
+            }
+        }
+
 
         private void player_Move(object sender, EventArgs e)
         {
@@ -63,31 +101,20 @@ namespace PlaylistEditor
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var channel = comboBox1.SelectedIndex;
-
             //invoke EventHandler
+            timer1.Enabled = true;
+        }
+
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
         }
 
         private void ComboBox_Click(object sender, EventArgs e)
         {
-
-            comboBox1.BeginUpdate();
-            comboBox1.Items.Clear();
-
-            for (int i = 0; i < Dgv.Rows.Count; i++)
-            {
-                comboBox1.Items.Add(Dgv.Rows[i].Cells[4].Value.ToString());
-            }
-            comboBox1.EndUpdate();
-           // bindinglist.ResetBindings();
             comboBox1.DroppedDown = true;
         }
 
-        private void ComboBox_Click2(object sender, EventArgs e)
-        {
-            ComboBox obj = sender as ComboBox;
-            obj.DroppedDown = true;
-        }
 
         private void button_Top_Click(object sender, EventArgs e)
         {
@@ -125,35 +152,62 @@ namespace PlaylistEditor
             await ClassKodi.Run2(jLink);
         }
 
-        private void player_MouseHover(object sender, EventArgs e)
-        {
-            if (++mouseEnterCount == 1)
-            {
-                this.Opacity = 1.0;
-            }
-        }
-
-        private void player_MouseLeave(object sender, EventArgs e)
-        {
-
-            if (--mouseEnterCount == 0)
-            {
-                this.Opacity = opc; // Properties.Settings.Default.opacity;
-            } 
-        }
-
-        private void player_MouseEnter(object sender, EventArgs e)
-        {
-            if (++mouseEnterCount == 1)
-            {
-                this.Opacity = 1;
-            }
-        }
 
         private void comboBox1_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                comboBox1.Focus();
+            }
         }
+
+        private void playerCombo_MouseEnter(object sender, EventArgs e)
+        {
+
+            if (!CompItemsWithBox())
+            {
+                comboBox1.BeginUpdate();
+                comboBox1.Items.Clear();
+
+                for (int i = 0; i < Dgv.Rows.Count; i++)
+                {
+                    comboBox1.Items.Add(Dgv.Rows[i].Cells[4].Value.ToString());
+                }
+                comboBox1.EndUpdate();
+            }
+        }
+
+        /// <summary>
+        /// compares datagrid with combobox entries
+        /// </summary>
+        /// <returns>bool</returns>
+        private bool CompItemsWithBox()
+        {
+            for (int i = 0; i < Dgv.Rows.Count; i++)
+            {
+                if (comboBox1.Items[i].ToString() != Dgv.Rows[i].Cells[4].Value.ToString())
+                    return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// timer to fade out
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            opacity -= 0.03;
+            this.Opacity = opacity;
+            if (opacity < opc)
+            {
+                timer1.Enabled = false;
+            }
+            Invalidate();
+        }
+
+       
     }
    
 
