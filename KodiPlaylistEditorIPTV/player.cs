@@ -22,7 +22,6 @@ namespace PlaylistEditor
     {
         public DataGridView Dgv { get; set; }
         private readonly double opc;
-        public int comboheigh;
         private double opacity = 1;
 
         public player()
@@ -96,6 +95,9 @@ namespace PlaylistEditor
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                 // Checks if Y = 0, if so maximize the form
                 if (this.Location.Y == 0) { this.WindowState = FormWindowState.Maximized; }
+
+                Properties.Settings.Default.F1Location = this.Location;
+                Properties.Settings.Default.Save();
             }
         }
 

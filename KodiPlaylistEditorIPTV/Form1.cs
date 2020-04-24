@@ -189,14 +189,14 @@ namespace PlaylistEditor
                         case Keys.C:
                             if (dataGridView1.SelectedRows.Count > 0)
                             {
-                                contextMenuStrip1.Items[5].Enabled = true;
+                                contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;
                                 CopyRow();
                             }
                             else toolStripCopy.PerformClick();
                             break;
 
                         case Keys.V:
-                            contextMenuStrip1.Items[3].Enabled = true;
+                            contextMenuStrip1.Items["toolStripPaste"].Enabled = true;
                             toolStripPaste.PerformClick();
                             break;
 
@@ -207,7 +207,7 @@ namespace PlaylistEditor
                         case Keys.I:
                             if (dataGridView1.SelectedRows.Count > 0 || dataGridView1.Rows.Count == 0
                                 || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard()))
-                                contextMenuStrip1.Items[5].Enabled = true;  //paste add
+                                contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;  //paste add
 
                             pasteRowMenuItem.PerformClick();
                             break;
@@ -215,7 +215,7 @@ namespace PlaylistEditor
                         case Keys.X:
                             if (dataGridView1.SelectedRows.Count > 0)
                             {
-                                contextMenuStrip1.Items[4].Enabled = true;
+                                contextMenuStrip1.Items["cutRowMenuItem"].Enabled = true;
                                 cutRowMenuItem.PerformClick();
                             }
                             break;
@@ -1422,7 +1422,7 @@ namespace PlaylistEditor
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                contextMenuStrip1.Items[5].Enabled = true;
+                contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;
 
                 CopyRow();
                 return;
@@ -2309,44 +2309,47 @@ namespace PlaylistEditor
                 }
                 if (!string.IsNullOrEmpty(fullRowContent)
                     || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard()))
-                    contextMenuStrip1.Items[5].Enabled = true;  //paste add
+                    contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;  //paste add
 
                 else
-                    contextMenuStrip1.Items[5].Enabled = false;
+                    contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = false;
             }
             else  //open 
             {
-                int[] itemsList = new int[] { 2, 7, 9, 10, 11 };
+               // int[] itemsList = new int[] { 2, 7, 9, 10, 11 };
+                string[] itemsNList = new string[] { "toolStripCopy", "playToolStripMenuItem", 
+                    "hideToolStripMenuItem", "showToolStripMenuItem", "toolStripFill" };
 
-                for (int i = 0; i < itemsList.Length; i++)
+                for (int i = 0; i < itemsNList.Length; i++)
                 {
-                    contextMenuStrip1.Items[itemsList[i]].Enabled = true;
+                  //  contextMenuStrip1.Items[itemsList[i]].Enabled = true;
+                    contextMenuStrip1.Items[itemsNList[i]].Enabled = true;
                 }
 
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    contextMenuStrip1.Items[4].Enabled = true;  //cut
+                    contextMenuStrip1.Items["cutRowMenuItem"].Enabled = true;  //cut
                 }
                 else
                 {
-                    contextMenuStrip1.Items[4].Enabled = false;
+                    contextMenuStrip1.Items["cutRowMenuItem"].Enabled = false;
                 }
 
                 if (Clipboard.ContainsText())
                 {
-                    contextMenuStrip1.Items[3].Enabled = true;  //paste
-                    contextMenuStrip1.Items[12].Enabled = true;  //fill
+                    contextMenuStrip1.Items["toolStripPaste"].Enabled = true;  //paste
+                    contextMenuStrip1.Items["toolStripFill"].Enabled = true;  //fill
                 }
                     
 
                 if (!string.IsNullOrEmpty(fullRowContent))  //for paste to new window
-                    contextMenuStrip1.Items[5].Enabled = true;  //paste add
+                    contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;  //paste add
 
                 else if (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard())
-                    contextMenuStrip1.Items[5].Enabled = true;  //paste add
+                    contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;  //paste add
 
                 else
-                    contextMenuStrip1.Items[5].Enabled = false;
+                    contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = false;
 
             }
         }
@@ -2549,11 +2552,11 @@ namespace PlaylistEditor
                 var textBox = (TextBox)dataGridView1.EditingControl;
                 if (textBox.Text.EndsWith("m3u8"))
                 {
-                    contextMenuStrip2.Items[0].Enabled = true;
+                    contextMenuStrip2.Items["addUseragentCell"].Enabled = true;
                 }
                 else
                 {
-                    contextMenuStrip2.Items[0].Enabled = false;
+                    contextMenuStrip2.Items["addUseragentCell"].Enabled = false;
                 }
             }
         }
