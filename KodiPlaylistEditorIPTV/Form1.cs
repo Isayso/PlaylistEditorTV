@@ -101,6 +101,12 @@ namespace PlaylistEditor
             if (Settings.Default.hotkey_enable)
                 NativeMethods.RegisterHotKey(this.Handle, mActionHotKeyID, spec_key, hotlabel);  //ALT-Y
 
+            //check for vlc.exe
+            if (!ClassHelp.MyFileExists(vlcpath + "\\" + "vlc.exe", 5000))  // vlcpath + "\\" + "vlc.exe";
+            {
+                vlcpath = ClassHelp.GetVlcPath();
+            }
+
 
             plabel_Filename.Text = "";
             button_revert.Visible = false;
@@ -154,6 +160,7 @@ namespace PlaylistEditor
 
 
             }
+            
             Settings.Default.nostart = false;
             Settings.Default.Save();
 
