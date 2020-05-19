@@ -1,4 +1,7 @@
 
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/total) ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5/total)
+
+
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
@@ -88,7 +91,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Ctrl + 1/2 move line up/down
 - del    delete selected row
 
-![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/total)
 
-
-![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5/total)
