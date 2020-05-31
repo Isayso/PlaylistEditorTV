@@ -358,7 +358,7 @@ namespace PlaylistEditor
                 button_clearfind.BringToFront(); label1.BringToFront(); label2.BringToFront();
                 button_refind.BringToFront(); button_refind.Visible = true;
             }
-            else
+            else  //close textbox_find
             {
                 _isIt = !_isIt;
                 textBox_find.Visible = false;
@@ -731,6 +731,14 @@ namespace PlaylistEditor
         {
             DataRow dr = dt.NewRow();
 
+            if (dataGridView1.RowCount == 0 && dataGridView1.Columns.Count > 0) //delete all
+            {
+                dt.Clear();
+                dt.Columns.Clear();
+                toSave(false);
+                plabel_Filename.Text = "";
+                button_revert.Visible = false;
+            }
 
             if (dataGridView1.RowCount > 0)
             {
@@ -2646,6 +2654,17 @@ namespace PlaylistEditor
         {
             textBox_find_TextChange(sender, e);
           //  textBox_find_TextChanged(sender, e);
+        }
+
+        private void textBox_find_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (Char)27)
+            {
+                textBox_find.Visible = false;
+                button_clearfind.Visible = false; label1.Visible = false; label2.Visible = false;
+                button_refind.Visible = false;
+            }
+
         }
     }
 }

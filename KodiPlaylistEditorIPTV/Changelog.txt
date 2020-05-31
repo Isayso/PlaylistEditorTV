@@ -1,5 +1,8 @@
 ﻿1.5.1
 - save position on drag form
+- Language support
+- bugfix add line when columns avaliable
+- ESC closes find box
 
 1.5
 - fix enter bug
