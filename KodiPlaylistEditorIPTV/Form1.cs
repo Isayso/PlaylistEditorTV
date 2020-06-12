@@ -775,7 +775,7 @@ namespace PlaylistEditor
         private void button_vlc_Click(object sender, EventArgs e)
         {
             string vlclink = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-          //  if (!vlclink.StartsWith("http")) return; //issue #32
+            if (!vlclink.StartsWith("http") && !vlclink.StartsWith("rtmp")) return; //issue #32
 
             if (string.IsNullOrEmpty(vlcpath))
             {

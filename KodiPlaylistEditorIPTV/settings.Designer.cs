@@ -86,169 +86,274 @@
             // 
             // button_ok
             // 
-            resources.ApplyResources(this.button_ok, "button_ok");
             this.button_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Bold);
+            this.button_ok.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button_ok.Location = new System.Drawing.Point(266, 389);
             this.button_ok.Name = "button_ok";
-            this.toolTip1.SetToolTip(this.button_ok, resources.GetString("button_ok.ToolTip"));
+            this.button_ok.Size = new System.Drawing.Size(101, 34);
+            this.button_ok.TabIndex = 3;
+            this.button_ok.Text = "OK";
             this.button_ok.UseVisualStyleBackColor = true;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // button_cancel
             // 
-            resources.ApplyResources(this.button_cancel, "button_cancel");
             this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Bold);
+            this.button_cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button_cancel.Location = new System.Drawing.Point(119, 389);
             this.button_cancel.Name = "button_cancel";
-            this.toolTip1.SetToolTip(this.button_cancel, resources.GetString("button_cancel.ToolTip"));
+            this.button_cancel.Size = new System.Drawing.Size(101, 34);
+            this.button_cancel.TabIndex = 4;
+            this.button_cancel.Text = "Abbrechen";
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // textBox_Password
             // 
-            resources.ApplyResources(this.textBox_Password, "textBox_Password");
             this.textBox_Password.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
+            this.textBox_Password.Location = new System.Drawing.Point(202, 153);
             this.textBox_Password.Name = "textBox_Password";
-            this.toolTip1.SetToolTip(this.textBox_Password, resources.GetString("textBox_Password.ToolTip"));
+            this.textBox_Password.PasswordChar = '*';
+            this.textBox_Password.Size = new System.Drawing.Size(167, 27);
+            this.textBox_Password.TabIndex = 32;
+            this.toolTip1.SetToolTip(this.textBox_Password, "IP of nfs connected drive");
             // 
             // textBox_Username
             // 
-            resources.ApplyResources(this.textBox_Username, "textBox_Username");
             this.textBox_Username.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
+            this.textBox_Username.Location = new System.Drawing.Point(202, 117);
             this.textBox_Username.Name = "textBox_Username";
-            this.toolTip1.SetToolTip(this.textBox_Username, resources.GetString("textBox_Username.ToolTip"));
+            this.textBox_Username.Size = new System.Drawing.Size(167, 27);
+            this.textBox_Username.TabIndex = 31;
+            this.textBox_Username.Text = "kodi";
+            this.toolTip1.SetToolTip(this.textBox_Username, "IP of nfs connected drive");
             // 
             // textBox_Port
             // 
-            resources.ApplyResources(this.textBox_Port, "textBox_Port");
             this.textBox_Port.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox_Port.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
+            this.textBox_Port.Location = new System.Drawing.Point(202, 81);
             this.textBox_Port.Name = "textBox_Port";
-            this.toolTip1.SetToolTip(this.textBox_Port, resources.GetString("textBox_Port.ToolTip"));
+            this.textBox_Port.Size = new System.Drawing.Size(167, 27);
+            this.textBox_Port.TabIndex = 30;
+            this.textBox_Port.Text = "8080";
+            this.toolTip1.SetToolTip(this.textBox_Port, "IP of nfs connected drive");
             // 
             // label6
             // 
-            resources.ApplyResources(this.label6, "label6");
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label6.Location = new System.Drawing.Point(98, 156);
             this.label6.Name = "label6";
-            this.toolTip1.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
+            this.label6.Size = new System.Drawing.Size(83, 20);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Password";
+            this.toolTip1.SetToolTip(this.label6, "nfs path on Kodi system");
             // 
             // label5
             // 
-            resources.ApplyResources(this.label5, "label5");
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label5.Location = new System.Drawing.Point(98, 117);
             this.label5.Name = "label5";
-            this.toolTip1.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
+            this.label5.Size = new System.Drawing.Size(86, 20);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Username";
+            this.toolTip1.SetToolTip(this.label5, "nfs path on Kodi system");
             // 
             // label4
             // 
-            resources.ApplyResources(this.label4, "label4");
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(98, 84);
             this.label4.Name = "label4";
-            this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
+            this.label4.Size = new System.Drawing.Size(40, 20);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Port";
+            this.toolTip1.SetToolTip(this.label4, "nfs path on Kodi system");
             // 
             // textBox2
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
+            this.textBox2.Location = new System.Drawing.Point(202, 43);
             this.textBox2.Name = "textBox2";
-            this.toolTip1.SetToolTip(this.textBox2, resources.GetString("textBox2.ToolTip"));
+            this.textBox2.Size = new System.Drawing.Size(167, 27);
+            this.textBox2.TabIndex = 26;
+            this.textBox2.Text = "192.168.178.91";
+            this.toolTip1.SetToolTip(this.textBox2, "IP of nfs connected drive");
             // 
             // label3
             // 
-            resources.ApplyResources(this.label3, "label3");
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(98, 46);
             this.label3.Name = "label3";
-            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
+            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Kodi IP";
+            this.toolTip1.SetToolTip(this.label3, "nfs path on Kodi system");
             // 
             // textBox1
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Location = new System.Drawing.Point(287, 203);
             this.textBox1.Name = "textBox1";
-            this.toolTip1.SetToolTip(this.textBox1, resources.GetString("textBox1.ToolTip"));
+            this.textBox1.Size = new System.Drawing.Size(60, 27);
+            this.textBox1.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.textBox1, "auto reset on open settings ");
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
+            this.label1.AutoSize = true;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(56, 203);
             this.label1.Name = "label1";
-            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
+            this.label1.Size = new System.Drawing.Size(198, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Zu entfernende Charakter";
+            this.toolTip1.SetToolTip(this.label1, "number of characters to delete");
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
+            this.label2.AutoSize = true;
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(56, 223);
             this.label2.Name = "label2";
-            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            this.label2.Size = new System.Drawing.Size(115, 20);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "beim Einfügen";
+            this.toolTip1.SetToolTip(this.label2, "number of characters to delete");
             // 
             // label11
             // 
-            resources.ApplyResources(this.label11, "label11");
+            this.label11.AutoSize = true;
+            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label11.Location = new System.Drawing.Point(27, 230);
             this.label11.Name = "label11";
-            this.toolTip1.SetToolTip(this.label11, resources.GetString("label11.ToolTip"));
+            this.label11.Size = new System.Drawing.Size(243, 20);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Kodi user agent for *.m3u8 files";
+            this.toolTip1.SetToolTip(this.label11, "add User agent to *.m3u8 files");
             // 
             // checkBox_w
             // 
-            resources.ApplyResources(this.checkBox_w, "checkBox_w");
+            this.checkBox_w.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_w.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_w.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_w.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox_w.Location = new System.Drawing.Point(16, 134);
             this.checkBox_w.Name = "checkBox_w";
-            this.toolTip1.SetToolTip(this.checkBox_w, resources.GetString("checkBox_w.ToolTip"));
+            this.checkBox_w.Size = new System.Drawing.Size(60, 24);
+            this.checkBox_w.TabIndex = 28;
+            this.checkBox_w.Text = "WIN";
+            this.toolTip1.SetToolTip(this.checkBox_w, "Restart to take effect");
             this.checkBox_w.UseVisualStyleBackColor = true;
             // 
             // textBox_hot
             // 
-            resources.ApplyResources(this.textBox_hot, "textBox_hot");
             this.textBox_hot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox_hot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
+            this.textBox_hot.Location = new System.Drawing.Point(135, 14);
+            this.textBox_hot.MaxLength = 1;
             this.textBox_hot.Name = "textBox_hot";
-            this.toolTip1.SetToolTip(this.textBox_hot, resources.GetString("textBox_hot.ToolTip"));
+            this.textBox_hot.Size = new System.Drawing.Size(33, 27);
+            this.textBox_hot.TabIndex = 27;
+            this.textBox_hot.Text = "I";
+            this.textBox_hot.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.textBox_hot, "Restart to take effect");
             // 
             // checkBox_a
             // 
-            resources.ApplyResources(this.checkBox_a, "checkBox_a");
             this.checkBox_a.Checked = true;
             this.checkBox_a.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_a.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_a.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_a.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox_a.Location = new System.Drawing.Point(17, 94);
             this.checkBox_a.Name = "checkBox_a";
-            this.toolTip1.SetToolTip(this.checkBox_a, resources.GetString("checkBox_a.ToolTip"));
+            this.checkBox_a.Size = new System.Drawing.Size(59, 24);
+            this.checkBox_a.TabIndex = 26;
+            this.checkBox_a.Text = "ALT";
+            this.toolTip1.SetToolTip(this.checkBox_a, "Restart to take effect");
             this.checkBox_a.UseVisualStyleBackColor = true;
             // 
             // checkBox_s
             // 
-            resources.ApplyResources(this.checkBox_s, "checkBox_s");
+            this.checkBox_s.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_s.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_s.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox_s.Location = new System.Drawing.Point(17, 55);
             this.checkBox_s.Name = "checkBox_s";
-            this.toolTip1.SetToolTip(this.checkBox_s, resources.GetString("checkBox_s.ToolTip"));
+            this.checkBox_s.Size = new System.Drawing.Size(76, 24);
+            this.checkBox_s.TabIndex = 25;
+            this.checkBox_s.Text = "SHIFT";
+            this.toolTip1.SetToolTip(this.checkBox_s, "Restart to take effect");
             this.checkBox_s.UseVisualStyleBackColor = true;
             // 
             // checkBox_c
             // 
-            resources.ApplyResources(this.checkBox_c, "checkBox_c");
+            this.checkBox_c.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_c.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_c.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_c.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox_c.Location = new System.Drawing.Point(17, 14);
             this.checkBox_c.Name = "checkBox_c";
-            this.toolTip1.SetToolTip(this.checkBox_c, resources.GetString("checkBox_c.ToolTip"));
+            this.checkBox_c.Size = new System.Drawing.Size(72, 24);
+            this.checkBox_c.TabIndex = 24;
+            this.checkBox_c.Text = "CTRL";
+            this.toolTip1.SetToolTip(this.checkBox_c, "Restart to take effect");
             this.checkBox_c.UseVisualStyleBackColor = true;
             // 
             // button_file
             // 
-            resources.ApplyResources(this.button_file, "button_file");
+            this.button_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_file.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_file.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_file.BackgroundImage")));
+            this.button_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_file.FlatAppearance.BorderSize = 0;
+            this.button_file.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_file.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button_file.Location = new System.Drawing.Point(348, 165);
+            this.button_file.Margin = new System.Windows.Forms.Padding(0);
             this.button_file.Name = "button_file";
-            this.toolTip1.SetToolTip(this.button_file, resources.GetString("button_file.ToolTip"));
+            this.button_file.Size = new System.Drawing.Size(38, 37);
+            this.button_file.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.button_file, "select file");
             this.button_file.UseVisualStyleBackColor = true;
             this.button_file.Click += new System.EventHandler(this.button_file_Click);
             // 
             // tabControl1
             // 
-            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
+            this.tabControl1.Location = new System.Drawing.Point(0, 13);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.toolTip1.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
+            this.tabControl1.Size = new System.Drawing.Size(467, 356);
+            this.tabControl1.TabIndex = 14;
             // 
             // tabPage3
             // 
-            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage3.Controls.Add(this.comboBox_result);
             this.tabPage3.Controls.Add(this.label14);
@@ -262,91 +367,117 @@
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
-            this.toolTip1.SetToolTip(this.tabPage3, resources.GetString("tabPage3.ToolTip"));
+            this.tabPage3.Size = new System.Drawing.Size(459, 323);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Optionen";
             // 
             // comboBox_result
             // 
-            resources.ApplyResources(this.comboBox_result, "comboBox_result");
             this.comboBox_result.FormattingEnabled = true;
             this.comboBox_result.Items.AddRange(new object[] {
-            resources.GetString("comboBox_result.Items"),
-            resources.GetString("comboBox_result.Items1")});
+            "Row",
+            "Cell"});
+            this.comboBox_result.Location = new System.Drawing.Point(287, 92);
             this.comboBox_result.Name = "comboBox_result";
-            this.toolTip1.SetToolTip(this.comboBox_result, resources.GetString("comboBox_result.ToolTip"));
+            this.comboBox_result.Size = new System.Drawing.Size(91, 28);
+            this.comboBox_result.TabIndex = 24;
             this.comboBox_result.SelectedIndexChanged += new System.EventHandler(this.comboBox_result_SelectedIndexChanged);
             this.comboBox_result.Click += new System.EventHandler(this.ComboBox_Click);
             // 
             // label14
             // 
-            resources.ApplyResources(this.label14, "label14");
+            this.label14.AutoSize = true;
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(56, 92);
             this.label14.Name = "label14";
-            this.toolTip1.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
+            this.label14.Size = new System.Drawing.Size(195, 20);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "Selektieren des Ergebnis";
             // 
             // checkBox_F2
             // 
-            resources.ApplyResources(this.checkBox_F2, "checkBox_F2");
             this.checkBox_F2.Checked = true;
             this.checkBox_F2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_F2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_F2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_F2.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_F2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox_F2.Location = new System.Drawing.Point(194, 274);
             this.checkBox_F2.Name = "checkBox_F2";
-            this.toolTip1.SetToolTip(this.checkBox_F2, resources.GetString("checkBox_F2.ToolTip"));
+            this.checkBox_F2.Size = new System.Drawing.Size(184, 24);
+            this.checkBox_F2.TabIndex = 22;
+            this.checkBox_F2.Text = "(neustart notwendig)";
             this.checkBox_F2.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
-            resources.ApplyResources(this.label12, "label12");
+            this.label12.AutoSize = true;
+            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label12.Location = new System.Drawing.Point(56, 276);
             this.label12.Name = "label12";
-            this.toolTip1.SetToolTip(this.label12, resources.GetString("label12.ToolTip"));
+            this.label12.Size = new System.Drawing.Size(127, 20);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "Editieren mit F2";
             // 
             // comboBox2
             // 
-            resources.ApplyResources(this.comboBox2, "comboBox2");
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            resources.GetString("comboBox2.Items"),
-            resources.GetString("comboBox2.Items1"),
-            resources.GetString("comboBox2.Items2"),
-            resources.GetString("comboBox2.Items3"),
-            resources.GetString("comboBox2.Items4"),
-            resources.GetString("comboBox2.Items5")});
+            "Name",
+            "id",
+            "Title",
+            "logo",
+            "Name2",
+            "Link"});
+            this.comboBox2.Location = new System.Drawing.Point(287, 139);
             this.comboBox2.Name = "comboBox2";
-            this.toolTip1.SetToolTip(this.comboBox2, resources.GetString("comboBox2.ToolTip"));
+            this.comboBox2.Size = new System.Drawing.Size(91, 28);
+            this.comboBox2.TabIndex = 7;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             this.comboBox2.Click += new System.EventHandler(this.ComboBox_Click);
             // 
             // comboBox1
             // 
-            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            resources.GetString("comboBox1.Items"),
-            resources.GetString("comboBox1.Items1"),
-            resources.GetString("comboBox1.Items2"),
-            resources.GetString("comboBox1.Items3"),
-            resources.GetString("comboBox1.Items4"),
-            resources.GetString("comboBox1.Items5"),
-            resources.GetString("comboBox1.Items6")});
+            "Name",
+            "id",
+            "Title",
+            "logo",
+            "Name2",
+            "Link",
+            "All Cells"});
+            this.comboBox1.Location = new System.Drawing.Point(287, 44);
             this.comboBox1.Name = "comboBox1";
-            this.toolTip1.SetToolTip(this.comboBox1, resources.GetString("comboBox1.ToolTip"));
+            this.comboBox1.Size = new System.Drawing.Size(91, 28);
+            this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.Click += new System.EventHandler(this.ComboBox_Click);
             // 
             // label8
             // 
-            resources.ApplyResources(this.label8, "label8");
+            this.label8.AutoSize = true;
+            this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label8.Location = new System.Drawing.Point(56, 142);
             this.label8.Name = "label8";
-            this.toolTip1.SetToolTip(this.label8, resources.GetString("label8.ToolTip"));
+            this.label8.Size = new System.Drawing.Size(167, 20);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Suchspalte Duplikate";
             // 
             // label7
             // 
-            resources.ApplyResources(this.label7, "label7");
+            this.label7.AutoSize = true;
+            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label7.Location = new System.Drawing.Point(56, 47);
             this.label7.Name = "label7";
-            this.toolTip1.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
+            this.label7.Size = new System.Drawing.Size(115, 20);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Spalte suchen";
             // 
             // tabPage1
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage1.Controls.Add(this.textBox_userAgent);
             this.tabPage1.Controls.Add(this.label11);
@@ -359,50 +490,62 @@
             this.tabPage1.Controls.Add(this.textBox2);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.toolTip1.SetToolTip(this.tabPage1, resources.GetString("tabPage1.ToolTip"));
+            this.tabPage1.Size = new System.Drawing.Size(459, 323);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Kodi";
             // 
             // textBox_userAgent
             // 
-            resources.ApplyResources(this.textBox_userAgent, "textBox_userAgent");
+            this.textBox_userAgent.Location = new System.Drawing.Point(31, 253);
             this.textBox_userAgent.Name = "textBox_userAgent";
-            this.toolTip1.SetToolTip(this.textBox_userAgent, resources.GetString("textBox_userAgent.ToolTip"));
+            this.textBox_userAgent.Size = new System.Drawing.Size(407, 27);
+            this.textBox_userAgent.TabIndex = 34;
             // 
             // tabPage2
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.checkBox_hotkey);
             this.tabPage2.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.toolTip1.SetToolTip(this.tabPage2, resources.GetString("tabPage2.ToolTip"));
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(459, 323);
+            this.tabPage2.TabIndex = 4;
+            this.tabPage2.Text = "Hotkey";
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.checkBox_w);
             this.panel1.Controls.Add(this.textBox_hot);
             this.panel1.Controls.Add(this.checkBox_a);
             this.panel1.Controls.Add(this.checkBox_s);
             this.panel1.Controls.Add(this.checkBox_c);
+            this.panel1.Location = new System.Drawing.Point(115, 57);
             this.panel1.Name = "panel1";
-            this.toolTip1.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip"));
+            this.panel1.Size = new System.Drawing.Size(185, 173);
+            this.panel1.TabIndex = 25;
             // 
             // checkBox_hotkey
             // 
-            resources.ApplyResources(this.checkBox_hotkey, "checkBox_hotkey");
             this.checkBox_hotkey.Checked = true;
             this.checkBox_hotkey.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_hotkey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_hotkey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_hotkey.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_hotkey.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox_hotkey.Location = new System.Drawing.Point(19, 27);
             this.checkBox_hotkey.Name = "checkBox_hotkey";
-            this.toolTip1.SetToolTip(this.checkBox_hotkey, resources.GetString("checkBox_hotkey.ToolTip"));
+            this.checkBox_hotkey.Size = new System.Drawing.Size(432, 24);
+            this.checkBox_hotkey.TabIndex = 24;
+            this.checkBox_hotkey.Text = "Import mit Hotkey aus Zwischenablage (Neustart)";
             this.checkBox_hotkey.UseVisualStyleBackColor = true;
             this.checkBox_hotkey.CheckedChanged += new System.EventHandler(this.checkBox_hotkey_CheckedChanged);
             // 
             // tabPage4
             // 
-            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage4.Controls.Add(this.numericUpDown1);
             this.tabPage4.Controls.Add(this.label13);
@@ -414,19 +557,24 @@
             this.tabPage4.Controls.Add(this.label10);
             this.tabPage4.Controls.Add(this.button_file);
             this.tabPage4.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
-            this.toolTip1.SetToolTip(this.tabPage4, resources.GetString("tabPage4.ToolTip"));
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(459, 323);
+            this.tabPage4.TabIndex = 5;
+            this.tabPage4.Text = "Autostart";
             // 
             // numericUpDown1
             // 
-            resources.ApplyResources(this.numericUpDown1, "numericUpDown1");
+            this.numericUpDown1.Location = new System.Drawing.Point(219, 45);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.toolTip1.SetToolTip(this.numericUpDown1, resources.GetString("numericUpDown1.ToolTip"));
+            this.numericUpDown1.Size = new System.Drawing.Size(57, 27);
+            this.numericUpDown1.TabIndex = 71;
             this.numericUpDown1.Value = new decimal(new int[] {
             100,
             0,
@@ -436,66 +584,98 @@
             // 
             // label13
             // 
-            resources.ApplyResources(this.label13, "label13");
+            this.label13.AutoSize = true;
+            this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label13.Location = new System.Drawing.Point(278, 47);
             this.label13.Name = "label13";
-            this.toolTip1.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
+            this.label13.Size = new System.Drawing.Size(24, 20);
+            this.label13.TabIndex = 70;
+            this.label13.Text = "%";
             // 
             // label9
             // 
-            resources.ApplyResources(this.label9, "label9");
+            this.label9.AutoSize = true;
+            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label9.Location = new System.Drawing.Point(112, 47);
             this.label9.Name = "label9";
-            this.toolTip1.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
+            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.TabIndex = 69;
+            this.label9.Text = "Transparenz";
             // 
             // checkBox_autostart
             // 
-            resources.ApplyResources(this.checkBox_autostart, "checkBox_autostart");
+            this.checkBox_autostart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_autostart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_autostart.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_autostart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox_autostart.Location = new System.Drawing.Point(147, 221);
             this.checkBox_autostart.Name = "checkBox_autostart";
-            this.toolTip1.SetToolTip(this.checkBox_autostart, resources.GetString("checkBox_autostart.ToolTip"));
+            this.checkBox_autostart.Size = new System.Drawing.Size(177, 24);
+            this.checkBox_autostart.TabIndex = 67;
+            this.checkBox_autostart.Text = "Starte Player";
             this.checkBox_autostart.UseVisualStyleBackColor = true;
+            this.checkBox_autostart.Visible = false;
             // 
             // checkBox_start
             // 
-            resources.ApplyResources(this.checkBox_start, "checkBox_start");
+            this.checkBox_start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_start.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_start.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_start.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox_start.Location = new System.Drawing.Point(147, 130);
             this.checkBox_start.Name = "checkBox_start";
-            this.toolTip1.SetToolTip(this.checkBox_start, resources.GetString("checkBox_start.ToolTip"));
+            this.checkBox_start.Size = new System.Drawing.Size(177, 24);
+            this.checkBox_start.TabIndex = 37;
+            this.checkBox_start.Text = "Autoload Datei";
             this.checkBox_start.UseVisualStyleBackColor = true;
             this.checkBox_start.CheckedChanged += new System.EventHandler(this.checkBox_start_CheckedChanged);
             // 
             // textBox_start
             // 
-            resources.ApplyResources(this.textBox_start, "textBox_start");
+            this.textBox_start.Location = new System.Drawing.Point(147, 170);
             this.textBox_start.Name = "textBox_start";
-            this.toolTip1.SetToolTip(this.textBox_start, resources.GetString("textBox_start.ToolTip"));
+            this.textBox_start.Size = new System.Drawing.Size(182, 27);
+            this.textBox_start.TabIndex = 35;
             // 
             // checkBox_vlc
             // 
-            resources.ApplyResources(this.checkBox_vlc, "checkBox_vlc");
             this.checkBox_vlc.Checked = true;
             this.checkBox_vlc.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_vlc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_vlc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_vlc.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_vlc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBox_vlc.Location = new System.Drawing.Point(147, 90);
             this.checkBox_vlc.Name = "checkBox_vlc";
-            this.toolTip1.SetToolTip(this.checkBox_vlc, resources.GetString("checkBox_vlc.ToolTip"));
+            this.checkBox_vlc.Size = new System.Drawing.Size(177, 24);
+            this.checkBox_vlc.TabIndex = 22;
+            this.checkBox_vlc.Text = "Starte im Vollbild";
             this.checkBox_vlc.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
-            resources.ApplyResources(this.label10, "label10");
+            this.label10.AutoSize = true;
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label10.Location = new System.Drawing.Point(28, 22);
             this.label10.Name = "label10";
-            this.toolTip1.SetToolTip(this.label10, resources.GetString("label10.ToolTip"));
+            this.label10.Size = new System.Drawing.Size(118, 20);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Player Fenster";
             // 
             // settings
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ClientSize = new System.Drawing.Size(467, 449);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_ok);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "settings";
-            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "settings";
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();

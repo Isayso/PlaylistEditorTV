@@ -132,13 +132,6 @@
         KdX38Z125j/DN9uY/Tzf32bm//BfQ2qPx6PF6/UNbHDjjafErpcAAAAASUVORK5CYII=
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="button_kodi.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button_kodi.ToolTip" xml:space="preserve">
-    <value>sende zu Kodi</value>
-  </data>
   <data name="button_cancel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -156,12 +149,6 @@
         MbuK1hBtVbSeD+cMx/jL4MxhGHt5nL8aY/4O9grRttlshtjt/gGkJCg0FOQXgQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button_cancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button_cancel.ToolTip" xml:space="preserve">
-    <value>Abbrechen</value>
-  </data>
   <data name="button_Top.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -176,12 +163,6 @@
         pt+fTfJfRj7+SvM8zssxc7Ljzo/j/Pv4w6+RP8iPw7sjPw7vjvw4vDvy4xhvvqfv+f1f4Ni5p+/5//oB
         7uV7/hfP2jP2bvk9/xdPenPnnp5+Aq5Ikj+yA09fAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="button_Top.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button_Top.ToolTip" xml:space="preserve">
-    <value>In den Vordergrund</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -668,8 +649,5 @@
         ///wAAAQP/+B////////////////////////////////////////////////////////////////////
         //8=
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>
