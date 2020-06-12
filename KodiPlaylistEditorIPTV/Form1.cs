@@ -532,7 +532,7 @@ namespace PlaylistEditor
 
                 }
 
-                else if ((line.StartsWith("ht") || line.StartsWith("plugin"))
+                else if ((line.StartsWith("ht") || line.StartsWith("plugin") || line.StartsWith("rt"))  //issue #32 
                     && (line.Contains("//") || line.Contains(":\\")))
                 {
                     col[5] = line;
@@ -775,7 +775,7 @@ namespace PlaylistEditor
         private void button_vlc_Click(object sender, EventArgs e)
         {
             string vlclink = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            if (!vlclink.StartsWith("http")) return;
+          //  if (!vlclink.StartsWith("http")) return; //issue #32
 
             if (string.IsNullOrEmpty(vlcpath))
             {
@@ -2432,7 +2432,7 @@ namespace PlaylistEditor
 
 
 
-                        else if ((line.StartsWith("ht") || line.StartsWith("plugin"))
+                        else if ((line.StartsWith("ht") || line.StartsWith("plugin") || line.StartsWith("rt"))  //issue #32
                             && (line.Contains("//") || line.Contains(":\\"))
                             && !string.IsNullOrEmpty(col[0]))
                         {
@@ -2560,7 +2560,8 @@ namespace PlaylistEditor
         }
 
         private void contextMenuStrip2_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
+        {  //opens when edit cell active
+
             // if (dataGridView1.IsCurrentCellInEditMode)
             if (dataGridView1.EditingControl is TextBox)
             {

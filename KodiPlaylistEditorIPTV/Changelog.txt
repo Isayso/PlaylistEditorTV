@@ -3,6 +3,7 @@
 - Language support
 - bugfix add line when columns avaliable
 - ESC closes find box
+- add suport for rtmp://  - Issue #32
 
 1.5
 - fix enter bug
