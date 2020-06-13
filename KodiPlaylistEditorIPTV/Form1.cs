@@ -203,13 +203,17 @@ namespace PlaylistEditor
                             break;
 
                         case Keys.V:
-                            contextMenuStrip1.Items["toolStripPaste"].Enabled = true;
-                            toolStripPaste.PerformClick();
+                            if (!string.IsNullOrEmpty(fullRowContent)
+                             || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard()))
+                            {
+                                contextMenuStrip1.Items["toolStripPaste"].Enabled = true;
+                                toolStripPaste.PerformClick();
+                            }
                             break;
 
-                        case Keys.R:
-                            copyRowMenuItem.PerformClick();
-                            break;
+                        //case Keys.R:
+                        //    copyRowMenuItem.PerformClick();
+                        //    break;
 
                         case Keys.I:
                             if (dataGridView1.SelectedRows.Count > 0 || dataGridView1.Rows.Count == 0
@@ -1049,40 +1053,40 @@ namespace PlaylistEditor
 
         }
 
-        private void copyRowMenuItem_Click(object sender, EventArgs e)  //CTRL-R
-        {
+//        private void copyRowMenuItem_Click(object sender, EventArgs e)  //CTRL-R
+//        {
 
-            if (dataGridView1.CurrentCell.Value != null && dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
-            {
-                try
-                {
-                    // Add the selection to the clipboard.
+//            if (dataGridView1.CurrentCell.Value != null && dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
+//            {
+//                try
+//                {
+//                    // Add the selection to the clipboard.
 
-                    //issue #12
-                    StringBuilder rowString = new StringBuilder();
+//                    //issue #12
+//                    StringBuilder rowString = new StringBuilder();
 
-                    foreach (DataGridViewRow row in dataGridView1.GetSelectedRows())
-                    {
-                        for (int i = 0; i < 5; i++)
-                        {
-                            rowString.Append(dataGridView1[i, row.Index].Value.ToString().Trim()).Append("\t");
-                        }
-                        rowString.Append(dataGridView1[5, row.Index].Value.ToString().Trim());
-                        rowString.Append("\r\n");
-                    }
-                    // Clipboard.SetText(rowString.ToString());
-                    Clipboard.SetDataObject(rowString.ToString());
-#if DEBUG
-                    Console.WriteLine(Clipboard.GetText());
-#endif
-                }
-                catch (System.Runtime.InteropServices.ExternalException)
-                {
-                    MessageBox.Show("The Clipboard could not be accessed. Please try again.");
-                    //  Clipboard.Clear();
-                }
-            }
-        }
+//                    foreach (DataGridViewRow row in dataGridView1.GetSelectedRows())
+//                    {
+//                        for (int i = 0; i < 5; i++)
+//                        {
+//                            rowString.Append(dataGridView1[i, row.Index].Value.ToString().Trim()).Append("\t");
+//                        }
+//                        rowString.Append(dataGridView1[5, row.Index].Value.ToString().Trim());
+//                        rowString.Append("\r\n");
+//                    }
+//                    // Clipboard.SetText(rowString.ToString());
+//                    Clipboard.SetDataObject(rowString.ToString());
+//#if DEBUG
+//                    Console.WriteLine(Clipboard.GetText());
+//#endif
+//                }
+//                catch (System.Runtime.InteropServices.ExternalException)
+//                {
+//                    MessageBox.Show("The Clipboard could not be accessed. Please try again.");
+//                    //  Clipboard.Clear();
+//                }
+//            }
+//        }
 
         private void CopyRow()
         {
@@ -2084,7 +2088,7 @@ namespace PlaylistEditor
                 progress.Report(item.Index.ToString() + " / " + maxrows);
 
                 //#18 no plugin check -> grey background
-                if (iLink.StartsWith("plugin")/* || iLink.Contains("|User")*/)
+                if (iLink.StartsWith("plugin")/* || iLink.Contains("|User")*/)   //plugin will not be checked
                 {
                     dataGridView1.Rows[item.Index].Cells[5].Style.BackColor = Color.LightGray;
                     dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
@@ -2434,8 +2438,17 @@ namespace PlaylistEditor
 
                         else if ((line.StartsWith("ht") || line.StartsWith("plugin") || line.StartsWith("rt"))  //issue #32
                             && (line.Contains("//") || line.Contains(":\\"))
-                            && !string.IsNullOrEmpty(col[0]))
+                            /*&& !string.IsNullOrEmpty(col[0])*/)
                         {
+                            if (string.IsNullOrEmpty(col[0]))
+                            {
+                                col[0] = "N/A"; col[4] = "N/A";
+
+                                for (int i = 0; i < 4; i++)                     
+                                    CheckEntry(i);
+                                
+                            }
+
                             col[5] = line;
                         }
 

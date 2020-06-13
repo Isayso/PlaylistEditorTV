@@ -1,8 +1,10 @@
 ﻿1.5.1
-- save position on drag form
+- autosave position of form
 - bugfix add line when columns avaliable
 - ESC closes find box
 - add suport for rtmp://  - Issue #32
+- import of list of only link lines
+- bugfix CTRL-V on empty list
 
 1.5
 - fix enter bug
