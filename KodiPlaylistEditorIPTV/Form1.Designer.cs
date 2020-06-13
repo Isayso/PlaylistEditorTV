@@ -427,7 +427,7 @@
             this.button_moveDown.Size = new System.Drawing.Size(30, 32);
             this.button_moveDown.TabIndex = 32;
             this.button_moveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveDown, "move row down\r\nCtrl-2");
+            this.toolTip1.SetToolTip(this.button_moveDown, "move row down\r\nCtrl-2\r\nCtrl-click move to bottom\r\nCtrl-B move to bottom");
             this.button_moveDown.UseVisualStyleBackColor = true;
             this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
             // 
@@ -444,7 +444,7 @@
             this.button_moveUp.Size = new System.Drawing.Size(30, 32);
             this.button_moveUp.TabIndex = 31;
             this.button_moveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\nCtrl-1\r\n+ Ctrl move to top\r\nCtrl+T move to top");
+            this.toolTip1.SetToolTip(this.button_moveUp, "move row up\r\nCtrl-1\r\nCtrl-click move to top\r\nCtrl+T move to top");
             this.button_moveUp.UseVisualStyleBackColor = true;
             this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
             // 

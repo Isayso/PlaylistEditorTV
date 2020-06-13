@@ -192,6 +192,9 @@ namespace PlaylistEditor
                 {
                     switch (e.KeyCode)
                     {
+                        case Keys.B:
+                            MoveLineBottom();
+                            break;
 
                         case Keys.C:
                             if (dataGridView1.SelectedRows.Count > 0)
@@ -232,7 +235,6 @@ namespace PlaylistEditor
                             break;
 
                         case Keys.T:  //move line to top
-
                             MoveLineTop();
                             break;
 
@@ -728,7 +730,14 @@ namespace PlaylistEditor
 
         private void button_moveDown_Click(object sender, EventArgs e)
         {
-            MoveLine(1);
+            if ((ModifierKeys == Keys.Control))
+            {
+                MoveLineBottom();
+            }
+            else
+            {
+                MoveLine(1);
+            }
         }
 
         private void button_add_Click(object sender, EventArgs e)
@@ -1958,6 +1967,56 @@ namespace PlaylistEditor
                 toSave(true);
             }
         }
+
+
+        public void MoveLineBottom()
+        {
+            _taglink = false;
+            _endofLoop = false;
+            button_check.BackColor = Color.MidnightBlue;
+            colorclear();
+
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
+
+            if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.SelectedRows.Count > 0)  //whole row must be selected
+            {
+                var row = dataGridView1.SelectedRows[0];
+                var maxrow = dataGridView1.RowCount; // - 1;
+                int n = 0;
+
+                while (n < maxrow - 1)
+                {
+                    row = dataGridView1.SelectedRows[0];
+
+                    if (row != null)
+                    {
+                        if (/*(row.Index == 0) ||*/ (row.Index == maxrow -1)) break; // return;  //check end of dataGridView1
+
+                        var swapRow = dataGridView1.Rows[row.Index + 1];
+
+                        object[] values = new object[swapRow.Cells.Count];
+
+                        foreach (DataGridViewCell cell in swapRow.Cells)
+                        {
+                            values[cell.ColumnIndex] = cell.Value;
+                            cell.Value = row.Cells[cell.ColumnIndex].Value;
+                        }
+
+                        foreach (DataGridViewCell cell in row.Cells)
+                            cell.Value = values[cell.ColumnIndex];
+
+                        dataGridView1.Rows[row.Index].Selected = false;
+                        dataGridView1.Rows[row.Index + 1].Selected = true;
+
+
+                    }
+                    n += 1;
+                }
+                _endofLoop = true;
+                toSave(true);
+            }
+        }
+
 
         /// <summary>
         /// changes icon if file is modified

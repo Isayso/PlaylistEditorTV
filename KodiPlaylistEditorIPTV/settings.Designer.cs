@@ -106,7 +106,7 @@
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(101, 34);
             this.button_cancel.TabIndex = 4;
-            this.button_cancel.Text = "Abbrechen";
+            this.button_cancel.Text = "Cancel";
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
@@ -221,9 +221,9 @@
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(56, 203);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 20);
+            this.label1.Size = new System.Drawing.Size(149, 20);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Zu entfernende Charakter";
+            this.label1.Text = "character to delete";
             this.toolTip1.SetToolTip(this.label1, "number of characters to delete");
             // 
             // label2
@@ -232,9 +232,9 @@
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(56, 223);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 20);
+            this.label2.Size = new System.Drawing.Size(145, 20);
             this.label2.TabIndex = 10;
-            this.label2.Text = "beim Einfügen";
+            this.label2.Text = "on paste (leftshift)";
             this.toolTip1.SetToolTip(this.label2, "number of characters to delete");
             // 
             // label11
@@ -371,7 +371,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(459, 323);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Optionen";
+            this.tabPage3.Text = "Options";
             // 
             // comboBox_result
             // 
@@ -392,9 +392,9 @@
             this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label14.Location = new System.Drawing.Point(56, 92);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(195, 20);
+            this.label14.Size = new System.Drawing.Size(168, 20);
             this.label14.TabIndex = 23;
-            this.label14.Text = "Selektieren des Ergebnis";
+            this.label14.Text = "Search column result";
             // 
             // checkBox_F2
             // 
@@ -408,7 +408,7 @@
             this.checkBox_F2.Name = "checkBox_F2";
             this.checkBox_F2.Size = new System.Drawing.Size(184, 24);
             this.checkBox_F2.TabIndex = 22;
-            this.checkBox_F2.Text = "(neustart notwendig)";
+            this.checkBox_F2.Text = "(needs restart)";
             this.checkBox_F2.UseVisualStyleBackColor = true;
             // 
             // label12
@@ -417,9 +417,9 @@
             this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label12.Location = new System.Drawing.Point(56, 276);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(127, 20);
+            this.label12.Size = new System.Drawing.Size(97, 20);
             this.label12.TabIndex = 21;
-            this.label12.Text = "Editieren mit F2";
+            this.label12.Text = "Edit with F2";
             // 
             // comboBox2
             // 
@@ -462,9 +462,9 @@
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label8.Location = new System.Drawing.Point(56, 142);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(167, 20);
+            this.label8.Size = new System.Drawing.Size(202, 20);
             this.label8.TabIndex = 5;
-            this.label8.Text = "Suchspalte Duplikate";
+            this.label8.Text = "Search column duplicates";
             // 
             // label7
             // 
@@ -472,9 +472,9 @@
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(56, 47);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 20);
+            this.label7.Size = new System.Drawing.Size(126, 20);
             this.label7.TabIndex = 4;
-            this.label7.Text = "Spalte suchen";
+            this.label7.Text = "Search column ";
             // 
             // tabPage1
             // 
@@ -540,7 +540,7 @@
             this.checkBox_hotkey.Name = "checkBox_hotkey";
             this.checkBox_hotkey.Size = new System.Drawing.Size(432, 24);
             this.checkBox_hotkey.TabIndex = 24;
-            this.checkBox_hotkey.Text = "Import mit Hotkey aus Zwischenablage (Neustart)";
+            this.checkBox_hotkey.Text = "Import hotkey from clipboard (needs restart)";
             this.checkBox_hotkey.UseVisualStyleBackColor = true;
             this.checkBox_hotkey.CheckedChanged += new System.EventHandler(this.checkBox_hotkey_CheckedChanged);
             // 
@@ -596,11 +596,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(112, 47);
+            this.label9.Location = new System.Drawing.Point(136, 47);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.Size = new System.Drawing.Size(66, 20);
             this.label9.TabIndex = 69;
-            this.label9.Text = "Transparenz";
+            this.label9.Text = "Opacity";
             // 
             // checkBox_autostart
             // 
@@ -612,7 +612,7 @@
             this.checkBox_autostart.Name = "checkBox_autostart";
             this.checkBox_autostart.Size = new System.Drawing.Size(177, 24);
             this.checkBox_autostart.TabIndex = 67;
-            this.checkBox_autostart.Text = "Starte Player";
+            this.checkBox_autostart.Text = "Autostart player";
             this.checkBox_autostart.UseVisualStyleBackColor = true;
             this.checkBox_autostart.Visible = false;
             // 
@@ -626,7 +626,7 @@
             this.checkBox_start.Name = "checkBox_start";
             this.checkBox_start.Size = new System.Drawing.Size(177, 24);
             this.checkBox_start.TabIndex = 37;
-            this.checkBox_start.Text = "Autoload Datei";
+            this.checkBox_start.Text = "Autoload file";
             this.checkBox_start.UseVisualStyleBackColor = true;
             this.checkBox_start.CheckedChanged += new System.EventHandler(this.checkBox_start_CheckedChanged);
             // 
@@ -649,7 +649,7 @@
             this.checkBox_vlc.Name = "checkBox_vlc";
             this.checkBox_vlc.Size = new System.Drawing.Size(177, 24);
             this.checkBox_vlc.TabIndex = 22;
-            this.checkBox_vlc.Text = "Starte im Vollbild";
+            this.checkBox_vlc.Text = "Start with fullscreen";
             this.checkBox_vlc.UseVisualStyleBackColor = true;
             // 
             // label10
@@ -658,9 +658,9 @@
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label10.Location = new System.Drawing.Point(28, 22);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 20);
+            this.label10.Size = new System.Drawing.Size(120, 20);
             this.label10.TabIndex = 21;
-            this.label10.Text = "Player Fenster";
+            this.label10.Text = "Player Window";
             // 
             // settings
             // 

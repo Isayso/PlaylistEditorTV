@@ -5,6 +5,7 @@
 - add suport for rtmp://  - Issue #32
 - import of list of only link lines
 - bugfix CTRL-V on empty list
+- Ctrl-B move line to bottom
 
 1.5
 - fix enter bug
