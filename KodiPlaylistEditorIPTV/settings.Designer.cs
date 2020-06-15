@@ -50,8 +50,11 @@
             this.checkBox_a = new System.Windows.Forms.CheckBox();
             this.checkBox_s = new System.Windows.Forms.CheckBox();
             this.checkBox_c = new System.Windows.Forms.CheckBox();
+            this.button_file = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.comboBox_result = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.checkBox_F2 = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -72,9 +75,6 @@
             this.textBox_start = new System.Windows.Forms.TextBox();
             this.checkBox_vlc = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button_file = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox_result = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -87,7 +87,8 @@
             // button_ok
             // 
             this.button_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Bold);
+            this.button_ok.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button_ok.Location = new System.Drawing.Point(266, 389);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(101, 34);
@@ -99,7 +100,8 @@
             // button_cancel
             // 
             this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Bold);
+            this.button_cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button_cancel.Location = new System.Drawing.Point(119, 389);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(101, 34);
@@ -111,7 +113,7 @@
             // textBox_Password
             // 
             this.textBox_Password.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
             this.textBox_Password.Location = new System.Drawing.Point(202, 153);
             this.textBox_Password.Name = "textBox_Password";
             this.textBox_Password.PasswordChar = '*';
@@ -122,7 +124,7 @@
             // textBox_Username
             // 
             this.textBox_Username.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
             this.textBox_Username.Location = new System.Drawing.Point(202, 117);
             this.textBox_Username.Name = "textBox_Username";
             this.textBox_Username.Size = new System.Drawing.Size(167, 27);
@@ -133,7 +135,7 @@
             // textBox_Port
             // 
             this.textBox_Port.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox_Port.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Port.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
             this.textBox_Port.Location = new System.Drawing.Point(202, 81);
             this.textBox_Port.Name = "textBox_Port";
             this.textBox_Port.Size = new System.Drawing.Size(167, 27);
@@ -144,8 +146,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label6.Location = new System.Drawing.Point(98, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
@@ -156,8 +159,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label5.Location = new System.Drawing.Point(98, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 20);
@@ -168,8 +172,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label4.Location = new System.Drawing.Point(98, 84);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 20);
@@ -180,7 +185,7 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
             this.textBox2.Location = new System.Drawing.Point(202, 43);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(167, 27);
@@ -191,8 +196,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(98, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 20);
@@ -212,26 +218,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(56, 203);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 20);
+            this.label1.Size = new System.Drawing.Size(149, 20);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Remove first characters";
+            this.label1.Text = "character to delete";
             this.toolTip1.SetToolTip(this.label1, "number of characters to delete");
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(56, 223);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 20);
+            this.label2.Size = new System.Drawing.Size(145, 20);
             this.label2.TabIndex = 10;
-            this.label2.Text = " on paste cells";
+            this.label2.Text = "on paste (leftshift)";
             this.toolTip1.SetToolTip(this.label2, "number of characters to delete");
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label11.Location = new System.Drawing.Point(27, 230);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(243, 20);
@@ -242,8 +251,9 @@
             // checkBox_w
             // 
             this.checkBox_w.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_w.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_w.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_w.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_w.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBox_w.Location = new System.Drawing.Point(16, 134);
             this.checkBox_w.Name = "checkBox_w";
             this.checkBox_w.Size = new System.Drawing.Size(60, 24);
@@ -255,7 +265,7 @@
             // textBox_hot
             // 
             this.textBox_hot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox_hot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_hot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold);
             this.textBox_hot.Location = new System.Drawing.Point(135, 14);
             this.textBox_hot.MaxLength = 1;
             this.textBox_hot.Name = "textBox_hot";
@@ -270,8 +280,9 @@
             this.checkBox_a.Checked = true;
             this.checkBox_a.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_a.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_a.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_a.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBox_a.Location = new System.Drawing.Point(17, 94);
             this.checkBox_a.Name = "checkBox_a";
             this.checkBox_a.Size = new System.Drawing.Size(59, 24);
@@ -283,8 +294,9 @@
             // checkBox_s
             // 
             this.checkBox_s.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_s.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_s.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBox_s.Location = new System.Drawing.Point(17, 55);
             this.checkBox_s.Name = "checkBox_s";
             this.checkBox_s.Size = new System.Drawing.Size(76, 24);
@@ -296,8 +308,9 @@
             // checkBox_c
             // 
             this.checkBox_c.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_c.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_c.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_c.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_c.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBox_c.Location = new System.Drawing.Point(17, 14);
             this.checkBox_c.Name = "checkBox_c";
             this.checkBox_c.Size = new System.Drawing.Size(72, 24);
@@ -306,6 +319,24 @@
             this.toolTip1.SetToolTip(this.checkBox_c, "Restart to take effect");
             this.checkBox_c.UseVisualStyleBackColor = true;
             // 
+            // button_file
+            // 
+            this.button_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_file.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_file.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_file.BackgroundImage")));
+            this.button_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_file.FlatAppearance.BorderSize = 0;
+            this.button_file.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_file.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button_file.Location = new System.Drawing.Point(348, 165);
+            this.button_file.Margin = new System.Windows.Forms.Padding(0);
+            this.button_file.Name = "button_file";
+            this.button_file.Size = new System.Drawing.Size(38, 37);
+            this.button_file.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.button_file, "select file");
+            this.button_file.UseVisualStyleBackColor = true;
+            this.button_file.Click += new System.EventHandler(this.button_file_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -313,7 +344,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.tabControl1.Location = new System.Drawing.Point(0, 13);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
@@ -340,30 +371,55 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(459, 323);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "options";
+            this.tabPage3.Text = "Options";
+            // 
+            // comboBox_result
+            // 
+            this.comboBox_result.FormattingEnabled = true;
+            this.comboBox_result.Items.AddRange(new object[] {
+            "Row",
+            "Cell"});
+            this.comboBox_result.Location = new System.Drawing.Point(287, 92);
+            this.comboBox_result.Name = "comboBox_result";
+            this.comboBox_result.Size = new System.Drawing.Size(91, 28);
+            this.comboBox_result.TabIndex = 24;
+            this.comboBox_result.SelectedIndexChanged += new System.EventHandler(this.comboBox_result_SelectedIndexChanged);
+            this.comboBox_result.Click += new System.EventHandler(this.ComboBox_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(56, 92);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(168, 20);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "Search column result";
             // 
             // checkBox_F2
             // 
             this.checkBox_F2.Checked = true;
             this.checkBox_F2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_F2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_F2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_F2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_F2.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_F2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBox_F2.Location = new System.Drawing.Point(194, 274);
             this.checkBox_F2.Name = "checkBox_F2";
             this.checkBox_F2.Size = new System.Drawing.Size(184, 24);
             this.checkBox_F2.TabIndex = 22;
-            this.checkBox_F2.Text = "(restart necessary)";
+            this.checkBox_F2.Text = "(needs restart)";
             this.checkBox_F2.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label12.Location = new System.Drawing.Point(56, 276);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(132, 20);
+            this.label12.Size = new System.Drawing.Size(97, 20);
             this.label12.TabIndex = 21;
-            this.label12.Text = "Edit only with F2";
+            this.label12.Text = "Edit with F2";
             // 
             // comboBox2
             // 
@@ -403,20 +459,22 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label8.Location = new System.Drawing.Point(56, 142);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(203, 20);
+            this.label8.Size = new System.Drawing.Size(202, 20);
             this.label8.TabIndex = 5;
-            this.label8.Text = "Column search duplicates";
+            this.label8.Text = "Search column duplicates";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(56, 47);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 20);
+            this.label7.Size = new System.Drawing.Size(126, 20);
             this.label7.TabIndex = 4;
-            this.label7.Text = "Column search";
+            this.label7.Text = "Search column ";
             // 
             // tabPage1
             // 
@@ -475,13 +533,14 @@
             this.checkBox_hotkey.Checked = true;
             this.checkBox_hotkey.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_hotkey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_hotkey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_hotkey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_hotkey.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_hotkey.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBox_hotkey.Location = new System.Drawing.Point(19, 27);
             this.checkBox_hotkey.Name = "checkBox_hotkey";
-            this.checkBox_hotkey.Size = new System.Drawing.Size(416, 24);
+            this.checkBox_hotkey.Size = new System.Drawing.Size(432, 24);
             this.checkBox_hotkey.TabIndex = 24;
-            this.checkBox_hotkey.Text = "Import from Clipboard Hotkey (restart after change)";
+            this.checkBox_hotkey.Text = "Import hotkey from clipboard (needs restart)";
             this.checkBox_hotkey.UseVisualStyleBackColor = true;
             this.checkBox_hotkey.CheckedChanged += new System.EventHandler(this.checkBox_hotkey_CheckedChanged);
             // 
@@ -503,7 +562,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(459, 323);
             this.tabPage4.TabIndex = 5;
-            this.tabPage4.Text = "Start up";
+            this.tabPage4.Text = "Autostart";
             // 
             // numericUpDown1
             // 
@@ -526,6 +585,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label13.Location = new System.Drawing.Point(278, 47);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(24, 20);
@@ -535,7 +595,8 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(150, 47);
+            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label9.Location = new System.Drawing.Point(136, 47);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 20);
             this.label9.TabIndex = 69;
@@ -544,26 +605,28 @@
             // checkBox_autostart
             // 
             this.checkBox_autostart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_autostart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_autostart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_autostart.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_autostart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBox_autostart.Location = new System.Drawing.Point(147, 221);
             this.checkBox_autostart.Name = "checkBox_autostart";
             this.checkBox_autostart.Size = new System.Drawing.Size(177, 24);
             this.checkBox_autostart.TabIndex = 67;
-            this.checkBox_autostart.Text = "Player autostart";
+            this.checkBox_autostart.Text = "Autostart player";
             this.checkBox_autostart.UseVisualStyleBackColor = true;
             this.checkBox_autostart.Visible = false;
             // 
             // checkBox_start
             // 
             this.checkBox_start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_start.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_start.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_start.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_start.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBox_start.Location = new System.Drawing.Point(147, 130);
             this.checkBox_start.Name = "checkBox_start";
             this.checkBox_start.Size = new System.Drawing.Size(177, 24);
             this.checkBox_start.TabIndex = 37;
-            this.checkBox_start.Text = "Start-up with file";
+            this.checkBox_start.Text = "Autoload file";
             this.checkBox_start.UseVisualStyleBackColor = true;
             this.checkBox_start.CheckedChanged += new System.EventHandler(this.checkBox_start_CheckedChanged);
             // 
@@ -579,62 +642,25 @@
             this.checkBox_vlc.Checked = true;
             this.checkBox_vlc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_vlc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_vlc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_vlc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.checkBox_vlc.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_vlc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBox_vlc.Location = new System.Drawing.Point(147, 90);
             this.checkBox_vlc.Name = "checkBox_vlc";
             this.checkBox_vlc.Size = new System.Drawing.Size(177, 24);
             this.checkBox_vlc.TabIndex = 22;
-            this.checkBox_vlc.Text = "Play in fullscreen";
+            this.checkBox_vlc.Text = "Start with fullscreen";
             this.checkBox_vlc.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label10.Location = new System.Drawing.Point(28, 22);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 20);
+            this.label10.Size = new System.Drawing.Size(120, 20);
             this.label10.TabIndex = 21;
-            this.label10.Text = "Player mode";
-            // 
-            // button_file
-            // 
-            this.button_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_file.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_file.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_file.BackgroundImage")));
-            this.button_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_file.FlatAppearance.BorderSize = 0;
-            this.button_file.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_file.Location = new System.Drawing.Point(348, 165);
-            this.button_file.Margin = new System.Windows.Forms.Padding(0);
-            this.button_file.Name = "button_file";
-            this.button_file.Size = new System.Drawing.Size(38, 37);
-            this.button_file.TabIndex = 66;
-            this.toolTip1.SetToolTip(this.button_file, "select file");
-            this.button_file.UseVisualStyleBackColor = true;
-            this.button_file.Click += new System.EventHandler(this.button_file_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(56, 92);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(135, 20);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "Select find result";
-            // 
-            // comboBox_result
-            // 
-            this.comboBox_result.FormattingEnabled = true;
-            this.comboBox_result.Items.AddRange(new object[] {
-            "Row",
-            "Cell"});
-            this.comboBox_result.Location = new System.Drawing.Point(287, 92);
-            this.comboBox_result.Name = "comboBox_result";
-            this.comboBox_result.Size = new System.Drawing.Size(91, 28);
-            this.comboBox_result.TabIndex = 24;
-            this.comboBox_result.SelectedIndexChanged += new System.EventHandler(this.comboBox_result_SelectedIndexChanged);
-            this.comboBox_result.Click += new System.EventHandler(this.ComboBox_Click);
+            this.label10.Text = "Player Window";
             // 
             // settings
             // 

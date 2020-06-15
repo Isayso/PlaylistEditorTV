@@ -118,15 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button_clearfind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAjUlEQVRIS+2UQQqAMAwE+wnBJ3jQ/5+k
-        f9CDz9HdQiCHGgJNT+3AYkuzm1jBNBmXDcrQWnY2C3RCR9k5oeGFbogBf/CMNaylxw2NF0TjA9XexFNj
-        YgU0hwu1oLBwgYFyz3zqNc9C0FOHTa7p2qDrFenJwz+yFdTcxBPQ1KT7r2KHaLDCBdawlp7JeKT0AcCU
-        QxewpghEAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="button_kodi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -141,6 +132,11 @@
         KdX38Z125j/DN9uY/Tzf32bm//BfQ2qPx6PF6/UNbHDjjafErpcAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="button_kodi.ToolTip" xml:space="preserve">
+    <value>sende nach Kodi
+Ctrl+p
+Ctrl + Zelle doppelclick</value>
+  </data>
   <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -154,6 +150,16 @@
         Ni6Mh8vQAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="button_import.ToolTip" xml:space="preserve">
+    <value>Importiere von Clipboard
+</value>
+  </data>
+  <data name="RedoButton.ToolTip" xml:space="preserve">
+    <value>wiederholen</value>
+  </data>
+  <data name="UndoButton.ToolTip" xml:space="preserve">
+    <value>rückgängig</value>
+  </data>
   <data name="button_check.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -163,6 +169,11 @@
         5/42LG7GMQsNa2E2m9C1c+FnbGjGMQsNL7+zHz6a0Nz58A4KsNuEvvcZvlCQrYDz/OY1tvdBgbZ+iZo+
         7vxfCvZNE32GLxTwvyb6Dl8oaK2JMcIXCrxuYqzwhYIvbyGGERERB03TA/g7H0I+nbubAAAAAElFTkSu
         QmCC
+</value>
+  </data>
+  <data name="button_check.ToolTip" xml:space="preserve">
+    <value>teste auf ungültige links
++ ctrl markiere gefundene links
 </value>
   </data>
   <data name="button_vlc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -188,6 +199,13 @@
         YII=
 </value>
   </data>
+  <data name="button_vlc.ToolTip" xml:space="preserve">
+    <value>öffnen mit vlc
+Zelle doppelclick</value>
+  </data>
+  <data name="button_revert.ToolTip" xml:space="preserve">
+    <value>Datei neu laden</value>
+  </data>
   <data name="button_dup.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -201,6 +219,11 @@
         ts7Iudh7Gqt9ke6l7w/QxP72m4fLWA/tcKH+L6Eq3Ls05h9xFe5txv43WoV7x7+RVYk7f8Qa/1EiwzyR
         yzFe5O2YJ3I5xou8HfNELsd4kbdjnsjlGC/ydjHrX/xy9zfXbxfDen9WessF128Xw3p/VnrtLtZXrq8R
         A3t9Vlpqsy9i1T78p1K73TO6i5Guvh0HMwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="button_dup.ToolTip" xml:space="preserve">
+    <value>finde Duplikate
++shift lösche Duplikate
 </value>
   </data>
   <data name="button_search.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -222,6 +245,20 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <data name="button_search.ToolTip" xml:space="preserve">
+    <value>suche
+Ctrl+F</value>
+  </data>
+  <data name="button_moveDown.ToolTip" xml:space="preserve">
+    <value>Zeile runter
+Ctrl-2</value>
+  </data>
+  <data name="button_moveUp.ToolTip" xml:space="preserve">
+    <value>Zeile hoch
+Ctrl-1
++ Ctrl Zeile auf Anfang
+Ctrl+T Zeile auf Anfang</value>
+  </data>
   <data name="button_del_all.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -235,6 +272,73 @@
         aL6nYPzTpnsn7KfEGfmWtHMkehxxuYhvmp3FF3rOLuKHJi3e6PEW4jj0OOJEm//vz+l9cRpHHIceR7w3
         TuOI46jjd64K8UxNHJV8zV0hNtTEUclHzc9UN60nzQdqYqnoQvNF80vzXnaOjWaexVdVVU1otfoHgTXH
         W/rm+XEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button_del_all.ToolTip" xml:space="preserve">
+    <value>lösche Liste
+Ctrl+N neues Fenster öffnen</value>
+  </data>
+  <data name="button_add.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAsElEQVRoQ+3TMYoEMRADwPn/p/eSQhcN
+        LMYN26AKhVEr8VNVVVVV/z7DnJnjzhhn5rgzxpk57oxxpqqm+GtjnAlxiM/pGeNMiEN8Ts8YZ0Ic4nN6
+        xjgT4hDvYXeI97A7xHvYHeI97A7xOT3H1IT4GrXvvDumJsTXqH3n3TE1Ib5G7TvvjqkJ8TVqf4ddId7D
+        7hDvYXeI97A7xHvYHeI97A7xHnaHeA+7Q1xVVfWF5/kDBf86G2b0KnUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button_add.ToolTip" xml:space="preserve">
+    <value>neue Zeile</value>
+  </data>
+  <data name="button_delLine.ToolTip" xml:space="preserve">
+    <value>zeile löschen</value>
+  </data>
+  <data name="button_save.ToolTip" xml:space="preserve">
+    <value>speichern als
++shift speichern
+Ctrl+S speichern</value>
+  </data>
+  <data name="button_open.ToolTip" xml:space="preserve">
+    <value>öffnen m3u
+
+</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>324, 60</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Doppel Click zum öffnen Datei
+Drag 'n Drop Datei zum öffnen oder anfügen
+Ctrl-N für neues Fenster</value>
+  </data>
+  <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
+        mjmL1VAYhscF7VREUUEsFBREULBQC/0JNoJ7aeOGhZ2VtSiCoIW9NvaiiGAlClrYuqC2LuCOitvz4j1w
+        CN/JTSbJSc6954GHGYa5yZd3krN8mZlMJjNtnB19zQT4izmkEhRQDqkEF1AOKYAfUA7JoBhQDqmAFZDM
+        IY2wwnHmkMAKxncqQlqFB/ES3sbn+B5/ohVK0YkMaRmewkdoXXRdJyak1ag75RtaF9rEpENagGfwK1oX
+        14bJBrQBn6B1UW2ZbDh78DNaF9WWyYZzDH+jdVFFNXNdxgO4BZeiHkvrd32TDecoWhfk+wuv4w4MYX3O
+        mfRjNe7OuYXrcRzWZ2XSA3LZmKPp/QhWxTpGsuFozCibrd7gVqxD8RjJhiO0zilekFPh6O6qi3+MpuGs
+        xUP/v42PVsihRaAeq7p3jsMdo41wXuMH1DYnOto++KH41hlziujzbYXj6jmHUdFfJLS30mzVhLbDkZ9w
+        EUZDu3K/AKfWOVWm8q6Yjy/Rqk3rtGiEWhZaBPbNDbRqu49RULPLKkCWrZBjsQut2v7gCuwcdQKtArS3
+        GgJzsDgGOfdj54RmL208h8IVtGq8iJ2jHrJ1cu3Kh4IWh1aNd7Bz9ChZJ1fLYihsRqvGZ9g5evtgnVz9
+        nKGgWqwaP2LnhF7NaOM6FOahVaNaMp2j6dI6+VwcCgvRqvEHdk6o97MYh8JytGp8i53zAq2Tb8KhoE6C
+        VWOUQfouWiffh0PhMFo13sTOCS0U9fOhcBWtGqMsFEOLsCFtNV6hVeNe7BxtVkMz2Tbsm51o1aaaNXhH
+        4SFaRVzDvgm1Ox5gNE6iVcRT1CKtLzSTht7PHcdoLMEv6Beg6X8NNqFpu/Ue+jU5VWv0rdAFdAW0FY6O
+        NVtOoKun6HmMjgY8bf7aDEfOhu34Hf1QnFr5r8ReUHexzXBkXTbiO/SP4Xsak6UYjqyD7pyycB6j3nQk
+        iRWOrIrGnNBjJfX4r8MkCYUjx6GpPDRbOfV+bjcmSVk40kLbB62QtQis8h9sTV5998q4cKSaXZoh1bLQ
+        rlwbz9DeqqjunIkOp4kacyb2sWqqZquJHJCbqkWg1jnJTuWii4C0t9L2obcVctu0EZL6OWpZaFc+pHdw
+        rVE1JL2a0dsHNdjVQ1abVJ3AaM2uPqkS0tQzLqQMlIWUGREKKeNhhZQpUAwpY+CHlAngQsqUoJAymcy0
+        MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="button_clearfind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAjUlEQVRIS+2UQQqAMAwE+wnBJ3jQ/5+k
+        f9CDz9HdQiCHGgJNT+3AYkuzm1jBNBmXDcrQWnY2C3RCR9k5oeGFbogBf/CMNaylxw2NF0TjA9XexFNj
+        YgU0hwu1oLBwgYFyz3zqNc9C0FOHTa7p2qDrFenJwz+yFdTcxBPQ1KT7r2KHaLDCBdawlp7JeKT0AcCU
+        QxewpghEAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="button_settings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -263,14 +367,8 @@
         CjTl9XrL/8DR8j8xtfaPfILCWvdn1jZtWpKOjv8BxXil0YeBPn0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button_add.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAsElEQVRoQ+3TMYoEMRADwPn/p/eSQhcN
-        LMYN26AKhVEr8VNVVVVV/z7DnJnjzhhn5rgzxpk57oxxpqqm+GtjnAlxiM/pGeNMiEN8Ts8YZ0Ic4nN6
-        xjgT4hDvYXeI97A7xHvYHeI97A7xOT3H1IT4GrXvvDumJsTXqH3n3TE1Ib5G7TvvjqkJ8TVqf4ddId7D
-        7hDvYXeI97A7xHvYHeI97A7xHnaHeA+7Q1xVVfWF5/kDBf86G2b0KnUAAAAASUVORK5CYII=
-</value>
+  <data name="button_settings.ToolTip" xml:space="preserve">
+    <value>Einstellungen</value>
   </data>
   <data name="button_Info.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -293,6 +391,9 @@
         U6Ej7ZuuongLsAmqsYL2unz/oNNDSMsObTrVRZ4lVG+G/RdwEFoA6i+kBXQbrSN92Wl0kfT7IVJMf2jo
         L6j//zfrgAHbnqGhP4UFrDrDSzWZAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="button_Info.ToolTip" xml:space="preserve">
+    <value>info</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -1,4 +1,13 @@
-﻿1.5
+﻿1.5.1
+- autosave position of form
+- bugfix add line when columns avaliable
+- ESC closes find box
+- add suport for rtmp://  - Issue #32
+- import of list of only link lines
+- bugfix CTRL-V on empty list
+- Ctrl-B move line to bottom
+
+1.5
 - fix enter bug
 - fix first player load new list bug
 - fix UI bug
@@ -6,7 +15,7 @@
 - disable vlc error dialog
 - code clean up
 
-1.4.8  85 downloads
+1.4.8  87 downloads
 - shift to first found row
 - player window search with keyboard
 
