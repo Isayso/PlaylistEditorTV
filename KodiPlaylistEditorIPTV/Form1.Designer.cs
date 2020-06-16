@@ -338,7 +338,8 @@
             this.button_check.Name = "button_check";
             this.button_check.Size = new System.Drawing.Size(25, 37);
             this.button_check.TabIndex = 38;
-            this.toolTip1.SetToolTip(this.button_check, "check for invalid links\r\n+ ctrl select links");
+            this.toolTip1.SetToolTip(this.button_check, "check for invalid links\r\n+ ctrl select all links\r\n+ shift-ctrl select orange link" +
+        "s");
             this.button_check.UseVisualStyleBackColor = true;
             this.button_check.Click += new System.EventHandler(this.Button_check_Click);
             // 

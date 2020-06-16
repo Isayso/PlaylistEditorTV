@@ -1,4 +1,9 @@
-﻿1.5.1
+﻿1.5.2
+- grey link for Error 403
+- bugfix add line when no row selected
+
+
+1.5.1
 - autosave position of form
 - bugfix add line when columns avaliable
 - ESC closes find box
@@ -7,7 +12,7 @@
 - bugfix CTRL-V on empty list
 - Ctrl-B move line to bottom
 
-1.5
+1.5 817 downloads
 - fix enter bug
 - fix first player load new list bug
 - fix UI bug

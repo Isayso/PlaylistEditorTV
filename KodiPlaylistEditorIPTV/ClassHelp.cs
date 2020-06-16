@@ -15,6 +15,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -201,7 +202,7 @@ namespace PlaylistEditor
     /// </summary>
     /// <param name="uri">URL to check</param>
     /// <returns>bool</returns>
-        public static bool CheckIPTVStream(string uri)
+        public static int CheckIPTVStream(string uri)
         {
             try
             {
@@ -210,10 +211,16 @@ namespace PlaylistEditor
                 req.Timeout = 6000; //set the timeout
            
                 req.ContentType = "application/x-www-form-urlencoded";
-             //   req.KeepAlive = true;
-          //issue #15
+                //   req.KeepAlive = true;
+                //https://deviceatlas.com/blog/list-smart-tv-user-agent-strings
+                //issue #15
                 req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
+                    //+ " AppleTV/tvOS/9.1.1"
+                    //+ " AppleCoreMedia/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)";
+
+                //req.UserAgent = "Mozilla / 5.0(iPhone; CPU iPhone OS 13_1 like Mac OS X) " +
+                //    "AppleWebKit / 605.1.15(KHTML, like Gecko) Version / 13.0.1 Mobile / 15E148";
 
                 if (uri.Contains("|User-Agent") && uri.Contains(".m3u8"))  //#18
                 {
@@ -224,19 +231,34 @@ namespace PlaylistEditor
                 HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
                 StreamReader sr = new StreamReader(resp.GetResponseStream());
-                // results = sr.ReadToEnd();
+
                 char[] buffer = new char[1024];
                 int results1 = sr.Read(buffer,0,1023);
                 sr.Close();
-
                
             }
-            catch (Exception)
+            catch (WebException e)
             {
-                return false;
+                if (e.Status == WebExceptionStatus.ProtocolError)
+                {
+                    if (System.Diagnostics.Debugger.IsAttached)
+                    {
+                        Console.WriteLine("Status Code : {0}", ((HttpWebResponse)e.Response).StatusCode);
+                        Console.WriteLine("Status Description : {0}", ((HttpWebResponse)e.Response).StatusDescription);
+                    }
+
+                    return (int)((HttpWebResponse)e.Response).StatusCode;
+                }
             }
-            return true;
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return 401;
+            }
+
+            return 0;
         }
+
 
         public static bool LoadItem(this Stack<object[][]> instance, DataGridView dgv)
         {
@@ -256,6 +278,7 @@ namespace PlaylistEditor
             }
             return !Enumerable.Range(0, instance.GetLength(0)).Any(x => !instance[x].SequenceEqual(dgvRows[x].Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()));
         }
+
 
         /// <summary>
         /// checks if a full row (6) is in clipboard
