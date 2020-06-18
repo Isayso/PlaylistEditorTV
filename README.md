@@ -5,7 +5,7 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
-1.5.1 support for rmtp links (exept link alive testing)
+1.5.1 support for rmtp links (except link alive testing)
 
 1.5 bugfixes in player UI, fade-out effect
 
