@@ -2177,11 +2177,12 @@ namespace PlaylistEditor
                         if (_mark) dataGridView1.Rows[item.Index].Selected = true;
                         if  (errorcode == 403)
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
-                        else 
+                        else // if (errorcode == 404)
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
 
                     }
-                    dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
+                    if (!Debugger.IsAttached)
+                        dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
                 }
             }
         }
@@ -2513,14 +2514,11 @@ namespace PlaylistEditor
 
                         }
 
-
-
-
                         else if ((line.StartsWith("ht") || line.StartsWith("plugin") || line.StartsWith("rt"))  //issue #32
                             && (line.Contains("//") || line.Contains(":\\")))
                         // && !string.IsNullOrEmpty(col[0]))
                         {
-                            if (string.IsNullOrEmpty(col[0]))
+                            if (string.IsNullOrEmpty(col[0]) && string.IsNullOrEmpty(col[4]))
                             {
                                 col[0] = "N/A"; col[4] = "N/A";
 
@@ -2530,6 +2528,8 @@ namespace PlaylistEditor
                             }
 
                             col[5] = line;
+
+                          //  continue;
                         }
 
                         //else if (line.StartsWith("plugin")  //#18
@@ -2543,8 +2543,18 @@ namespace PlaylistEditor
 
                         else
                         {
-                            continue;  //if file has irregular linefeed.
+                            if (!string.IsNullOrEmpty(line))  //plain text #34
+                            {
+                                col[4] = line.Trim();
+                                if (string.IsNullOrEmpty(col[0])) col[0] = "N/A";
+
+                                for (int i = 0; i < 4; i++)
+                                    CheckEntry(i);
+                            }
+
+                            continue;  
                         }
+
 
                         try
                         {

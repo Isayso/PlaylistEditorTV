@@ -1,7 +1,8 @@
 ﻿1.5.2
-- grey link for Error 403
+- grey line for Error 403
+- grey line for rtmp links
 - bugfix add line when no row selected
-
+- import of plan text strings
 
 1.5.1
 - autosave position of form

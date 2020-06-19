@@ -204,6 +204,8 @@ namespace PlaylistEditor
     /// <returns>bool</returns>
         public static int CheckIPTVStream(string uri)
         {
+            if (uri.StartsWith("rt")) return 403;  //rtmp check not implemented
+
             try
             {
                
@@ -234,25 +236,30 @@ namespace PlaylistEditor
 
                 char[] buffer = new char[1024];
                 int results1 = sr.Read(buffer,0,1023);
+                if (System.Diagnostics.Debugger.IsAttached)
+                    Console.WriteLine("buffer : {0}", results1);
+
                 sr.Close();
                
             }
-            catch (WebException e)
+            catch (WebException e)  //#34
             {
                 if (e.Status == WebExceptionStatus.ProtocolError)
                 {
                     if (System.Diagnostics.Debugger.IsAttached)
                     {
-                        Console.WriteLine("Status Code : {0}", ((HttpWebResponse)e.Response).StatusCode);
+                        Console.WriteLine("Status Code : {0}", (int)((HttpWebResponse)e.Response).StatusCode);
                         Console.WriteLine("Status Description : {0}", ((HttpWebResponse)e.Response).StatusDescription);
                     }
 
                     return (int)((HttpWebResponse)e.Response).StatusCode;
                 }
+                return 401;  //Timeout error
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.Message);
+                if (System.Diagnostics.Debugger.IsAttached)
+                    Console.WriteLine("ex Code : {0}", ex.Message);
                 return 401;
             }
 
