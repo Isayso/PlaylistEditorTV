@@ -210,13 +210,9 @@ namespace PlaylistEditor
                             ///* || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard())*/)
                             {
                                 contextMenuStrip1.Items["toolStripPaste"].Enabled = true;
-                                toolStripPaste.PerformClick();
+                                toolStripPaste.PerformClick();   //#35
                             }
                             break;
-
-                        //case Keys.R:
-                        //    copyRowMenuItem.PerformClick();
-                        //    break;
 
                         case Keys.I:
                             if (dataGridView1.SelectedRows.Count > 0 || dataGridView1.Rows.Count == 0
@@ -1540,12 +1536,17 @@ namespace PlaylistEditor
                 PasteRow();
                 return;
             }
+            else if (dataGridView1.SelectedCells.Count > 1)
+            {
+                contextMenuStrip1.Items["toolStripFill"].Enabled = true;
+                toolStripFill.PerformClick();
+            }
+
 
             int leftshift = Settings.Default.leftshift;
             try
             {
                 string s = Clipboard.GetText();
-                //   string[] lines = s.Split('\n');  //bug ??? \r\n
 
                 string[] lines = Regex.Split(s.TrimEnd("\r\n".ToCharArray()), "\r\n");
 

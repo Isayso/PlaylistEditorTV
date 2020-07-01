@@ -6,7 +6,7 @@
 - fix 32bit vlc on 64bit Windows not found
 - fix #35 copy from clipboard, ctrl-v
 
-1.5.1
+1.5.1 (202)
 - autosave position of form
 - bugfix add line when columns avaliable
 - ESC closes find box
@@ -15,7 +15,7 @@
 - bugfix CTRL-V on empty list
 - Ctrl-B move line to bottom
 
-1.5 817 downloads
+1.5 (821)
 - fix enter bug
 - fix first player load new list bug
 - fix UI bug
@@ -23,23 +23,23 @@
 - disable vlc error dialog
 - code clean up
 
-1.4.8  87 downloads
+1.4.8  (87) 
 - shift to first found row
 - player window search with keyboard
 
-1.4.7 +18 down 232  total 838
+1.4.7 (232)  total 838
 - fill cells from clipboard
 - find with &
 - switch find select target cell/row
 
-1.4.6  63 down
+1.4.6  (63) 
 - save player location
 - full sort capability
 - hotkey optional
 - player opacity
 
 
-1.4.5  69 down #538
+1.4.5  (69)
 - fix Exeption Error #25
 - fix move line after sort
 - empty search string button
@@ -55,7 +55,7 @@
 - fix empty name in save file dialog
 
 
-1.4.2   32 down
+1.4.2   (32) 
 - fix delete key in cell edit
 - search string in all cells
 - vlc in fullscreen option
@@ -67,5 +67,5 @@
 - disable automatic tooltip
 - Ctrl-1/2  for MoveLine Up/Down
 
-1.4.1 44 down
-1.4 35 down
+1.4.1 (44) 
+1.4 (35) 
