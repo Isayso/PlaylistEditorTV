@@ -206,8 +206,8 @@ namespace PlaylistEditor
                             break;
 
                         case Keys.V:
-                            if (!string.IsNullOrEmpty(fullRowContent)
-                             || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard()))
+                            //if (!string.IsNullOrEmpty(fullRowContent)
+                            ///* || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard())*/)
                             {
                                 contextMenuStrip1.Items["toolStripPaste"].Enabled = true;
                                 toolStripPaste.PerformClick();
@@ -797,7 +797,7 @@ namespace PlaylistEditor
                 vlcpath = ClassHelp.GetVlcPath();
                 if (string.IsNullOrEmpty(vlcpath))
                     ClassHelp.PopupForm("VLC player not found", "red", 3000);
-                //return; 
+                return; 
             }
             else if (dataGridView1.RowCount > 0 && vlclink.StartsWith("plugin"))
             {
@@ -832,20 +832,16 @@ namespace PlaylistEditor
         {
             if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath))
             {
-
                 // Set cursor as hourglass
                 Cursor.Current = Cursors.WaitCursor;
 
                 string param = dataGridView1.CurrentRow.Cells[5].Value.ToString();
 
-
-
-
                 ProcessStartInfo ps = new ProcessStartInfo();
                 ps.FileName = vlcpath + "\\" + "vlc.exe";
                 ps.ErrorDialog = false;
 
-                if (_isSingle && Settings.Default.vlc_fullsreen)  //bug 
+                if (_isSingle && Settings.Default.vlc_fullsreen)  
                     ps.Arguments = " --one-instance --fullscreen --no-video-title-show " + "\""+ param +"\"";
 
                 else if (_isSingle && !Settings.Default.vlc_fullsreen)
@@ -1634,7 +1630,7 @@ namespace PlaylistEditor
                 foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
                 {
                     oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
-                    oCell.Value = Convert.ChangeType(s, oCell.ValueType);
+                    oCell.Value = Convert.ChangeType(s.Trim(), oCell.ValueType);  //#35 
                 }
                 toSave(true);
             }

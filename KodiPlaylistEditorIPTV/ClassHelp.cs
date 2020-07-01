@@ -75,7 +75,7 @@ namespace PlaylistEditor
             {
                 start = fullstr.IndexOf(startstr, 0) + startstr.Length;
                 end = fullstr.IndexOf(endstr, start);
-                return fullstr.Substring(start, end - start);
+                return fullstr.Substring(start, end - start);  
             }
             else
             {
@@ -169,32 +169,38 @@ namespace PlaylistEditor
         public static string GetVlcPath()
         {
             object line;
-            string registry_key = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+            string [] registry_key = { @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
+                            @"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall" };
             using (var baseKey = Microsoft.Win32.RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
             {
-                using (var key = baseKey.OpenSubKey(registry_key))
+                for (int i = 0; i < 2; i++)
                 {
-                    foreach (string subkey_name in key.GetSubKeyNames())
+                    using (var key = baseKey.OpenSubKey(registry_key[i]))
                     {
-                        using (var subKey = key.OpenSubKey(subkey_name))
+                        foreach (string subkey_name in key.GetSubKeyNames())
                         {
-                            line = subKey.GetValue("DisplayName");
-                            if (line != null && (line.ToString().ToUpper().Contains("VLC")))
+                            using (var subKey = key.OpenSubKey(subkey_name))
                             {
+                                line = subKey.GetValue("DisplayName");
+                                if (line != null && (line.ToString().ToUpper().Contains("VLC")))
+                                {
 
-                                string VlcPath = subKey.GetValue("InstallLocation").ToString();
+                                    string VlcPath = subKey.GetValue("InstallLocation").ToString();
 
-                                Properties.Settings.Default.vlcpath = VlcPath;
-                                Properties.Settings.Default.Save();
-                                return VlcPath;
-                                
+                                    Properties.Settings.Default.vlcpath = VlcPath;
+                                    Properties.Settings.Default.Save();
+                                    return VlcPath;
+
+                                }
                             }
                         }
                     }
+
                 }
             }
             return  "";  //no vlc found
-           
+
+
         }
 
     /// <summary>

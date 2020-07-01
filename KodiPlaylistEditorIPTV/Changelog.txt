@@ -2,7 +2,9 @@
 - grey line for Error 403
 - grey line for rtmp links
 - bugfix add line when no row selected
-- import of plan text strings
+- import of plain text strings
+- fix 32bit vlc on 64bit Windows not found
+- fix #35 copy from clipboard, ctrl-v
 
 1.5.1
 - autosave position of form
