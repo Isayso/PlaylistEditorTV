@@ -160,7 +160,20 @@ namespace PlaylistEditor
 
 
             }
-            
+
+            if (Settings.Default.F2Size.Width == 0 || Settings.Default.F2Size.Height == 0 
+                || Settings.Default.nostart)
+            {
+                // first start
+                this.Size = new Size(1140, 422);
+            }
+            else
+            {
+                this.Location = Settings.Default.F2Location;
+                this.Size = Settings.Default.F2Size;
+            }
+
+
             Settings.Default.nostart = false;
             Settings.Default.Save();
 
@@ -330,6 +343,15 @@ namespace PlaylistEditor
                     button_save.PerformClick();
                 isModified = false;
             }
+
+
+            NativeMethods.UnregisterHotKey(this.Handle, mActionHotKeyID);
+
+            Properties.Settings.Default.F2Location = this.Location;
+            Properties.Settings.Default.F2Size = this.Size;
+            Settings.Default.Save();
+
+
 
         }
 
@@ -969,7 +991,7 @@ namespace PlaylistEditor
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightSalmon
-                            || dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightGray)
+                            /*|| dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightGray*/)
                         {
                             dataGridView1.Rows[row.Index].Selected = true;
                         }
@@ -980,7 +1002,7 @@ namespace PlaylistEditor
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightSalmon)
+                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightGray)
                         {
                             dataGridView1.Rows[row.Index].Selected = true;
                         }
@@ -1608,6 +1630,8 @@ namespace PlaylistEditor
                 MessageBox.Show("The data you pasted is in the wrong format for the cell");
                 return;
             }
+
+            toSave(true);
         }
 
         private void toolStripFill_Click(object sender, EventArgs e)
