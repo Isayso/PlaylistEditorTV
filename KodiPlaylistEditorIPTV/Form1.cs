@@ -160,7 +160,20 @@ namespace PlaylistEditor
 
 
             }
-            
+
+            if (Settings.Default.F2Size.Width == 0 || Settings.Default.F2Size.Height == 0 
+                || Settings.Default.nostart)
+            {
+                // first start
+                this.Size = new Size(1140, 422);
+            }
+            else
+            {
+                this.Location = Settings.Default.F2Location;
+                this.Size = Settings.Default.F2Size;
+            }
+
+
             Settings.Default.nostart = false;
             Settings.Default.Save();
 
@@ -206,17 +219,13 @@ namespace PlaylistEditor
                             break;
 
                         case Keys.V:
-                            if (!string.IsNullOrEmpty(fullRowContent)
-                             || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard()))
+                            //if (!string.IsNullOrEmpty(fullRowContent)
+                            ///* || (string.IsNullOrEmpty(fullRowContent) && ClassHelp.CheckClipboard())*/)
                             {
                                 contextMenuStrip1.Items["toolStripPaste"].Enabled = true;
-                                toolStripPaste.PerformClick();
+                                toolStripPaste.PerformClick();   //#35
                             }
                             break;
-
-                        //case Keys.R:
-                        //    copyRowMenuItem.PerformClick();
-                        //    break;
 
                         case Keys.I:
                             if (dataGridView1.SelectedRows.Count > 0 || dataGridView1.Rows.Count == 0
@@ -334,6 +343,15 @@ namespace PlaylistEditor
                     button_save.PerformClick();
                 isModified = false;
             }
+
+
+            NativeMethods.UnregisterHotKey(this.Handle, mActionHotKeyID);
+
+            Properties.Settings.Default.F2Location = this.Location;
+            Properties.Settings.Default.F2Size = this.Size;
+            Settings.Default.Save();
+
+
 
         }
 
@@ -755,6 +773,8 @@ namespace PlaylistEditor
 
             if (dataGridView1.RowCount > 0)
             {
+                if (dataGridView1.SelectedRows.Count == 0) return;
+
                 int a = dataGridView1.SelectedCells[0].RowIndex;  // row index in a datatable
 
                 dr[0] = "Name"; dr[1] = "id"; dr[2] = "Title"; dr[3] = "Logo";
@@ -795,7 +815,7 @@ namespace PlaylistEditor
                 vlcpath = ClassHelp.GetVlcPath();
                 if (string.IsNullOrEmpty(vlcpath))
                     ClassHelp.PopupForm("VLC player not found", "red", 3000);
-                //return; 
+                return; 
             }
             else if (dataGridView1.RowCount > 0 && vlclink.StartsWith("plugin"))
             {
@@ -830,20 +850,16 @@ namespace PlaylistEditor
         {
             if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath))
             {
-
                 // Set cursor as hourglass
                 Cursor.Current = Cursors.WaitCursor;
 
                 string param = dataGridView1.CurrentRow.Cells[5].Value.ToString();
 
-
-
-
                 ProcessStartInfo ps = new ProcessStartInfo();
                 ps.FileName = vlcpath + "\\" + "vlc.exe";
                 ps.ErrorDialog = false;
 
-                if (_isSingle && Settings.Default.vlc_fullsreen)  //bug 
+                if (_isSingle && Settings.Default.vlc_fullsreen)  
                     ps.Arguments = " --one-instance --fullscreen --no-video-title-show " + "\""+ param +"\"";
 
                 else if (_isSingle && !Settings.Default.vlc_fullsreen)
@@ -974,12 +990,25 @@ namespace PlaylistEditor
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightSalmon)
+                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightSalmon
+                            /*|| dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightGray*/)
                         {
                             dataGridView1.Rows[row.Index].Selected = true;
                         }
                     }
                     return;
+                }
+                else if (ModifierKeys == (Keys.Control | Keys.Shift))
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightGray)
+                        {
+                            dataGridView1.Rows[row.Index].Selected = true;
+                        }
+                    }
+                    return;
+
                 }
 
                 _taglink = false;
@@ -994,7 +1023,7 @@ namespace PlaylistEditor
             else _mark = false; //select links
 
 
-            if (!ClassHelp.CheckIPTVStream("http://www.google.com"))
+            if (ClassHelp.CheckIPTVStream("http://www.google.com") != 0)
             {
                 MessageBox.Show("No internet connection found!");
                 return;
@@ -1529,12 +1558,17 @@ namespace PlaylistEditor
                 PasteRow();
                 return;
             }
+            else if (dataGridView1.SelectedCells.Count > 1)
+            {
+                contextMenuStrip1.Items["toolStripFill"].Enabled = true;
+                toolStripFill.PerformClick();
+            }
+
 
             int leftshift = Settings.Default.leftshift;
             try
             {
                 string s = Clipboard.GetText();
-                //   string[] lines = s.Split('\n');  //bug ??? \r\n
 
                 string[] lines = Regex.Split(s.TrimEnd("\r\n".ToCharArray()), "\r\n");
 
@@ -1596,6 +1630,8 @@ namespace PlaylistEditor
                 MessageBox.Show("The data you pasted is in the wrong format for the cell");
                 return;
             }
+
+            toSave(true);
         }
 
         private void toolStripFill_Click(object sender, EventArgs e)
@@ -1619,7 +1655,7 @@ namespace PlaylistEditor
                 foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
                 {
                     oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
-                    oCell.Value = Convert.ChangeType(s, oCell.ValueType);
+                    oCell.Value = Convert.ChangeType(s.Trim(), oCell.ValueType);  //#35 
                 }
                 toSave(true);
             }
@@ -2154,14 +2190,20 @@ namespace PlaylistEditor
                     continue;
                 }
 
-                if (!ClassHelp.CheckIPTVStream(iLink))
+                int errorcode = ClassHelp.CheckIPTVStream(iLink);
+                if (errorcode != 0)
                 {
                     for (int i = 0; i < 6; i++)
                     {
                         if (_mark) dataGridView1.Rows[item.Index].Selected = true;
-                        dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
+                        if  (errorcode == 403)
+                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
+                        else // if (errorcode == 404)
+                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
+
                     }
-                    dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
+                    if (!Debugger.IsAttached)
+                        dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
                 }
             }
         }
@@ -2261,6 +2303,7 @@ namespace PlaylistEditor
             UndoButton.Enabled = undoStack.Count > 1;
             RedoButton.Enabled = redoStack.Count > 1;
         }
+
 
         private void hideToolStripMenuItem_Click(object sender, EventArgs e)
         { // #11
@@ -2492,23 +2535,22 @@ namespace PlaylistEditor
 
                         }
 
-
-
-
                         else if ((line.StartsWith("ht") || line.StartsWith("plugin") || line.StartsWith("rt"))  //issue #32
-                            && (line.Contains("//") || line.Contains(":\\"))
-                            /*&& !string.IsNullOrEmpty(col[0])*/)
+                            && (line.Contains("//") || line.Contains(":\\")))
+                        // && !string.IsNullOrEmpty(col[0]))
                         {
-                            if (string.IsNullOrEmpty(col[0]))
+                            if (string.IsNullOrEmpty(col[0]) && string.IsNullOrEmpty(col[4]))
                             {
                                 col[0] = "N/A"; col[4] = "N/A";
 
-                                for (int i = 0; i < 4; i++)                     
+                                for (int i = 0; i < 4; i++)
                                     CheckEntry(i);
-                                
+
                             }
 
                             col[5] = line;
+
+                          //  continue;
                         }
 
                         //else if (line.StartsWith("plugin")  //#18
@@ -2522,8 +2564,18 @@ namespace PlaylistEditor
 
                         else
                         {
-                            continue;  //if file has irregular linefeed.
+                            if (!string.IsNullOrEmpty(line))  //plain text #34
+                            {
+                                col[4] = line.Trim();
+                                if (string.IsNullOrEmpty(col[0])) col[0] = "N/A";
+
+                                for (int i = 0; i < 4; i++)
+                                    CheckEntry(i);
+                            }
+
+                            continue;  
                         }
+
 
                         try
                         {
@@ -2533,9 +2585,9 @@ namespace PlaylistEditor
                             dr["logo"] = col[3].Trim(); dr["Name2"] = col[4].Trim(); dr["Link"] = col[5].Trim();
                             dt.Rows.Add(dr);
                         }
-                        catch (ArgumentOutOfRangeException)
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("Argument out of range error. Wrong format.");
+                            MessageBox.Show(ex + " Wrong format.");
                             continue;
                         }
                     }
@@ -2785,6 +2837,56 @@ public static class ExtensionMethods
             yield return source.Rows[i];
     }
 
+    /*    datagridview.
+     *    .move
+     *    .up()
+     *    .down()
+     *    .top()
+     *    .button()
+     */
+    public static IEnumerable<DataGridView> MoveTop(this DataGridView source)
+    {
+        if (source.SelectedCells.Count > 0 && source.SelectedRows.Count > 0)  //whole row must be selected
+        {
+            var row = source.SelectedRows[0];
+            var maxrow = source.RowCount /*- 1*/;
+            int n = 0;
+
+            while (n < maxrow - 1)
+            {
+                row = source.SelectedRows[0];
+
+                if (row != null)
+                {
+                    if ((row.Index == 0) || (row.Index == maxrow)) break; // return;  //check end of dataGridView1
+
+                    var swapRow = source.Rows[row.Index - 1];
+
+                    object[] values = new object[swapRow.Cells.Count];
+
+                    foreach (DataGridViewCell cell in swapRow.Cells)
+                    {
+                        values[cell.ColumnIndex] = cell.Value;
+                        cell.Value = row.Cells[cell.ColumnIndex].Value;
+                    }
+
+                    foreach (DataGridViewCell cell in row.Cells)
+                        cell.Value = values[cell.ColumnIndex];
+
+                    source.Rows[row.Index].Selected = false;
+                    source.Rows[row.Index - 1].Selected = true;
+
+
+                }
+                n += 1;
+            }
+            //_endofLoop = true;
+            //toSave(true);
+        }
+
+        yield return source;
+
+    }
 
 }
 
