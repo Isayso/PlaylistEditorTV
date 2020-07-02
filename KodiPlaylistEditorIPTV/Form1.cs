@@ -169,6 +169,7 @@ namespace PlaylistEditor
             }
             else
             {
+                if (Settings.Default.ZoomFactor != 0) ZoomGrid(Settings.Default.ZoomFactor);
                 this.Location = Settings.Default.F2Location;
                 this.Size = Settings.Default.F2Size;
             }
@@ -328,6 +329,8 @@ namespace PlaylistEditor
             dataGridView1.Font = new Font(dataGridView1.Font.FontFamily,
                                          FONTSIZE * f, dataGridView1.Font.Style);
 
+            Properties.Settings.Default.ZoomFactor = f;
+
             //  dataGridView1.RowTemplate.Height = (int)(ROWHEIGHT * f);
 
         }
@@ -349,6 +352,7 @@ namespace PlaylistEditor
 
             Properties.Settings.Default.F2Location = this.Location;
             Properties.Settings.Default.F2Size = this.Size;
+
             Settings.Default.Save();
 
 
@@ -2197,6 +2201,8 @@ namespace PlaylistEditor
                     {
                         if (_mark) dataGridView1.Rows[item.Index].Selected = true;
                         if  (errorcode == 403)
+                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
+                        if  (errorcode == 410)  //rtmp
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
                         else // if (errorcode == 404)
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;

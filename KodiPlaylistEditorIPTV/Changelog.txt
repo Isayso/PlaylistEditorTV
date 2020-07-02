@@ -7,8 +7,9 @@
 - fix #35 copy from clipboard, ctrl-v
 - fill from Clipboard autodetect with ctrl-v
 - size and position of window saved
+- fontsize saved
 
-1.5.1 (202)
+1.5.1 (210)
 - autosave position of form
 - bugfix add line when columns avaliable
 - ESC closes find box

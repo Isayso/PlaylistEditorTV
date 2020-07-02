@@ -209,7 +209,7 @@ namespace PlaylistEditor
     /// <returns>bool</returns>
         public static int CheckIPTVStream(string uri)
         {
-            if (uri.StartsWith("rt")) return 403;  //rtmp check not implemented
+            if (uri.StartsWith("rt")) return 410;  //rtmp check not implemented
 
             try
             {
