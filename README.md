@@ -5,6 +5,8 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
+1.5.2 bugfix for *Fill cells from Clipboard* function, rtmp (not tested) and links with Error 403 are now marked with gray and can be selected separately. *Fill cells from Clipboard* can be activated with Ctrl-v. 
+
 1.5.1 support for rmtp links (except link alive testing)
 
 1.5 bugfixes in player UI, fade-out effect
@@ -89,6 +91,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Ctrl + S save
 - Ctrl + P send link to Kodi
 - Ctrl + T move line to top of list
+- Ctrl + B move line to bottom of list
 - Ctrl + +/- change font size
 - Ctrl + 1/2 move line up/down
 - del    delete selected row
