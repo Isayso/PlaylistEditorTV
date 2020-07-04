@@ -1,4 +1,7 @@
-﻿1.5.2
+﻿1.5.3
+- code clean
+
+1.5.2
 - grey line for lincheck Error 403
 - grey line for linkcheck rtmp links
 - bugfix add line when no row selected

@@ -1564,8 +1564,7 @@ namespace PlaylistEditor
             }
             else if (dataGridView1.SelectedCells.Count > 1)
             {
-                contextMenuStrip1.Items["toolStripFill"].Enabled = true;
-                toolStripFill.PerformClick();
+                FillCells();
             }
 
 
@@ -1638,23 +1637,14 @@ namespace PlaylistEditor
             toSave(true);
         }
 
-        private void toolStripFill_Click(object sender, EventArgs e)
+
+        private void FillCells()
         {
             if (!ClassHelp.CheckClipboard())
             {
                 string s = Clipboard.GetText();
                 DataGridViewCell oCell;
 
-                //  int x = dataGridView1.SelectedCells.Count;
-                // var rowIndexes = dataGridView1.SelectedCells.Cast<DataGridViewCell>()
-                //                   .Select(cell => cell.RowIndex)
-                //                   .Min();  //.Distinct();  //list
-                // var colIndexes = dataGridView1.SelectedCells.Cast<DataGridViewCell>()
-                //                   .Select(cell => cell.ColumnIndex)
-                //                   .First();
-
-                //// Clipboard.SetText(dataGridView1[rowIndexes, colIndexes].ToString());
-                // s = dataGridView1[rowIndexes, colIndexes].Value.ToString();
 
                 foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
                 {
@@ -1664,7 +1654,6 @@ namespace PlaylistEditor
                 toSave(true);
             }
         }
-
 
 
         #endregion
@@ -2445,7 +2434,7 @@ namespace PlaylistEditor
             {
                // int[] itemsList = new int[] { 2, 7, 9, 10, 11 };
                 string[] itemsNList = new string[] { "toolStripCopy", "playToolStripMenuItem", 
-                    "hideToolStripMenuItem", "showToolStripMenuItem", "toolStripFill" };
+                    "hideToolStripMenuItem", "showToolStripMenuItem"};
 
                 for (int i = 0; i < itemsNList.Length; i++)
                 {
@@ -2465,7 +2454,6 @@ namespace PlaylistEditor
                 if (Clipboard.ContainsText())
                 {
                     contextMenuStrip1.Items["toolStripPaste"].Enabled = true;  //paste
-                    contextMenuStrip1.Items["toolStripFill"].Enabled = true;  //fill
                 }
                     
 
