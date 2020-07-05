@@ -7,26 +7,7 @@ Editor for IPTV m3u files (with vlc media player and kodi support)
 
 1.5.2 bugfix for *Fill cells from Clipboard* function, rtmp (links cannot be tested) and links with Error 403 are now marked with gray and can be selected separately. *Fill cells from Clipboard* can be activated with Ctrl-v. 
 
-1.5.1 support for rmtp links (except link alive testing)
-
-1.5 bugfixes in player UI, fade-out effect
-
-1.4.8 search TV station with keyboard, shift to first found row. 
-
-
-1.4.7 better find function with logical AND (&) and easy switch between selecting cells or row. Selected cell region can be filled from clipboard. 
-
-1.4.6 player window with opacity, hotkey function can be switched off. 
-
-1.4.5 bugfixes, move row after sort. 
-
-1.4.4 send to Kodi button in channel switch window, password error fixed
-
-1.4.3 New option for start-up with defined file, bugfixes.
-
-1.4.2 Channel switch window, replacing single column mode. Search strings are now highlighed. Not tested Links are grey, dead links orange.
-
-1.4: Re-design of copy/paste function and context menu. Imports a full list from clipboard, no file save before necessary.  Single column mode for better play with vlc. Send to Kodi button. Auto hide empty columns on file load. Check button if link is responding. 
+ 
   Special thanks to dobbelina for helpful ideas and testing, improved the usablility a lot. 
 
 ![UI](screenshot_1.4.PNG)
