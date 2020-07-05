@@ -5,7 +5,7 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
-1.5.2 bugfix for *Fill cells from Clipboard* function, rtmp (not tested) and links with Error 403 are now marked with gray and can be selected separately. *Fill cells from Clipboard* can be activated with Ctrl-v. 
+1.5.2 bugfix for *Fill cells from Clipboard* function, rtmp (links cannot be tested) and links with Error 403 are now marked with gray and can be selected separately. *Fill cells from Clipboard* can be activated with Ctrl-v. 
 
 1.5.1 support for rmtp links (except link alive testing)
 
@@ -96,4 +96,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Ctrl + 1/2 move line up/down
 - del    delete selected row
 
- ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5/total) ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v.1.5.1/total) ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5.2/total)
+ ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5/total)  ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5.2/total)
