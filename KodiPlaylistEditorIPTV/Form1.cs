@@ -2053,8 +2053,6 @@ namespace PlaylistEditor
         public void toSave(bool hasChanged)
         {
 
-          //  fillPlayer();
-
             if (isModified == hasChanged) return;
 
             isModified = hasChanged;
@@ -2094,29 +2092,76 @@ namespace PlaylistEditor
             _endofLoop = false;           
         }
 
-        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        //private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        //{
+          
+
+        //    toSave(true);
+        //   // return;
+
+        //    if (_sort == "desc")
+        //    {
+        //        _sort = "asc";
+        //        dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+        //    }
+        //    else
+        //    {
+        //        _sort = "desc";
+        //        dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
+        //    }
+
+        //    dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
+        //    dt = dt.DefaultView.ToTable("IPTV");
+
+        //    //#25 rebind after sort
+        //    dataGridView1.DataSource = dt;
+        //    dataGridView1.Refresh();
+        //}
+
+        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-           toSave(true);
-
-            if (_sort == "desc")
+            if (e.RowIndex == -1)
             {
-                _sort = "asc";
-                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
-            }
-            else
-            {
-                _sort = "desc";
-                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
+                if (_taglink)
+                {
+                    DialogResult dialogSave = MessageBox.Show("The checked Links colors will be lost! Continue?",
+                 "Save Playlist", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogSave == DialogResult.No) return;
+                }
+
+                toSave(true);
+
+                if (_sort == "desc")
+                {
+                    _sort = "asc";
+                    dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+                }
+                else
+                {
+                    _sort = "desc";
+                    dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
+                }
+
+                dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
+                dt = dt.DefaultView.ToTable("IPTV");
+
+                //#25 rebind after sort
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+
+                _taglink = false;
+                button_check.BackColor = Color.MidnightBlue;
             }
 
-            dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
-            dt = dt.DefaultView.ToTable("IPTV");
-
-            //#25 rebind after sort
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
         }
 
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.Programmatic;
+            }
+        }
 
 
 
@@ -2697,6 +2742,7 @@ namespace PlaylistEditor
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
+           // if (Debugger.IsAttached) return;  //#37 test
 
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0 /*& IsSelected*/)
             {
@@ -2785,6 +2831,7 @@ namespace PlaylistEditor
             }
 
         }
+
     }
 }
 

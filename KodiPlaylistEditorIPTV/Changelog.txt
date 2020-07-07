@@ -1,5 +1,6 @@
 ﻿1.5.3
 - code clean
+- message box warning for lost Link check
 
 1.5.2
 - grey line for lincheck Error 403
