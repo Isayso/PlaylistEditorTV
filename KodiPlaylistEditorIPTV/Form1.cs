@@ -20,6 +20,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -54,9 +55,9 @@ namespace PlaylistEditor
         public bool _isIt = true;
         public bool _found = false;
         public bool _savenow = false;
-        public bool _taglink = false;
+        public bool _linkchecked = false;
         public bool _isSingle = false;
-        public bool _mark = false;
+        public bool _controlpressed = false;
         
  
         public bool _isPlayer = false;
@@ -79,6 +80,8 @@ namespace PlaylistEditor
         public int[] colShow = new int[6];
 
         public string[] colList = new string[] { "Name", "id", "Title", "logo", "Name2", "Link", "All" };
+
+        public List<CheckList> checkList = new List<CheckList>();
 
 
         public Form1()
@@ -435,7 +438,7 @@ namespace PlaylistEditor
 
         private void button_open_Click(object sender, EventArgs e)
         {
-            if (_taglink) button_check.PerformClick();
+            if (_linkchecked) button_check.PerformClick();
            
             Cursor.Current = Cursors.WaitCursor;
 
@@ -606,6 +609,7 @@ namespace PlaylistEditor
 
             dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[5];
             dataGridView1.Rows[0].Selected = true;
+            checkList.Clear(); //to reset Repaint
 
             void CheckEntry(int v)
             {//issue #12
@@ -745,7 +749,13 @@ namespace PlaylistEditor
             }
             else
             {
+                //if (_taglink)
+                //{
+                //    if (!CheckLinkChecked()) return;  //false don't delete colors
+                //}
+
                 MoveLine(-1);
+                
             }
 
         }
@@ -903,7 +913,7 @@ namespace PlaylistEditor
 
         private void button_del_all_Click(object sender, EventArgs e)
         {
-            if (_taglink) button_check.PerformClick();
+            if (_linkchecked) button_check.PerformClick();
 
             if (dataGridView1.RowCount > 0)
             {
@@ -928,7 +938,7 @@ namespace PlaylistEditor
 
         private void button_revert_Click(object sender, EventArgs e)
         {
-            if (_taglink) button_check.PerformClick();
+            if (_linkchecked) button_check.PerformClick();
             //message box -> delete all -> open filename
             switch (MessageBox.Show("Reload File?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.None))
             {
@@ -983,26 +993,55 @@ namespace PlaylistEditor
         {
             if (dataGridView1.Rows.Count == 0) return;
 
-            if (!_taglink)
+            bool _altpressed = false; bool _cnrtshiftpressed = false;
+            _controlpressed = false;
+
+
+            switch (ModifierKeys)
             {
-                _taglink = true;
+                case Keys.Control:
+                    _controlpressed = true;
+                    break;
+
+                case Keys.Alt:
+                    _altpressed = true;
+                    break;
+
+                case (Keys.Control | Keys.Shift):
+                    _cnrtshiftpressed = true;
+                    break;
+            }
+
+
+            
+            if (checkList.Count > 0 && !_linkchecked  && !_altpressed
+                && Int32.TryParse(checkList[0].Url, out int xx) && xx >= dataGridView1.Rows.Count)
+            {
+                RepaintRows();
+                button_check.BackColor = Color.LightSalmon;
+                _linkchecked = true;
+                return;
+            }
+
+            if (!_linkchecked)
+            {
+                _linkchecked = true;
                 button_check.BackColor = Color.LightSalmon;
             }
-            else if (_taglink)
+            else if (_linkchecked)
             {
-                if (ModifierKeys == Keys.Control)
+                if (_controlpressed )
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightSalmon
-                            /*|| dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightGray*/)
+                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightSalmon)
                         {
                             dataGridView1.Rows[row.Index].Selected = true;
                         }
                     }
                     return;
                 }
-                else if (ModifierKeys == (Keys.Control | Keys.Shift))
+                else if (_cnrtshiftpressed )
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
@@ -1015,16 +1054,13 @@ namespace PlaylistEditor
 
                 }
 
-                _taglink = false;
+                _linkchecked = false;
                 button_check.BackColor = Color.MidnightBlue;
                 colorclear();
 
                 return;
             }
 
-
-            if (ModifierKeys == Keys.Control) _mark = true;
-            else _mark = false; //select links
 
 
             if (ClassHelp.CheckIPTVStream("http://www.google.com") != 0)
@@ -1072,6 +1108,25 @@ namespace PlaylistEditor
             button_check.Enabled = true;
         }
 
+        private void RepaintRows()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for (int j = 1; j < checkList.Count; j++)
+                {
+                    if (dataGridView1.Rows[i].Cells["Link"].Value.ToString() == checkList[j].Url 
+                       /* && dataGridView1.Rows[i].Cells["Link"].Style.BackColor == Color.White*/)
+                    {
+                        for (int k = 0; k < 6; k++)
+                        {
+                            dataGridView1.Rows[i].Cells[k].Style.BackColor = checkList[j].Col;
+
+                        }
+                        break;
+                    }
+                }
+            }
+        }
 
 
         #endregion
@@ -1900,7 +1955,8 @@ namespace PlaylistEditor
         /// <param name="direction">-1 up 1 down</param>
         public void MoveLine(int direction)
         {
-            if (_taglink) button_check.PerformClick();
+            if (_linkchecked) button_check.PerformClick();
+
 
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
 
@@ -1951,10 +2007,12 @@ namespace PlaylistEditor
         /// </summary>
         public void MoveLineTop()
         {
-            _taglink = false;
+            //if (!CheckLinkChecked()) return;  //false don't delete colors
+
+            _linkchecked = false;
             _endofLoop = false;
             button_check.BackColor = Color.MidnightBlue;
-            colorclear();
+            colorclear(); 
 
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
 
@@ -2000,7 +2058,9 @@ namespace PlaylistEditor
 
         public void MoveLineBottom()
         {
-            _taglink = false;
+          //  if (!CheckLinkChecked()) return;  //false don't delete colors
+
+            _linkchecked = false;
             _endofLoop = false;
             button_check.BackColor = Color.MidnightBlue;
             colorclear();
@@ -2092,68 +2152,90 @@ namespace PlaylistEditor
             _endofLoop = false;           
         }
 
-        //private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        //{
-          
-
-        //    toSave(true);
-        //   // return;
-
-        //    if (_sort == "desc")
-        //    {
-        //        _sort = "asc";
-        //        dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
-        //    }
-        //    else
-        //    {
-        //        _sort = "desc";
-        //        dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
-        //    }
-
-        //    dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
-        //    dt = dt.DefaultView.ToTable("IPTV");
-
-        //    //#25 rebind after sort
-        //    dataGridView1.DataSource = dt;
-        //    dataGridView1.Refresh();
-        //}
-
-        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex == -1)
+            toSave(true);
+
+            if (_sort == "desc")
             {
-                if (_taglink)
-                {
-                    DialogResult dialogSave = MessageBox.Show("The checked Links colors will be lost! Continue?",
-                 "Save Playlist", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dialogSave == DialogResult.No) return;
-                }
-
-                toSave(true);
-
-                if (_sort == "desc")
-                {
-                    _sort = "asc";
-                    dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
-                }
-                else
-                {
-                    _sort = "desc";
-                    dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
-                }
-
-                dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
-                dt = dt.DefaultView.ToTable("IPTV");
-
-                //#25 rebind after sort
-                dataGridView1.DataSource = dt;
-                dataGridView1.Refresh();
-
-                _taglink = false;
-                button_check.BackColor = Color.MidnightBlue;
+                _sort = "asc";
+                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+            }
+            else
+            {
+                _sort = "desc";
+                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
             }
 
+            dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
+            dt = dt.DefaultView.ToTable("IPTV");
+
+            //#25 rebind after sort
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
+
+            _linkchecked = false;
+            button_check.BackColor = Color.MidnightBlue;
+
         }
+
+        //private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        //{
+        //    if (e.RowIndex == -1)
+        //    {
+        //       // if (!CheckLinkChecked()) return;  //false don't delete colors
+
+        //        //if (_taglink)
+        //        //{
+        //        //    DialogResult dialogSave = MessageBox.Show("The checked Links colors will be lost! Continue?",
+        //        // "Sort Column", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //        //    if (dialogSave == DialogResult.No) return;
+        //        //}
+
+        //        toSave(true);
+
+        //        if (_sort == "desc")
+        //        {
+        //            _sort = "asc";
+        //            dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+        //        }
+        //        else
+        //        {
+        //            _sort = "desc";
+        //            dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
+        //        }
+
+        //        dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
+        //        dt = dt.DefaultView.ToTable("IPTV");
+
+        //        //#25 rebind after sort
+        //        dataGridView1.DataSource = dt;
+        //        dataGridView1.Refresh();
+
+        //        _linkchecked = false;
+        //        button_check.BackColor = Color.MidnightBlue;
+        //    }
+
+        //}
+
+        //private bool CheckLinkChecked()
+        //{
+        //    if (_linkchecked)
+        //    {
+        //        DialogResult dialogSave = MessageBox.Show("The checked Links colors will be lost! Continue?",
+        //     "Sort Column", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //        if (dialogSave == DialogResult.No) return false;
+        //        else
+        //        {
+        //            _linkchecked = false;
+        //            button_check.BackColor = Color.MidnightBlue;
+        //            colorclear();
+        //            return true;
+        //        }
+        //    }
+        //    return true;
+
+        //}
 
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -2229,17 +2311,41 @@ namespace PlaylistEditor
                 }
 
                 int errorcode = ClassHelp.CheckIPTVStream(iLink);
+                Color stat;
                 if (errorcode != 0)
                 {
+                    checkList.Add(new CheckList
+                    {
+                        Url = maxrows                       
+                    });
+
                     for (int i = 0; i < 6; i++)
                     {
-                        if (_mark) dataGridView1.Rows[item.Index].Selected = true;
-                        if  (errorcode == 403)
+                        if (_controlpressed) dataGridView1.Rows[item.Index].Selected = true;
+                        if  (errorcode == 403) 
+                        {
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
+                            stat = Color.LightGray;
+                        }
                         if  (errorcode == 410)  //rtmp
+                        {
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
+                            stat = Color.LightGray;
+                        }
                         else // if (errorcode == 404)
+                        {
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
+                            stat = Color.LightSalmon;
+                        }
+
+                        if (i == 5) checkList.Add(new CheckList
+                        {
+                            Url = dataGridView1.Rows[item.Index].Cells[5].Value.ToString(),
+                            Col = stat
+                        });
+
+
+                        //#37  save links in list and use for sort
 
                     }
                     if (!Debugger.IsAttached)
@@ -2519,6 +2625,8 @@ namespace PlaylistEditor
             //   if (ClassHelp.CheckClipboard() || dataGridView1.Rows.Count > 0) return;
 
             dt.TableName = "IPTV";
+
+            checkList.Clear(); 
 
             dataGridView1.DataSource = dt;
             string[] col = new string[6];
@@ -2833,6 +2941,14 @@ namespace PlaylistEditor
         }
 
     }
+}
+
+public class CheckList
+{
+    public string Url { get; set; }
+    public Color Col { get; set; }
+    //LightGray – #FFD3D3D3
+    //LightSalmon – #FFFFA07A
 }
 
 /// <summary>
