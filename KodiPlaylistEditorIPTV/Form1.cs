@@ -12,8 +12,8 @@
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+using PlaylistEditor.Properties;
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -21,13 +21,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PlaylistEditor.Properties;
 
 
 
@@ -157,11 +155,8 @@ namespace PlaylistEditor
                     if (Settings.Default.autoplayer)
                     {
                         button_vlc.PerformClick();
-
                     }
                 }
-
-
             }
 
             if (Settings.Default.F2Size.Width == 0 || Settings.Default.F2Size.Height == 0 
@@ -1112,8 +1107,6 @@ namespace PlaylistEditor
 
         private void RepaintRows()
         {
-          //  Color[] cellback = { Color.White, Color.LightSalmon, Color.LightGray };
-
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 for (int j = 1; j < checkList.Count; j++)
@@ -1141,7 +1134,6 @@ namespace PlaylistEditor
                                     dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.LightSalmon;
                                     break;
                             }
-                           // dataGridView1.Rows[i].Cells[k].Style.BackColor = checkList[j].Col;
 
                         }
                         break;
@@ -2327,7 +2319,6 @@ namespace PlaylistEditor
                     break;
                 }
 
-             //   Color stat = Color.White;
 
                 var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
 
@@ -2348,7 +2339,6 @@ namespace PlaylistEditor
                 {
                     Url = iLink,
                     ErrorCode = errorcode
-                  //  Col = stat
                 });
 
                 if (errorcode != 0)
@@ -2360,26 +2350,15 @@ namespace PlaylistEditor
                         if  (errorcode == 403) 
                         {
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Settings.Default.Error403;
-                          //  stat = Color.LightGray; 
                         }
                         if  (errorcode == 410)  //rtmp
                         {
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
-                          //  stat = Color.LightGray;
                         }
                         else if (errorcode != 403 && errorcode != 410)
                         {
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
-                          //  stat = Color.LightSalmon;
                         }
-
-                        //if (i == 5) checkList.Add(new CheckList
-                        //{
-                        //    Url = dataGridView1.Rows[item.Index].Cells[5].Value.ToString(),
-                        //    Col = stat
-                        //});
-
-
                         //#37  save links in list and use for sort
 
                     }
@@ -2983,10 +2962,7 @@ namespace PlaylistEditor
 public class CheckList
 {
     public string Url { get; set; }
-   // public Color Col { get; set; }
-    public int ErrorCode { get; set; }  //0 not checked / 1 ok / 2 salmon / 3 gray
-    //LightGray – #FFD3D3D3
-    //LightSalmon – #FFFFA07A
+    public int ErrorCode { get; set; }  
 }
 
 /// <summary>

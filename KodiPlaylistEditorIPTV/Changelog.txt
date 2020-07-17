@@ -1,7 +1,5 @@
 ﻿1.5.3
-- code clean
-- message box warning for lost Link check
-- color for 403 error switchable
+- color for 403 link error switchable
 - no re-check of links after sorting necessary
 - cancel closing of Form
 
