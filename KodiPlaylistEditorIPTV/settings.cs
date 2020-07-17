@@ -14,6 +14,7 @@
 
 
 using System;
+using System.Drawing;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -59,6 +60,9 @@ namespace PlaylistEditor
             double oopc = Settings.Default.opacity * 100.0;
           //  textBox_opacity.Text = oopc.ToString();
             numericUpDown1.Value = (decimal)oopc;
+
+            if (Settings.Default.Error403 == Color.LightSalmon) comboBox_403.SelectedIndex = 0;
+            else comboBox_403.SelectedIndex = 1;
 
             //double.TryParse(textBox_opacity.Text, out double opc);
             //Settings.Default.opacity = opc * 0.01;
@@ -143,6 +147,11 @@ namespace PlaylistEditor
         private void comboBox_result_SelectedIndexChanged(object sender, EventArgs e)
         {
             Settings.Default.findresult = comboBox_result.SelectedIndex;
+        }
+        private void comboBox_403_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox_403.SelectedIndex == 0) Settings.Default.Error403 = Color.LightSalmon;
+            else Settings.Default.Error403 = Color.LightGray;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

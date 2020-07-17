@@ -89,5 +89,8 @@
     <Setting Name="ZoomFactor" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="Error403" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LightGray</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

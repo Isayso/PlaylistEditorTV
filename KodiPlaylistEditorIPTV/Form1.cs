@@ -13,6 +13,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -58,8 +59,7 @@ namespace PlaylistEditor
         public bool _linkchecked = false;
         public bool _isSingle = false;
         public bool _controlpressed = false;
-        
- 
+
         public bool _isPlayer = false;
         public bool _endofLoop = false;   //loop of move to top finished
 
@@ -176,7 +176,6 @@ namespace PlaylistEditor
                 this.Location = Settings.Default.F2Location;
                 this.Size = Settings.Default.F2Size;
             }
-
 
             Settings.Default.nostart = false;
             Settings.Default.Save();
@@ -344,10 +343,13 @@ namespace PlaylistEditor
             if (isModified == true && dataGridView1.RowCount > 0)
             {
                 DialogResult dialogSave = MessageBox.Show("Do you want to save your current playlist?",
-                "Save Playlist", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                "Save Playlist", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (dialogSave == DialogResult.Yes)
+                {
                     button_save.PerformClick();
                 isModified = false;
+                }
+                if (dialogSave == DialogResult.Cancel) e.Cancel = true;
             }
 
 
@@ -1110,6 +1112,8 @@ namespace PlaylistEditor
 
         private void RepaintRows()
         {
+          //  Color[] cellback = { Color.White, Color.LightSalmon, Color.LightGray };
+
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 for (int j = 1; j < checkList.Count; j++)
@@ -1119,7 +1123,25 @@ namespace PlaylistEditor
                     {
                         for (int k = 0; k < 6; k++)
                         {
-                            dataGridView1.Rows[i].Cells[k].Style.BackColor = checkList[j].Col;
+                            switch (checkList[j].ErrorCode)
+                            {
+                                case 0:
+                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.White;
+                                    break;
+
+                                case 403:
+                                    dataGridView1.Rows[i].Cells[k].Style.BackColor =  Settings.Default.Error403;
+                                    break;
+
+                                case 410:
+                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.LightGray;
+                                    break;
+
+                                case int n when (n != 0 && n != 403 && n != 410):
+                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.LightSalmon;
+                                    break;
+                            }
+                           // dataGridView1.Rows[i].Cells[k].Style.BackColor = checkList[j].Col;
 
                         }
                         break;
@@ -2291,12 +2313,21 @@ namespace PlaylistEditor
 
             string maxrows = dataGridView1.Rows.Count.ToString();
 
+            checkList.Add(new CheckList
+            {
+                Url = maxrows
+            });
+
+
+
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
                 if (token.IsCancellationRequested)
                 {
                     break;
                 }
+
+             //   Color stat = Color.White;
 
                 var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
 
@@ -2310,39 +2341,43 @@ namespace PlaylistEditor
                     continue;
                 }
 
+                
                 int errorcode = ClassHelp.CheckIPTVStream(iLink);
-                Color stat;
+               
+                checkList.Add(new CheckList
+                {
+                    Url = iLink,
+                    ErrorCode = errorcode
+                  //  Col = stat
+                });
+
                 if (errorcode != 0)
                 {
-                    checkList.Add(new CheckList
-                    {
-                        Url = maxrows                       
-                    });
 
                     for (int i = 0; i < 6; i++)
                     {
                         if (_controlpressed) dataGridView1.Rows[item.Index].Selected = true;
                         if  (errorcode == 403) 
                         {
-                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
-                            stat = Color.LightGray;
+                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Settings.Default.Error403;
+                          //  stat = Color.LightGray; 
                         }
                         if  (errorcode == 410)  //rtmp
                         {
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
-                            stat = Color.LightGray;
+                          //  stat = Color.LightGray;
                         }
-                        else // if (errorcode == 404)
+                        else if (errorcode != 403 && errorcode != 410)
                         {
                             dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
-                            stat = Color.LightSalmon;
+                          //  stat = Color.LightSalmon;
                         }
 
-                        if (i == 5) checkList.Add(new CheckList
-                        {
-                            Url = dataGridView1.Rows[item.Index].Cells[5].Value.ToString(),
-                            Col = stat
-                        });
+                        //if (i == 5) checkList.Add(new CheckList
+                        //{
+                        //    Url = dataGridView1.Rows[item.Index].Cells[5].Value.ToString(),
+                        //    Col = stat
+                        //});
 
 
                         //#37  save links in list and use for sort
@@ -2351,6 +2386,8 @@ namespace PlaylistEditor
                     if (!Debugger.IsAttached)
                         dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
                 }
+
+
             }
         }
 
@@ -2946,7 +2983,8 @@ namespace PlaylistEditor
 public class CheckList
 {
     public string Url { get; set; }
-    public Color Col { get; set; }
+   // public Color Col { get; set; }
+    public int ErrorCode { get; set; }  //0 not checked / 1 ok / 2 salmon / 3 gray
     //LightGray – #FFD3D3D3
     //LightSalmon – #FFFFA07A
 }
