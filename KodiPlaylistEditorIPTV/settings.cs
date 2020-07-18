@@ -45,7 +45,6 @@ namespace PlaylistEditor
             checkBox_vlc.Checked = Settings.Default.vlc_fullsreen;
             checkBox_F2.Checked = Settings.Default.F2_edit;
            
-           // checkBox_plugin.Checked = Settings.Default.user_agent;
 
             comboBox1.SelectedIndex = Settings.Default.colSearch;
             comboBox2.SelectedIndex = Settings.Default.colDupli;
@@ -58,15 +57,12 @@ namespace PlaylistEditor
             checkBox_hotkey.Checked = Settings.Default.hotkey_enable;
 
             double oopc = Settings.Default.opacity * 100.0;
-          //  textBox_opacity.Text = oopc.ToString();
+ 
             numericUpDown1.Value = (decimal)oopc;
 
             if (Settings.Default.Error403 == Color.LightSalmon) comboBox_403.SelectedIndex = 0;
             else comboBox_403.SelectedIndex = 1;
 
-            //double.TryParse(textBox_opacity.Text, out double opc);
-            //Settings.Default.opacity = opc * 0.01;
-            //textBox_opacity.Text = (Settings.Default.opacity * 100).ToString();
 
             //password
             if (Settings.Default.cipher != null && Settings.Default.entropy != null)
@@ -93,6 +89,7 @@ namespace PlaylistEditor
 
         private void button_ok_Click(object sender, EventArgs e)
         {
+
             getHotkeyInt();
 
             Settings.Default.rpi = textBox2.Text;
@@ -100,7 +97,6 @@ namespace PlaylistEditor
             Settings.Default.username = textBox_Username.Text;
             Settings.Default.vlc_fullsreen = checkBox_vlc.Checked;
             Settings.Default.F2_edit = checkBox_F2.Checked;
-            //  Settings.Default.user_agent = checkBox_plugin.Checked;
             Settings.Default.user_agent = textBox_userAgent.Text;
             Settings.Default.startfile = textBox_start.Text;
             Settings.Default.filestart = checkBox_start.Checked;
@@ -109,7 +105,6 @@ namespace PlaylistEditor
             Settings.Default.hotkey_enable = checkBox_hotkey.Checked;
 
             double opc = (double)numericUpDown1.Value;
-            //double.TryParse(textBox_opacity.Text, out double opc);
             Settings.Default.opacity = opc * 0.01;
 
             // Data to protect. Convert a string to a byte[] using Encoding.UTF8.GetBytes().
@@ -186,7 +181,7 @@ namespace PlaylistEditor
             int spec_key = spec_a + spec_c + spec_s + spec_w;
             Settings.Default.specKey = spec_key;
             Settings.Default.hotkey = charByte[0];
-            //         NativeMethods.RegisterHotKey(this.Handle, 1, spec_key, charByte[0]);  //ALT-Y
+          //  NativeMethods.RegisterHotKey(this.Handle, 1, spec_key, charByte[0]);  //ALT-Y
 
         }
 
@@ -212,11 +207,6 @@ namespace PlaylistEditor
 
         }
 
-        //private void textBox_hot_TextChanged(object sender, EventArgs e)
-        //{
-        //    TextBox textBox = (TextBox)sender;
-        //    textBox.SelectAll();
-        //}
 
         private void button_file_Click(object sender, EventArgs e)
         {
