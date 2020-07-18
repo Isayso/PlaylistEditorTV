@@ -1,4 +1,9 @@
-﻿1.5.2
+﻿1.5.3
+- color for 403 link error switchable
+- no re-check of links after sorting necessary
+- cancel closing of Form
+
+1.5.2
 - grey line for lincheck Error 403
 - grey line for linkcheck rtmp links
 - bugfix add line when no row selected
@@ -7,8 +12,9 @@
 - fix #35 copy from clipboard, ctrl-v
 - fill from Clipboard autodetect with ctrl-v
 - size and position of window saved
+- fontsize saved
 
-1.5.1 (202)
+1.5.1 (210)
 - autosave position of form
 - bugfix add line when columns avaliable
 - ESC closes find box

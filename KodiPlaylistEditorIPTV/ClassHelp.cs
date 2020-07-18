@@ -206,10 +206,10 @@ namespace PlaylistEditor
     /// method to get first 1k of stream data to check if stream alive
     /// </summary>
     /// <param name="uri">URL to check</param>
-    /// <returns>bool</returns>
+    /// <returns>errorcode</returns>
         public static int CheckIPTVStream(string uri)
         {
-            if (uri.StartsWith("rt")) return 403;  //rtmp check not implemented
+            if (uri.StartsWith("rt")) return 410;  //rtmp check not implemented
 
             try
             {

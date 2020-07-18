@@ -357,5 +357,29 @@ namespace PlaylistEditor.Properties {
                 this["F2Size"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float ZoomFactor {
+            get {
+                return ((float)(this["ZoomFactor"]));
+            }
+            set {
+                this["ZoomFactor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LightGray")]
+        public global::System.Drawing.Color Error403 {
+            get {
+                return ((global::System.Drawing.Color)(this["Error403"]));
+            }
+            set {
+                this["Error403"] = value;
+            }
+        }
     }
 }
