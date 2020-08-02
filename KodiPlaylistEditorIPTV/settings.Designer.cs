@@ -711,7 +711,7 @@
             // 
             this.nMaxThread.Location = new System.Drawing.Point(299, 123);
             this.nMaxThread.Maximum = new decimal(new int[] {
-            10,
+            20,
             0,
             0,
             0});

@@ -2157,88 +2157,88 @@ namespace PlaylistEditor
             tokenSource.Cancel();
         }
 
-        private bool RunStreamCheck(CancellationToken token, IProgress<string> progress)
-        {
-            checkList.Clear();
+        //private bool RunStreamCheck(CancellationToken token, IProgress<string> progress)
+        //{
+        //    checkList.Clear();
 
-            string maxrows = dataGridView1.Rows.Count.ToString();
+        //    string maxrows = dataGridView1.Rows.Count.ToString();
 
-            checkList.Add(new CheckList
-            {
-                Url = maxrows
-            });
+        //    checkList.Add(new CheckList
+        //    {
+        //        Url = maxrows
+        //    });
 
-            Semaphore semaphoreObject = new Semaphore(/*initialCount: */3, /*maximumCount: */3/*, name: "CheckStream"*/);
-            Check streamcheck = new Check();
-            int errorcode = 0;
-
-
-            foreach (DataGridViewRow item in dataGridView1.Rows)
-            {
-                if (token.IsCancellationRequested)
-                {
-                    break;
-                }
+        //    Semaphore semaphoreObject = new Semaphore(/*initialCount: */3, /*maximumCount: */3/*, name: "CheckStream"*/);
+        //    Check streamcheck = new Check();
+        //    int errorcode = 0;
 
 
-                var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
-
-                progress.Report(item.Index.ToString() + " / " + maxrows);
-
-                //#18 no plugin check -> grey background
-                if (iLink.StartsWith("plugin")/* || iLink.Contains("|User")*/)   //plugin will not be checked
-                {
-                    dataGridView1.Rows[item.Index].Cells[5].Style.BackColor = Color.LightGray;
-                    dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
-                    continue;
-                }
-
-                Task.Factory.StartNew(() =>
-                {
-                    semaphoreObject.WaitOne();
-                    streamcheck.streamchk(iLink);
-                    semaphoreObject.Release();
-                });
-
-                // int errorcode = ClassHelp.CheckIPTVStream(iLink);
-
-                //checkList.Add(new CheckList
-                //{
-                //    Url = iLink,
-                //    ErrorCode = errorcode
-                //});
-
-                //if (errorcode != 0)
-                //{
-
-                //    for (int i = 0; i < 6; i++)
-                //    {
-                //        if (_controlpressed) dataGridView1.Rows[item.Index].Selected = true;
-                //        if (errorcode == 403)
-                //        {
-                //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Settings.Default.Error403;
-                //        }
-                //        if (errorcode == 410)  //rtmp
-                //        {
-                //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
-                //        }
-                //        else if (errorcode != 403 && errorcode != 410)
-                //        {
-                //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
-                //        }
-                //        //#37  save links in list and use for sort
-
-                //    }
-                //    if (!Debugger.IsAttached)
-                //        dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
-                //}
+        //    foreach (DataGridViewRow item in dataGridView1.Rows)
+        //    {
+        //        if (token.IsCancellationRequested)
+        //        {
+        //            break;
+        //        }
 
 
-            }
+        //        var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
 
-            return true;
-            // semaphoreObject.WaitAsync();
-        }
+        //        progress.Report(item.Index.ToString() + " / " + maxrows);
+
+        //        //#18 no plugin check -> grey background
+        //        if (iLink.StartsWith("plugin")/* || iLink.Contains("|User")*/)   //plugin will not be checked
+        //        {
+        //            dataGridView1.Rows[item.Index].Cells[5].Style.BackColor = Color.LightGray;
+        //            dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
+        //            continue;
+        //        }
+
+        //        Task.Factory.StartNew(() =>
+        //        {
+        //            semaphoreObject.WaitOne();
+        //            streamcheck.streamchk(iLink);
+        //            semaphoreObject.Release();
+        //        });
+
+        //        // int errorcode = ClassHelp.CheckIPTVStream(iLink);
+
+        //        //checkList.Add(new CheckList
+        //        //{
+        //        //    Url = iLink,
+        //        //    ErrorCode = errorcode
+        //        //});
+
+        //        //if (errorcode != 0)
+        //        //{
+
+        //        //    for (int i = 0; i < 6; i++)
+        //        //    {
+        //        //        if (_controlpressed) dataGridView1.Rows[item.Index].Selected = true;
+        //        //        if (errorcode == 403)
+        //        //        {
+        //        //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Settings.Default.Error403;
+        //        //        }
+        //        //        if (errorcode == 410)  //rtmp
+        //        //        {
+        //        //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
+        //        //        }
+        //        //        else if (errorcode != 403 && errorcode != 410)
+        //        //        {
+        //        //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
+        //        //        }
+        //        //        //#37  save links in list and use for sort
+
+        //        //    }
+        //        //    if (!Debugger.IsAttached)
+        //        //        dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
+        //        //}
+
+
+        //    }
+
+        //    return true;
+        //    // semaphoreObject.WaitAsync();
+        //}
 
         private async Task RunStreamCheck2(CancellationToken token, IProgress<string> progress)
         {
@@ -2277,6 +2277,7 @@ namespace PlaylistEditor
                 trackedTasks.Add(Task.Run(() =>
                 {
                     try { streamcheck.streamchk(iLink); }
+                    catch (Exception) { semaphoreObject.Release(); }
                     finally { semaphoreObject.Release(); }
 
                 }));
@@ -2287,8 +2288,6 @@ namespace PlaylistEditor
             }
 
             await Task.WhenAll(trackedTasks);
-
-         //   UseWaitCursor = false;
 
         }
 
@@ -2883,13 +2882,11 @@ namespace PlaylistEditor
     }
 }
 
-//public class CheckList
-//{
-//    public string Url { get; set; }
-//    public int ErrorCode { get; set; }
-//}
 
 
+/// <summary>
+/// class for streamcheck semaphore
+/// </summary>
 class Check
 {
     public void streamchk(string ipUrl)
@@ -2951,49 +2948,49 @@ public static class ExtensionMethods
      *    .top()
      *    .button()
      */
-    public static IEnumerable<DataGridView> MoveTop(this DataGridView source)
-    {
-        if (source.SelectedCells.Count > 0 && source.SelectedRows.Count > 0)  //whole row must be selected
-        {
-            var row = source.SelectedRows[0];
-            var maxrow = source.RowCount /*- 1*/;
-            int n = 0;
+    //public static IEnumerable<DataGridView> MoveTop(this DataGridView source)
+    //{
+    //    if (source.SelectedCells.Count > 0 && source.SelectedRows.Count > 0)  //whole row must be selected
+    //    {
+    //        var row = source.SelectedRows[0];
+    //        var maxrow = source.RowCount /*- 1*/;
+    //        int n = 0;
 
-            while (n < maxrow - 1)
-            {
-                row = source.SelectedRows[0];
+    //        while (n < maxrow - 1)
+    //        {
+    //            row = source.SelectedRows[0];
 
-                if (row != null)
-                {
-                    if ((row.Index == 0) || (row.Index == maxrow)) break; // return;  //check end of dataGridView1
+    //            if (row != null)
+    //            {
+    //                if ((row.Index == 0) || (row.Index == maxrow)) break; // return;  //check end of dataGridView1
 
-                    var swapRow = source.Rows[row.Index - 1];
+    //                var swapRow = source.Rows[row.Index - 1];
 
-                    object[] values = new object[swapRow.Cells.Count];
+    //                object[] values = new object[swapRow.Cells.Count];
 
-                    foreach (DataGridViewCell cell in swapRow.Cells)
-                    {
-                        values[cell.ColumnIndex] = cell.Value;
-                        cell.Value = row.Cells[cell.ColumnIndex].Value;
-                    }
+    //                foreach (DataGridViewCell cell in swapRow.Cells)
+    //                {
+    //                    values[cell.ColumnIndex] = cell.Value;
+    //                    cell.Value = row.Cells[cell.ColumnIndex].Value;
+    //                }
 
-                    foreach (DataGridViewCell cell in row.Cells)
-                        cell.Value = values[cell.ColumnIndex];
+    //                foreach (DataGridViewCell cell in row.Cells)
+    //                    cell.Value = values[cell.ColumnIndex];
 
-                    source.Rows[row.Index].Selected = false;
-                    source.Rows[row.Index - 1].Selected = true;
+    //                source.Rows[row.Index].Selected = false;
+    //                source.Rows[row.Index - 1].Selected = true;
 
 
-                }
-                n += 1;
-            }
-            //_endofLoop = true;
-            //toSave(true);
-        }
+    //            }
+    //            n += 1;
+    //        }
+    //        //_endofLoop = true;
+    //        //toSave(true);
+    //    }
 
-        yield return source;
+    //    yield return source;
 
-    }
+    //}
 
 }
 
