@@ -381,5 +381,17 @@ namespace PlaylistEditor.Properties {
                 this["Error403"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int maxthread {
+            get {
+                return ((int)(this["maxthread"]));
+            }
+            set {
+                this["maxthread"] = value;
+            }
+        }
     }
 }

@@ -51,14 +51,12 @@
             this.checkBox_s = new System.Windows.Forms.CheckBox();
             this.checkBox_c = new System.Windows.Forms.CheckBox();
             this.button_file = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.comboBox_result = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.checkBox_F2 = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox_403 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -77,6 +75,11 @@
             this.textBox_start = new System.Windows.Forms.TextBox();
             this.checkBox_vlc = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.comboBox_403 = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.nMaxThread = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -84,6 +87,8 @@
             this.panel1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).BeginInit();
             this.SuspendLayout();
             // 
             // button_ok
@@ -339,23 +344,13 @@
             this.button_file.UseVisualStyleBackColor = true;
             this.button_file.Click += new System.EventHandler(this.button_file_Click);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label15.Location = new System.Drawing.Point(56, 166);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(149, 20);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Color for Error 403";
-            this.toolTip1.SetToolTip(this.label15, "Error 403: Server responds, but no valid stream\r\n(password missing?)");
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.tabControl1.Location = new System.Drawing.Point(0, 13);
@@ -375,10 +370,8 @@
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.textBox1);
             this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.comboBox_403);
             this.tabPage3.Controls.Add(this.comboBox2);
             this.tabPage3.Controls.Add(this.comboBox1);
-            this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.ForeColor = System.Drawing.SystemColors.Control;
@@ -435,19 +428,6 @@
             this.label12.Size = new System.Drawing.Size(97, 20);
             this.label12.TabIndex = 21;
             this.label12.Text = "Edit with F2";
-            // 
-            // comboBox_403
-            // 
-            this.comboBox_403.FormattingEnabled = true;
-            this.comboBox_403.Items.AddRange(new object[] {
-            "Orange",
-            "Gray"});
-            this.comboBox_403.Location = new System.Drawing.Point(287, 163);
-            this.comboBox_403.Name = "comboBox_403";
-            this.comboBox_403.Size = new System.Drawing.Size(91, 28);
-            this.comboBox_403.TabIndex = 7;
-            this.comboBox_403.SelectedIndexChanged += new System.EventHandler(this.comboBox_403_SelectedIndexChanged);
-            this.comboBox_403.Click += new System.EventHandler(this.ComboBox_Click);
             // 
             // comboBox2
             // 
@@ -690,6 +670,76 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Player Window";
             // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabPage5.Controls.Add(this.nMaxThread);
+            this.tabPage5.Controls.Add(this.comboBox_403);
+            this.tabPage5.Controls.Add(this.label16);
+            this.tabPage5.Controls.Add(this.label15);
+            this.tabPage5.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage5.Location = new System.Drawing.Point(4, 29);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(459, 323);
+            this.tabPage5.TabIndex = 6;
+            this.tabPage5.Text = "Link check";
+            // 
+            // comboBox_403
+            // 
+            this.comboBox_403.FormattingEnabled = true;
+            this.comboBox_403.Items.AddRange(new object[] {
+            "Orange",
+            "Gray"});
+            this.comboBox_403.Location = new System.Drawing.Point(299, 40);
+            this.comboBox_403.Name = "comboBox_403";
+            this.comboBox_403.Size = new System.Drawing.Size(91, 28);
+            this.comboBox_403.TabIndex = 9;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label15.Location = new System.Drawing.Point(68, 43);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(149, 20);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Color for Error 403";
+            this.toolTip1.SetToolTip(this.label15, "Error 403: Server responds, but no valid stream\r\n(password missing?)");
+            // 
+            // nMaxThread
+            // 
+            this.nMaxThread.Location = new System.Drawing.Point(299, 123);
+            this.nMaxThread.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nMaxThread.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nMaxThread.Name = "nMaxThread";
+            this.nMaxThread.Size = new System.Drawing.Size(57, 27);
+            this.nMaxThread.TabIndex = 72;
+            this.nMaxThread.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nMaxThread.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label16.Location = new System.Drawing.Point(68, 125);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(142, 20);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "max threads used";
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -715,6 +765,9 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -765,7 +818,10 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.ComboBox comboBox_result;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.NumericUpDown nMaxThread;
         private System.Windows.Forms.ComboBox comboBox_403;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
     }
 }
