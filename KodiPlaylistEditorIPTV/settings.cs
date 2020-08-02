@@ -63,6 +63,8 @@ namespace PlaylistEditor
             if (Settings.Default.Error403 == Color.LightSalmon) comboBox_403.SelectedIndex = 0;
             else comboBox_403.SelectedIndex = 1;
 
+            nMaxThread.Value = Settings.Default.maxthread;
+
 
             //password
             if (Settings.Default.cipher != null && Settings.Default.entropy != null)
@@ -103,6 +105,9 @@ namespace PlaylistEditor
             Settings.Default.autoplayer = checkBox_autostart.Checked;
             Settings.Default.nostart = false;
             Settings.Default.hotkey_enable = checkBox_hotkey.Checked;
+
+            Settings.Default.maxthread = (int)nMaxThread.Value;
+
 
             double opc = (double)numericUpDown1.Value;
             Settings.Default.opacity = opc * 0.01;

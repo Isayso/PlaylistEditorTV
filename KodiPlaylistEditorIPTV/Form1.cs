@@ -26,6 +26,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PlaylistEditor.ClassHelp;
 
 
 
@@ -79,7 +80,7 @@ namespace PlaylistEditor
 
         public string[] colList = new string[] { "Name", "id", "Title", "logo", "Name2", "Link", "All" };
 
-        public List<CheckList> checkList = new List<CheckList>();
+        //  public List<CheckList> checkList = new List<CheckList>();
 
 
         public Form1()
@@ -869,7 +870,7 @@ namespace PlaylistEditor
                 ps.Arguments += " --no-qt-error-dialogs";
 
 #if DEBUG
-             //   MessageBox.Show("param: " + ps.Arguments.ToString());
+                //   MessageBox.Show("param: " + ps.Arguments.ToString());
 #endif
 
 
@@ -977,6 +978,7 @@ namespace PlaylistEditor
         {
             if (dataGridView1.Rows.Count == 0) return;
 
+
             bool _altpressed = false; bool _cnrtshiftpressed = false;
             _controlpressed = false;
 
@@ -1057,6 +1059,45 @@ namespace PlaylistEditor
 
             button_check.Enabled = false;
 
+            #region MyRegion
+            //if (dataGridView1.Rows.Count > 0)
+            //{
+            //    colorclear();
+
+            //    //popup popup = new popup();
+
+            //    //popup.FormClosed += new FormClosedEventHandler(FormP_Closed);
+
+            //    //var x = Location.X + (Width - popup.Width) / 2;
+            //    //var y = Location.Y + (Height - popup.Height) / 2;
+            //    //popup.Location = new Point(Math.Max(x, 0), Math.Max(y, 0));
+            //    //popup.StartPosition = FormStartPosition.Manual;
+            //    //popup.Owner = this;  //child over parent
+
+            //    //popup.Show();
+
+            //    //Progress<string> progress = new Progress<string>();
+            //    //progress.ProgressChanged += (_, text) =>
+            //    //    popup.updateProgressBar(text);
+
+            //    //tokenSource = new CancellationTokenSource();
+            //    //var token = tokenSource.Token;
+
+            //    // Task taskc = new Task();
+            //    await RunStreamCheck2();
+            // //   await Task.Run(() => RunStreamCheck(token, progress));
+            //    //   var t = Task.Run(() => RunStreamCheck(token, progress));
+
+            //    // var newt = t.ContinueWith(tt => Console.WriteLine("Ready"));
+            //  //  popup.Close();
+
+            //    //tokenSource.Cancel();
+            //    //tokenSource.Dispose();
+            //    //tokenSource = null;
+            //} 
+            #endregion
+
+
             if (dataGridView1.Rows.Count > 0)
             {
                 colorclear();
@@ -1080,8 +1121,13 @@ namespace PlaylistEditor
                 tokenSource = new CancellationTokenSource();
                 var token = tokenSource.Token;
 
-                await Task.Run(() => RunStreamCheck(token, progress));
+                await RunStreamCheck2(token, progress);
 
+                //   // Task taskc = new Task();
+                //    await Task.Run(() => RunStreamCheck(token, progress));
+                // //   var t = Task.Run(() => RunStreamCheck(token, progress));
+
+                //   // var newt = t.ContinueWith(tt => Console.WriteLine("Ready"));
                 popup.Close();
 
                 tokenSource.Cancel();
@@ -1089,7 +1135,13 @@ namespace PlaylistEditor
                 tokenSource = null;
             }
 
+            UseWaitCursor = false;
+            Cursor.Current = Cursors.Default;
+          //  MessageBox.Show(" Check done");
+            RepaintRows();
+
             button_check.Enabled = true;
+
         }
 
         private void RepaintRows()
@@ -2105,8 +2157,9 @@ namespace PlaylistEditor
             tokenSource.Cancel();
         }
 
-        private void RunStreamCheck(CancellationToken token, IProgress<string> progress)
+        private bool RunStreamCheck(CancellationToken token, IProgress<string> progress)
         {
+            checkList.Clear();
 
             string maxrows = dataGridView1.Rows.Count.ToString();
 
@@ -2115,6 +2168,9 @@ namespace PlaylistEditor
                 Url = maxrows
             });
 
+            Semaphore semaphoreObject = new Semaphore(/*initialCount: */3, /*maximumCount: */3/*, name: "CheckStream"*/);
+            Check streamcheck = new Check();
+            int errorcode = 0;
 
 
             foreach (DataGridViewRow item in dataGridView1.Rows)
@@ -2137,42 +2193,103 @@ namespace PlaylistEditor
                     continue;
                 }
 
-
-                int errorcode = ClassHelp.CheckIPTVStream(iLink);
-
-                checkList.Add(new CheckList
+                Task.Factory.StartNew(() =>
                 {
-                    Url = iLink,
-                    ErrorCode = errorcode
+                    semaphoreObject.WaitOne();
+                    streamcheck.streamchk(iLink);
+                    semaphoreObject.Release();
                 });
 
-                if (errorcode != 0)
-                {
+                // int errorcode = ClassHelp.CheckIPTVStream(iLink);
 
-                    for (int i = 0; i < 6; i++)
-                    {
-                        if (_controlpressed) dataGridView1.Rows[item.Index].Selected = true;
-                        if (errorcode == 403)
-                        {
-                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Settings.Default.Error403;
-                        }
-                        if (errorcode == 410)  //rtmp
-                        {
-                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
-                        }
-                        else if (errorcode != 403 && errorcode != 410)
-                        {
-                            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
-                        }
-                        //#37  save links in list and use for sort
+                //checkList.Add(new CheckList
+                //{
+                //    Url = iLink,
+                //    ErrorCode = errorcode
+                //});
 
-                    }
-                    if (!Debugger.IsAttached)
-                        dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
-                }
+                //if (errorcode != 0)
+                //{
+
+                //    for (int i = 0; i < 6; i++)
+                //    {
+                //        if (_controlpressed) dataGridView1.Rows[item.Index].Selected = true;
+                //        if (errorcode == 403)
+                //        {
+                //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Settings.Default.Error403;
+                //        }
+                //        if (errorcode == 410)  //rtmp
+                //        {
+                //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
+                //        }
+                //        else if (errorcode != 403 && errorcode != 410)
+                //        {
+                //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
+                //        }
+                //        //#37  save links in list and use for sort
+
+                //    }
+                //    if (!Debugger.IsAttached)
+                //        dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
+                //}
 
 
             }
+
+            return true;
+            // semaphoreObject.WaitAsync();
+        }
+
+        private async Task RunStreamCheck2(CancellationToken token, IProgress<string> progress)
+        {
+            checkList.Clear();
+
+          //  UseWaitCursor = true;
+
+            string maxrows = dataGridView1.Rows.Count.ToString();
+
+            checkList.Add(new CheckList
+            {
+                Url = maxrows
+            });
+
+            SemaphoreSlim semaphoreObject = new SemaphoreSlim(Settings.Default.maxthread, Settings.Default.maxthread);
+            Check streamcheck = new Check();
+          //  int errorcode = 0;
+
+            List<Task> trackedTasks = new List<Task>();
+
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                if (token.IsCancellationRequested) break;
+
+                var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
+
+                if (iLink.StartsWith("plugin")/* || iLink.Contains("|User")*/)   //plugin will not be checked
+                {
+                    dataGridView1.Rows[item.Index].Cells[5].Style.BackColor = Color.LightGray;
+                    dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
+                    continue;
+                }
+
+
+                await semaphoreObject.WaitAsync();
+                trackedTasks.Add(Task.Run(() =>
+                {
+                    try { streamcheck.streamchk(iLink); }
+                    finally { semaphoreObject.Release(); }
+
+                }));
+
+                progress.Report(checkList.Count.ToString() + " / " + maxrows);
+
+
+            }
+
+            await Task.WhenAll(trackedTasks);
+
+         //   UseWaitCursor = false;
+
         }
 
         /// <summary>
@@ -2304,7 +2421,7 @@ namespace PlaylistEditor
             var channel = combo.SelectedIndex;
 
 #if DEBUG
-          //  MessageBox.Show("channel: " + channel);
+            //  MessageBox.Show("channel: " + channel);
 #endif
 
             if (channel < 0) return;
@@ -2613,8 +2730,8 @@ namespace PlaylistEditor
 
             if (dataGridView1.EditingControl is TextBox)
             {
-                TextBox  textBox = (TextBox)dataGridView1.EditingControl;
-              //  if (textBox.SelectedText != "") Clipboard.SetText(textBox.SelectedText);
+                TextBox textBox = (TextBox)dataGridView1.EditingControl;
+                //  if (textBox.SelectedText != "") Clipboard.SetText(textBox.SelectedText);
                 if (!string.IsNullOrEmpty(textBox.SelectedText)) Clipboard.SetText(textBox.SelectedText);
             }
         }
@@ -2766,10 +2883,22 @@ namespace PlaylistEditor
     }
 }
 
-public class CheckList
+//public class CheckList
+//{
+//    public string Url { get; set; }
+//    public int ErrorCode { get; set; }
+//}
+
+
+class Check
 {
-    public string Url { get; set; }
-    public int ErrorCode { get; set; }
+    public void streamchk(string ipUrl)
+    {
+
+        PlaylistEditor.ClassHelp.CheckIPTVStream2(ipUrl);
+
+        return;
+    }
 }
 
 /// <summary>

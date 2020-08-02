@@ -2,8 +2,10 @@
 - color for 403 link error switchable
 - no re-check of links after sorting necessary
 - cancel closing of Form
+- fill from Clipboard menu entry deleted
+- UI refinement
 
-1.5.2
+1.5.2 (175)
 - grey line for lincheck Error 403
 - grey line for linkcheck rtmp links
 - bugfix add line when no row selected
