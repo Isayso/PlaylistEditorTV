@@ -5,6 +5,8 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
+1.5.4 Multi-treading for link check, up to 20 parallel tasks, can be chosen in settings. 
+
 1.5.3 Result of link check is stored a re-scan is often not necessary (force re-scan with Alt-click).
 
 1.5.2 bugfix for *Fill cells from Clipboard* function, rtmp (links cannot be tested) and links with Error 403 are now marked with gray and can be selected separately. *Fill cells from Clipboard* can be activated with Ctrl-v. 
