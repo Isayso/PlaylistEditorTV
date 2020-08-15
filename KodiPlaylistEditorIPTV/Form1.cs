@@ -80,7 +80,6 @@ namespace PlaylistEditor
 
         public string[] colList = new string[] { "Name", "id", "Title", "logo", "Name2", "Link", "All" };
 
-        //  public List<CheckList> checkList = new List<CheckList>();
 
 
         public Form1()
@@ -93,6 +92,13 @@ namespace PlaylistEditor
             //  Clipboard.Clear();
             this.Text = String.Format("PlaylistEditor TV DEBUG" + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 #endif
+
+            if (Settings.Default.UpgradeRequired)
+            {
+                Settings.Default.Upgrade();
+                Settings.Default.UpgradeRequired = false;
+                Settings.Default.Save();
+            }
 
 
             var spec_key = Settings.Default.specKey;  //for key listener
@@ -1713,6 +1719,15 @@ namespace PlaylistEditor
             }
         }
 
+        private void newWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings.Default.nostart = true;
+            Settings.Default.Save();
+            var deffile = new ProcessStartInfo(Application.ExecutablePath);
+            Process.Start(deffile);
+
+        }
+
 
         #endregion
 
@@ -2157,94 +2172,11 @@ namespace PlaylistEditor
             tokenSource.Cancel();
         }
 
-        //private bool RunStreamCheck(CancellationToken token, IProgress<string> progress)
-        //{
-        //    checkList.Clear();
-
-        //    string maxrows = dataGridView1.Rows.Count.ToString();
-
-        //    checkList.Add(new CheckList
-        //    {
-        //        Url = maxrows
-        //    });
-
-        //    Semaphore semaphoreObject = new Semaphore(/*initialCount: */3, /*maximumCount: */3/*, name: "CheckStream"*/);
-        //    Check streamcheck = new Check();
-        //    int errorcode = 0;
-
-
-        //    foreach (DataGridViewRow item in dataGridView1.Rows)
-        //    {
-        //        if (token.IsCancellationRequested)
-        //        {
-        //            break;
-        //        }
-
-
-        //        var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
-
-        //        progress.Report(item.Index.ToString() + " / " + maxrows);
-
-        //        //#18 no plugin check -> grey background
-        //        if (iLink.StartsWith("plugin")/* || iLink.Contains("|User")*/)   //plugin will not be checked
-        //        {
-        //            dataGridView1.Rows[item.Index].Cells[5].Style.BackColor = Color.LightGray;
-        //            dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
-        //            continue;
-        //        }
-
-        //        Task.Factory.StartNew(() =>
-        //        {
-        //            semaphoreObject.WaitOne();
-        //            streamcheck.streamchk(iLink);
-        //            semaphoreObject.Release();
-        //        });
-
-        //        // int errorcode = ClassHelp.CheckIPTVStream(iLink);
-
-        //        //checkList.Add(new CheckList
-        //        //{
-        //        //    Url = iLink,
-        //        //    ErrorCode = errorcode
-        //        //});
-
-        //        //if (errorcode != 0)
-        //        //{
-
-        //        //    for (int i = 0; i < 6; i++)
-        //        //    {
-        //        //        if (_controlpressed) dataGridView1.Rows[item.Index].Selected = true;
-        //        //        if (errorcode == 403)
-        //        //        {
-        //        //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Settings.Default.Error403;
-        //        //        }
-        //        //        if (errorcode == 410)  //rtmp
-        //        //        {
-        //        //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightGray;
-        //        //        }
-        //        //        else if (errorcode != 403 && errorcode != 410)
-        //        //        {
-        //        //            dataGridView1.Rows[item.Index].Cells[i].Style.BackColor = Color.LightSalmon;
-        //        //        }
-        //        //        //#37  save links in list and use for sort
-
-        //        //    }
-        //        //    if (!Debugger.IsAttached)
-        //        //        dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
-        //        //}
-
-
-        //    }
-
-        //    return true;
-        //    // semaphoreObject.WaitAsync();
-        //}
 
         private async Task RunStreamCheck2(CancellationToken token, IProgress<string> progress)
         {
             checkList.Clear();
 
-          //  UseWaitCursor = true;
 
             string maxrows = dataGridView1.Rows.Count.ToString();
 
@@ -2255,7 +2187,6 @@ namespace PlaylistEditor
 
             SemaphoreSlim semaphoreObject = new SemaphoreSlim(Settings.Default.maxthread, Settings.Default.maxthread);
             Check streamcheck = new Check();
-          //  int errorcode = 0;
 
             List<Task> trackedTasks = new List<Task>();
 
@@ -2517,6 +2448,8 @@ namespace PlaylistEditor
 
                 else
                     contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = false;
+
+                contextMenuStrip1.Items["newWindowToolStripMenuItem"].Enabled = true;
             }
             else  //open 
             {
@@ -2526,7 +2459,6 @@ namespace PlaylistEditor
 
                 for (int i = 0; i < itemsNList.Length; i++)
                 {
-                    //  contextMenuStrip1.Items[itemsList[i]].Enabled = true;
                     contextMenuStrip1.Items[itemsNList[i]].Enabled = true;
                 }
 
