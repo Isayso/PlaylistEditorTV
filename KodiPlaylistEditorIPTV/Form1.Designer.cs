@@ -271,6 +271,7 @@
             this.RedoButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.RedoButton.BackgroundImage = global::PlaylistEditor.Properties.Resources.redo;
             this.RedoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RedoButton.Enabled = false;
             this.RedoButton.FlatAppearance.BorderSize = 0;
             this.RedoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RedoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -288,6 +289,7 @@
             this.UndoButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.UndoButton.BackgroundImage = global::PlaylistEditor.Properties.Resources.undo;
             this.UndoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UndoButton.Enabled = false;
             this.UndoButton.FlatAppearance.BorderSize = 0;
             this.UndoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UndoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;

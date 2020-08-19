@@ -39,6 +39,7 @@ namespace PlaylistEditor
         Stack<object[][]> redoStack = new Stack<object[][]>();
 
         Boolean ignore = false;
+
         private CancellationTokenSource tokenSource;
 
         private player player;
@@ -296,7 +297,8 @@ namespace PlaylistEditor
                     }
 
                 }
-                if (e.KeyCode == Keys.Delete && dataGridView1.IsCurrentCellInEditMode == false)
+                if (e.KeyCode == Keys.Delete && dataGridView1.IsCurrentCellInEditMode == false
+                     /*&& textBox_find.Focused == false*/)
                 {
                     button_delLine.PerformClick();
 
@@ -436,7 +438,7 @@ namespace PlaylistEditor
         {
             if (_linkchecked) button_check.PerformClick();
 
-            Cursor.Current = Cursors.WaitCursor;
+           // Cursor.Current = Cursors.WaitCursor;
 
             string openpath = Settings.Default.openpath;
             if (!string.IsNullOrEmpty(openpath) && !ClassHelp.MyDirectoryExists(openpath, 4000))
@@ -465,7 +467,7 @@ namespace PlaylistEditor
 
             fillPlayer(); //send list to player
 
-            Cursor.Current = Cursors.Default;
+           // Cursor.Current = Cursors.Default;
 
         }
 
@@ -527,6 +529,8 @@ namespace PlaylistEditor
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
 
             }
+
+            Cursor.Current = Cursors.WaitCursor;
 
             while ((line = playlistFile.ReadLine()) != null)
             {
@@ -621,6 +625,9 @@ namespace PlaylistEditor
 
 
             }
+
+            Cursor.Current = Cursors.Default;
+
             label6.SendToBack();
 
         }
@@ -638,7 +645,7 @@ namespace PlaylistEditor
 
                     dt.Rows.RemoveAt(selectedRow);
                 }
-                toSave(true);
+                //toSave(true);
             }
             else  //delete cells only
             {
@@ -652,9 +659,10 @@ namespace PlaylistEditor
                     }
                 }
 
-                toSave(true);
+                //toSave(true);
             }
-
+            DataGridView1_CellValidated(null, null);
+          //  this.BindingContext[dataGridView1.DataSource].EndCurrentEdit();
         }
 
         private void button_save_Click(object sender, EventArgs e)
@@ -807,7 +815,7 @@ namespace PlaylistEditor
             }
             label6.SendToBack();
 
-            toSave(true);
+            //toSave(true);
         }
 
 
@@ -917,6 +925,7 @@ namespace PlaylistEditor
                         toSave(false);
                         plabel_Filename.Text = "";
                         button_revert.Visible = false;
+                        undoStack.Clear();  redoStack.Clear(); ShowReUnDo(0); //reset stacks
                         break;
 
                     case DialogResult.No:
@@ -1294,7 +1303,7 @@ namespace PlaylistEditor
                             a++;
                         }
                     }
-                    toSave(true);
+                    //toSave(true);
                 }
                 catch (Exception ex)
                 {
@@ -1330,7 +1339,7 @@ namespace PlaylistEditor
                             a++;
                         }
                     }
-                    toSave(true);
+                    //toSave(true);
                 }
                 catch (Exception ex)
                 {
@@ -1387,7 +1396,7 @@ namespace PlaylistEditor
                         }
 
                     }
-                    toSave(true);
+                    //toSave(true);
                 }
                 catch (Exception ex)
                 {
@@ -1424,7 +1433,7 @@ namespace PlaylistEditor
                             a++;
                         }
                     }
-                    toSave(true);
+                    //toSave(true);
                 }
                 catch (Exception ex)
                 {
@@ -1532,7 +1541,7 @@ namespace PlaylistEditor
                             a++;
                         }
                     }
-                    toSave(true);
+                    //toSave(true);
                 }
                 catch (Exception ex)
                 {
@@ -1698,7 +1707,7 @@ namespace PlaylistEditor
                 return;
             }
 
-            toSave(true);
+            //toSave(true);
         }
 
 
@@ -1715,7 +1724,7 @@ namespace PlaylistEditor
                     oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
                     oCell.Value = Convert.ChangeType(s.Trim(), oCell.ValueType);  //#35 
                 }
-                toSave(true);
+                //toSave(true);
             }
         }
 
@@ -1868,14 +1877,14 @@ namespace PlaylistEditor
                         else  //imoprt and add
                         {
                             importDataset(fileName, true);
-                            toSave(true);
+                            //toSave(true);
                             break;
                         }
 
                     }
                     label6.SendToBack();
 
-                    toSave(true);
+                    //toSave(true);
 
                 }
             }
@@ -1944,7 +1953,7 @@ namespace PlaylistEditor
 
 
             }
-            toSave(true);
+            //toSave(true);
         }
 
         /// <summary>
@@ -1995,7 +2004,7 @@ namespace PlaylistEditor
                     n += 1;
                 }
                 _endofLoop = true;
-                toSave(true);
+                //toSave(true);
             }
         }
 
@@ -2045,7 +2054,7 @@ namespace PlaylistEditor
                     n += 1;
                 }
                 _endofLoop = true;
-                toSave(true);
+                //toSave(true);
             }
         }
 
@@ -2090,14 +2099,14 @@ namespace PlaylistEditor
         {
             if (!_endofLoop) return;  //avoid lag with player open
 
-            toSave(true);
+            //toSave(true);
 
             _endofLoop = false;
         }
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            toSave(true);
+            //toSave(true);
 
             if (_sort == "desc")
             {
@@ -2239,6 +2248,7 @@ namespace PlaylistEditor
         private void UndoButton_Click(object sender, EventArgs e)
         {
             if (dt.Rows.Count == 0) return;
+
             if (redoStack.Count == 0 || redoStack.LoadItem(dataGridView1))
             {
                 redoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()).ToArray());
@@ -2257,21 +2267,22 @@ namespace PlaylistEditor
                         catch (Exception) { }
                     }
                 }
+
                 ignore = true;
-
                 dt.Clear();  // row clear  
-
 
                 for (int x = 0; x <= gridrows.GetUpperBound(0); x++)
                 {
-
                     dt.Rows.Add(gridrows[x]);
                 }
 
                 ignore = false;
 
-                UndoButton.Enabled = undoStack.Count > 0;
-                RedoButton.Enabled = redoStack.Count > 0;
+                //UndoButton.Enabled = undoStack.Count > 0;
+                //RedoButton.Enabled = redoStack.Count > 0;
+                ShowReUnDo(0);
+                toSave(true);
+
             }
         }
 
@@ -2279,31 +2290,38 @@ namespace PlaylistEditor
         {
 
             if (dt.Rows.Count == 0) return;
+
             if (undoStack.Count == 0 || undoStack.LoadItem(dataGridView1))
             {
-                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()).ToArray());
+                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>()
+                    .Where(r => !r.IsNewRow)
+                    .Select(r => r.Cells.Cast<DataGridViewCell>()
+                    .Select(c => c.Value).ToArray()).ToArray());
             }
             if (redoStack.Count > 0)
             {
                 object[][] gridrows = redoStack.Pop();
 
-
                 while (gridrows.ItemEquals(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).ToArray()))
                 {
                     gridrows = redoStack.Pop();
                 }
+
                 ignore = true;
                 dt.Clear();
+
                 for (int x = 0; x <= gridrows.GetUpperBound(0); x++)
                 {
-
                     dt.Rows.Add(gridrows[x]);
                 }
 
                 ignore = false;
 
-                RedoButton.Enabled = redoStack.Count > 0;
-                UndoButton.Enabled = undoStack.Count > 0;
+                //RedoButton.Enabled = redoStack.Count > 0;
+                //UndoButton.Enabled = undoStack.Count > 0;
+                ShowReUnDo(0);
+                toSave(true);
+
             }
         }
 
@@ -2312,10 +2330,41 @@ namespace PlaylistEditor
             if (ignore) { return; }
             if (undoStack.LoadItem(dataGridView1))
             {
-                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()).ToArray());
+                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>()
+                    .Where(r => !r.IsNewRow)
+                    .Select(r => r.Cells.Cast<DataGridViewCell>()
+                    .Select(c => c.Value).ToArray()).ToArray());
+                
+                if(undoStack.Count > 1) toSave(true);
             }
-            UndoButton.Enabled = undoStack.Count > 1;
-            RedoButton.Enabled = redoStack.Count > 1;
+            //UndoButton.Enabled = undoStack.Count > 1;
+            //RedoButton.Enabled = redoStack.Count > 1;
+            ShowReUnDo(1);
+        }
+
+        void ShowReUnDo(int x)
+        {
+            if(undoStack.Count > x)
+            {
+                UndoButton.Enabled = true;
+                UndoButton.BackgroundImage = Resources.undo;
+            }
+            else
+            {
+                UndoButton.Enabled = false;
+                UndoButton.BackgroundImage = Resources.undo_fade;
+            }
+            if (redoStack.Count > x)
+            {
+                RedoButton.Enabled = true;
+                RedoButton.BackgroundImage = Resources.redo;
+            }
+            else
+            {
+                RedoButton.Enabled = false;
+                RedoButton.BackgroundImage = Resources.redo_fade;
+            }
+
         }
 
 
@@ -2610,7 +2659,7 @@ namespace PlaylistEditor
                 }
                 label6.SendToBack();
 
-                toSave(true);
+                //toSave(true);
             }
 
 
