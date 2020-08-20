@@ -451,6 +451,7 @@ namespace PlaylistEditor
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
+                    undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);//reset stacks
 
                     importDataset(openFileDialog1.FileName, false);
                     button_revert.Visible = true;
@@ -1479,9 +1480,7 @@ namespace PlaylistEditor
                     //del line
                     foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                     {
-                        int selectedRow = dataGridView1.SelectedRows[0].Index;
-
-                        dt.Rows.RemoveAt(selectedRow);
+                        dt.Rows.RemoveAt(row.Index);
                     }
 
                 }
@@ -2342,7 +2341,7 @@ namespace PlaylistEditor
             ShowReUnDo(1);
         }
 
-        void ShowReUnDo(int x)
+        private void ShowReUnDo(int x)
         {
             if(undoStack.Count > x)
             {

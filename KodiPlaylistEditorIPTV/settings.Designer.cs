@@ -50,7 +50,6 @@
             this.checkBox_a = new System.Windows.Forms.CheckBox();
             this.checkBox_s = new System.Windows.Forms.CheckBox();
             this.checkBox_c = new System.Windows.Forms.CheckBox();
-            this.button_file = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -80,6 +79,7 @@
             this.nMaxThread = new System.Windows.Forms.NumericUpDown();
             this.comboBox_403 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.button_file = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -325,24 +325,6 @@
             this.checkBox_c.Text = "CTRL";
             this.toolTip1.SetToolTip(this.checkBox_c, "Restart to take effect");
             this.checkBox_c.UseVisualStyleBackColor = true;
-            // 
-            // button_file
-            // 
-            this.button_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_file.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_file.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_file.BackgroundImage")));
-            this.button_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_file.FlatAppearance.BorderSize = 0;
-            this.button_file.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_file.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button_file.Location = new System.Drawing.Point(348, 165);
-            this.button_file.Margin = new System.Windows.Forms.Padding(0);
-            this.button_file.Name = "button_file";
-            this.button_file.Size = new System.Drawing.Size(38, 37);
-            this.button_file.TabIndex = 66;
-            this.toolTip1.SetToolTip(this.button_file, "select file");
-            this.button_file.UseVisualStyleBackColor = true;
-            this.button_file.Click += new System.EventHandler(this.button_file_Click);
             // 
             // label15
             // 
@@ -729,6 +711,7 @@
             this.comboBox_403.Name = "comboBox_403";
             this.comboBox_403.Size = new System.Drawing.Size(91, 28);
             this.comboBox_403.TabIndex = 9;
+            this.comboBox_403.Click += new System.EventHandler(this.ComboBox_Click);
             // 
             // label16
             // 
@@ -739,6 +722,24 @@
             this.label16.Size = new System.Drawing.Size(142, 20);
             this.label16.TabIndex = 8;
             this.label16.Text = "max threads used";
+            // 
+            // button_file
+            // 
+            this.button_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_file.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_file.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_file.BackgroundImage")));
+            this.button_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_file.FlatAppearance.BorderSize = 0;
+            this.button_file.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_file.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button_file.Location = new System.Drawing.Point(348, 165);
+            this.button_file.Margin = new System.Windows.Forms.Padding(0);
+            this.button_file.Name = "button_file";
+            this.button_file.Size = new System.Drawing.Size(38, 37);
+            this.button_file.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.button_file, "select file");
+            this.button_file.UseVisualStyleBackColor = true;
+            this.button_file.Click += new System.EventHandler(this.button_file_Click);
             // 
             // settings
             // 

@@ -1,5 +1,5 @@
 ﻿1.5.5
-- automatic import of last user settings
+- automatic import of user settings
 - 'new window' in context menu
 - redo/undo better UI
 
