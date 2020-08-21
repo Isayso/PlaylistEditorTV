@@ -351,8 +351,8 @@ namespace PlaylistEditor
 
             NativeMethods.UnregisterHotKey(this.Handle, mActionHotKeyID);
 
-            Properties.Settings.Default.F2Location = this.Location;
-            Properties.Settings.Default.F2Size = this.Size;
+            Settings.Default.F2Location = this.Location;
+            Settings.Default.F2Size = this.Size;
 
             Settings.Default.Save();
 
@@ -451,7 +451,7 @@ namespace PlaylistEditor
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);//reset stacks
+                    undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0);//reset stacks
 
                     importDataset(openFileDialog1.FileName, false);
                     button_revert.Visible = true;
@@ -660,10 +660,9 @@ namespace PlaylistEditor
                     }
                 }
 
-                //toSave(true);
+                //
             }
             DataGridView1_CellValidated(null, null);
-          //  this.BindingContext[dataGridView1.DataSource].EndCurrentEdit();
         }
 
         private void button_save_Click(object sender, EventArgs e)
@@ -701,7 +700,7 @@ namespace PlaylistEditor
                     }
 
                 }
-                toSave(false);
+                
                 button_revert.Visible = true;
                 _savenow = false;
 
@@ -737,7 +736,7 @@ namespace PlaylistEditor
 
                 }
 
-                toSave(false);
+                
 
                 button_revert.Visible = true;
                 Cursor.Current = Cursors.Default;
@@ -781,7 +780,7 @@ namespace PlaylistEditor
             {
                 dt.Clear();
                 dt.Columns.Clear();
-                toSave(false);
+                
                 plabel_Filename.Text = "";
                 button_revert.Visible = false;
             }
@@ -815,8 +814,8 @@ namespace PlaylistEditor
                 dataGridView1.AllowUserToAddRows = false;
             }
             label6.SendToBack();
-
-            //toSave(true);
+            DataGridView1_CellValidated(null, null);
+            
         }
 
 
@@ -923,7 +922,7 @@ namespace PlaylistEditor
 
                         dt.Clear();
                         dt.Columns.Clear();
-                        toSave(false);
+                        
                         plabel_Filename.Text = "";
                         button_revert.Visible = false;
                         undoStack.Clear();  redoStack.Clear(); ShowReUnDo(0); //reset stacks
@@ -944,8 +943,8 @@ namespace PlaylistEditor
             switch (MessageBox.Show("Reload File?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.None))
             {
                 case DialogResult.Yes:
+                    undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0);//reset stacks
                     importDataset(plabel_Filename.Text, false);
-                    toSave(false);
                     break;
 
                 case DialogResult.No:
@@ -1304,7 +1303,7 @@ namespace PlaylistEditor
                             a++;
                         }
                     }
-                    //toSave(true);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -1340,7 +1339,7 @@ namespace PlaylistEditor
                             a++;
                         }
                     }
-                    //toSave(true);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -1397,7 +1396,7 @@ namespace PlaylistEditor
                         }
 
                     }
-                    //toSave(true);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -1434,7 +1433,7 @@ namespace PlaylistEditor
                             a++;
                         }
                     }
-                    //toSave(true);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -1540,7 +1539,7 @@ namespace PlaylistEditor
                             a++;
                         }
                     }
-                    //toSave(true);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -1706,7 +1705,7 @@ namespace PlaylistEditor
                 return;
             }
 
-            //toSave(true);
+            
         }
 
 
@@ -1723,7 +1722,7 @@ namespace PlaylistEditor
                     oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
                     oCell.Value = Convert.ChangeType(s.Trim(), oCell.ValueType);  //#35 
                 }
-                //toSave(true);
+                
             }
         }
 
@@ -1876,14 +1875,15 @@ namespace PlaylistEditor
                         else  //imoprt and add
                         {
                             importDataset(fileName, true);
-                            //toSave(true);
+                            DataGridView1_CellValidated(null, null);
+                            
                             break;
                         }
 
                     }
                     label6.SendToBack();
 
-                    //toSave(true);
+                    
 
                 }
             }
@@ -1952,7 +1952,7 @@ namespace PlaylistEditor
 
 
             }
-            //toSave(true);
+            DataGridView1_CellValidated(null, null);
         }
 
         /// <summary>
@@ -2003,7 +2003,7 @@ namespace PlaylistEditor
                     n += 1;
                 }
                 _endofLoop = true;
-                //toSave(true);
+                
             }
         }
 
@@ -2053,7 +2053,7 @@ namespace PlaylistEditor
                     n += 1;
                 }
                 _endofLoop = true;
-                //toSave(true);
+                
             }
         }
 
@@ -2061,23 +2061,23 @@ namespace PlaylistEditor
         /// <summary>
         /// changes icon if file is modified
         /// </summary>
-        public void toSave(bool hasChanged)
-        {
+        //public void toSave(bool hasChanged)
+        //{
+            
+        //    if (isModified == hasChanged) return;
 
-            if (isModified == hasChanged) return;
+        //    isModified = hasChanged;
 
-            isModified = hasChanged;
-
-            if (hasChanged)
-            {
-                button_save.BackgroundImage = Resources.content_save_modified;
-            }
+        //    if (hasChanged)
+        //    {
+        //        button_save.BackgroundImage = Resources.content_save_modified;
+        //    }
 
 
-            if (!hasChanged)
-                button_save.BackgroundImage = Resources.content_save_1_;
+        //    if (!hasChanged)
+        //        button_save.BackgroundImage = Resources.content_save_1_;
 
-        }
+        //}
 
         /// <summary>
         /// fills combobox of player form with data
@@ -2098,14 +2098,14 @@ namespace PlaylistEditor
         {
             if (!_endofLoop) return;  //avoid lag with player open
 
-            //toSave(true);
+            
 
             _endofLoop = false;
         }
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //toSave(true);
+            
 
             if (_sort == "desc")
             {
@@ -2280,7 +2280,7 @@ namespace PlaylistEditor
                 //UndoButton.Enabled = undoStack.Count > 0;
                 //RedoButton.Enabled = redoStack.Count > 0;
                 ShowReUnDo(0);
-                toSave(true);
+                
 
             }
         }
@@ -2319,7 +2319,7 @@ namespace PlaylistEditor
                 //RedoButton.Enabled = redoStack.Count > 0;
                 //UndoButton.Enabled = undoStack.Count > 0;
                 ShowReUnDo(0);
-                toSave(true);
+                
 
             }
         }
@@ -2334,7 +2334,7 @@ namespace PlaylistEditor
                     .Select(r => r.Cells.Cast<DataGridViewCell>()
                     .Select(c => c.Value).ToArray()).ToArray());
                 
-                if(undoStack.Count > 1) toSave(true);
+               // if(undoStack.Count > 1) toSave(true);
             }
             //UndoButton.Enabled = undoStack.Count > 1;
             //RedoButton.Enabled = redoStack.Count > 1;
@@ -2347,16 +2347,23 @@ namespace PlaylistEditor
             {
                 UndoButton.Enabled = true;
                 UndoButton.BackgroundImage = Resources.undo;
+                button_save.BackgroundImage = Resources.content_save_modified;
+                isModified = true;
+
             }
             else
             {
                 UndoButton.Enabled = false;
                 UndoButton.BackgroundImage = Resources.undo_fade;
+                button_save.BackgroundImage = Resources.content_save_1_;
+                isModified = false;
+
             }
             if (redoStack.Count > x)
             {
                 RedoButton.Enabled = true;
                 RedoButton.BackgroundImage = Resources.redo;
+
             }
             else
             {
@@ -2658,7 +2665,7 @@ namespace PlaylistEditor
                 }
                 label6.SendToBack();
 
-                //toSave(true);
+                
             }
 
 
@@ -2965,7 +2972,7 @@ public static class ExtensionMethods
     //            n += 1;
     //        }
     //        //_endofLoop = true;
-    //        //toSave(true);
+    //        
     //    }
 
     //    yield return source;
