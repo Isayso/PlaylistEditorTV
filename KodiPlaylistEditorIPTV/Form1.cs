@@ -303,6 +303,7 @@ namespace PlaylistEditor
                 }
                 if (e.KeyCode == Keys.F2)
                 {
+                    _endofLoop = true;
                     dataGridView1.BeginEdit(true);
                 }
 
@@ -359,37 +360,34 @@ namespace PlaylistEditor
         }
 
 
-        /*--------------------------------------------------------------------------------*/
-        // Menu Buttons
-        /*--------------------------------------------------------------------------------*/
 
         #region menu buttons
         private void button_search_Click(object sender, EventArgs e)
         {
             textBox_find.BringToFront();
 
-            if (Settings.Default.findresult == 0) label1.Text = "Row";
-            else label1.Text = "Cell";
+            if (Settings.Default.findresult == 0) lblRowCheck.Text = "Row";
+            else lblRowCheck.Text = "Cell";
 
 
             var searchindex = Settings.Default.colSearch;
-            label2.Text = colList[searchindex];
+            lblColCheck.Text = colList[searchindex];
 
 
             if (_isIt)
             {
                 _isIt = !_isIt;
                 textBox_find.Visible = true;
-                button_clearfind.Visible = true; label1.Visible = true; label2.Visible = true;
+                button_clearfind.Visible = true; lblRowCheck.Visible = true; lblColCheck.Visible = true;
                 this.ActiveControl = textBox_find;
-                button_clearfind.BringToFront(); label1.BringToFront(); label2.BringToFront();
+                button_clearfind.BringToFront(); lblRowCheck.BringToFront(); lblColCheck.BringToFront();
                 button_refind.BringToFront(); button_refind.Visible = true;
             }
             else  //close textbox_find
             {
                 _isIt = !_isIt;
                 textBox_find.Visible = false;
-                button_clearfind.Visible = false; label1.Visible = false; label2.Visible = false;
+                button_clearfind.Visible = false; lblRowCheck.Visible = false; lblColCheck.Visible = false;
                 button_refind.Visible = false;
             }
 
@@ -407,12 +405,12 @@ namespace PlaylistEditor
                 switch (playswitch)
                 {
                     case 0:
-                        label1.Text = "Cell";
+                        lblRowCheck.Text = "Cell";
                         playswitch = 1;
                         break;
 
                     case 1:
-                        label1.Text = "Row";
+                        lblRowCheck.Text = "Row";
                         playswitch = 0;
                         break;
                 }
@@ -424,7 +422,7 @@ namespace PlaylistEditor
             {
                 colswitch++; if (colswitch >= colList.Length) colswitch = 0;
 
-                label2.Text = colList[colswitch];
+                lblColCheck.Text = colList[colswitch];
                 Settings.Default.colSearch = colswitch;
                 textBox_find_TextChange(sender, e);
             }
@@ -435,6 +433,19 @@ namespace PlaylistEditor
         private void button_open_Click(object sender, EventArgs e)
         {
             if (_linkchecked) button_check.PerformClick();
+
+            if (isModified == true && dataGridView1.RowCount > 0)
+            {
+                DialogResult dialogSave = MessageBox.Show("Do you want to save your current playlist?",
+                "Save Playlist", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogSave == DialogResult.Yes)
+                {
+                    button_save.PerformClick();
+                    isModified = false;
+                }
+                if (dialogSave == DialogResult.Cancel) return;
+            }
+
 
             Cursor.Current = Cursors.WaitCursor;
 
@@ -449,6 +460,7 @@ namespace PlaylistEditor
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
+                    undoStack.Clear(); redoStack.Clear(); toSave(false); ShowReUnDo(0);//reset stacks
 
                     importDataset(openFileDialog1.FileName, false);
                     button_revert.Visible = true;
@@ -484,11 +496,11 @@ namespace PlaylistEditor
             {
                 s.ShowDialog();
 
-                if (Settings.Default.findresult == 0) label1.Text = "Row";
-                else label1.Text = "Cell";
+                if (Settings.Default.findresult == 0) lblRowCheck.Text = "Row";
+                else lblRowCheck.Text = "Cell";
 
                 var searchindex = Settings.Default.colSearch;
-                label2.Text = colList[searchindex];
+                lblColCheck.Text = colList[searchindex];
 
 
             }
@@ -607,6 +619,9 @@ namespace PlaylistEditor
             dataGridView1.Rows[0].Selected = true;
             checkList.Clear(); //to reset Repaint
 
+            label_central.SendToBack();
+
+
             void CheckEntry(int v)
             {//issue #12
                 if (string.IsNullOrEmpty(col[v]) || (col[v].Contains("N/A") && colShow[v] == 0))
@@ -621,7 +636,8 @@ namespace PlaylistEditor
 
 
             }
-            label6.SendToBack();
+
+
 
         }
 
@@ -745,9 +761,7 @@ namespace PlaylistEditor
             }
             else
             {
-
                 MoveLine(-1);
-
             }
 
         }
@@ -805,7 +819,7 @@ namespace PlaylistEditor
                 dataGridView1.DataSource = dt;
                 dataGridView1.AllowUserToAddRows = false;
             }
-            label6.SendToBack();
+            label_central.SendToBack();
 
             toSave(true);
         }
@@ -1065,43 +1079,6 @@ namespace PlaylistEditor
 
             button_check.Enabled = false;
 
-            #region MyRegion
-            //if (dataGridView1.Rows.Count > 0)
-            //{
-            //    colorclear();
-
-            //    //popup popup = new popup();
-
-            //    //popup.FormClosed += new FormClosedEventHandler(FormP_Closed);
-
-            //    //var x = Location.X + (Width - popup.Width) / 2;
-            //    //var y = Location.Y + (Height - popup.Height) / 2;
-            //    //popup.Location = new Point(Math.Max(x, 0), Math.Max(y, 0));
-            //    //popup.StartPosition = FormStartPosition.Manual;
-            //    //popup.Owner = this;  //child over parent
-
-            //    //popup.Show();
-
-            //    //Progress<string> progress = new Progress<string>();
-            //    //progress.ProgressChanged += (_, text) =>
-            //    //    popup.updateProgressBar(text);
-
-            //    //tokenSource = new CancellationTokenSource();
-            //    //var token = tokenSource.Token;
-
-            //    // Task taskc = new Task();
-            //    await RunStreamCheck2();
-            // //   await Task.Run(() => RunStreamCheck(token, progress));
-            //    //   var t = Task.Run(() => RunStreamCheck(token, progress));
-
-            //    // var newt = t.ContinueWith(tt => Console.WriteLine("Ready"));
-            //  //  popup.Close();
-
-            //    //tokenSource.Cancel();
-            //    //tokenSource.Dispose();
-            //    //tokenSource = null;
-            //} 
-            #endregion
 
 
             if (dataGridView1.Rows.Count > 0)
@@ -1189,9 +1166,6 @@ namespace PlaylistEditor
 
         #endregion
 
-        /*--------------------------------------------------------------------------------*/
-        // contextMenueStrip Entries
-        /*--------------------------------------------------------------------------------*/
         #region context menu
         private async void playToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1249,7 +1223,7 @@ namespace PlaylistEditor
         {
 
             bool _dtEmpty = false;
-            label6.SendToBack();
+            label_central.SendToBack();
 
 
             if (dataGridView1.RowCount == 0 && dataGridView1.ColumnCount == 0)
@@ -1484,62 +1458,62 @@ namespace PlaylistEditor
             }
         }
 
-        private void pasteReplaceRowMenuItem_Click(object sender, EventArgs e)  //CRTL-V  from CTRL-R
-        {
+//        private void pasteReplaceRowMenuItem_Click(object sender, EventArgs e)  //CRTL-V  from CTRL-R
+//        {
 
-            bool _dtEmpty = false;
+//            bool _dtEmpty = false;
 
-            if (dataGridView1.RowCount == 0 && dataGridView1.ColumnCount == 0)
-            {
-                _dtEmpty = true;
-                DataRow dr = dt.NewRow();
+//            if (dataGridView1.RowCount == 0 && dataGridView1.ColumnCount == 0)
+//            {
+//                _dtEmpty = true;
+//                DataRow dr = dt.NewRow();
 
-                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
-                dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
-                dataGridView1.DataSource = dt;
-                label6.SendToBack();
+//                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
+//                dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
+//                dataGridView1.DataSource = dt;
+//                label_central.SendToBack();
 
-            }
+//            }
 
-#if DEBUG
-            Console.WriteLine(Clipboard.GetText());
-#endif
+//#if DEBUG
+//            Console.WriteLine(Clipboard.GetText());
+//#endif
 
-            if (!string.IsNullOrEmpty(fullRowContent))
-            {
-                try
-                {
-                    int a = 0;
-                    if (!_dtEmpty) a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
+//            if (!string.IsNullOrEmpty(fullRowContent))
+//            {
+//                try
+//                {
+//                    int a = 0;
+//                    if (!_dtEmpty) a = dataGridView1.SelectedCells[0].RowIndex;  //select row in a datatable
 
-                    string[] pastedRows = Regex.Split(fullRowContent.TrimEnd("\r\n".ToCharArray()), "\r\n");
-                    foreach (string pastedRow in pastedRows)
-                    {
-                        string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
+//                    string[] pastedRows = Regex.Split(fullRowContent.TrimEnd("\r\n".ToCharArray()), "\r\n");
+//                    foreach (string pastedRow in pastedRows)
+//                    {
+//                        string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
 
-                        dr = dt.NewRow();
-                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Title"] = pastedRowCells[2];
-                        dr["logo"] = pastedRowCells[3]; dr["Name2"] = pastedRowCells[4]; dr["Link"] = pastedRowCells[5];
+//                        dr = dt.NewRow();
+//                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Title"] = pastedRowCells[2];
+//                        dr["logo"] = pastedRowCells[3]; dr["Name2"] = pastedRowCells[4]; dr["Link"] = pastedRowCells[5];
 
-                        if (_dtEmpty)
-                        {
-                            dt.Rows.Add(dr);
-                        }
-                        else
-                        {
-                            dt.Rows.RemoveAt(a);
-                            dt.Rows.InsertAt(dr, a);
-                            a++;
-                        }
-                    }
-                    toSave(true);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
-                }
-            }
-        }
+//                        if (_dtEmpty)
+//                        {
+//                            dt.Rows.Add(dr);
+//                        }
+//                        else
+//                        {
+//                            dt.Rows.RemoveAt(a);
+//                            dt.Rows.InsertAt(dr, a);
+//                            a++;
+//                        }
+//                    }
+//                    toSave(true);
+//                }
+//                catch (Exception ex)
+//                {
+//                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
+//                }
+//            }
+//        }
 
         private void toolStripCopy_Click(object sender, EventArgs e) //  CTRL-C
         {
@@ -1618,7 +1592,7 @@ namespace PlaylistEditor
 
         private void toolStripPaste_Click(object sender, EventArgs e)   //ctrl+v
         {
-            label6.SendToBack();
+            label_central.SendToBack();
 
             if (/*(dataGridView1.SelectedRows == 0 &&*/ ClassHelp.CheckClipboard())
             {
@@ -1874,7 +1848,7 @@ namespace PlaylistEditor
                         }
 
                     }
-                    label6.SendToBack();
+                    label_central.SendToBack();
 
                     toSave(true);
 
@@ -2280,11 +2254,11 @@ namespace PlaylistEditor
             {
                 if (token.IsCancellationRequested) break;
 
-                var iLink = dataGridView1.Rows[item.Index].Cells[5].Value.ToString();
+                var iLink = dataGridView1.Rows[item.Index].Cells["Link"].Value.ToString();
 
                 if (iLink.StartsWith("plugin")/* || iLink.Contains("|User")*/)   //plugin will not be checked
                 {
-                    dataGridView1.Rows[item.Index].Cells[5].Style.BackColor = Color.LightGray;
+                    dataGridView1.Rows[item.Index].Cells["Link"].Style.BackColor = Color.LightGray;
                     dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
                     continue;
                 }
@@ -2327,7 +2301,9 @@ namespace PlaylistEditor
             if (dt.Rows.Count == 0) return;
             if (redoStack.Count == 0 || redoStack.LoadItem(dataGridView1))
             {
-                redoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()).ToArray());
+                redoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>()
+                    .Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>()
+                    .Select(c => c.Value).ToArray()).ToArray());
             }
 
             if (undoStack.Count > 0)
@@ -2367,7 +2343,9 @@ namespace PlaylistEditor
             if (dt.Rows.Count == 0) return;
             if (undoStack.Count == 0 || undoStack.LoadItem(dataGridView1))
             {
-                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()).ToArray());
+                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>()
+                    .Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>()
+                    .Select(c => c.Value).ToArray()).ToArray());
             }
             if (redoStack.Count > 0)
             {
@@ -2399,7 +2377,10 @@ namespace PlaylistEditor
             if (ignore) { return; }
             if (undoStack.LoadItem(dataGridView1))
             {
-                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>().Where(r => !r.IsNewRow).Select(r => r.Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()).ToArray());
+                undoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>()
+                    .Where(r => !r.IsNewRow)
+                    .Select(r => r.Cells.Cast<DataGridViewCell>()
+                    .Select(c => c.Value).ToArray()).ToArray());
             }
             //UndoButton.Enabled = undoStack.Count > 1;
             //RedoButton.Enabled = redoStack.Count > 1;
@@ -2726,7 +2707,7 @@ namespace PlaylistEditor
                         }
                     }
                 }
-                label6.SendToBack();
+                label_central.SendToBack();
 
                 toSave(true);
             }
@@ -2923,7 +2904,7 @@ namespace PlaylistEditor
             if (e.KeyChar == (Char)27)
             {
                 textBox_find.Visible = false;
-                button_clearfind.Visible = false; label1.Visible = false; label2.Visible = false;
+                button_clearfind.Visible = false; lblRowCheck.Visible = false; lblColCheck.Visible = false;
                 button_refind.Visible = false;
             }
 

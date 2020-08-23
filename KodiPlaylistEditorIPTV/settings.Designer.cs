@@ -51,6 +51,7 @@
             this.checkBox_s = new System.Windows.Forms.CheckBox();
             this.checkBox_c = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.button_file = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.comboBox_result = new System.Windows.Forms.ComboBox();
@@ -79,7 +80,6 @@
             this.nMaxThread = new System.Windows.Forms.NumericUpDown();
             this.comboBox_403 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.button_file = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -336,6 +336,24 @@
             this.label15.TabIndex = 8;
             this.label15.Text = "Color for Error 403";
             this.toolTip1.SetToolTip(this.label15, "Error 403: Server responds, but no valid stream\r\n(password missing?)");
+            // 
+            // button_file
+            // 
+            this.button_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_file.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_file.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_file.BackgroundImage")));
+            this.button_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_file.FlatAppearance.BorderSize = 0;
+            this.button_file.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_file.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button_file.Location = new System.Drawing.Point(348, 165);
+            this.button_file.Margin = new System.Windows.Forms.Padding(0);
+            this.button_file.Name = "button_file";
+            this.button_file.Size = new System.Drawing.Size(38, 37);
+            this.button_file.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.button_file, "select file");
+            this.button_file.UseVisualStyleBackColor = true;
+            this.button_file.Click += new System.EventHandler(this.button_file_Click);
             // 
             // tabControl1
             // 
@@ -695,6 +713,7 @@
             this.nMaxThread.Size = new System.Drawing.Size(57, 27);
             this.nMaxThread.TabIndex = 72;
             this.nMaxThread.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.nMaxThread, "max treads network dependent\r\ntry it");
             this.nMaxThread.Value = new decimal(new int[] {
             3,
             0,
@@ -722,24 +741,6 @@
             this.label16.Size = new System.Drawing.Size(142, 20);
             this.label16.TabIndex = 8;
             this.label16.Text = "max threads used";
-            // 
-            // button_file
-            // 
-            this.button_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_file.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button_file.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_file.BackgroundImage")));
-            this.button_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_file.FlatAppearance.BorderSize = 0;
-            this.button_file.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_file.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button_file.Location = new System.Drawing.Point(348, 165);
-            this.button_file.Margin = new System.Windows.Forms.Padding(0);
-            this.button_file.Name = "button_file";
-            this.button_file.Size = new System.Drawing.Size(38, 37);
-            this.button_file.TabIndex = 66;
-            this.toolTip1.SetToolTip(this.button_file, "select file");
-            this.button_file.UseVisualStyleBackColor = true;
-            this.button_file.Click += new System.EventHandler(this.button_file_Click);
             // 
             // settings
             // 

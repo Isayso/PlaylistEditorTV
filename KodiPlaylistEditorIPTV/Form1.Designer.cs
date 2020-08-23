@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -73,9 +73,9 @@
             this.editCellCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.editCellPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.editCellCut = new System.Windows.Forms.ToolStripMenuItem();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_central = new System.Windows.Forms.Label();
+            this.lblRowCheck = new System.Windows.Forms.Label();
+            this.lblColCheck = new System.Windows.Forms.Label();
             this.button_refind = new PlaylistEditor.MyButton();
             this.button_clearfind = new PlaylistEditor.MyButton();
             this.plabel_Filename = new PathLabel();
@@ -88,8 +88,8 @@
             // 
             this.dataGridView1.AllowDrop = true;
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -98,20 +98,20 @@
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Location = new System.Drawing.Point(0, 59);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 47;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1122, 319);
             this.dataGridView1.TabIndex = 5;
@@ -613,57 +613,57 @@
             this.editCellCut.Text = "Cut";
             this.editCellCut.Click += new System.EventHandler(this.editCellCut_Click);
             // 
-            // label6
+            // label_central
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Gray;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(454, 169);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(257, 60);
-            this.label6.TabIndex = 67;
-            this.label6.Text = "Double Click to open file\r\nDrag \'n Drop file to open or append\r\nCtrl-N to open ne" +
+            this.label_central.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_central.AutoSize = true;
+            this.label_central.BackColor = System.Drawing.Color.Gray;
+            this.label_central.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
+            this.label_central.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_central.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label_central.Location = new System.Drawing.Point(454, 169);
+            this.label_central.Name = "label_central";
+            this.label_central.Size = new System.Drawing.Size(257, 60);
+            this.label_central.TabIndex = 67;
+            this.label_central.Text = "Double Click to open file\r\nDrag \'n Drop file to open or append\r\nCtrl-N to open ne" +
     "w window";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            this.label_central.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_central.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
-            // label1
+            // lblRowCheck
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(1054, 68);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 23);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "Row";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Visible = false;
-            this.label1.Click += new System.EventHandler(this.label_click);
+            this.lblRowCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRowCheck.BackColor = System.Drawing.Color.White;
+            this.lblRowCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
+            this.lblRowCheck.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblRowCheck.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblRowCheck.Location = new System.Drawing.Point(1054, 68);
+            this.lblRowCheck.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRowCheck.Name = "lblRowCheck";
+            this.lblRowCheck.Size = new System.Drawing.Size(41, 23);
+            this.lblRowCheck.TabIndex = 68;
+            this.lblRowCheck.Text = "Row";
+            this.lblRowCheck.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRowCheck.Visible = false;
+            this.lblRowCheck.Click += new System.EventHandler(this.label_click);
             // 
-            // label2
+            // lblColCheck
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(992, 68);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(60, 23);
-            this.label2.TabIndex = 69;
-            this.label2.Text = "Name2";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Visible = false;
-            this.label2.Click += new System.EventHandler(this.label_click);
+            this.lblColCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblColCheck.BackColor = System.Drawing.Color.White;
+            this.lblColCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
+            this.lblColCheck.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblColCheck.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblColCheck.Location = new System.Drawing.Point(992, 68);
+            this.lblColCheck.Margin = new System.Windows.Forms.Padding(0);
+            this.lblColCheck.Name = "lblColCheck";
+            this.lblColCheck.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblColCheck.Size = new System.Drawing.Size(60, 23);
+            this.lblColCheck.TabIndex = 69;
+            this.lblColCheck.Text = "Name2";
+            this.lblColCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblColCheck.Visible = false;
+            this.lblColCheck.Click += new System.EventHandler(this.label_click);
             // 
             // button_refind
             // 
@@ -729,9 +729,9 @@
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1122, 378);
             this.Controls.Add(this.button_refind);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblColCheck);
+            this.Controls.Add(this.lblRowCheck);
+            this.Controls.Add(this.label_central);
             this.Controls.Add(this.button_clearfind);
             this.Controls.Add(this.button_kodi);
             this.Controls.Add(this.button_import);
@@ -813,9 +813,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         public System.Windows.Forms.DataGridView dataGridView1;
         private PlaylistEditor.MyButton button_clearfind;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_central;
+        private System.Windows.Forms.Label lblRowCheck;
+        private System.Windows.Forms.Label lblColCheck;
         private MyButton button_refind;
         private System.Windows.Forms.ToolStripMenuItem newWindowToolStripMenuItem;
     }
