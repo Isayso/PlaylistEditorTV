@@ -65,7 +65,6 @@ namespace PlaylistEditor
 
             nMaxThread.Value = Settings.Default.maxthread;
 
-
             //password
             if (Settings.Default.cipher != null && Settings.Default.entropy != null)
             {
