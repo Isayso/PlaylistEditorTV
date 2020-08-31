@@ -44,21 +44,10 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cms1NewWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.textBox_find = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addUseragentCell = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.editCellCopy = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCellPaste = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCellCut = new System.Windows.Forms.ToolStripMenuItem();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button_refind = new PlaylistEditor.MyButton();
-            this.button_clearfind = new PlaylistEditor.MyButton();
             this.button_kodi = new PlaylistEditor.MyButton();
             this.button_import = new PlaylistEditor.MyButton();
             this.RedoButton = new PlaylistEditor.MyButton();
@@ -73,11 +62,23 @@
             this.button_del_all = new PlaylistEditor.MyButton();
             this.button_settings = new PlaylistEditor.MyButton();
             this.button_add = new PlaylistEditor.MyButton();
-            this.plabel_Filename = new PathLabel();
             this.button_Info = new PlaylistEditor.MyButton();
             this.button_delLine = new PlaylistEditor.MyButton();
             this.button_save = new PlaylistEditor.MyButton();
             this.button_open = new PlaylistEditor.MyButton();
+            this.textBox_find = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addUseragentCell = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.editCellCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCellPaste = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCellCut = new System.Windows.Forms.ToolStripMenuItem();
+            this.label_central = new System.Windows.Forms.Label();
+            this.lblRowCheck = new System.Windows.Forms.Label();
+            this.lblColCheck = new System.Windows.Forms.Label();
+            this.button_refind = new PlaylistEditor.MyButton();
+            this.button_clearfind = new PlaylistEditor.MyButton();
+            this.plabel_Filename = new PathLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -137,9 +138,10 @@
             this.playToolStripMenuItem,
             this.toolStripSeparator3,
             this.hideToolStripMenuItem,
-            this.showToolStripMenuItem});
+            this.showToolStripMenuItem,
+            this.cms1NewWindow});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 184);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 208);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // toolStripCopy
@@ -210,6 +212,14 @@
             this.showToolStripMenuItem.Text = "Show all columns";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
+            // cms1NewWindow
+            // 
+            this.cms1NewWindow.Name = "cms1NewWindow";
+            this.cms1NewWindow.ShortcutKeyDisplayString = "Ctrl+N";
+            this.cms1NewWindow.Size = new System.Drawing.Size(225, 24);
+            this.cms1NewWindow.Text = "New Window";
+            this.cms1NewWindow.Click += new System.EventHandler(this.newWindowToolStripMenuItem_Click);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.DefaultExt = "m3u";
@@ -219,167 +229,6 @@
             // 
             this.saveFileDialog1.DefaultExt = "m3u";
             this.saveFileDialog1.Filter = "Playlist|*.m3u";
-            // 
-            // textBox_find
-            // 
-            this.textBox_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_find.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F);
-            this.textBox_find.Location = new System.Drawing.Point(708, 64);
-            this.textBox_find.MaximumSize = new System.Drawing.Size(400, 300);
-            this.textBox_find.MaxLength = 16;
-            this.textBox_find.Name = "textBox_find";
-            this.textBox_find.Size = new System.Drawing.Size(391, 31);
-            this.textBox_find.TabIndex = 34;
-            this.textBox_find.Visible = false;
-            this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChange);
-            this.textBox_find.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_find_KeyPress);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(18, 18);
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addUseragentCell,
-            this.toolStripSeparator1,
-            this.editCellCopy,
-            this.editCellPaste,
-            this.editCellCut});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 106);
-            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
-            // 
-            // addUseragentCell
-            // 
-            this.addUseragentCell.Name = "addUseragentCell";
-            this.addUseragentCell.ShortcutKeyDisplayString = "";
-            this.addUseragentCell.Size = new System.Drawing.Size(172, 24);
-            this.addUseragentCell.Text = "add user-agent";
-            this.addUseragentCell.Click += new System.EventHandler(this.addUseragentCell_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
-            // 
-            // editCellCopy
-            // 
-            this.editCellCopy.Name = "editCellCopy";
-            this.editCellCopy.ShortcutKeyDisplayString = "Ctrl-C";
-            this.editCellCopy.Size = new System.Drawing.Size(172, 24);
-            this.editCellCopy.Text = "Copy";
-            this.editCellCopy.Click += new System.EventHandler(this.editCellCopy_Click);
-            // 
-            // editCellPaste
-            // 
-            this.editCellPaste.Name = "editCellPaste";
-            this.editCellPaste.ShortcutKeyDisplayString = "Ctrl-V";
-            this.editCellPaste.Size = new System.Drawing.Size(172, 24);
-            this.editCellPaste.Text = "Paste";
-            this.editCellPaste.Click += new System.EventHandler(this.editCellPaste_Click);
-            // 
-            // editCellCut
-            // 
-            this.editCellCut.Name = "editCellCut";
-            this.editCellCut.ShortcutKeyDisplayString = "Ctrl-X";
-            this.editCellCut.Size = new System.Drawing.Size(172, 24);
-            this.editCellCut.Text = "Cut";
-            this.editCellCut.Click += new System.EventHandler(this.editCellCut_Click);
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Gray;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(454, 169);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(257, 60);
-            this.label6.TabIndex = 67;
-            this.label6.Text = "Double Click to open file\r\nDrag \'n Drop file to open or append\r\nCtrl-N to open ne" +
-    "w window";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(1054, 68);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 23);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "Row";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Visible = false;
-            this.label1.Click += new System.EventHandler(this.label_click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(992, 68);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(60, 23);
-            this.label2.TabIndex = 69;
-            this.label2.Text = "Name2";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Visible = false;
-            this.label2.Click += new System.EventHandler(this.label_click);
-            // 
-            // button_refind
-            // 
-            this.button_refind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_refind.BackColor = System.Drawing.Color.White;
-            this.button_refind.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_refind.BackgroundImage")));
-            this.button_refind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_refind.FlatAppearance.BorderSize = 0;
-            this.button_refind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_refind.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F);
-            this.button_refind.ForeColor = System.Drawing.SystemColors.Control;
-            this.button_refind.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button_refind.Location = new System.Drawing.Point(967, 66);
-            this.button_refind.Margin = new System.Windows.Forms.Padding(2);
-            this.button_refind.Name = "button_refind";
-            this.button_refind.Size = new System.Drawing.Size(23, 27);
-            this.button_refind.TabIndex = 70;
-            this.button_refind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button_refind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_refind.UseVisualStyleBackColor = false;
-            this.button_refind.Visible = false;
-            this.button_refind.Click += new System.EventHandler(this.button_refind_Click);
-            // 
-            // button_clearfind
-            // 
-            this.button_clearfind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_clearfind.BackColor = System.Drawing.Color.White;
-            this.button_clearfind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_clearfind.FlatAppearance.BorderSize = 0;
-            this.button_clearfind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_clearfind.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F);
-            this.button_clearfind.ForeColor = System.Drawing.SystemColors.Control;
-            this.button_clearfind.Image = ((System.Drawing.Image)(resources.GetObject("button_clearfind.Image")));
-            this.button_clearfind.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button_clearfind.Location = new System.Drawing.Point(944, 66);
-            this.button_clearfind.Margin = new System.Windows.Forms.Padding(2);
-            this.button_clearfind.Name = "button_clearfind";
-            this.button_clearfind.Size = new System.Drawing.Size(23, 27);
-            this.button_clearfind.TabIndex = 66;
-            this.button_clearfind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button_clearfind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_clearfind.UseVisualStyleBackColor = false;
-            this.button_clearfind.Visible = false;
-            this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
             // 
             // button_kodi
             // 
@@ -422,6 +271,7 @@
             this.RedoButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.RedoButton.BackgroundImage = global::PlaylistEditor.Properties.Resources.redo;
             this.RedoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RedoButton.Enabled = false;
             this.RedoButton.FlatAppearance.BorderSize = 0;
             this.RedoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RedoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -439,6 +289,7 @@
             this.UndoButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.UndoButton.BackgroundImage = global::PlaylistEditor.Properties.Resources.undo;
             this.UndoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UndoButton.Enabled = false;
             this.UndoButton.FlatAppearance.BorderSize = 0;
             this.UndoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UndoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -628,19 +479,6 @@
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
             // 
-            // plabel_Filename
-            // 
-            this.plabel_Filename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.plabel_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F);
-            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
-            this.plabel_Filename.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.plabel_Filename.Location = new System.Drawing.Point(405, 16);
-            this.plabel_Filename.Name = "plabel_Filename";
-            this.plabel_Filename.Size = new System.Drawing.Size(355, 23);
-            this.plabel_Filename.TabIndex = 26;
-            this.plabel_Filename.Text = "pathLabel1";
-            // 
             // button_Info
             // 
             this.button_Info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -710,6 +548,181 @@
             this.button_open.UseVisualStyleBackColor = true;
             this.button_open.Click += new System.EventHandler(this.button_open_Click);
             // 
+            // textBox_find
+            // 
+            this.textBox_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_find.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F);
+            this.textBox_find.Location = new System.Drawing.Point(708, 64);
+            this.textBox_find.MaximumSize = new System.Drawing.Size(400, 300);
+            this.textBox_find.MaxLength = 16;
+            this.textBox_find.Name = "textBox_find";
+            this.textBox_find.Size = new System.Drawing.Size(391, 31);
+            this.textBox_find.TabIndex = 34;
+            this.toolTip1.SetToolTip(this.textBox_find, "AND char SPACE");
+            this.textBox_find.Visible = false;
+            this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChange);
+            this.textBox_find.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_find_KeyPress);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addUseragentCell,
+            this.toolStripSeparator1,
+            this.editCellCopy,
+            this.editCellPaste,
+            this.editCellCut});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 106);
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
+            // 
+            // addUseragentCell
+            // 
+            this.addUseragentCell.Name = "addUseragentCell";
+            this.addUseragentCell.ShortcutKeyDisplayString = "";
+            this.addUseragentCell.Size = new System.Drawing.Size(172, 24);
+            this.addUseragentCell.Text = "add user-agent";
+            this.addUseragentCell.Click += new System.EventHandler(this.addUseragentCell_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            // 
+            // editCellCopy
+            // 
+            this.editCellCopy.Name = "editCellCopy";
+            this.editCellCopy.ShortcutKeyDisplayString = "Ctrl-C";
+            this.editCellCopy.Size = new System.Drawing.Size(172, 24);
+            this.editCellCopy.Text = "Copy";
+            this.editCellCopy.Click += new System.EventHandler(this.editCellCopy_Click);
+            // 
+            // editCellPaste
+            // 
+            this.editCellPaste.Name = "editCellPaste";
+            this.editCellPaste.ShortcutKeyDisplayString = "Ctrl-V";
+            this.editCellPaste.Size = new System.Drawing.Size(172, 24);
+            this.editCellPaste.Text = "Paste";
+            this.editCellPaste.Click += new System.EventHandler(this.editCellPaste_Click);
+            // 
+            // editCellCut
+            // 
+            this.editCellCut.Name = "editCellCut";
+            this.editCellCut.ShortcutKeyDisplayString = "Ctrl-X";
+            this.editCellCut.Size = new System.Drawing.Size(172, 24);
+            this.editCellCut.Text = "Cut";
+            this.editCellCut.Click += new System.EventHandler(this.editCellCut_Click);
+            // 
+            // label_central
+            // 
+            this.label_central.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_central.AutoSize = true;
+            this.label_central.BackColor = System.Drawing.Color.Gray;
+            this.label_central.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
+            this.label_central.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_central.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label_central.Location = new System.Drawing.Point(454, 169);
+            this.label_central.Name = "label_central";
+            this.label_central.Size = new System.Drawing.Size(257, 60);
+            this.label_central.TabIndex = 67;
+            this.label_central.Text = "Double Click to open file\r\nDrag \'n Drop file to open or append\r\nCtrl-N to open ne" +
+    "w window";
+            this.label_central.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_central.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // lblRowCheck
+            // 
+            this.lblRowCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRowCheck.BackColor = System.Drawing.Color.White;
+            this.lblRowCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
+            this.lblRowCheck.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblRowCheck.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblRowCheck.Location = new System.Drawing.Point(1054, 68);
+            this.lblRowCheck.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRowCheck.Name = "lblRowCheck";
+            this.lblRowCheck.Size = new System.Drawing.Size(41, 23);
+            this.lblRowCheck.TabIndex = 68;
+            this.lblRowCheck.Text = "Row";
+            this.lblRowCheck.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRowCheck.Visible = false;
+            this.lblRowCheck.Click += new System.EventHandler(this.label_click);
+            // 
+            // lblColCheck
+            // 
+            this.lblColCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblColCheck.BackColor = System.Drawing.Color.White;
+            this.lblColCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Italic);
+            this.lblColCheck.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblColCheck.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblColCheck.Location = new System.Drawing.Point(992, 68);
+            this.lblColCheck.Margin = new System.Windows.Forms.Padding(0);
+            this.lblColCheck.Name = "lblColCheck";
+            this.lblColCheck.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblColCheck.Size = new System.Drawing.Size(60, 23);
+            this.lblColCheck.TabIndex = 69;
+            this.lblColCheck.Text = "Name2";
+            this.lblColCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblColCheck.Visible = false;
+            this.lblColCheck.Click += new System.EventHandler(this.label_click);
+            // 
+            // button_refind
+            // 
+            this.button_refind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_refind.BackColor = System.Drawing.Color.White;
+            this.button_refind.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_refind.BackgroundImage")));
+            this.button_refind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_refind.FlatAppearance.BorderSize = 0;
+            this.button_refind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_refind.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F);
+            this.button_refind.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_refind.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button_refind.Location = new System.Drawing.Point(967, 66);
+            this.button_refind.Margin = new System.Windows.Forms.Padding(2);
+            this.button_refind.Name = "button_refind";
+            this.button_refind.Size = new System.Drawing.Size(23, 27);
+            this.button_refind.TabIndex = 70;
+            this.button_refind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button_refind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button_refind.UseVisualStyleBackColor = false;
+            this.button_refind.Visible = false;
+            this.button_refind.Click += new System.EventHandler(this.button_refind_Click);
+            // 
+            // button_clearfind
+            // 
+            this.button_clearfind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_clearfind.BackColor = System.Drawing.Color.White;
+            this.button_clearfind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_clearfind.FlatAppearance.BorderSize = 0;
+            this.button_clearfind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_clearfind.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F);
+            this.button_clearfind.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_clearfind.Image = ((System.Drawing.Image)(resources.GetObject("button_clearfind.Image")));
+            this.button_clearfind.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button_clearfind.Location = new System.Drawing.Point(944, 66);
+            this.button_clearfind.Margin = new System.Windows.Forms.Padding(2);
+            this.button_clearfind.Name = "button_clearfind";
+            this.button_clearfind.Size = new System.Drawing.Size(23, 27);
+            this.button_clearfind.TabIndex = 66;
+            this.button_clearfind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button_clearfind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button_clearfind.UseVisualStyleBackColor = false;
+            this.button_clearfind.Visible = false;
+            this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
+            // 
+            // plabel_Filename
+            // 
+            this.plabel_Filename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.plabel_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F);
+            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
+            this.plabel_Filename.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.plabel_Filename.Location = new System.Drawing.Point(405, 16);
+            this.plabel_Filename.Name = "plabel_Filename";
+            this.plabel_Filename.Size = new System.Drawing.Size(355, 23);
+            this.plabel_Filename.TabIndex = 26;
+            this.plabel_Filename.Text = "pathLabel1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -717,9 +730,9 @@
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1122, 378);
             this.Controls.Add(this.button_refind);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblColCheck);
+            this.Controls.Add(this.lblRowCheck);
+            this.Controls.Add(this.label_central);
             this.Controls.Add(this.button_clearfind);
             this.Controls.Add(this.button_kodi);
             this.Controls.Add(this.button_import);
@@ -801,10 +814,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         public System.Windows.Forms.DataGridView dataGridView1;
         private PlaylistEditor.MyButton button_clearfind;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_central;
+        private System.Windows.Forms.Label lblRowCheck;
+        private System.Windows.Forms.Label lblColCheck;
         private MyButton button_refind;
+        private System.Windows.Forms.ToolStripMenuItem cms1NewWindow;
     }
 }
 

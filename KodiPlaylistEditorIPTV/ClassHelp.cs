@@ -377,7 +377,8 @@ namespace PlaylistEditor
             {
                 return false;
             }
-            return !Enumerable.Range(0, instance.GetLength(0)).Any(x => !instance[x].SequenceEqual(dgvRows[x].Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()));
+            return !Enumerable.Range(0, instance.GetLength(0)).Any(x => !instance[x].SequenceEqual(dgvRows[x]
+                .Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()));
         }
 
 

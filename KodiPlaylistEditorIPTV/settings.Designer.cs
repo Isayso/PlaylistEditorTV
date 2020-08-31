@@ -50,6 +50,7 @@
             this.checkBox_a = new System.Windows.Forms.CheckBox();
             this.checkBox_s = new System.Windows.Forms.CheckBox();
             this.checkBox_c = new System.Windows.Forms.CheckBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.button_file = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -76,9 +77,8 @@
             this.checkBox_vlc = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.comboBox_403 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.nMaxThread = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_403 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -325,6 +325,17 @@
             this.checkBox_c.Text = "CTRL";
             this.toolTip1.SetToolTip(this.checkBox_c, "Restart to take effect");
             this.checkBox_c.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label15.Location = new System.Drawing.Point(68, 43);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(149, 20);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Color for Error 403";
+            this.toolTip1.SetToolTip(this.label15, "Error 403: Server responds, but no valid stream\r\n(password missing?)");
             // 
             // button_file
             // 
@@ -685,28 +696,6 @@
             this.tabPage5.TabIndex = 6;
             this.tabPage5.Text = "Link check";
             // 
-            // comboBox_403
-            // 
-            this.comboBox_403.FormattingEnabled = true;
-            this.comboBox_403.Items.AddRange(new object[] {
-            "Orange",
-            "Gray"});
-            this.comboBox_403.Location = new System.Drawing.Point(299, 40);
-            this.comboBox_403.Name = "comboBox_403";
-            this.comboBox_403.Size = new System.Drawing.Size(91, 28);
-            this.comboBox_403.TabIndex = 9;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label15.Location = new System.Drawing.Point(68, 43);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(149, 20);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Color for Error 403";
-            this.toolTip1.SetToolTip(this.label15, "Error 403: Server responds, but no valid stream\r\n(password missing?)");
-            // 
             // nMaxThread
             // 
             this.nMaxThread.Location = new System.Drawing.Point(299, 123);
@@ -724,11 +713,24 @@
             this.nMaxThread.Size = new System.Drawing.Size(57, 27);
             this.nMaxThread.TabIndex = 72;
             this.nMaxThread.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.nMaxThread, "max treads network dependent\r\ntry it");
             this.nMaxThread.Value = new decimal(new int[] {
             3,
             0,
             0,
             0});
+            // 
+            // comboBox_403
+            // 
+            this.comboBox_403.FormattingEnabled = true;
+            this.comboBox_403.Items.AddRange(new object[] {
+            "Orange",
+            "Gray"});
+            this.comboBox_403.Location = new System.Drawing.Point(299, 40);
+            this.comboBox_403.Name = "comboBox_403";
+            this.comboBox_403.Size = new System.Drawing.Size(91, 28);
+            this.comboBox_403.TabIndex = 9;
+            this.comboBox_403.Click += new System.EventHandler(this.ComboBox_Click);
             // 
             // label16
             // 

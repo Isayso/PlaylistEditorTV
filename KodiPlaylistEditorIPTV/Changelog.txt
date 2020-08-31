@@ -1,7 +1,13 @@
-﻿1.5.4
+﻿1.5.5
+- automatic import of user settings
+- 'new window' in context menu
+- redo/undo better UI
+- AND search character now space
+
+1.5.4 (219)
 - link check multithreading
 
-1.5.3
+1.5.3 (150)
 - color for 403 link error switchable
 - no re-check of links after sorting necessary
 - cancel closing of Form
