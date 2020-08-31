@@ -559,6 +559,7 @@
             this.textBox_find.Name = "textBox_find";
             this.textBox_find.Size = new System.Drawing.Size(391, 31);
             this.textBox_find.TabIndex = 34;
+            this.toolTip1.SetToolTip(this.textBox_find, "AND char SPACE");
             this.textBox_find.Visible = false;
             this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChange);
             this.textBox_find.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_find_KeyPress);

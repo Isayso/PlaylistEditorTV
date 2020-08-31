@@ -2,7 +2,7 @@
 - automatic import of user settings
 - 'new window' in context menu
 - redo/undo better UI
-- max 30 threads (network dependent)
+- AND search character now space
 
 1.5.4 (219)
 - link check multithreading

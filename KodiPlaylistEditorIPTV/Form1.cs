@@ -400,7 +400,7 @@ namespace PlaylistEditor
 
             Label obj = sender as Label;
 
-            if (obj.Name == "label1")
+            if (obj.Name == "lblRowCheck")
             {
                 switch (playswitch)
                 {
@@ -418,7 +418,7 @@ namespace PlaylistEditor
                 textBox_find_TextChange(sender, e);
             }
 
-            if (obj.Name == "label2")
+            if (obj.Name == "lblColCheck")
             {
                 colswitch++; if (colswitch >= colList.Length) colswitch = 0;
 
@@ -460,8 +460,8 @@ namespace PlaylistEditor
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    undoStack.Clear(); redoStack.Clear(); toSave(false); ShowReUnDo(0);//reset stacks
-
+                    //undoStack.Clear(); redoStack.Clear(); toSave(false); ShowReUnDo(0);//reset stacks
+                    toSave(false, true);
                     importDataset(openFileDialog1.FileName, false);
                     button_revert.Visible = true;
                 }
@@ -708,7 +708,8 @@ namespace PlaylistEditor
                     }
 
                 }
-                undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
+                //undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
+                toSave(false, true);
                 button_revert.Visible = true;
                 _savenow = false;
 
@@ -745,8 +746,8 @@ namespace PlaylistEditor
 
                 }
 
-                undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
-
+                //undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
+                toSave(false, true);
                 button_revert.Visible = true;
                 Cursor.Current = Cursors.Default;
             }
@@ -929,7 +930,8 @@ namespace PlaylistEditor
 
                         dt.Clear();
                         dt.Columns.Clear();
-                        undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
+                        //undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
+                        toSave(false, true);
                         plabel_Filename.Text = "";
                         button_revert.Visible = false;
                         break;
@@ -950,7 +952,8 @@ namespace PlaylistEditor
             {
                 case DialogResult.Yes:
                     importDataset(plabel_Filename.Text, false);
-                    undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
+                    //undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
+                    toSave(false, true);
                     break;
 
                 case DialogResult.No:
@@ -1672,9 +1675,9 @@ namespace PlaylistEditor
                 string _name = "";
                 List<string> _searchlist = new List<string>();
 
-                if (textBox_find.Text.ToLower().Contains("&"))
+                if (textBox_find.Text.ToLower().Contains(' '))
                 {
-                    string[] _search = textBox_find.Text.ToLower().Split('&');
+                    string[] _search = textBox_find.Text.ToLower().Split(' ');
 
                     for (int i = 0; i < _search.Length; i++)
                         if (!string.IsNullOrEmpty(_search[i])) _searchlist.Add(_search[i].Trim());
@@ -1689,7 +1692,7 @@ namespace PlaylistEditor
 
                 foreach (DataGridViewRow row in dataGridView1.GetRows())
                 {
-                    if (colS == 6)
+                    if (colS == 6)  //if search in all cells
                     {
                         for (int i = 0; i < 6; i++)
                         {
@@ -1969,12 +1972,19 @@ namespace PlaylistEditor
 
 
         /// <summary>
-        /// changes icon if file is modified
+        /// change icon and flag for saving file
         /// </summary>
-        public void toSave(bool hasChanged)
+        /// <param name="hasChanged">true if grid modified vs file</param>
+        /// <param name="reset">reset undo/redo stack</param>
+        public void toSave(bool hasChanged, bool reset=false)
         {
+            if (reset)
+            {
+                undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0);
+            }
 
-            if (isModified == hasChanged) return;
+
+            //       if (isModified == hasChanged) return;
 
             isModified = hasChanged;
 
@@ -2688,7 +2698,7 @@ namespace PlaylistEditor
                 e.Handled = true;
                 e.PaintBackground(e.CellBounds, true);
 
-                string[] _search = textBox_find.Text.ToLower().Split('&');
+                string[] _search = textBox_find.Text.ToLower().Split(' ');
                 string sw = _search[0].Trim();
 
                 if (!string.IsNullOrEmpty(sw))
@@ -2704,7 +2714,7 @@ namespace PlaylistEditor
 
             void PaintCells(string sw, int s_length)
             {
-                Color[] colors = new Color[] { Color.Yellow, Color.GreenYellow, Color.Orange };
+                Color[] colors = new Color[] { Color.Orange, Color.Yellow, Color.GreenYellow  };
 
                 string val = (string)e.FormattedValue;
                 int sindx = val.ToLower().IndexOf(sw.ToLower());
