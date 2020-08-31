@@ -5,6 +5,8 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
+1.5.5 better undo/redo UI, SPACE is now the logical AND for find text function
+
 1.5.4 Multi-threading for link check, up to 20 parallel tasks, can be selected in settings. Big performance increase. 
 
 1.5.3 Result of link check is stored a re-scan is often not necessary (force re-scan with Alt-click).
@@ -83,3 +85,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5.4/total)
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5.5/total)
