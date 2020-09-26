@@ -173,8 +173,7 @@ Ctrl + Zelle doppelclick</value>
   </data>
   <data name="button_check.ToolTip" xml:space="preserve">
     <value>teste auf ungültige links
-+ ctrl markiere gefundene links
-</value>
++ ctrl markiere gefundene links</value>
   </data>
   <data name="button_vlc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -251,7 +250,9 @@ Ctrl+F</value>
   </data>
   <data name="button_moveDown.ToolTip" xml:space="preserve">
     <value>Zeile runter
-Ctrl-2</value>
+Ctrl-2
+Ctrl-click nach Ende
+Ctrl-B nach Ende</value>
   </data>
   <data name="button_moveUp.ToolTip" xml:space="preserve">
     <value>Zeile hoch
@@ -885,5 +886,92 @@ Ctrl-N für neues Fenster</value>
     <value>Doppelclick öffnet Datei
 Drag 'n Drop Datei öffnen oder anfügen
 Ctrl-N neues Fenster</value>
+  </data>
+  <data name="toolStripPaste.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+V</value>
+  </data>
+  <data name="editCellPaste.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+V</value>
+  </data>
+  <data name="addUseragentCell.Text" xml:space="preserve">
+    <value>Benutzer Agent</value>
+  </data>
+  <data name="openFileDialog1.Filter" xml:space="preserve">
+    <value>Wiedergabeliste | * .m3u!</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Playlist Editor TV!</value>
+  </data>
+  <data name="cutRowMenuItem.Text" xml:space="preserve">
+    <value>Zeile ausschneiden</value>
+  </data>
+  <data name="cms1NewWindow.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+N</value>
+  </data>
+  <data name="playToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+P</value>
+  </data>
+  <data name="pasteRowMenuItem.Text" xml:space="preserve">
+    <value>Einfügezeile einfügen!</value>
+  </data>
+  <data name="showToolStripMenuItem.Text" xml:space="preserve">
+    <value>Alle Spalten anzeigen</value>
+  </data>
+  <data name="plabel_Filename.Text" xml:space="preserve">
+    <value>pathLabel1!</value>
+  </data>
+  <data name="saveFileDialog1.Filter" xml:space="preserve">
+    <value>Wiedergabeliste | * .m3u!</value>
+  </data>
+  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Spalte ausblenden</value>
+  </data>
+  <data name="editCellCut.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+X</value>
+  </data>
+  <data name="editCellCopy.Text" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="textBox_find.ToolTip" xml:space="preserve">
+    <value>UND char SPACE!</value>
+  </data>
+  <data name="lblRowCheck.Text" xml:space="preserve">
+    <value>Zeile</value>
+  </data>
+  <data name="toolStripPaste.Text" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+X</value>
+  </data>
+  <data name="pasteRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+I</value>
+  </data>
+  <data name="toolStripCopy.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+C</value>
+  </data>
+  <data name="playToolStripMenuItem.Text" xml:space="preserve">
+    <value>Kodi spielen!</value>
+  </data>
+  <data name="editCellCopy.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+C</value>
+  </data>
+  <data name="editCellPaste.Text" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="editCellCut.Text" xml:space="preserve">
+    <value>Ausschneiden</value>
+  </data>
+  <data name="toolStripCopy.Text" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="playToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Strg Doppelklick auf Zelle!</value>
+  </data>
+  <data name="lblColCheck.Text" xml:space="preserve">
+    <value>Name2</value>
+  </data>
+  <data name="cms1NewWindow.Text" xml:space="preserve">
+    <value>Neues Fenster</value>
   </data>
 </root>

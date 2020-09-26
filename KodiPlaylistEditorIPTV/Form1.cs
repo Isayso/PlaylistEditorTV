@@ -83,9 +83,20 @@ namespace PlaylistEditor
         //  public List<CheckList> checkList = new List<CheckList>();
 
 
+
         public Form1()
         {
+            if (Debugger.IsAttached)
+            {
+                string myCulture = "es-ES";
+                Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
+                Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
+            }
+
+
             InitializeComponent();
+
+
 
             this.Text = String.Format("PlaylistEditor TV " + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 
@@ -93,6 +104,9 @@ namespace PlaylistEditor
             //  Clipboard.Clear();
             this.Text = String.Format("PlaylistEditor TV DEBUG" + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 #endif
+
+
+
 
             if (Settings.Default.UpgradeRequired)
             {

@@ -143,11 +143,27 @@ Ctrl-B move to bottom</value>
   <data name="button_check.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="showToolStripMenuItem.Text" xml:space="preserve">
-    <value>Show all columns</value>
+  <data name="&gt;&gt;button_moveUp.Type" xml:space="preserve">
+    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="button_save.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="button_search.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC3UlEQVRoQ+2YO2sVURSFk0qx8BeYSiEI
+        FloaVOKDKAq+Qir9BbHyN1gItlYpRLTSIGitKGIIPkrFRgtbQdQkhU/w+u1zVnZmQq53n1HMBOaDRe5Z
+        56w9e27m3plzhzo6Ojo6OvrR6/VG0B20hP43dsy7aFTtlEHQmv+I1ptPaERtxSFk73xbmFVbcQitx2XT
+        j0W1FUfB1qC24ijXGtRWHOVag9qKo1xrUFtxlHNkh1HMkR1GMUd2HOUc2WEUc2SHUcyRHUc5R3YYxRzZ
+        YRRzZMdRzpEdRjHjOToiO0yOriA7jnKO7DBEfqBpDYshew4tooTsOMo5ssMQ2a+XjaHGbvS+yfH/+gRW
+        Q4lhdALdQG/Rd/QFvUPX0YSW1sDfg5Y0jEOohuxGEN+FnqZCf2Ye7VDMwTuvl3FSuXIeKu7gTaCSB8MF
+        NK54c3KtYvYqnmC8EzV5qrU9QLONzDK5ThEvFU0wtmv+RZqpcx/Zf2Ur2oL2odtoNY9UqhkqUsIlRROM
+        j2e7xhU0rCU18KfTijoHNV2OCjiywxC5mZPOE7Rm88swfyutXGFGU+WogCM7DBH7eqxyRlN9Yc1YXurU
+        LssiVMCRHYbI15x0tmmqL6zZlJc6C5oqRwUc2SFYbh9gu1FViZzAZvQrrc580FQ5KuDIDkPkTU46pzXV
+        F9YcyEuddb2E7PGgymM06EN8L61c4aqmylEBR3YYIsdyssZl1O9r9GJaUWdM0+WogCO7CGJzOV3jATqK
+        Bt3I5lWmGRRo8ghwWPEEY3uU+JxmyvmJplSqHML2w2optvuqXSKMx1HTk7BN0aRKlUFwFNlDVSkXVMLB
+        247WupxW8wzZO1/FTuKsSpVB0H6hnkW+tQtgB1xzN4Z/CF1Dr5Fdolb3FZpBKcPfKWQ1qth44J28NdDs
+        pJquYuOB95LWQLO2/fxmnVfY8CdhjyenNL0xoGHbV9hJbLzml6HxkyYNOzr+HUNDvwH6579OA/3IOgAA
+        AABJRU5ErkJggg==
+</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pasteRowMenuItem.Enabled" type="System.Boolean, mscorlib">
@@ -156,11 +172,8 @@ Ctrl-B move to bottom</value>
   <data name="&gt;&gt;lblColCheck.Name" xml:space="preserve">
     <value>lblColCheck</value>
   </data>
-  <data name="button_Info.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="button_del_all.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 32</value>
+  <data name="button_refind.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="button_kodi.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -177,14 +190,11 @@ Ctrl-B move to bottom</value>
   <data name="&gt;&gt;textBox_find.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="button_save.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="cutRowMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="button_open.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;button_refind.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;saveFileDialog1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -200,14 +210,17 @@ Ctrl-N to open new window</value>
   <data name="&gt;&gt;hideToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripPaste.Text" xml:space="preserve">
-    <value>Paste</value>
+  <data name="lblColCheck.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="button_import.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="openFileDialog1.Filter" xml:space="preserve">
     <value>Playlist|*.m3u</value>
+  </data>
+  <data name="button_Info.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="button_Info.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -238,9 +251,6 @@ Ctrl-N to open new window</value>
   </data>
   <data name="button_moveUp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
-  </data>
-  <data name="UndoButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="contextMenuStrip2.ToolTip" xml:space="preserve">
     <value />
@@ -290,9 +300,6 @@ Ctrl+N open new window</value>
   <data name="&gt;&gt;UndoButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="editCellCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 24</value>
-  </data>
   <data name="button_import.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -331,18 +338,8 @@ Ctrl + double click cell</value>
   <data name="button_dup.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
   </data>
-  <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABfUlEQVRoQ+3YW0rEQBCF4SxEX3WZ+uhW
-        RrxsTMVxA7GK/HNmGAjpVKwKSH/QMBy6Li0+Zei6ruu6JeM43tp5sfNjJ5vPeLNzx/htrJEv/2mn2ped
-        7Y+wJv6X38sra8RZk4p/mzlH1oijkRCnYYwQx9FHiNMwRojj6CPEaRgjxHH0EeI0jBHiOPoI8Sy78sTP
-        kGnKGXEcfYR4FtfCj6BeiOsw14UeQa0Q12HuyepHUCfEdZh7adUjqBHiOsy91vwI7gtxO+oyND2Cu0Lc
-        jrosi4/gnhC3oy7LA2NmcU+I21GXYXF5x10hrsPca03LO+4LcR3mXmpe3lEjxHWYe7JqeUedENdhrlu9
-        vKNWiOPoI8SzuBZa3lEvxHH0EeJZduWRnyHTlDPiOPoIcRrGCHEcfYQ4DWOEOI4+QpyGMUIcRx8hTsMY
-        IY6zHnt+2PpmjThr8j712sWBNeKsyb0d/9Ba7cPODWtsY438C/WznaOdbD7jYOdvlu+6ruv+sWH4Bb0F
-        Ni6Mh8vQAAAAAElFTkSuQmCC
-</value>
+  <data name="&gt;&gt;lblColCheck.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Playlist Editor TV</value>
@@ -370,9 +367,6 @@ Ctrl + double click cell</value>
   </data>
   <data name="&gt;&gt;button_del_all.Type" xml:space="preserve">
     <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="button_clearfind.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="button_del_all.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -415,8 +409,8 @@ Ctrl + double click cell</value>
   <data name="plabel_Filename.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button_settings.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="button_check.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
   </data>
   <data name="&gt;&gt;button_refind.Type" xml:space="preserve">
     <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
@@ -433,6 +427,9 @@ Ctrl-1
 Ctrl-click move to top
 Ctrl+T move to top</value>
   </data>
+  <data name="button_save.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
   <data name="button_moveDown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -445,8 +442,19 @@ Ctrl+T move to top</value>
   <data name="label_central.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;button_dup.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="button_kodi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAABDqAAAQ6gGC0wqYAAAAGHRF
+        WHRTb2Z0d2FyZQBwYWludC5uZXQgNC4xLjVkR1hSAAABoElEQVRoQ+3OQW7DMAwEwPz/0y1QTAkQtCxZ
+        ZtIePEfuau3X4/Ho9TWh9n/4r21mPs/325j9DN9sZ/59fOeU6pDaKdVetg+pXOb5IZUeNgvxbeYK8T22
+        CnEbs4V4n51E1M58ItpjIxFNqf9wWuJJIrrG20Q0pZ6IlniSiNZ5F5yXeFKIl3gSnNd4k4iWeVaIp9QT
+        0Zx+cL7M80I8pR6c5/SD8xYThfiUanCe0w/O28wU4iG14HxONzjfZq4QD6kF5zG94NzGbCI6pBKcx/SC
+        cyvTiagQB+cxveDcynQhTkTBeUwvOLczn4gSUXAe0wvOrUwnokIcnMf0gnMLk4X4kEpwHtMLzreZK8RD
+        asH5nG5w3mamEA+pBec5/eC8xUQhPqUanOf0g/NlnhfiKfXgPKefiJZ5Voin1BPRGm+C8xJPCvEST4Lz
+        Ou8S0ZR6IlriSSK6xttEtMSTv/n5XzYSUTvziWifnULcxmwhvsdWIb7NXCHuYfOQymWeH1LpZfuU6pDa
+        KdX38Z125j/DN9uY/Tzf32bm//BfQ2qPx6PF6/UNbHDjjafErpcAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="label_central.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -466,9 +474,6 @@ Ctrl+T move to top</value>
   <data name="toolStripPaste.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 24</value>
   </data>
-  <data name="&gt;&gt;button_add.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -478,20 +483,20 @@ Ctrl+T move to top</value>
   <data name="lblColCheck.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="&gt;&gt;button_moveUp.Name" xml:space="preserve">
-    <value>button_moveUp</value>
-  </data>
   <data name="button_settings.ToolTip" xml:space="preserve">
     <value>Settings</value>
   </data>
   <data name="cms1NewWindow.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Ctrl+N</value>
   </data>
+  <data name="&gt;&gt;label_central.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="RedoButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button_clearfind.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="button_refind.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="button_dup.ToolTip" xml:space="preserve">
     <value>find duplicates
@@ -564,8 +569,8 @@ double click cell</value>
   <data name="button_delLine.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button_delLine.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="&gt;&gt;button_moveUp.Name" xml:space="preserve">
+    <value>button_moveUp</value>
   </data>
   <data name="&gt;&gt;UndoButton.Name" xml:space="preserve">
     <value>UndoButton</value>
@@ -596,6 +601,9 @@ double click cell</value>
   </data>
   <data name="&gt;&gt;toolStripPaste.Name" xml:space="preserve">
     <value>toolStripPaste</value>
+  </data>
+  <data name="showToolStripMenuItem.Text" xml:space="preserve">
+    <value>Show all columns</value>
   </data>
   <data name="&gt;&gt;plabel_Filename.ZOrder" xml:space="preserve">
     <value>22</value>
@@ -694,9 +702,6 @@ double click cell</value>
   <data name="&gt;&gt;lblRowCheck.Name" xml:space="preserve">
     <value>lblRowCheck</value>
   </data>
-  <data name="button_add.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
   <data name="&gt;&gt;button_del_all.ZOrder" xml:space="preserve">
     <value>19</value>
   </data>
@@ -706,8 +711,8 @@ double click cell</value>
   <data name="&gt;&gt;button_dup.Name" xml:space="preserve">
     <value>button_dup</value>
   </data>
-  <data name="&gt;&gt;button_delLine.Name" xml:space="preserve">
-    <value>button_delLine</value>
+  <data name="&gt;&gt;button_dup.Type" xml:space="preserve">
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="button_refind.TabIndex" type="System.Int32, mscorlib">
     <value>70</value>
@@ -726,15 +731,6 @@ double click cell</value>
   </data>
   <data name="&gt;&gt;button_save.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;button_search.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="button_open.ToolTip" xml:space="preserve">
-    <value>open m3u
-Ctrl+N open new window
-
-</value>
   </data>
   <data name="&gt;&gt;plabel_Filename.Type" xml:space="preserve">
     <value>PathLabel, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
@@ -787,9 +783,6 @@ Ctrl+N open new window
   <data name="&gt;&gt;lblColCheck.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
-    <value>contextMenuStrip2</value>
-  </data>
   <data name="button_open.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -808,12 +801,6 @@ Ctrl+N open new window
   <data name="&gt;&gt;label_central.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="lblColCheck.Text" xml:space="preserve">
-    <value>Name2</value>
-  </data>
-  <data name="label_central.Location" type="System.Drawing.Point, System.Drawing">
-    <value>454, 169</value>
-  </data>
   <data name="&gt;&gt;playToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -823,14 +810,17 @@ Ctrl+N open new window
   <data name="button_settings.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 37</value>
   </data>
-  <data name="&gt;&gt;playToolStripMenuItem.Name" xml:space="preserve">
-    <value>playToolStripMenuItem</value>
+  <data name="lblColCheck.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="&gt;&gt;button_dup.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="RedoButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 19</value>
+  </data>
+  <data name="&gt;&gt;button_Info.Type" xml:space="preserve">
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 6</value>
@@ -841,20 +831,33 @@ Ctrl+N open new window
   <data name="&gt;&gt;button_clearfind.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Hide column</value>
+  </data>
+  <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABfUlEQVRoQ+3YW0rEQBCF4SxEX3WZ+uhW
+        RrxsTMVxA7GK/HNmGAjpVKwKSH/QMBy6Li0+Zei6ruu6JeM43tp5sfNjJ5vPeLNzx/htrJEv/2mn2ped
+        7Y+wJv6X38sra8RZk4p/mzlH1oijkRCnYYwQx9FHiNMwRojj6CPEaRgjxHH0EeI0jBHiOPoI8Sy78sTP
+        kGnKGXEcfYR4FtfCj6BeiOsw14UeQa0Q12HuyepHUCfEdZh7adUjqBHiOsy91vwI7gtxO+oyND2Cu0Lc
+        jrosi4/gnhC3oy7LA2NmcU+I21GXYXF5x10hrsPca03LO+4LcR3mXmpe3lEjxHWYe7JqeUedENdhrlu9
+        vKNWiOPoI8SzuBZa3lEvxHH0EeJZduWRnyHTlDPiOPoIcRrGCHEcfYQ4DWOEOI4+QpyGMUIcRx8hTsMY
+        IY6zHnt+2PpmjThr8j712sWBNeKsyb0d/9Ba7cPODWtsY438C/WznaOdbD7jYOdvlu+6ruv+sWH4Bb0F
+        Ni6Mh8vQAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="button_vlc.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label_central.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.818182pt, style=Italic</value>
   </data>
-  <data name="button_revert.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="button_dup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>964, 14</value>
   </data>
   <data name="&gt;&gt;button_settings.Type" xml:space="preserve">
     <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="button_del_all.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
   </data>
   <data name="&gt;&gt;button_vlc.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -865,10 +868,13 @@ Ctrl+N open new window
   <data name="button_save.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="button_clearfind.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 6</value>
   </data>
-  <data name="&gt;&gt;button_Info.Parent" xml:space="preserve">
+  <data name="&gt;&gt;button_refind.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="RedoButton.Location" type="System.Drawing.Point, System.Drawing">
@@ -891,6 +897,9 @@ Ctrl+N open new window
   </data>
   <data name="contextMenuStrip1.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="button_save.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="lblColCheck.TabIndex" type="System.Int32, mscorlib">
     <value>69</value>
@@ -1390,8 +1399,8 @@ Ctrl+N open new window
   <data name="editCellCut.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Ctrl-X</value>
   </data>
-  <data name="button_clearfind.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="&gt;&gt;textBox_find.ZOrder" xml:space="preserve">
+    <value>15</value>
   </data>
   <data name="label_central.TabIndex" type="System.Int32, mscorlib">
     <value>67</value>
@@ -1407,6 +1416,9 @@ Ctrl+N open new window
   </data>
   <data name="editCellCopy.Text" xml:space="preserve">
     <value>Copy</value>
+  </data>
+  <data name="&gt;&gt;UndoButton.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="textBox_find.Size" type="System.Drawing.Size, System.Drawing">
     <value>391, 31</value>
@@ -1426,14 +1438,17 @@ Ctrl+N open new window
   <data name="button_kodi.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="RedoButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;playToolStripMenuItem.Name" xml:space="preserve">
+    <value>playToolStripMenuItem</value>
+  </data>
   <data name="textBox_find.ToolTip" xml:space="preserve">
     <value>AND char SPACE</value>
   </data>
   <data name="plabel_Filename.Location" type="System.Drawing.Point, System.Drawing">
     <value>405, 16</value>
-  </data>
-  <data name="cutRowMenuItem.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="button_open.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 49</value>
@@ -1453,6 +1468,9 @@ Ctrl+N open new window
   <data name="button_Info.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="UndoButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 19</value>
+  </data>
   <data name="button_clearfind.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
   </data>
@@ -1465,8 +1483,8 @@ Ctrl+N open new window
   <data name="&gt;&gt;openFileDialog1.Name" xml:space="preserve">
     <value>openFileDialog1</value>
   </data>
-  <data name="button_delLine.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;button_add.Type" xml:space="preserve">
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="button_check.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 37</value>
@@ -1479,9 +1497,6 @@ Ctrl+N open new window
   </data>
   <data name="&gt;&gt;contextMenuStrip2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RedoButton.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="button_check.ToolTip" xml:space="preserve">
     <value>check for invalid links
@@ -1501,8 +1516,8 @@ Ctrl+N open new window
   <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Hide column</value>
+  <data name="&gt;&gt;lblRowCheck.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="button_search.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1540,46 +1555,28 @@ Ctrl+N open new window
   <data name="button_clearfind.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_check.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
-  </data>
   <data name="button_refind.Location" type="System.Drawing.Point, System.Drawing">
     <value>967, 66</value>
   </data>
-  <data name="RedoButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="button_clearfind.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="UndoButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;button_add.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
-        mjmL1VAYhscF7VREUUEsFBREULBQC/0JNoJ7aeOGhZ2VtSiCoIW9NvaiiGAlClrYuqC2LuCOitvz4j1w
-        CN/JTSbJSc6954GHGYa5yZd3krN8mZlMJjNtnB19zQT4izmkEhRQDqkEF1AOKYAfUA7JoBhQDqmAFZDM
-        IY2wwnHmkMAKxncqQlqFB/ES3sbn+B5/ohVK0YkMaRmewkdoXXRdJyak1ag75RtaF9rEpENagGfwK1oX
-        14bJBrQBn6B1UW2ZbDh78DNaF9WWyYZzDH+jdVFFNXNdxgO4BZeiHkvrd32TDecoWhfk+wuv4w4MYX3O
-        mfRjNe7OuYXrcRzWZ2XSA3LZmKPp/QhWxTpGsuFozCibrd7gVqxD8RjJhiO0zilekFPh6O6qi3+MpuGs
-        xUP/v42PVsihRaAeq7p3jsMdo41wXuMH1DYnOto++KH41hlziujzbYXj6jmHUdFfJLS30mzVhLbDkZ9w
-        EUZDu3K/AKfWOVWm8q6Yjy/Rqk3rtGiEWhZaBPbNDbRqu49RULPLKkCWrZBjsQut2v7gCuwcdQKtArS3
-        GgJzsDgGOfdj54RmL208h8IVtGq8iJ2jHrJ1cu3Kh4IWh1aNd7Bz9ChZJ1fLYihsRqvGZ9g5evtgnVz9
-        nKGgWqwaP2LnhF7NaOM6FOahVaNaMp2j6dI6+VwcCgvRqvEHdk6o97MYh8JytGp8i53zAq2Tb8KhoE6C
-        VWOUQfouWiffh0PhMFo13sTOCS0U9fOhcBWtGqMsFEOLsCFtNV6hVeNe7BxtVkMz2Tbsm51o1aaaNXhH
-        4SFaRVzDvgm1Ox5gNE6iVcRT1CKtLzSTht7PHcdoLMEv6Beg6X8NNqFpu/Ue+jU5VWv0rdAFdAW0FY6O
-        NVtOoKun6HmMjgY8bf7aDEfOhu34Hf1QnFr5r8ReUHexzXBkXTbiO/SP4Xsak6UYjqyD7pyycB6j3nQk
-        iRWOrIrGnNBjJfX4r8MkCYUjx6GpPDRbOfV+bjcmSVk40kLbB62QtQis8h9sTV5998q4cKSaXZoh1bLQ
-        rlwbz9DeqqjunIkOp4kacyb2sWqqZquJHJCbqkWg1jnJTuWii4C0t9L2obcVctu0EZL6OWpZaFc+pHdw
-        rVE1JL2a0dsHNdjVQ1abVJ3AaM2uPqkS0tQzLqQMlIWUGREKKeNhhZQpUAwpY+CHlAngQsqUoJAymcy0
-        MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="RedoButton.ToolTip" xml:space="preserve">
-    <value>redo</value>
+  <data name="textBox_find.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>400, 300</value>
   </data>
   <data name="button_clearfind.Location" type="System.Drawing.Point, System.Drawing">
     <value>944, 66</value>
   </data>
   <data name="button_check.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="button_kodi.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
   <data name="&gt;&gt;button_kodi.Parent" xml:space="preserve">
@@ -1606,8 +1603,8 @@ Ctrl+N open new window
   <data name="button_dup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="playToolStripMenuItem.Text" xml:space="preserve">
-    <value>Kodi play</value>
+  <data name="toolStripPaste.Text" xml:space="preserve">
+    <value>Paste</value>
   </data>
   <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Ctrl+X</value>
@@ -1615,8 +1612,8 @@ Ctrl+N open new window
   <data name="button_open.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="UndoButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 19</value>
+  <data name="button_add.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1672,8 +1669,11 @@ Ctrl+N open new window
   <data name="&gt;&gt;button_moveDown.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="button_refind.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="button_open.ToolTip" xml:space="preserve">
+    <value>open m3u
+Ctrl+N open new window
+
+</value>
   </data>
   <data name="button_check.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1690,11 +1690,14 @@ Ctrl+N open new window
   <data name="button_moveUp.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 32</value>
   </data>
-  <data name="&gt;&gt;button_settings.Name" xml:space="preserve">
-    <value>button_settings</value>
+  <data name="&gt;&gt;RedoButton.Type" xml:space="preserve">
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="pasteRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Ctrl+I</value>
+  </data>
+  <data name="button_delLine.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="button_refind.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1713,9 +1716,6 @@ Ctrl+N open new window
   </data>
   <data name="&gt;&gt;button_search.Name" xml:space="preserve">
     <value>button_search</value>
-  </data>
-  <data name="button_refind.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;editCellCopy.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1746,6 +1746,12 @@ Ctrl+N open new window
         YII=
 </value>
   </data>
+  <data name="button_save.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="button_delLine.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;pasteRowMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1763,6 +1769,9 @@ Ctrl+N open new window
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="button_Info.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
   <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1791,11 +1800,8 @@ Ctrl+N open new window
   <data name="button_del_all.Location" type="System.Drawing.Point, System.Drawing">
     <value>312, 10</value>
   </data>
-  <data name="label_central.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;UndoButton.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
+    <value>contextMenuStrip2</value>
   </data>
   <data name="textBox_find.Location" type="System.Drawing.Point, System.Drawing">
     <value>708, 64</value>
@@ -1809,11 +1815,8 @@ Ctrl+N open new window
   <data name="button_moveUp.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="lblColCheck.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBox_find.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 300</value>
+  <data name="&gt;&gt;button_search.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="button_settings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1821,8 +1824,8 @@ Ctrl+N open new window
   <data name="RedoButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="lblColCheck.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="playToolStripMenuItem.Text" xml:space="preserve">
+    <value>Kodi play</value>
   </data>
   <data name="&gt;&gt;button_revert.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1845,20 +1848,20 @@ Ctrl+N open new window
   <data name="button_Info.ToolTip" xml:space="preserve">
     <value>info</value>
   </data>
+  <data name="&gt;&gt;button_delLine.Name" xml:space="preserve">
+    <value>button_delLine</value>
+  </data>
+  <data name="button_settings.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
   <data name="&gt;&gt;button_search.Type" xml:space="preserve">
     <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblRowCheck.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="&gt;&gt;button_revert.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
   <data name="addUseragentCell.ShortcutKeyDisplayString" xml:space="preserve">
     <value />
-  </data>
-  <data name="&gt;&gt;button_moveUp.Type" xml:space="preserve">
-    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="button_revert.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
@@ -1878,8 +1881,8 @@ Ctrl+N open new window
   <data name="button_save.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
   </data>
-  <data name="&gt;&gt;button_Info.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;button_settings.Name" xml:space="preserve">
+    <value>button_settings</value>
   </data>
   <data name="button_open.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -1923,6 +1926,9 @@ Ctrl+F</value>
   <data name="button_dup.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="button_revert.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 37</value>
+  </data>
   <data name="&gt;&gt;label_central.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -1938,8 +1944,8 @@ Ctrl+F</value>
   <data name="lblRowCheck.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 23</value>
   </data>
-  <data name="button_kodi.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="label_central.Location" type="System.Drawing.Point, System.Drawing">
+    <value>454, 169</value>
   </data>
   <data name="editCellCut.Text" xml:space="preserve">
     <value>Cut</value>
@@ -1947,8 +1953,8 @@ Ctrl+F</value>
   <data name="&gt;&gt;button_del_all.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="button_save.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="button_import.Location" type="System.Drawing.Point, System.Drawing">
+    <value>877, 14</value>
   </data>
   <data name="button_search.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1961,6 +1967,9 @@ Ctrl+F</value>
   </data>
   <data name="&gt;&gt;button_save.Type" xml:space="preserve">
     <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="button_dup.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="button_refind.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1977,47 +1986,17 @@ Ctrl+F</value>
   <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
     <value>toolTip1</value>
   </data>
-  <data name="button_search.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC3UlEQVRoQ+2YO2sVURSFk0qx8BeYSiEI
-        FloaVOKDKAq+Qir9BbHyN1gItlYpRLTSIGitKGIIPkrFRgtbQdQkhU/w+u1zVnZmQq53n1HMBOaDRe5Z
-        56w9e27m3plzhzo6Ojo6OvrR6/VG0B20hP43dsy7aFTtlEHQmv+I1ptPaERtxSFk73xbmFVbcQitx2XT
-        j0W1FUfB1qC24ijXGtRWHOVag9qKo1xrUFtxlHNkh1HMkR1GMUd2HOUc2WEUc2SHUcyRHUc5R3YYxRzZ
-        YRRzZMdRzpEdRjHjOToiO0yOriA7jnKO7DBEfqBpDYshew4tooTsOMo5ssMQ2a+XjaHGbvS+yfH/+gRW
-        Q4lhdALdQG/Rd/QFvUPX0YSW1sDfg5Y0jEOohuxGEN+FnqZCf2Ye7VDMwTuvl3FSuXIeKu7gTaCSB8MF
-        NK54c3KtYvYqnmC8EzV5qrU9QLONzDK5ThEvFU0wtmv+RZqpcx/Zf2Ur2oL2odtoNY9UqhkqUsIlRROM
-        j2e7xhU0rCU18KfTijoHNV2OCjiywxC5mZPOE7Rm88swfyutXGFGU+WogCM7DBH7eqxyRlN9Yc1YXurU
-        LssiVMCRHYbI15x0tmmqL6zZlJc6C5oqRwUc2SFYbh9gu1FViZzAZvQrrc580FQ5KuDIDkPkTU46pzXV
-        F9YcyEuddb2E7PGgymM06EN8L61c4aqmylEBR3YYIsdyssZl1O9r9GJaUWdM0+WogCO7CGJzOV3jATqK
-        Bt3I5lWmGRRo8ghwWPEEY3uU+JxmyvmJplSqHML2w2optvuqXSKMx1HTk7BN0aRKlUFwFNlDVSkXVMLB
-        247WupxW8wzZO1/FTuKsSpVB0H6hnkW+tQtgB1xzN4Z/CF1Dr5Fdolb3FZpBKcPfKWQ1qth44J28NdDs
-        pJquYuOB95LWQLO2/fxmnVfY8CdhjyenNL0xoGHbV9hJbLzml6HxkyYNOzr+HUNDvwH6579OA/3IOgAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
   <data name="button_revert.Location" type="System.Drawing.Point, System.Drawing">
     <value>375, 9</value>
+  </data>
+  <data name="&gt;&gt;button_Info.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="button_open.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
   <data name="&gt;&gt;button_revert.Type" xml:space="preserve">
     <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="button_kodi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAABDqAAAQ6gGC0wqYAAAAGHRF
-        WHRTb2Z0d2FyZQBwYWludC5uZXQgNC4xLjVkR1hSAAABoElEQVRoQ+3OQW7DMAwEwPz/0y1QTAkQtCxZ
-        ZtIePEfuau3X4/Ho9TWh9n/4r21mPs/325j9DN9sZ/59fOeU6pDaKdVetg+pXOb5IZUeNgvxbeYK8T22
-        CnEbs4V4n51E1M58ItpjIxFNqf9wWuJJIrrG20Q0pZ6IlniSiNZ5F5yXeFKIl3gSnNd4k4iWeVaIp9QT
-        0Zx+cL7M80I8pR6c5/SD8xYThfiUanCe0w/O28wU4iG14HxONzjfZq4QD6kF5zG94NzGbCI6pBKcx/SC
-        cyvTiagQB+cxveDcynQhTkTBeUwvOLczn4gSUXAe0wvOrUwnokIcnMf0gnMLk4X4kEpwHtMLzreZK8RD
-        asH5nG5w3mamEA+pBec5/eC8xUQhPqUanOf0g/NlnhfiKfXgPKefiJZ5Voin1BPRGm+C8xJPCvEST4Lz
-        Ou8S0ZR6IlriSSK6xttEtMSTv/n5XzYSUTvziWifnULcxmwhvsdWIb7NXCHuYfOQymWeH1LpZfuU6pDa
-        KdX38Z125j/DN9uY/Tzf32bm//BfQ2qPx6PF6/UNbHDjjafErpcAAAAASUVORK5CYII=
-</value>
   </data>
   <data name="button_search.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2031,8 +2010,8 @@ Ctrl+F</value>
   <data name="&gt;&gt;cutRowMenuItem.Name" xml:space="preserve">
     <value>cutRowMenuItem</value>
   </data>
-  <data name="&gt;&gt;label_central.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="button_clearfind.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="button_refind.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 27</value>
@@ -2040,14 +2019,32 @@ Ctrl+F</value>
   <data name="&gt;&gt;button_clearfind.Type" xml:space="preserve">
     <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="button_Info.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
+        mjmL1VAYhscF7VREUUEsFBREULBQC/0JNoJ7aeOGhZ2VtSiCoIW9NvaiiGAlClrYuqC2LuCOitvz4j1w
+        CN/JTSbJSc6954GHGYa5yZd3krN8mZlMJjNtnB19zQT4izmkEhRQDqkEF1AOKYAfUA7JoBhQDqmAFZDM
+        IY2wwnHmkMAKxncqQlqFB/ES3sbn+B5/ohVK0YkMaRmewkdoXXRdJyak1ag75RtaF9rEpENagGfwK1oX
+        14bJBrQBn6B1UW2ZbDh78DNaF9WWyYZzDH+jdVFFNXNdxgO4BZeiHkvrd32TDecoWhfk+wuv4w4MYX3O
+        mfRjNe7OuYXrcRzWZ2XSA3LZmKPp/QhWxTpGsuFozCibrd7gVqxD8RjJhiO0zilekFPh6O6qi3+MpuGs
+        xUP/v42PVsihRaAeq7p3jsMdo41wXuMH1DYnOto++KH41hlziujzbYXj6jmHUdFfJLS30mzVhLbDkZ9w
+        EUZDu3K/AKfWOVWm8q6Yjy/Rqk3rtGiEWhZaBPbNDbRqu49RULPLKkCWrZBjsQut2v7gCuwcdQKtArS3
+        GgJzsDgGOfdj54RmL208h8IVtGq8iJ2jHrJ1cu3Kh4IWh1aNd7Bz9ChZJ1fLYihsRqvGZ9g5evtgnVz9
+        nKGgWqwaP2LnhF7NaOM6FOahVaNaMp2j6dI6+VwcCgvRqvEHdk6o97MYh8JytGp8i53zAq2Tb8KhoE6C
+        VWOUQfouWiffh0PhMFo13sTOCS0U9fOhcBWtGqMsFEOLsCFtNV6hVeNe7BxtVkMz2Tbsm51o1aaaNXhH
+        4SFaRVzDvgm1Ox5gNE6iVcRT1CKtLzSTht7PHcdoLMEv6Beg6X8NNqFpu/Ue+jU5VWv0rdAFdAW0FY6O
+        NVtOoKun6HmMjgY8bf7aDEfOhu34Hf1QnFr5r8ReUHexzXBkXTbiO/SP4Xsak6UYjqyD7pyycB6j3nQk
+        iRWOrIrGnNBjJfX4r8MkCYUjx6GpPDRbOfV+bjcmSVk40kLbB62QtQis8h9sTV5998q4cKSaXZoh1bLQ
+        rlwbz9DeqqjunIkOp4kacyb2sWqqZquJHJCbqkWg1jnJTuWii4C0t9L2obcVctu0EZL6OWpZaFc+pHdw
+        rVE1JL2a0dsHNdjVQ1abVJ3AaM2uPqkS0tQzLqQMlIWUGREKKeNhhZQpUAwpY+CHlAngQsqUoJAymcy0
+        MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="&gt;&gt;button_moveUp.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="button_revert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 37</value>
+  <data name="editCellCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 24</value>
   </data>
   <data name="&gt;&gt;textBox_find.Name" xml:space="preserve">
     <value>textBox_find</value>
@@ -2067,14 +2064,11 @@ Ctrl+F</value>
   <data name="&gt;&gt;button_check.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="button_import.Location" type="System.Drawing.Point, System.Drawing">
-    <value>877, 14</value>
+  <data name="button_del_all.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
   </data>
-  <data name="button_dup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>964, 14</value>
-  </data>
-  <data name="&gt;&gt;lblColCheck.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lblColCheck.Text" xml:space="preserve">
+    <value>Name2</value>
   </data>
   <data name="button_revert.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2091,8 +2085,8 @@ Ctrl+F</value>
   <data name="UndoButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="&gt;&gt;textBox_find.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="button_del_all.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 32</value>
   </data>
   <data name="button_search.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -2109,6 +2103,9 @@ Ctrl+F</value>
   <data name="button_save.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="RedoButton.ToolTip" xml:space="preserve">
+    <value>redo</value>
+  </data>
   <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
     <value>toolStripSeparator3</value>
   </data>
@@ -2124,10 +2121,13 @@ Ctrl+F</value>
   <data name="button_vlc.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button_dup.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="label_central.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="toolStripPaste.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="button_revert.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="button_clearfind.Font" type="System.Drawing.Font, System.Drawing">
@@ -2156,6 +2156,9 @@ Ctrl+F</value>
   </data>
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>628, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>ru</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
