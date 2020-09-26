@@ -30,6 +30,7 @@ namespace PlaylistEditor
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion +" build " + thisDay.ToString("MM.dd.yyyy"));
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
+            this.AcceptButton = button1;
            // this.textBoxDescription.Text = AssemblyDescription;
             this.textBoxDescription.Text = "MIT License\n\rCopyright(c) 2018 \r\n" +
                 "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files" +
@@ -129,6 +130,12 @@ namespace PlaylistEditor
         {
          //   System.Diagnostics.Process.Start("https://github.com/Isayso?tab=repositories");
             System.Diagnostics.Process.Start("https://github.com/Isayso/PlaylistEditorTV/releases");
+        }
+
+        private void donateButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN&source=url");
+
         }
     }
 }

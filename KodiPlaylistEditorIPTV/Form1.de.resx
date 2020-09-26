@@ -881,4 +881,9 @@ Ctrl-N für neues Fenster</value>
         //8=
 </value>
   </data>
+  <data name="label_central.Text" xml:space="preserve">
+    <value>Doppelclick öffnet Datei
+Drag 'n Drop Datei öffnen oder anfügen
+Ctrl-N neues Fenster</value>
+  </data>
 </root>

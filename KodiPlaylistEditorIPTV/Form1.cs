@@ -2117,7 +2117,6 @@ namespace PlaylistEditor
 
             SemaphoreSlim semaphoreObject = new SemaphoreSlim(Settings.Default.maxthread, Settings.Default.maxthread);
             Check streamcheck = new Check();
-            //  int errorcode = 0;
 
             List<Task> trackedTasks = new List<Task>();
 
@@ -2149,7 +2148,7 @@ namespace PlaylistEditor
 
             }
 
-            await Task.WhenAll(trackedTasks);
+            await Task.WhenAll(trackedTasks);  //wait for all tasks to finish
 
         }
 

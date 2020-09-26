@@ -118,8 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 262</value>
+  <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
+        mjmL1VAYhscF7VREUUEsFBREULBQC/0JNoJ7aeOGhZ2VtSiCoIW9NvaiiGAlClrYuqC2LuCOitvz4j1w
+        CN/JTSbJSc6954GHGYa5yZd3krN8mZlMJjNtnB19zQT4izmkEhRQDqkEF1AOKYAfUA7JoBhQDqmAFZDM
+        IY2wwnHmkMAKxncqQlqFB/ES3sbn+B5/ohVK0YkMaRmewkdoXXRdJyak1ag75RtaF9rEpENagGfwK1oX
+        14bJBrQBn6B1UW2ZbDh78DNaF9WWyYZzDH+jdVFFNXNdxgO4BZeiHkvrd32TDecoWhfk+wuv4w4MYX3O
+        mfRjNe7OuYXrcRzWZ2XSA3LZmKPp/QhWxTpGsuFozCibrd7gVqxD8RjJhiO0zilekFPh6O6qi3+MpuGs
+        xUP/v42PVsihRaAeq7p3jsMdo41wXuMH1DYnOto++KH41hlziujzbYXj6jmHUdFfJLS30mzVhLbDkZ9w
+        EUZDu3K/AKfWOVWm8q6Yjy/Rqk3rtGiEWhZaBPbNDbRqu49RULPLKkCWrZBjsQut2v7gCuwcdQKtArS3
+        GgJzsDgGOfdj54RmL208h8IVtGq8iJ2jHrJ1cu3Kh4IWh1aNd7Bz9ChZJ1fLYihsRqvGZ9g5evtgnVz9
+        nKGgWqwaP2LnhF7NaOM6FOahVaNaMp2j6dI6+VwcCgvRqvEHdk6o97MYh8JytGp8i53zAq2Tb8KhoE6C
+        VWOUQfouWiffh0PhMFo13sTOCS0U9fOhcBWtGqMsFEOLsCFtNV6hVeNe7BxtVkMz2Tbsm51o1aaaNXhH
+        4SFaRVzDvgm1Ox5gNE6iVcRT1CKtLzSTht7PHcdoLMEv6Beg6X8NNqFpu/Ue+jU5VWv0rdAFdAW0FY6O
+        NVtOoKun6HmMjgY8bf7aDEfOhu34Hf1QnFr5r8ReUHexzXBkXTbiO/SP4Xsak6UYjqyD7pyycB6j3nQk
+        iRWOrIrGnNBjJfX4r8MkCYUjx6GpPDRbOfV+bjcmSVk40kLbB62QtQis8h9sTV5998q4cKSaXZoh1bLQ
+        rlwbz9DeqqjunIkOp4kacyb2sWqqZquJHJCbqkWg1jnJTuWii4C0t9L2obcVctu0EZL6OWpZaFc+pHdw
+        rVE1JL2a0dsHNdjVQ1abVJ3AaM2uPqkS0tQzLqQMlIWUGREKKeNhhZQpUAwpY+CHlAngQsqUoJAymcy0
+        MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="button_clearfind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -782,5 +800,9 @@
         ///wAAAQP/+B////////////////////////////////////////////////////////////////////
         //8=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
 </root>
