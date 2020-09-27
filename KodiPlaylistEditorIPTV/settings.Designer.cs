@@ -52,6 +52,7 @@
             this.checkBox_c = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.button_file = new System.Windows.Forms.Button();
+            this.nMaxThread = new System.Windows.Forms.NumericUpDown();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.comboBox_result = new System.Windows.Forms.ComboBox();
@@ -77,9 +78,12 @@
             this.checkBox_vlc = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.nMaxThread = new System.Windows.Forms.NumericUpDown();
             this.comboBox_403 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.comboBoxSpeech = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -88,7 +92,7 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).BeginInit();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_ok
@@ -355,6 +359,30 @@
             this.button_file.UseVisualStyleBackColor = true;
             this.button_file.Click += new System.EventHandler(this.button_file_Click);
             // 
+            // nMaxThread
+            // 
+            this.nMaxThread.Location = new System.Drawing.Point(299, 123);
+            this.nMaxThread.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nMaxThread.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nMaxThread.Name = "nMaxThread";
+            this.nMaxThread.Size = new System.Drawing.Size(57, 27);
+            this.nMaxThread.TabIndex = 72;
+            this.nMaxThread.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.nMaxThread, "max treads network dependent\r\ntry it");
+            this.nMaxThread.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -362,6 +390,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.tabControl1.Location = new System.Drawing.Point(0, 13);
@@ -696,30 +725,6 @@
             this.tabPage5.TabIndex = 6;
             this.tabPage5.Text = "Link check";
             // 
-            // nMaxThread
-            // 
-            this.nMaxThread.Location = new System.Drawing.Point(299, 123);
-            this.nMaxThread.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.nMaxThread.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nMaxThread.Name = "nMaxThread";
-            this.nMaxThread.Size = new System.Drawing.Size(57, 27);
-            this.nMaxThread.TabIndex = 72;
-            this.nMaxThread.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.nMaxThread, "max treads network dependent\r\ntry it");
-            this.nMaxThread.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            // 
             // comboBox_403
             // 
             this.comboBox_403.FormattingEnabled = true;
@@ -742,6 +747,47 @@
             this.label16.TabIndex = 8;
             this.label16.Text = "max threads used";
             // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabPage6.Controls.Add(this.label17);
+            this.tabPage6.Controls.Add(this.comboBoxSpeech);
+            this.tabPage6.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(459, 323);
+            this.tabPage6.TabIndex = 7;
+            this.tabPage6.Text = "Language";
+            // 
+            // comboBoxSpeech
+            // 
+            this.comboBoxSpeech.FormattingEnabled = true;
+            this.comboBoxSpeech.Items.AddRange(new object[] {
+            "AUTOMATIC",
+            "English",
+            "German",
+            "French",
+            "Spanish",
+            "Russian"});
+            this.comboBoxSpeech.Location = new System.Drawing.Point(254, 64);
+            this.comboBoxSpeech.Name = "comboBoxSpeech";
+            this.comboBoxSpeech.Size = new System.Drawing.Size(175, 28);
+            this.comboBoxSpeech.TabIndex = 10;
+            this.comboBoxSpeech.SelectedIndexChanged += new System.EventHandler(this.comboBoxSpeech_SelectedIndexChanged);
+            this.comboBoxSpeech.Click += new System.EventHandler(this.ComboBox_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label17.Location = new System.Drawing.Point(19, 67);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(198, 20);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "Language (needs restart)";
+            this.toolTip1.SetToolTip(this.label17, "Error 403: Server responds, but no valid stream\r\n(password missing?)");
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -756,6 +802,7 @@
             this.Name = "settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "settings";
+            ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -769,7 +816,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -825,5 +873,8 @@
         private System.Windows.Forms.ComboBox comboBox_403;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBoxSpeech;
     }
 }

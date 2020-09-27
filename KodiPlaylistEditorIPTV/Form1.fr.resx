@@ -179,13 +179,13 @@
     <value>269, 208</value>
   </data>
   <data name="openFileDialog1.Filter" xml:space="preserve">
-    <value>Liste de lecture | * .m3u!</value>
+    <value>Playlist|*.m3u</value>
   </data>
   <data name="saveFileDialog1.Filter" xml:space="preserve">
-    <value>Liste de lecture | * .m3u!</value>
+    <value>Playlist|*.m3u</value>
   </data>
   <data name="textBox_find.ToolTip" xml:space="preserve">
-    <value>ET CAR ESPACE!</value>
+    <value>AND char ESPACE</value>
   </data>
   <data name="button_kodi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -203,8 +203,8 @@
   </data>
   <data name="button_kodi.ToolTip" xml:space="preserve">
     <value>jouer avec Kodi
-Ctrl + p 
-Ctrl + double clic sur la cellule
+Ctrl+P 
+Ctrl+ double clic sur la cellule
 </value>
   </data>
   <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -328,7 +328,7 @@ Ctrl-B déplacer vers le bas!</value>
     <value>déplacer la ligne vers le haut
 Ctrl-1
 Ctrl-clic déplacer vers le haut 
-Ctrl + T déplacer vers le haut!</value>
+Ctrl+T déplacer vers le haut!</value>
   </data>
   <data name="button_del_all.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -346,8 +346,7 @@ Ctrl + T déplacer vers le haut!</value>
 </value>
   </data>
   <data name="button_del_all.ToolTip" xml:space="preserve">
-    <value>supprimer la liste 
-Ctrl + N ouvrir une nouvelle fenêtre</value>
+    <value>supprimer la liste </value>
   </data>
   <data name="button_settings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -421,11 +420,10 @@ Ctrl + N ouvrir une nouvelle fenêtre</value>
   <data name="button_save.ToolTip" xml:space="preserve">
     <value>enregistrer sous 
 + shift enregistrer écraser 
-Ctrl + S enregistrer!</value>
+Ctrl+S enregistrer!</value>
   </data>
   <data name="button_open.ToolTip" xml:space="preserve">
-    <value>ouvrir m3u 
-Ctrl + N ouvrir une nouvelle fenêtre</value>
+    <value>open</value>
   </data>
   <data name="addUseragentCell.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 24</value>
@@ -475,7 +473,7 @@ Glisser-déplacer le fichier pour ouvrir ou ajoutez
 Ctrl-N pour ouvrir une nouvelle fenêtre!</value>
   </data>
   <data name="lblRowCheck.Text" xml:space="preserve">
-    <value>Ligne</value>
+    <value>Row</value>
   </data>
   <data name="lblColCheck.Text" xml:space="preserve">
     <value>Name2</value>
@@ -511,7 +509,7 @@ Ctrl-N pour ouvrir une nouvelle fenêtre!</value>
 </value>
   </data>
   <data name="plabel_Filename.Text" xml:space="preserve">
-    <value>pathLabel1!</value>
+    <value>pathLabel1</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -998,5 +996,23 @@ Ctrl-N pour ouvrir une nouvelle fenêtre!</value>
         ///wAAAQP/+B////////////////////////////////////////////////////////////////////
         //8=
 </value>
+  </data>
+  <data name="toolStripCopy.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+C</value>
+  </data>
+  <data name="toolStripPaste.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+V</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Playlist Editor TV</value>
+  </data>
+  <data name="playToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+P</value>
+  </data>
+  <data name="pasteRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+I</value>
+  </data>
+  <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+X</value>
   </data>
 </root>

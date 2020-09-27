@@ -405,5 +405,29 @@ namespace PlaylistEditor.Properties {
                 this["UpgradeRequired"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int cobSpeech {
+            get {
+                return ((int)(this["cobSpeech"]));
+            }
+            set {
+                this["cobSpeech"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-EN")]
+        public string localize {
+            get {
+                return ((string)(this["localize"]));
+            }
+            set {
+                this["localize"] = value;
+            }
+        }
     }
 }

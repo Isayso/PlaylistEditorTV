@@ -86,13 +86,20 @@ namespace PlaylistEditor
 
         public Form1()
         {
-            if (Debugger.IsAttached)
+            //if (Debugger.IsAttached)
+            //{
+            //    string myCulture = "es-ES";
+            //    Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
+            //    Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
+            //}
+
+            if (Settings.Default.cobSpeech > 0)
             {
-                string myCulture = "es-ES";
+                string myCulture = Settings.Default.localize;
                 Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
                 Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
-            }
 
+            }
 
             InitializeComponent();
 
@@ -948,6 +955,7 @@ namespace PlaylistEditor
                         toSave(false, true);
                         plabel_Filename.Text = "";
                         button_revert.Visible = false;
+                        label_central.BringToFront();
                         break;
 
                     case DialogResult.No:

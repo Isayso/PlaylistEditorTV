@@ -119,79 +119,67 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="toolStripCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 24</value>
+    <value>276, 24</value>
   </data>
   <data name="toolStripCopy.Text" xml:space="preserve">
     <value>Копировать</value>
   </data>
   <data name="toolStripPaste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 24</value>
+    <value>276, 24</value>
   </data>
   <data name="toolStripPaste.Text" xml:space="preserve">
     <value>Вставить</value>
   </data>
   <data name="cutRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 24</value>
+    <value>276, 24</value>
   </data>
   <data name="cutRowMenuItem.Text" xml:space="preserve">
-    <value>~Вырезать строку</value>
-  </data>
-  <data name="pasteRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+i</value>
+    <value>Вырезать строку</value>
   </data>
   <data name="pasteRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 24</value>
+    <value>276, 24</value>
   </data>
   <data name="pasteRowMenuItem.Text" xml:space="preserve">
-    <value>Вставить строку вставки!</value>
+    <value>Вставить строку вставки</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 6</value>
+    <value>273, 6</value>
   </data>
   <data name="playToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 24</value>
+    <value>276, 24</value>
   </data>
   <data name="playToolStripMenuItem.Text" xml:space="preserve">
-    <value>Коди играй!</value>
+    <value>Коди играй</value>
   </data>
   <data name="playToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Ctrl двойной щелчок по ячейке!</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 6</value>
+    <value>273, 6</value>
   </data>
   <data name="hideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 24</value>
+    <value>276, 24</value>
   </data>
   <data name="hideToolStripMenuItem.Text" xml:space="preserve">
     <value>Скрыть столбец</value>
   </data>
   <data name="showToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 24</value>
+    <value>276, 24</value>
   </data>
   <data name="showToolStripMenuItem.Text" xml:space="preserve">
     <value>Показать все столбцы</value>
   </data>
-  <data name="cms1NewWindow.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>CTRL + N</value>
-  </data>
   <data name="cms1NewWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 24</value>
+    <value>276, 24</value>
   </data>
   <data name="cms1NewWindow.Text" xml:space="preserve">
-    <value>(в новом окне)</value>
+    <value>в новом окне</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 208</value>
-  </data>
-  <data name="openFileDialog1.Filter" xml:space="preserve">
-    <value>Плейлист | * .m3u!</value>
-  </data>
-  <data name="saveFileDialog1.Filter" xml:space="preserve">
-    <value>Плейлист | * .m3u!</value>
+    <value>277, 208</value>
   </data>
   <data name="textBox_find.ToolTip" xml:space="preserve">
-    <value>И char SPACE!</value>
+    <value>AND char SPACE</value>
   </data>
   <data name="addUseragentCell.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 24</value>
@@ -241,10 +229,7 @@
 Ctrl-N, чтобы открыть новое окно!</value>
   </data>
   <data name="lblRowCheck.Text" xml:space="preserve">
-    <value>Строка</value>
-  </data>
-  <data name="lblColCheck.Text" xml:space="preserve">
-    <value>Name2</value>
+    <value>Row</value>
   </data>
   <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -292,8 +277,8 @@ Ctrl-N, чтобы открыть новое окно!</value>
   </data>
   <data name="button_kodi.ToolTip" xml:space="preserve">
     <value>играть с Kodi 
-Ctrl + p 
-Ctrl + двойной щелчок по ячейке!</value>
+Ctrl+P
+Ctrl+ двойной щелчок по ячейке!</value>
   </data>
   <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -402,7 +387,8 @@ Ctrl + двойной щелчок по ячейке!</value>
 </value>
   </data>
   <data name="button_search.ToolTip" xml:space="preserve">
-    <value>Поиск (Ctrl + F)</value>
+    <value>Поиск 
+Ctrl+F</value>
   </data>
   <data name="button_moveDown.ToolTip" xml:space="preserve">
     <value>переместить строку вниз 
@@ -412,8 +398,8 @@ Ctrl-щелчок переместить вниз Ctrl-B переместить�
   <data name="button_moveUp.ToolTip" xml:space="preserve">
     <value>переместить строку вверх 
 Ctrl-1 
-Ctrl + щелчок переместить наверх 
-Ctrl + T переместиться наверх!</value>
+Ctrl+щелчок переместить наверх 
+Ctrl+T переместиться наверх!</value>
   </data>
   <data name="button_del_all.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -431,7 +417,7 @@ Ctrl + T переместиться наверх!</value>
 </value>
   </data>
   <data name="button_del_all.ToolTip" xml:space="preserve">
-    <value>удалить список Ctrl + N открыть новое окно!</value>
+    <value>удалить список </value>
   </data>
   <data name="button_settings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -474,9 +460,6 @@ Ctrl + T переместиться наверх!</value>
   <data name="button_add.ToolTip" xml:space="preserve">
     <value>Добавить строку</value>
   </data>
-  <data name="plabel_Filename.Text" xml:space="preserve">
-    <value>pathLabel1!</value>
-  </data>
   <data name="button_Info.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -508,11 +491,10 @@ Ctrl + T переместиться наверх!</value>
   <data name="button_save.ToolTip" xml:space="preserve">
     <value>сохранить как 
 + Shift сохранить перезаписать 
-Ctrl + S сохранить!</value>
+Ctrl+S сохранить!</value>
   </data>
   <data name="button_open.ToolTip" xml:space="preserve">
-    <value>открыть m3u 
-Ctrl + N открыть новое окно!</value>
+    <value>открыть</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1005,18 +987,30 @@ Ctrl + N открыть новое окно!</value>
     <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Редактор плейлистов TV</value>
-  </data>
-  <data name="toolStripPaste.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+V</value>
+    <value>Playlist Editor TV</value>
   </data>
   <data name="playToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Ctrl+P</value>
   </data>
-  <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+X</value>
-  </data>
   <data name="toolStripCopy.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Ctrl+C</value>
+  </data>
+  <data name="toolStripPaste.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+V</value>
+  </data>
+  <data name="openFileDialog1.Filter" xml:space="preserve">
+    <value>Playlist|*.m3u</value>
+  </data>
+  <data name="pasteRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+I</value>
+  </data>
+  <data name="saveFileDialog1.Filter" xml:space="preserve">
+    <value>Playlist|*.m3u</value>
+  </data>
+  <data name="lblColCheck.Text" xml:space="preserve">
+    <value>Name2</value>
+  </data>
+  <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+X</value>
   </data>
 </root>

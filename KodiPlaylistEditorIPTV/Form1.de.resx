@@ -117,7 +117,162 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="toolStripCopy.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+C</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 24</value>
+  </data>
+  <data name="toolStripCopy.Text" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="toolStripPaste.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+V</value>
+  </data>
+  <data name="toolStripPaste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 24</value>
+  </data>
+  <data name="toolStripPaste.Text" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+X</value>
+  </data>
+  <data name="cutRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 24</value>
+  </data>
+  <data name="cutRowMenuItem.Text" xml:space="preserve">
+    <value>Zeile ausschneiden</value>
+  </data>
+  <data name="pasteRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+I</value>
+  </data>
+  <data name="pasteRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 24</value>
+  </data>
+  <data name="pasteRowMenuItem.Text" xml:space="preserve">
+    <value>Einfügen neue Zeile</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 6</value>
+  </data>
+  <data name="playToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+P</value>
+  </data>
+  <data name="playToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 24</value>
+  </data>
+  <data name="playToolStripMenuItem.Text" xml:space="preserve">
+    <value>zu Kodi senden</value>
+  </data>
+  <data name="playToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Strg Doppelklick auf Zelle!</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 6</value>
+  </data>
+  <data name="hideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 24</value>
+  </data>
+  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Spalte ausblenden</value>
+  </data>
+  <data name="showToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 24</value>
+  </data>
+  <data name="showToolStripMenuItem.Text" xml:space="preserve">
+    <value>Alle Spalten anzeigen</value>
+  </data>
+  <data name="cms1NewWindow.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+N</value>
+  </data>
+  <data name="cms1NewWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 24</value>
+  </data>
+  <data name="cms1NewWindow.Text" xml:space="preserve">
+    <value>Neues Fenster</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>246, 208</value>
+  </data>
+  <data name="addUseragentCell.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 24</value>
+  </data>
+  <data name="addUseragentCell.Text" xml:space="preserve">
+    <value>Benutzer Agent</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 6</value>
+  </data>
+  <data name="editCellCopy.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+C</value>
+  </data>
+  <data name="editCellCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 24</value>
+  </data>
+  <data name="editCellCopy.Text" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="editCellPaste.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+V</value>
+  </data>
+  <data name="editCellPaste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 24</value>
+  </data>
+  <data name="editCellPaste.Text" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="editCellCut.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Strg+X</value>
+  </data>
+  <data name="editCellCut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 24</value>
+  </data>
+  <data name="editCellCut.Text" xml:space="preserve">
+    <value>Ausschneiden</value>
+  </data>
+  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 106</value>
+  </data>
+  <data name="label_central.Size" type="System.Drawing.Size, System.Drawing">
+    <value>290, 60</value>
+  </data>
+  <data name="label_central.Text" xml:space="preserve">
+    <value>Doppelclick öffnet Datei
+Drag 'n Drop Datei öffnen oder anfügen
+Ctrl-N neues Fenster</value>
+  </data>
+  <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
+        mjmL1VAYhscF7VREUUEsFBREULBQC/0JNoJ7aeOGhZ2VtSiCoIW9NvaiiGAlClrYuqC2LuCOitvz4j1w
+        CN/JTSbJSc6954GHGYa5yZd3krN8mZlMJjNtnB19zQT4izmkEhRQDqkEF1AOKYAfUA7JoBhQDqmAFZDM
+        IY2wwnHmkMAKxncqQlqFB/ES3sbn+B5/ohVK0YkMaRmewkdoXXRdJyak1ag75RtaF9rEpENagGfwK1oX
+        14bJBrQBn6B1UW2ZbDh78DNaF9WWyYZzDH+jdVFFNXNdxgO4BZeiHkvrd32TDecoWhfk+wuv4w4MYX3O
+        mfRjNe7OuYXrcRzWZ2XSA3LZmKPp/QhWxTpGsuFozCibrd7gVqxD8RjJhiO0zilekFPh6O6qi3+MpuGs
+        xUP/v42PVsihRaAeq7p3jsMdo41wXuMH1DYnOto++KH41hlziujzbYXj6jmHUdFfJLS30mzVhLbDkZ9w
+        EUZDu3K/AKfWOVWm8q6Yjy/Rqk3rtGiEWhZaBPbNDbRqu49RULPLKkCWrZBjsQut2v7gCuwcdQKtArS3
+        GgJzsDgGOfdj54RmL208h8IVtGq8iJ2jHrJ1cu3Kh4IWh1aNd7Bz9ChZJ1fLYihsRqvGZ9g5evtgnVz9
+        nKGgWqwaP2LnhF7NaOM6FOahVaNaMp2j6dI6+VwcCgvRqvEHdk6o97MYh8JytGp8i53zAq2Tb8KhoE6C
+        VWOUQfouWiffh0PhMFo13sTOCS0U9fOhcBWtGqMsFEOLsCFtNV6hVeNe7BxtVkMz2Tbsm51o1aaaNXhH
+        4SFaRVzDvgm1Ox5gNE6iVcRT1CKtLzSTht7PHcdoLMEv6Beg6X8NNqFpu/Ue+jU5VWv0rdAFdAW0FY6O
+        NVtOoKun6HmMjgY8bf7aDEfOhu34Hf1QnFr5r8ReUHexzXBkXTbiO/SP4Xsak6UYjqyD7pyycB6j3nQk
+        iRWOrIrGnNBjJfX4r8MkCYUjx6GpPDRbOfV+bjcmSVk40kLbB62QtQis8h9sTV5998q4cKSaXZoh1bLQ
+        rlwbz9DeqqjunIkOp4kacyb2sWqqZquJHJCbqkWg1jnJTuWii4C0t9L2obcVctu0EZL6OWpZaFc+pHdw
+        rVE1JL2a0dsHNdjVQ1abVJ3AaM2uPqkS0tQzLqQMlIWUGREKKeNhhZQpUAwpY+CHlAngQsqUoJAymcy0
+        MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="button_clearfind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAjUlEQVRIS+2UQQqAMAwE+wnBJ3jQ/5+k
+        f9CDz9HdQiCHGgJNT+3AYkuzm1jBNBmXDcrQWnY2C3RCR9k5oeGFbogBf/CMNaylxw2NF0TjA9XexFNj
+        YgU0hwu1oLBwgYFyz3zqNc9C0FOHTa7p2qDrFenJwz+yFdTcxBPQ1KT7r2KHaLDCBdawlp7JeKT0AcCU
+        QxewpghEAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="button_kodi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -133,9 +288,9 @@
 </value>
   </data>
   <data name="button_kodi.ToolTip" xml:space="preserve">
-    <value>sende nach Kodi
-Ctrl+p
-Ctrl + Zelle doppelclick</value>
+    <value>zu Kodi senden
+Strg+P
+Strg + doppelclick</value>
   </data>
   <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -200,7 +355,7 @@ Ctrl + Zelle doppelclick</value>
   </data>
   <data name="button_vlc.ToolTip" xml:space="preserve">
     <value>öffnen mit vlc
-Zelle doppelclick</value>
+doppelclick</value>
   </data>
   <data name="button_revert.ToolTip" xml:space="preserve">
     <value>Datei neu laden</value>
@@ -246,19 +401,19 @@ Zelle doppelclick</value>
   </data>
   <data name="button_search.ToolTip" xml:space="preserve">
     <value>suche
-Ctrl+F</value>
+Strg+F</value>
   </data>
   <data name="button_moveDown.ToolTip" xml:space="preserve">
     <value>Zeile runter
-Ctrl-2
-Ctrl-click nach Ende
-Ctrl-B nach Ende</value>
+Strg-2
+Strg-click ans Ende
+Strg-B ans Ende</value>
   </data>
   <data name="button_moveUp.ToolTip" xml:space="preserve">
     <value>Zeile hoch
-Ctrl-1
-+ Ctrl Zeile auf Anfang
-Ctrl+T Zeile auf Anfang</value>
+Strg-1
+Strg-click Zeile an Anfang
+Strg+T Zeile an Anfang</value>
   </data>
   <data name="button_del_all.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -277,69 +432,6 @@ Ctrl+T Zeile auf Anfang</value>
   </data>
   <data name="button_del_all.ToolTip" xml:space="preserve">
     <value>lösche Liste
-Ctrl+N neues Fenster öffnen</value>
-  </data>
-  <data name="button_add.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAsElEQVRoQ+3TMYoEMRADwPn/p/eSQhcN
-        LMYN26AKhVEr8VNVVVVV/z7DnJnjzhhn5rgzxpk57oxxpqqm+GtjnAlxiM/pGeNMiEN8Ts8YZ0Ic4nN6
-        xjgT4hDvYXeI97A7xHvYHeI97A7xOT3H1IT4GrXvvDumJsTXqH3n3TE1Ib5G7TvvjqkJ8TVqf4ddId7D
-        7hDvYXeI97A7xHvYHeI97A7xHnaHeA+7Q1xVVfWF5/kDBf86G2b0KnUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="button_add.ToolTip" xml:space="preserve">
-    <value>neue Zeile</value>
-  </data>
-  <data name="button_delLine.ToolTip" xml:space="preserve">
-    <value>zeile löschen</value>
-  </data>
-  <data name="button_save.ToolTip" xml:space="preserve">
-    <value>speichern als
-+shift speichern
-Ctrl+S speichern</value>
-  </data>
-  <data name="button_open.ToolTip" xml:space="preserve">
-    <value>öffnen m3u
-
-</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 60</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Doppel Click zum öffnen Datei
-Drag 'n Drop Datei zum öffnen oder anfügen
-Ctrl-N für neues Fenster</value>
-  </data>
-  <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
-        mjmL1VAYhscF7VREUUEsFBREULBQC/0JNoJ7aeOGhZ2VtSiCoIW9NvaiiGAlClrYuqC2LuCOitvz4j1w
-        CN/JTSbJSc6954GHGYa5yZd3krN8mZlMJjNtnB19zQT4izmkEhRQDqkEF1AOKYAfUA7JoBhQDqmAFZDM
-        IY2wwnHmkMAKxncqQlqFB/ES3sbn+B5/ohVK0YkMaRmewkdoXXRdJyak1ag75RtaF9rEpENagGfwK1oX
-        14bJBrQBn6B1UW2ZbDh78DNaF9WWyYZzDH+jdVFFNXNdxgO4BZeiHkvrd32TDecoWhfk+wuv4w4MYX3O
-        mfRjNe7OuYXrcRzWZ2XSA3LZmKPp/QhWxTpGsuFozCibrd7gVqxD8RjJhiO0zilekFPh6O6qi3+MpuGs
-        xUP/v42PVsihRaAeq7p3jsMdo41wXuMH1DYnOto++KH41hlziujzbYXj6jmHUdFfJLS30mzVhLbDkZ9w
-        EUZDu3K/AKfWOVWm8q6Yjy/Rqk3rtGiEWhZaBPbNDbRqu49RULPLKkCWrZBjsQut2v7gCuwcdQKtArS3
-        GgJzsDgGOfdj54RmL208h8IVtGq8iJ2jHrJ1cu3Kh4IWh1aNd7Bz9ChZJ1fLYihsRqvGZ9g5evtgnVz9
-        nKGgWqwaP2LnhF7NaOM6FOahVaNaMp2j6dI6+VwcCgvRqvEHdk6o97MYh8JytGp8i53zAq2Tb8KhoE6C
-        VWOUQfouWiffh0PhMFo13sTOCS0U9fOhcBWtGqMsFEOLsCFtNV6hVeNe7BxtVkMz2Tbsm51o1aaaNXhH
-        4SFaRVzDvgm1Ox5gNE6iVcRT1CKtLzSTht7PHcdoLMEv6Beg6X8NNqFpu/Ue+jU5VWv0rdAFdAW0FY6O
-        NVtOoKun6HmMjgY8bf7aDEfOhu34Hf1QnFr5r8ReUHexzXBkXTbiO/SP4Xsak6UYjqyD7pyycB6j3nQk
-        iRWOrIrGnNBjJfX4r8MkCYUjx6GpPDRbOfV+bjcmSVk40kLbB62QtQis8h9sTV5998q4cKSaXZoh1bLQ
-        rlwbz9DeqqjunIkOp4kacyb2sWqqZquJHJCbqkWg1jnJTuWii4C0t9L2obcVctu0EZL6OWpZaFc+pHdw
-        rVE1JL2a0dsHNdjVQ1abVJ3AaM2uPqkS0tQzLqQMlIWUGREKKeNhhZQpUAwpY+CHlAngQsqUoJAymcy0
-        MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="button_clearfind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAjUlEQVRIS+2UQQqAMAwE+wnBJ3jQ/5+k
-        f9CDz9HdQiCHGgJNT+3AYkuzm1jBNBmXDcrQWnY2C3RCR9k5oeGFbogBf/CMNaylxw2NF0TjA9XexFNj
-        YgU0hwu1oLBwgYFyz3zqNc9C0FOHTa7p2qDrFenJwz+yFdTcxBPQ1KT7r2KHaLDCBdawlp7JeKT0AcCU
-        QxewpghEAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="button_settings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -371,6 +463,18 @@ Ctrl-N für neues Fenster</value>
   <data name="button_settings.ToolTip" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
+  <data name="button_add.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAsElEQVRoQ+3TMYoEMRADwPn/p/eSQhcN
+        LMYN26AKhVEr8VNVVVVV/z7DnJnjzhhn5rgzxpk57oxxpqqm+GtjnAlxiM/pGeNMiEN8Ts8YZ0Ic4nN6
+        xjgT4hDvYXeI97A7xHvYHeI97A7xOT3H1IT4GrXvvDumJsTXqH3n3TE1Ib5G7TvvjqkJ8TVqf4ddId7D
+        7hDvYXeI97A7xHvYHeI97A7xHnaHeA+7Q1xVVfWF5/kDBf86G2b0KnUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button_add.ToolTip" xml:space="preserve">
+    <value>neue Zeile</value>
+  </data>
   <data name="button_Info.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -393,8 +497,18 @@ Ctrl-N für neues Fenster</value>
         L6j//zfrgAHbnqGhP4UFrDrDSzWZAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button_Info.ToolTip" xml:space="preserve">
-    <value>info</value>
+  <data name="button_delLine.ToolTip" xml:space="preserve">
+    <value>Zeile löschen</value>
+  </data>
+  <data name="button_save.ToolTip" xml:space="preserve">
+    <value>speichern als
++shift speichern
+Strg+S speichern</value>
+  </data>
+  <data name="button_open.ToolTip" xml:space="preserve">
+    <value>öffnen
+
+</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -882,96 +996,22 @@ Ctrl-N für neues Fenster</value>
         //8=
 </value>
   </data>
-  <data name="label_central.Text" xml:space="preserve">
-    <value>Doppelclick öffnet Datei
-Drag 'n Drop Datei öffnen oder anfügen
-Ctrl-N neues Fenster</value>
-  </data>
-  <data name="toolStripPaste.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Strg+V</value>
-  </data>
-  <data name="editCellPaste.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Strg+V</value>
-  </data>
-  <data name="addUseragentCell.Text" xml:space="preserve">
-    <value>Benutzer Agent</value>
-  </data>
-  <data name="openFileDialog1.Filter" xml:space="preserve">
-    <value>Wiedergabeliste | * .m3u!</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Playlist Editor TV!</value>
-  </data>
-  <data name="cutRowMenuItem.Text" xml:space="preserve">
-    <value>Zeile ausschneiden</value>
-  </data>
-  <data name="cms1NewWindow.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Strg+N</value>
-  </data>
-  <data name="playToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Strg+P</value>
-  </data>
-  <data name="pasteRowMenuItem.Text" xml:space="preserve">
-    <value>Einfügezeile einfügen!</value>
-  </data>
-  <data name="showToolStripMenuItem.Text" xml:space="preserve">
-    <value>Alle Spalten anzeigen</value>
-  </data>
-  <data name="plabel_Filename.Text" xml:space="preserve">
-    <value>pathLabel1!</value>
-  </data>
-  <data name="saveFileDialog1.Filter" xml:space="preserve">
-    <value>Wiedergabeliste | * .m3u!</value>
-  </data>
-  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Spalte ausblenden</value>
-  </data>
-  <data name="editCellCut.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Strg+X</value>
-  </data>
-  <data name="editCellCopy.Text" xml:space="preserve">
-    <value>Kopieren</value>
-  </data>
-  <data name="textBox_find.ToolTip" xml:space="preserve">
-    <value>UND char SPACE!</value>
+    <value>Playlist Editor TV</value>
   </data>
   <data name="lblRowCheck.Text" xml:space="preserve">
-    <value>Zeile</value>
+    <value>Row</value>
   </data>
-  <data name="toolStripPaste.Text" xml:space="preserve">
-    <value>Einfügen</value>
+  <data name="openFileDialog1.Filter" xml:space="preserve">
+    <value>Playlist|*.m3u</value>
   </data>
-  <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Strg+X</value>
+  <data name="saveFileDialog1.Filter" xml:space="preserve">
+    <value>Playlist|*.m3u</value>
   </data>
-  <data name="pasteRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Strg+I</value>
-  </data>
-  <data name="toolStripCopy.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Strg+C</value>
-  </data>
-  <data name="playToolStripMenuItem.Text" xml:space="preserve">
-    <value>Kodi spielen!</value>
-  </data>
-  <data name="editCellCopy.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Strg+C</value>
-  </data>
-  <data name="editCellPaste.Text" xml:space="preserve">
-    <value>Einfügen</value>
-  </data>
-  <data name="editCellCut.Text" xml:space="preserve">
-    <value>Ausschneiden</value>
-  </data>
-  <data name="toolStripCopy.Text" xml:space="preserve">
-    <value>Kopieren</value>
-  </data>
-  <data name="playToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Strg Doppelklick auf Zelle!</value>
+  <data name="textBox_find.ToolTip" xml:space="preserve">
+    <value>AND char SPACE</value>
   </data>
   <data name="lblColCheck.Text" xml:space="preserve">
     <value>Name2</value>
-  </data>
-  <data name="cms1NewWindow.Text" xml:space="preserve">
-    <value>Neues Fenster</value>
   </data>
 </root>

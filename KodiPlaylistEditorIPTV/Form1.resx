@@ -175,6 +175,9 @@ Ctrl-B move to bottom</value>
   <data name="button_refind.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
+  <data name="UndoButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="button_kodi.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
@@ -210,8 +213,8 @@ Ctrl-N to open new window</value>
   <data name="&gt;&gt;hideToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblColCheck.ToolTip" xml:space="preserve">
-    <value />
+  <data name="toolStripPaste.Text" xml:space="preserve">
+    <value>Paste</value>
   </data>
   <data name="button_import.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -278,9 +281,8 @@ Ctrl+S save</value>
   <data name="RedoButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="button_del_all.ToolTip" xml:space="preserve">
-    <value>delete list
-Ctrl+N open new window</value>
+  <data name="lblRowCheck.Text" xml:space="preserve">
+    <value>Row</value>
   </data>
   <data name="button_moveUp.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -332,7 +334,7 @@ Ctrl+N open new window</value>
   </data>
   <data name="button_kodi.ToolTip" xml:space="preserve">
     <value>play with Kodi
-Ctrl+p
+Ctrl+P
 Ctrl + double click cell</value>
   </data>
   <data name="button_dup.TabIndex" type="System.Int32, mscorlib">
@@ -418,6 +420,9 @@ Ctrl + double click cell</value>
   <data name="button_kodi.Location" type="System.Drawing.Point, System.Drawing">
     <value>819, 12</value>
   </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="button_delLine.Location" type="System.Drawing.Point, System.Drawing">
     <value>166, 11</value>
   </data>
@@ -426,9 +431,6 @@ Ctrl + double click cell</value>
 Ctrl-1
 Ctrl-click move to top
 Ctrl+T move to top</value>
-  </data>
-  <data name="button_save.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
   </data>
   <data name="button_moveDown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -495,8 +497,8 @@ Ctrl+T move to top</value>
   <data name="RedoButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button_refind.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="button_clearfind.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="button_dup.ToolTip" xml:space="preserve">
     <value>find duplicates
@@ -571,9 +573,6 @@ double click cell</value>
   </data>
   <data name="&gt;&gt;button_moveUp.Name" xml:space="preserve">
     <value>button_moveUp</value>
-  </data>
-  <data name="&gt;&gt;UndoButton.Name" xml:space="preserve">
-    <value>UndoButton</value>
   </data>
   <data name="pasteRowMenuItem.Text" xml:space="preserve">
     <value>Paste Insert Row</value>
@@ -825,6 +824,9 @@ double click cell</value>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 6</value>
   </data>
+  <data name="button_del_all.ToolTip" xml:space="preserve">
+    <value>delete list</value>
+  </data>
   <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
     <value>dataGridView1</value>
   </data>
@@ -859,6 +861,9 @@ double click cell</value>
   <data name="&gt;&gt;button_settings.Type" xml:space="preserve">
     <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="button_del_all.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
   <data name="&gt;&gt;button_vlc.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
@@ -867,9 +872,6 @@ double click cell</value>
   </data>
   <data name="button_save.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="button_clearfind.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 6</value>
@@ -1513,6 +1515,9 @@ double click cell</value>
   <data name="&gt;&gt;button_add.Name" xml:space="preserve">
     <value>button_add</value>
   </data>
+  <data name="button_vlc.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1597,14 +1602,8 @@ double click cell</value>
   <data name="button_moveDown.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="lblRowCheck.Text" xml:space="preserve">
-    <value>Row</value>
-  </data>
   <data name="button_dup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="toolStripPaste.Text" xml:space="preserve">
-    <value>Paste</value>
   </data>
   <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Ctrl+X</value>
@@ -1632,6 +1631,9 @@ double click cell</value>
   </data>
   <data name="button_check.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="lblColCheck.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;editCellPaste.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1669,11 +1671,8 @@ double click cell</value>
   <data name="&gt;&gt;button_moveDown.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="button_open.ToolTip" xml:space="preserve">
-    <value>open m3u
-Ctrl+N open new window
-
-</value>
+  <data name="button_refind.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="button_check.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1767,8 +1766,8 @@ Ctrl+N open new window
   <data name="label_central.Size" type="System.Drawing.Size, System.Drawing">
     <value>257, 60</value>
   </data>
-  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;UndoButton.Name" xml:space="preserve">
+    <value>UndoButton</value>
   </data>
   <data name="button_Info.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -1836,8 +1835,8 @@ Ctrl+N open new window
   <data name="button_moveDown.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="UndoButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="button_open.ToolTip" xml:space="preserve">
+    <value>open</value>
   </data>
   <data name="$this.ToolTip" xml:space="preserve">
     <value />
@@ -1953,8 +1952,8 @@ Ctrl+F</value>
   <data name="&gt;&gt;button_del_all.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="button_import.Location" type="System.Drawing.Point, System.Drawing">
-    <value>877, 14</value>
+  <data name="button_save.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="button_search.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1997,9 +1996,6 @@ Ctrl+F</value>
   </data>
   <data name="&gt;&gt;button_revert.Type" xml:space="preserve">
     <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.5.6.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="button_search.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
   </data>
   <data name="lblColCheck.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
@@ -2064,8 +2060,8 @@ Ctrl+F</value>
   <data name="&gt;&gt;button_check.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="button_del_all.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
+  <data name="button_import.Location" type="System.Drawing.Point, System.Drawing">
+    <value>877, 14</value>
   </data>
   <data name="lblColCheck.Text" xml:space="preserve">
     <value>Name2</value>
@@ -2085,8 +2081,8 @@ Ctrl+F</value>
   <data name="UndoButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="button_del_all.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 32</value>
+  <data name="button_search.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="button_search.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -2118,8 +2114,8 @@ Ctrl+F</value>
   <data name="&gt;&gt;button_delLine.ZOrder" xml:space="preserve">
     <value>25</value>
   </data>
-  <data name="button_vlc.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="button_del_all.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 32</value>
   </data>
   <data name="label_central.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -2158,7 +2154,7 @@ Ctrl+F</value>
     <value>628, 17</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ru</value>
+    <value>es</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
