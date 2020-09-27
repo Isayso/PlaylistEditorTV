@@ -956,37 +956,8 @@ Ctrl+S salvar</value>
         //8=
 </value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Playlist Editor TV</value>
-  </data>
-  <data name="playToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+P</value>
-  </data>
-  <data name="toolStripCopy.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+C</value>
-  </data>
-  <data name="toolStripPaste.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+V</value>
-  </data>
-  <data name="lblRowCheck.Text" xml:space="preserve">
-    <value>Row</value>
-  </data>
-  <data name="openFileDialog1.Filter" xml:space="preserve">
-    <value>Playlist|*.m3u</value>
-  </data>
-  <data name="pasteRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+I</value>
-  </data>
-  <data name="saveFileDialog1.Filter" xml:space="preserve">
-    <value>Playlist|*.m3u</value>
-  </data>
-  <data name="textBox_find.ToolTip" xml:space="preserve">
-    <value>AND char SPACE</value>
-  </data>
-  <data name="lblColCheck.Text" xml:space="preserve">
-    <value>Name2</value>
-  </data>
-  <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+X</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
 </root>

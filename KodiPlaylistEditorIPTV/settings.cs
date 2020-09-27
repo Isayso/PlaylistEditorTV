@@ -177,6 +177,9 @@ namespace PlaylistEditor
                 case 5:
                     myCulture = "ru-RU";
                     break;
+                case 6:
+                    myCulture = "zh-ZH";
+                    break;
 
             }
                 Settings.Default.localize = myCulture;

@@ -188,6 +188,9 @@
     <EmbeddedResource Include="settings.de.resx">
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="settings.en.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="settings.resx">
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>

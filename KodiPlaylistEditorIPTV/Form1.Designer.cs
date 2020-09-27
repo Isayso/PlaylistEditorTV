@@ -58,7 +58,6 @@
             this.label_central = new System.Windows.Forms.Label();
             this.lblRowCheck = new System.Windows.Forms.Label();
             this.lblColCheck = new System.Windows.Forms.Label();
-            this.plabel_Filename = new PathLabel();
             this.button_refind = new PlaylistEditor.MyButton();
             this.button_clearfind = new PlaylistEditor.MyButton();
             this.button_kodi = new PlaylistEditor.MyButton();
@@ -75,6 +74,7 @@
             this.button_del_all = new PlaylistEditor.MyButton();
             this.button_settings = new PlaylistEditor.MyButton();
             this.button_add = new PlaylistEditor.MyButton();
+            this.plabel_Filename = new PathLabel();
             this.button_Info = new PlaylistEditor.MyButton();
             this.button_delLine = new PlaylistEditor.MyButton();
             this.button_save = new PlaylistEditor.MyButton();
@@ -286,13 +286,6 @@
             this.toolTip1.SetToolTip(this.lblColCheck, resources.GetString("lblColCheck.ToolTip"));
             this.lblColCheck.Click += new System.EventHandler(this.label_click);
             // 
-            // plabel_Filename
-            // 
-            resources.ApplyResources(this.plabel_Filename, "plabel_Filename");
-            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
-            this.plabel_Filename.Name = "plabel_Filename";
-            this.toolTip1.SetToolTip(this.plabel_Filename, resources.GetString("plabel_Filename.ToolTip"));
-            // 
             // button_refind
             // 
             resources.ApplyResources(this.button_refind, "button_refind");
@@ -455,6 +448,13 @@
             this.toolTip1.SetToolTip(this.button_add, resources.GetString("button_add.ToolTip"));
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
+            // 
+            // plabel_Filename
+            // 
+            resources.ApplyResources(this.plabel_Filename, "plabel_Filename");
+            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
+            this.plabel_Filename.Name = "plabel_Filename";
+            this.toolTip1.SetToolTip(this.plabel_Filename, resources.GetString("plabel_Filename.ToolTip"));
             // 
             // button_Info
             // 
