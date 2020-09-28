@@ -254,7 +254,7 @@ Ctrl-N para abrir una nueva ventana.</value>
   <data name="button_kodi.ToolTip" xml:space="preserve">
     <value>enviar a Kodi
 Ctrl+P
-Ctrl+ celda doble clic!</value>
+Ctrl+ celda doble clic</value>
   </data>
   <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -959,5 +959,8 @@ Ctrl+S salvar</value>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="openFileDialog1.Filter" xml:space="preserve">
+    <value>Playlist|*.m3u</value>
   </data>
 </root>

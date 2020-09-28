@@ -117,14 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_ok.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="button_cancel.Text" xml:space="preserve">
     <value>Abbrechen</value>
-  </data>
-  <data name="button_cancel.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="textBox_Password.ToolTip" xml:space="preserve">
     <value>IP des nfs verbundenen Laufwerks</value>
@@ -260,14 +254,14 @@
   <data name="button_file.ToolTip" xml:space="preserve">
     <value>Datei auswählen...</value>
   </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Optionen</value>
+  </data>
   <data name="comboBox_result.Items" xml:space="preserve">
     <value>Zeile</value>
   </data>
   <data name="comboBox_result.Items1" xml:space="preserve">
     <value>Zelle</value>
-  </data>
-  <data name="comboBox_result.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 20</value>
@@ -275,26 +269,17 @@
   <data name="label14.Text" xml:space="preserve">
     <value>Suchspaltenergebnis</value>
   </data>
-  <data name="label14.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBox_F2.Location" type="System.Drawing.Point, System.Drawing">
     <value>335, 274</value>
   </data>
   <data name="checkBox_F2.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 24</value>
   </data>
-  <data name="checkBox_F2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 20</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>Mit F2 bearbeiten (nach Neustart)</value>
-  </data>
-  <data name="label12.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="comboBox2.Items1" xml:space="preserve">
     <value>ID</value>
@@ -304,9 +289,6 @@
   </data>
   <data name="comboBox2.Items3" xml:space="preserve">
     <value>Logo</value>
-  </data>
-  <data name="comboBox2.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="comboBox1.Items1" xml:space="preserve">
     <value>ID</value>
@@ -320,17 +302,11 @@
   <data name="comboBox1.Items6" xml:space="preserve">
     <value>Alle Zellen</value>
   </data>
-  <data name="comboBox1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 20</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Duplikate der Suchspalte</value>
-  </data>
-  <data name="label8.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 20</value>
@@ -338,38 +314,8 @@
   <data name="label7.Text" xml:space="preserve">
     <value>Suchspalte</value>
   </data>
-  <data name="label7.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>Optionen</value>
-  </data>
-  <data name="tabPage3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBox_userAgent.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="panel1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBox_hotkey.Text" xml:space="preserve">
     <value>Hotkey zum Import (benötigt Neustart)</value>
-  </data>
-  <data name="checkBox_hotkey.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="numericUpDown1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label13.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -377,29 +323,14 @@
   <data name="label9.Text" xml:space="preserve">
     <value>Opak</value>
   </data>
-  <data name="label9.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBox_autostart.Text" xml:space="preserve">
     <value>Autostart-Player</value>
-  </data>
-  <data name="checkBox_autostart.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBox_start.Text" xml:space="preserve">
     <value>Autoload</value>
   </data>
-  <data name="checkBox_start.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBox_start.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBox_vlc.Text" xml:space="preserve">
     <value>Start im Vollbild</value>
-  </data>
-  <data name="checkBox_vlc.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 20</value>
@@ -407,17 +338,11 @@
   <data name="label10.Text" xml:space="preserve">
     <value>Player window</value>
   </data>
-  <data name="label10.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage4.ToolTip" xml:space="preserve">
-    <value />
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Linkcheck</value>
   </data>
   <data name="comboBox_403.Items1" xml:space="preserve">
     <value>Grau</value>
-  </data>
-  <data name="comboBox_403.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
     <value>221, 20</value>
@@ -425,47 +350,8 @@
   <data name="label16.Text" xml:space="preserve">
     <value>Maximal verwendete Theads</value>
   </data>
-  <data name="label16.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage5.Text" xml:space="preserve">
-    <value>Linkcheck</value>
-  </data>
-  <data name="tabPage5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="comboBoxSpeech.Items" xml:space="preserve">
-    <value>AUTOMATISCH</value>
-  </data>
-  <data name="comboBoxSpeech.Items1" xml:space="preserve">
-    <value>Englisch</value>
-  </data>
-  <data name="comboBoxSpeech.Items2" xml:space="preserve">
-    <value>Deutsch</value>
-  </data>
-  <data name="comboBoxSpeech.Items3" xml:space="preserve">
-    <value>Französisch</value>
-  </data>
-  <data name="comboBoxSpeech.Items4" xml:space="preserve">
-    <value>Spanisch</value>
-  </data>
-  <data name="comboBoxSpeech.Items5" xml:space="preserve">
-    <value>Russisch</value>
-  </data>
-  <data name="comboBoxSpeech.Items6" xml:space="preserve">
-    <value>Chinesisch</value>
-  </data>
-  <data name="comboBoxSpeech.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="tabPage6.Text" xml:space="preserve">
     <value>Sprache</value>
-  </data>
-  <data name="tabPage6.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabControl1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -956,7 +842,22 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
+  <data name="comboBoxSpeech.Items" xml:space="preserve">
+    <value>Englisch</value>
+  </data>
+  <data name="comboBoxSpeech.Items4" xml:space="preserve">
+    <value>Russisch</value>
+  </data>
+  <data name="comboBoxSpeech.Items3" xml:space="preserve">
+    <value>Spanisch</value>
+  </data>
+  <data name="comboBoxSpeech.Items1" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
+  <data name="comboBoxSpeech.Items5" xml:space="preserve">
+    <value>Chinesisch</value>
+  </data>
+  <data name="comboBoxSpeech.Items2" xml:space="preserve">
+    <value>Französisch</value>
   </data>
 </root>

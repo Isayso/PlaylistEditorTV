@@ -549,8 +549,7 @@
             resources.GetString("comboBoxSpeech.Items2"),
             resources.GetString("comboBoxSpeech.Items3"),
             resources.GetString("comboBoxSpeech.Items4"),
-            resources.GetString("comboBoxSpeech.Items5"),
-            resources.GetString("comboBoxSpeech.Items6")});
+            resources.GetString("comboBoxSpeech.Items5")});
             resources.ApplyResources(this.comboBoxSpeech, "comboBoxSpeech");
             this.comboBoxSpeech.Name = "comboBoxSpeech";
             this.comboBoxSpeech.SelectedIndexChanged += new System.EventHandler(this.comboBoxSpeech_SelectedIndexChanged);

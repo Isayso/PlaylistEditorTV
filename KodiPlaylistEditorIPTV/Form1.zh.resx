@@ -275,7 +275,7 @@ Ctrl-N来打开新窗口</value>
   <data name="button_kodi.ToolTip" xml:space="preserve">
     <value>玩Kodi 
 Ctrl+P
-Ctrl+双击单元格！</value>
+Ctrl+双击单元格</value>
   </data>
   <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -314,7 +314,7 @@ Ctrl+双击单元格！</value>
     <value>检查无效链接
 + ctrl选择橙色链接
 + shift-ctrl选择灰色链接
-+ Alt强制重新扫描！</value>
++ Alt强制重新扫描</value>
   </data>
   <data name="button_vlc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -362,7 +362,7 @@ Ctrl+双击单元格！</value>
   </data>
   <data name="button_dup.ToolTip" xml:space="preserve">
     <value>查找重复项
-+ shift删除重复项！</value>
++ shift删除重复项</value>
   </data>
   <data name="button_search.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

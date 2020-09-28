@@ -27,8 +27,8 @@ namespace PlaylistEditor
     public partial class settings : Form
     {
         public string serverName;
-        public  bool isLinux ;
-        public bool replaceDrive ;
+        public bool isLinux;
+        public bool replaceDrive;
         static readonly int unicode = Settings.Default.hotkey;
         static char character = (char)unicode;
         string hotText = character.ToString();
@@ -44,7 +44,8 @@ namespace PlaylistEditor
 
             checkBox_vlc.Checked = Settings.Default.vlc_fullsreen;
             checkBox_F2.Checked = Settings.Default.F2_edit;
-           
+
+
 
             comboBox1.SelectedIndex = Settings.Default.colSearch;
             comboBox2.SelectedIndex = Settings.Default.colDupli;
@@ -58,7 +59,7 @@ namespace PlaylistEditor
             checkBox_hotkey.Checked = Settings.Default.hotkey_enable;
 
             double oopc = Settings.Default.opacity * 100.0;
- 
+
             numericUpDown1.Value = (decimal)oopc;
 
             if (Settings.Default.Error403 == Color.LightSalmon) comboBox_403.SelectedIndex = 0;
@@ -84,6 +85,10 @@ namespace PlaylistEditor
 
         }
 
+        private void SetComboSpeech() 
+        {
+            comboBoxSpeech.Items[0] = "";
+        }
         private void button_cancel_Click(object sender, EventArgs e)
         {
            this.Close();
@@ -162,22 +167,22 @@ namespace PlaylistEditor
 
             switch (Settings.Default.cobSpeech)
             {
-                case 1:
+                case 0:
                     myCulture = "en-EN";
                     break;
-                case 2:
+                case 1:
                     myCulture = "de-DE";
                     break;
-                case 3:
+                case 2:
                     myCulture = "fr-FR";
                     break;
-                case 4:
+                case 3:
                     myCulture = "es-ES";
                     break;
-                case 5:
+                case 4:
                     myCulture = "ru-RU";
                     break;
-                case 6:
+                case 5:
                     myCulture = "zh-ZH";
                     break;
 

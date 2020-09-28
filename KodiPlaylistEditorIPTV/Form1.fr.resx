@@ -140,7 +140,7 @@
     <value>268, 24</value>
   </data>
   <data name="pasteRowMenuItem.Text" xml:space="preserve">
-    <value>Coller Insérer une ligne!</value>
+    <value>Coller Insérer une ligne</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>265, 6</value>
@@ -271,7 +271,7 @@ Ctrl+ double clic sur la cellule
   </data>
   <data name="button_vlc.ToolTip" xml:space="preserve">
     <value>jouer avec vlc 
-double click cell!</value>
+double click cell</value>
   </data>
   <data name="button_revert.ToolTip" xml:space="preserve">
     <value>Recharger le fichier</value>
@@ -322,7 +322,7 @@ Ctrl +F</value>
     <value>déplacer la ligne vers le bas 
 Ctrl-2 
 Ctrl-clic déplacer vers le bas 
-Ctrl-B déplacer vers le bas!</value>
+Ctrl-B déplacer vers le bas</value>
   </data>
   <data name="button_moveUp.ToolTip" xml:space="preserve">
     <value>déplacer la ligne vers le haut
@@ -470,7 +470,7 @@ Ctrl+S enregistrer!</value>
   <data name="label_central.Text" xml:space="preserve">
     <value>Double-cliquez pour ouvrir le fichier
 Glisser-déplacer le fichier pour ouvrir ou ajoutez 
-Ctrl-N pour ouvrir une nouvelle fenêtre!</value>
+Ctrl-N pour ouvrir une nouvelle fenêtre</value>
   </data>
   <data name="lblRowCheck.Text" xml:space="preserve">
     <value>Row</value>
