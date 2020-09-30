@@ -93,13 +93,10 @@ namespace PlaylistEditor
             //    Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
             //}
 
-           // if (Settings.Default.cobSpeech > 0)
-            {
                 string myCulture = Settings.Default.localize;
                 Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
                 Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
 
-            }
 
             InitializeComponent();
 

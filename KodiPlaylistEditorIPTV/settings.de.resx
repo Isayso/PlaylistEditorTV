@@ -205,6 +205,9 @@
   <data name="checkBox_a.ToolTip" xml:space="preserve">
     <value>Neustart, um wirksam zu werden</value>
   </data>
+  <data name="checkBox_s.Text" xml:space="preserve">
+    <value>Shift</value>
+  </data>
   <data name="checkBox_s.ToolTip" xml:space="preserve">
     <value>Neustart, um wirksam zu werden</value>
   </data>
@@ -257,12 +260,6 @@
   <data name="tabPage3.Text" xml:space="preserve">
     <value>Optionen</value>
   </data>
-  <data name="comboBox_result.Items" xml:space="preserve">
-    <value>Zeile</value>
-  </data>
-  <data name="comboBox_result.Items1" xml:space="preserve">
-    <value>Zelle</value>
-  </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 20</value>
   </data>
@@ -298,9 +295,6 @@
   </data>
   <data name="comboBox1.Items3" xml:space="preserve">
     <value>Logo</value>
-  </data>
-  <data name="comboBox1.Items6" xml:space="preserve">
-    <value>Alle Zellen</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 20</value>
@@ -352,6 +346,24 @@
   </data>
   <data name="tabPage6.Text" xml:space="preserve">
     <value>Sprache</value>
+  </data>
+  <data name="comboBoxSpeech.Items" xml:space="preserve">
+    <value>Englisch</value>
+  </data>
+  <data name="comboBoxSpeech.Items1" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
+  <data name="comboBoxSpeech.Items2" xml:space="preserve">
+    <value>Französisch</value>
+  </data>
+  <data name="comboBoxSpeech.Items3" xml:space="preserve">
+    <value>Spanisch</value>
+  </data>
+  <data name="comboBoxSpeech.Items4" xml:space="preserve">
+    <value>Russisch</value>
+  </data>
+  <data name="comboBoxSpeech.Items5" xml:space="preserve">
+    <value>Chinesisch</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -841,23 +853,5 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Einstellungen</value>
-  </data>
-  <data name="comboBoxSpeech.Items" xml:space="preserve">
-    <value>Englisch</value>
-  </data>
-  <data name="comboBoxSpeech.Items4" xml:space="preserve">
-    <value>Russisch</value>
-  </data>
-  <data name="comboBoxSpeech.Items3" xml:space="preserve">
-    <value>Spanisch</value>
-  </data>
-  <data name="comboBoxSpeech.Items1" xml:space="preserve">
-    <value>Deutsch</value>
-  </data>
-  <data name="comboBoxSpeech.Items5" xml:space="preserve">
-    <value>Chinesisch</value>
-  </data>
-  <data name="comboBoxSpeech.Items2" xml:space="preserve">
-    <value>Französisch</value>
   </data>
 </root>

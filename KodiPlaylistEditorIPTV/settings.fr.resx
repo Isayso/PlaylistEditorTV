@@ -117,9 +117,114 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button_cancel.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="textBox_Password.ToolTip" xml:space="preserve">
+    <value>IP de nfs lecteur connecté</value>
+  </data>
+  <data name="textBox_Username.ToolTip" xml:space="preserve">
+    <value>IP de nfs lecteur connecté</value>
+  </data>
+  <data name="textBox_Port.ToolTip" xml:space="preserve">
+    <value>IP de nfs lecteur connecté</value>
+  </data>
+  <data name="label6.ToolTip" xml:space="preserve">
+    <value>nfs chemin sur le système Kodi</value>
+  </data>
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value>chemin nfs sur le système Kodi</value>
+  </data>
+  <data name="label4.ToolTip" xml:space="preserve">
+    <value>chemin nfs sur le système Kodi</value>
+  </data>
+  <data name="textBox2.ToolTip" xml:space="preserve">
+    <value>IP de nfs lecteur connecté</value>
+  </data>
+  <data name="label3.ToolTip" xml:space="preserve">
+    <value>chemin nfs sur le système Kodi</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 20</value>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 195</value>
+  </data>
+  <data name="textBox1.ToolTip" xml:space="preserve">
+    <value>réinitialisation automatique sur les paramètres ouverts</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 195</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 20</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>caractère à supprimer</value>
+  </data>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value>nombre de caractères à supprimer</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 215</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 20</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>sur la pâte (leftshift)</value>
+  </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value>nombre de caractères à supprimer</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>349, 20</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Agent utilisateur Kodi pour les fichiers *.m3u8</value>
+  </data>
+  <data name="label11.ToolTip" xml:space="preserve">
+    <value>ajouter l’agent utilisateur aux fichiers *.m3u8</value>
+  </data>
+  <data name="checkBox_w.ToolTip" xml:space="preserve">
+    <value>Redémarrez pour prendre effet</value>
+  </data>
+  <data name="textBox_hot.ToolTip" xml:space="preserve">
+    <value>Redémarrez pour prendre effet</value>
+  </data>
+  <data name="checkBox_a.ToolTip" xml:space="preserve">
+    <value>Redémarrez pour prendre effet</value>
+  </data>
+  <data name="checkBox_s.ToolTip" xml:space="preserve">
+    <value>Redémarrez pour prendre effet</value>
+  </data>
+  <data name="checkBox_c.ToolTip" xml:space="preserve">
+    <value>Redémarrez pour prendre effet</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 20</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Couleur pour erreur 403</value>
+  </data>
+  <data name="label15.ToolTip" xml:space="preserve">
+    <value>Erreur 403 : le serveur répond, mais aucun flux valide
+(mot de passe manquant?)</value>
+  </data>
+  <data name="nMaxThread.ToolTip" xml:space="preserve">
+    <value>réseau de bandes de roulement maximale dépendant
+Essaie</value>
+  </data>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 37</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 20</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Langue (besoin de redémarrer)</value>
+  </data>
+  <data name="label17.ToolTip" xml:space="preserve">
+    <value>Erreur 403 : le serveur répond, mais aucun flux valide
+(mot de passe manquant?)</value>
   </data>
   <data name="button_file.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -136,6 +241,141 @@
         0ceIr6Vtx6o3qqrLJ2nGOuI4+hhxM4wx4jj6GHEzjDHiOPoYcTOMMeI49Wj5D45dvnGNODX5kHv9E6dc
         I05NHqjSrwaHdq465hr7UaP0n8p3qu+q1tKM9MvhPJdfLP5rq9Vfo4jCoya2i5EAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="button_file.ToolTip" xml:space="preserve">
+    <value>Sélectionner un fichier</value>
+  </data>
+  <data name="comboBox_result.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 68</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 68</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>260, 20</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Résultat de colonne de recherche</value>
+  </data>
+  <data name="checkBox_F2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>364, 252</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 252</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>331, 20</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Modifier avec F2 (besoins de redémarrage)</value>
+  </data>
+  <data name="comboBox2.Items" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="comboBox2.Items2" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="comboBox2.Items3" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 115</value>
+  </data>
+  <data name="comboBox1.Items" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="comboBox1.Items2" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="comboBox1.Items3" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="comboBox1.Items6" xml:space="preserve">
+    <value>Toutes les cellules</value>
+  </data>
+  <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 20</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 118</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 20</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Rechercher des doublons colonne</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 23</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 20</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Colonne de recherche</value>
+  </data>
+  <data name="checkBox_hotkey.Text" xml:space="preserve">
+    <value>Importer hotkey à partir du presse-papiers (besoins de redémarrage)</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 20</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Opacité</value>
+  </data>
+  <data name="checkBox_autostart.Text" xml:space="preserve">
+    <value>Joueur Autostart</value>
+  </data>
+  <data name="checkBox_start.Text" xml:space="preserve">
+    <value>Chargement auto</value>
+  </data>
+  <data name="checkBox_vlc.Text" xml:space="preserve">
+    <value>Commencez par l’écran complet</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 20</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Fenêtre du joueur</value>
+  </data>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Linkcheck</value>
+  </data>
+  <data name="comboBox_403.Items1" xml:space="preserve">
+    <value>Gris</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 20</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>fils max utilisés</value>
+  </data>
+  <data name="tabPage6.Text" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="comboBoxSpeech.Items" xml:space="preserve">
+    <value>Anglaise</value>
+  </data>
+  <data name="comboBoxSpeech.Items1" xml:space="preserve">
+    <value>Allemand</value>
+  </data>
+  <data name="comboBoxSpeech.Items2" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="comboBoxSpeech.Items3" xml:space="preserve">
+    <value>Espagnol</value>
+  </data>
+  <data name="comboBoxSpeech.Items4" xml:space="preserve">
+    <value>Russe</value>
+  </data>
+  <data name="comboBoxSpeech.Items5" xml:space="preserve">
+    <value>Chinois</value>
+  </data>
+  <data name="comboBoxSpeech.Location" type="System.Drawing.Point, System.Drawing">
+    <value>267, 36</value>
+  </data>
+  <data name="comboBoxSpeech.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 28</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -623,8 +863,7 @@
         //8=
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Paramètres</value>
   </data>
 </root>

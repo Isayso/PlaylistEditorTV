@@ -627,4 +627,169 @@
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="checkBox_s.ToolTip" xml:space="preserve">
+    <value>¡Reinicie para que surta efecto!</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>¡Columna de búsqueda!</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>max hilos usados!</value>
+  </data>
+  <data name="checkBox_a.ToolTip" xml:space="preserve">
+    <value>¡Reinicie para que surta efecto!</value>
+  </data>
+  <data name="comboBoxSpeech.Items1" xml:space="preserve">
+    <value>Alemán</value>
+  </data>
+  <data name="comboBoxSpeech.Items3" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="comboBoxSpeech.Items4" xml:space="preserve">
+    <value>Ruso</value>
+  </data>
+  <data name="comboBoxSpeech.Items5" xml:space="preserve">
+    <value>Chino</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>¡Agente de usuario de Kodi para archivos * .m3u8!</value>
+  </data>
+  <data name="checkBox_w.ToolTip" xml:space="preserve">
+    <value>¡Reinicie para que surta efecto!</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="textBox1.ToolTip" xml:space="preserve">
+    <value>reinicio automático en la configuración abierta!</value>
+  </data>
+  <data name="textBox_Port.ToolTip" xml:space="preserve">
+    <value>IP de la unidad conectada nfs!</value>
+  </data>
+  <data name="comboBox_403.Items1" xml:space="preserve">
+    <value>Gris</value>
+  </data>
+  <data name="comboBoxSpeech.Items" xml:space="preserve">
+    <value>Inglesa</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Puerto:</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>¡Edite con F2 (necesita reiniciarse)!</value>
+  </data>
+  <data name="label6.ToolTip" xml:space="preserve">
+    <value>ruta nfs en el sistema Kodi!</value>
+  </data>
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value>ruta nfs en el sistema Kodi!</value>
+  </data>
+  <data name="checkBox_autostart.Text" xml:space="preserve">
+    <value>Reproductor de inicio automático!</value>
+  </data>
+  <data name="checkBox_start.Text" xml:space="preserve">
+    <value>Autocargar</value>
+  </data>
+  <data name="tabPage4.Text" xml:space="preserve">
+    <value>Autoinicio</value>
+  </data>
+  <data name="nMaxThread.ToolTip" xml:space="preserve">
+    <value>max peldaños depende de la red ¡Pruébelo!</value>
+  </data>
+  <data name="button_file.ToolTip" xml:space="preserve">
+    <value>Seleccionar archivo...</value>
+  </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>&amp;Opciones &gt;&gt;</value>
+  </data>
+  <data name="button_cancel.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value>número de caracteres para eliminar!</value>
+  </data>
+  <data name="label4.ToolTip" xml:space="preserve">
+    <value>ruta nfs en el sistema Kodi!</value>
+  </data>
+  <data name="textBox_Password.ToolTip" xml:space="preserve">
+    <value>IP de la unidad conectada nfs!</value>
+  </data>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value>número de caracteres para eliminar!</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>al pegar (desplazamiento a la izquierda)!</value>
+  </data>
+  <data name="label11.ToolTip" xml:space="preserve">
+    <value>agregue el agente de usuario a los archivos * .m3u8!</value>
+  </data>
+  <data name="comboBoxSpeech.Items2" xml:space="preserve">
+    <value>Francés</value>
+  </data>
+  <data name="tabPage6.Text" xml:space="preserve">
+    <value>Idioma:</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>¡Buscar duplicados en la columna!</value>
+  </data>
+  <data name="label3.ToolTip" xml:space="preserve">
+    <value>ruta nfs en el sistema Kodi!</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Nombre de usuario:</value>
+  </data>
+  <data name="textBox_Username.ToolTip" xml:space="preserve">
+    <value>IP de la unidad conectada nfs!</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Idioma (necesita reiniciarse)!</value>
+  </data>
+  <data name="label17.ToolTip" xml:space="preserve">
+    <value>Error 403: el servidor responde, pero no hay transmisión válida (¿falta la contraseña?)</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>&amp;Contraseña:</value>
+  </data>
+  <data name="label15.ToolTip" xml:space="preserve">
+    <value>Error 403: el servidor responde, pero no hay transmisión válida (¿falta la contraseña?)</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>¡Color para el error 403!</value>
+  </data>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Verificación de enlace!</value>
+  </data>
+  <data name="textBox_hot.ToolTip" xml:space="preserve">
+    <value>¡Reinicie para que surta efecto!</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Ventana del reproductor!</value>
+  </data>
+  <data name="checkBox_hotkey.Text" xml:space="preserve">
+    <value>Importar tecla de acceso rápido desde el portapapeles (necesita reiniciarse).</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Opacidad</value>
+  </data>
+  <data name="comboBox_403.Items" xml:space="preserve">
+    <value>Naranja</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>carácter para eliminar!</value>
+  </data>
+  <data name="checkBox_c.ToolTip" xml:space="preserve">
+    <value>¡Reinicie para que surta efecto!</value>
+  </data>
+  <data name="checkBox_vlc.Text" xml:space="preserve">
+    <value>¡Empiece con pantalla completa!</value>
+  </data>
+  <data name="textBox2.ToolTip" xml:space="preserve">
+    <value>IP de la unidad conectada nfs!</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Resultado de la columna de búsqueda!</value>
+  </data>
+  <data name="comboBox2.Items2" xml:space="preserve">
+    <value>Título</value>
+  </data>
 </root>
