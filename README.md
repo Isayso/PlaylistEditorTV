@@ -5,7 +5,7 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
-1.5.6 pre-release with switchable languages of English, French, German, Spanish, Russia, Chinese. It's from automatic translation, so will have lots of errors. 
+1.5.6 pre-release with switchable languages of English, French, German, Spanish, Russia, Chinese. It's from automatic translation, so will have lots of errors. (code in dev tree)
 
 1.5.5 better undo/redo UI, SPACE is now the logical AND for find text function
 
