@@ -2,13 +2,13 @@
 - language switch
 - donate button
 
-1.5.5 (306)
+1.5.5 (466)
 - automatic import of user settings
 - 'new window' in context menu
 - redo/undo better UI
 - AND search character now space
 
-1.5.4 (219)
+1.5.4 (309)
 - link check multithreading
 
 1.5.3 (150)

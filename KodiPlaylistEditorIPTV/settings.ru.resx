@@ -117,12 +117,132 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 20</value>
+  <data name="button_cancel.Text" xml:space="preserve">
+    <value>Отмена</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Search column ru</value>
+  <data name="textBox_Password.ToolTip" xml:space="preserve">
+    <value>IP подключенного диска nfs</value>
+  </data>
+  <data name="textBox_Username.ToolTip" xml:space="preserve">
+    <value>IP подключенного диска nfs</value>
+  </data>
+  <data name="textBox_Port.ToolTip" xml:space="preserve">
+    <value>IP подключенного диска nfs</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 20</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="label6.ToolTip" xml:space="preserve">
+    <value>nfs path в системе Kodi</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 20</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value>nfs path в системе Kodi</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 20</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Порт</value>
+  </data>
+  <data name="label4.ToolTip" xml:space="preserve">
+    <value>nfs path в системе Kodi</value>
+  </data>
+  <data name="textBox2.ToolTip" xml:space="preserve">
+    <value>IP подключенного диска nfs</value>
+  </data>
+  <data name="label3.ToolTip" xml:space="preserve">
+    <value>nfs path в системе Kodi</value>
+  </data>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 189</value>
+  </data>
+  <data name="textBox1.ToolTip" xml:space="preserve">
+    <value>автоматический сброс при открытых настройках</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 200</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 20</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>символ для удаления</value>
+  </data>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value>количество удаляемых символов</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 220</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 20</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>на пасте (левое переключение)</value>
+  </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value>количество удаляемых символов</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>429, 20</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Пользовательский агент Kodi для файлов * .m3u8</value>
+  </data>
+  <data name="label11.ToolTip" xml:space="preserve">
+    <value>добавить User agent в файлы * .m3u8</value>
+  </data>
+  <data name="checkBox_w.ToolTip" xml:space="preserve">
+    <value>Для активации параметров необходима перезагрузка.</value>
+  </data>
+  <data name="textBox_hot.ToolTip" xml:space="preserve">
+    <value>Для активации параметров необходима перезагрузка</value>
+  </data>
+  <data name="checkBox_a.ToolTip" xml:space="preserve">
+    <value>Для активации параметров необходима перезагрузка</value>
+  </data>
+  <data name="checkBox_s.ToolTip" xml:space="preserve">
+    <value>Для активации параметров необходима перезагрузка</value>
+  </data>
+  <data name="checkBox_c.ToolTip" xml:space="preserve">
+    <value>Для активации параметров необходима перезагрузка</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 20</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Цвет ошибки 403</value>
+  </data>
+  <data name="label15.ToolTip" xml:space="preserve">
+    <value>Ошибка 403: сервер отвечает, но нет допустимого потока (пароль отсутствует?)</value>
+  </data>
+  <data name="nMaxThread.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 123</value>
+  </data>
+  <data name="nMaxThread.ToolTip" xml:space="preserve">
+    <value>макс проступки зависят от сети попробуйте</value>
+  </data>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 34</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 20</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Язык (требуется перезагрузка)</value>
+  </data>
+  <data name="label17.ToolTip" xml:space="preserve">
+    <value>Ошибка 403: сервер отвечает, но нет допустимого потока (пароль отсутствует?)</value>
   </data>
   <data name="button_file.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -139,6 +259,134 @@
         0ceIr6Vtx6o3qqrLJ2nGOuI4+hhxM4wx4jj6GHEzjDHiOPoYcTOMMeI49Wj5D45dvnGNODX5kHv9E6dc
         I05NHqjSrwaHdq465hr7UaP0n8p3qu+q1tKM9MvhPJdfLP5rq9Vfo4jCoya2i5EAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="button_file.ToolTip" xml:space="preserve">
+    <value>Выбрать файл</value>
+  </data>
+  <data name="comboBox_result.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 68</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 20</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Результат столбца поиска</value>
+  </data>
+  <data name="checkBox_F2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>329, 259</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>45, 250</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 40</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Отредактируйте с помощью F2 
+(требуется перезапуск)</value>
+  </data>
+  <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 115</value>
+  </data>
+  <data name="comboBox1.Items2" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+  <data name="comboBox1.Items3" xml:space="preserve">
+    <value>Основная эмблема отобразится после сохранения</value>
+  </data>
+  <data name="comboBox1.Items5" xml:space="preserve">
+    <value>Ссылка</value>
+  </data>
+  <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 20</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>238, 20</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Поиск дубликатов столбца</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 20</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Столбец поиска</value>
+  </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Параметры</value>
+  </data>
+  <data name="checkBox_hotkey.Text" xml:space="preserve">
+    <value>Импортировать горячую клавишу из буфера обмена (требуется перезапуск)</value>
+  </data>
+  <data name="numericUpDown1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 45</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 47</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 20</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Непрозрачность</value>
+  </data>
+  <data name="checkBox_autostart.Text" xml:space="preserve">
+    <value>Автозапуск плеера</value>
+  </data>
+  <data name="checkBox_start.Text" xml:space="preserve">
+    <value>Автозагрузка</value>
+  </data>
+  <data name="checkBox_vlc.Text" xml:space="preserve">
+    <value>Начните с полноэкранного режима</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 20</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Окно игрока</value>
+  </data>
+  <data name="tabPage4.Text" xml:space="preserve">
+    <value>Автозагрузка</value>
+  </data>
+  <data name="comboBox_403.Items" xml:space="preserve">
+    <value>Оранжевый</value>
+  </data>
+  <data name="comboBox_403.Items1" xml:space="preserve">
+    <value>серый</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 40</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>максимальное количество 
+используемых потоков</value>
+  </data>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Ссылка</value>
+  </data>
+  <data name="comboBoxSpeech.Items" xml:space="preserve">
+    <value>английский</value>
+  </data>
+  <data name="comboBoxSpeech.Items1" xml:space="preserve">
+    <value>Немецкий</value>
+  </data>
+  <data name="comboBoxSpeech.Items2" xml:space="preserve">
+    <value>Французский</value>
+  </data>
+  <data name="comboBoxSpeech.Items3" xml:space="preserve">
+    <value>испанский</value>
+  </data>
+  <data name="comboBoxSpeech.Items4" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="comboBoxSpeech.Items5" xml:space="preserve">
+    <value>Китайский</value>
+  </data>
+  <data name="comboBoxSpeech.Location" type="System.Drawing.Point, System.Drawing">
+    <value>254, 68</value>
+  </data>
+  <data name="tabPage6.Text" xml:space="preserve">
+    <value>Язык</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -626,172 +874,7 @@
         //8=
 </value>
   </data>
-  <data name="checkBox_s.ToolTip" xml:space="preserve">
-    <value>Для активации параметров необходима перезагрузка.</value>
-  </data>
-  <data name="label16.Text" xml:space="preserve">
-    <value>максимальное количество используемых потоков!</value>
-  </data>
-  <data name="checkBox_a.ToolTip" xml:space="preserve">
-    <value>Для активации параметров необходима перезагрузка.</value>
-  </data>
-  <data name="comboBoxSpeech.Items1" xml:space="preserve">
-    <value>Немецкий</value>
-  </data>
-  <data name="comboBoxSpeech.Items3" xml:space="preserve">
-    <value>испанский</value>
-  </data>
-  <data name="comboBoxSpeech.Items4" xml:space="preserve">
-    <value>Русский</value>
-  </data>
-  <data name="comboBoxSpeech.Items5" xml:space="preserve">
-    <value>Китайский</value>
-  </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>Пользовательский агент Kodi для файлов * .m3u8!</value>
-  </data>
-  <data name="checkBox_w.ToolTip" xml:space="preserve">
-    <value>Для активации параметров необходима перезагрузка.</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Параметры</value>
-  </data>
-  <data name="textBox1.ToolTip" xml:space="preserve">
-    <value>автоматический сброс при открытых настройках!</value>
-  </data>
-  <data name="textBox_Port.ToolTip" xml:space="preserve">
-    <value>IP подключенного диска nfs!</value>
-  </data>
-  <data name="comboBox_403.Items1" xml:space="preserve">
-    <value>серый</value>
-  </data>
-  <data name="comboBoxSpeech.Items" xml:space="preserve">
-    <value>английский</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Порт:</value>
-  </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>Отредактируйте с помощью F2 (требуется перезапуск)!</value>
-  </data>
-  <data name="label6.ToolTip" xml:space="preserve">
-    <value>nfs path в системе Kodi!</value>
-  </data>
-  <data name="label5.ToolTip" xml:space="preserve">
-    <value>nfs path в системе Kodi!</value>
-  </data>
-  <data name="checkBox_autostart.Text" xml:space="preserve">
-    <value>Автозапуск плеера!</value>
-  </data>
-  <data name="checkBox_start.Text" xml:space="preserve">
-    <value>Автозагрузка</value>
-  </data>
-  <data name="tabPage4.Text" xml:space="preserve">
-    <value>Автозагрузка</value>
-  </data>
-  <data name="comboBox1.Items2" xml:space="preserve">
-    <value>Заголовок</value>
-  </data>
-  <data name="nMaxThread.ToolTip" xml:space="preserve">
-    <value>макс проступки зависят от сети попробуйте!</value>
-  </data>
-  <data name="button_file.ToolTip" xml:space="preserve">
-    <value>Выбрать файл</value>
-  </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>Параметры</value>
-  </data>
-  <data name="button_cancel.Text" xml:space="preserve">
-    <value>Отмена</value>
-  </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value>количество удаляемых символов!</value>
-  </data>
-  <data name="label4.ToolTip" xml:space="preserve">
-    <value>nfs path в системе Kodi!</value>
-  </data>
-  <data name="textBox_Password.ToolTip" xml:space="preserve">
-    <value>IP подключенного диска nfs!</value>
-  </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value>количество удаляемых символов!</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>на пасте (левое переключение)!</value>
-  </data>
-  <data name="label11.ToolTip" xml:space="preserve">
-    <value>добавить User agent в файлы * .m3u8!</value>
-  </data>
-  <data name="comboBoxSpeech.Items2" xml:space="preserve">
-    <value>Французский</value>
-  </data>
-  <data name="tabPage6.Text" xml:space="preserve">
-    <value>Язык:</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>Поиск дубликатов столбца!</value>
-  </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value>nfs path в системе Kodi!</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Имя пользователя:</value>
-  </data>
-  <data name="textBox_Username.ToolTip" xml:space="preserve">
-    <value>IP подключенного диска nfs!</value>
-  </data>
-  <data name="label17.Text" xml:space="preserve">
-    <value>Язык (требуется перезагрузка)!</value>
-  </data>
-  <data name="label17.ToolTip" xml:space="preserve">
-    <value>Ошибка 403: сервер отвечает, но нет допустимого потока (пароль отсутствует?)!</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>&amp;Пароль:</value>
-  </data>
-  <data name="label15.ToolTip" xml:space="preserve">
-    <value>Ошибка 403: сервер отвечает, но нет допустимого потока (пароль отсутствует?)!</value>
-  </data>
-  <data name="comboBox1.Items3" xml:space="preserve">
-    <value>Основная эмблема отобразится после сохранения</value>
-  </data>
-  <data name="label15.Text" xml:space="preserve">
-    <value>Цвет ошибки 403!</value>
-  </data>
-  <data name="tabPage5.Text" xml:space="preserve">
-    <value>Ссылка проверьте!</value>
-  </data>
-  <data name="textBox_hot.ToolTip" xml:space="preserve">
-    <value>Для активации параметров необходима перезагрузка.</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>Окно игрока!</value>
-  </data>
-  <data name="checkBox_hotkey.Text" xml:space="preserve">
-    <value>Импортировать горячую клавишу из буфера обмена (требуется перезапуск)!</value>
-  </data>
-  <data name="comboBox1.Items5" xml:space="preserve">
-    <value>Ссылка</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>Непрозрачность</value>
-  </data>
-  <data name="comboBox_403.Items" xml:space="preserve">
-    <value>Оранжевый</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>символ для удаления!</value>
-  </data>
-  <data name="checkBox_c.ToolTip" xml:space="preserve">
-    <value>Для активации параметров необходима перезагрузка.</value>
-  </data>
-  <data name="checkBox_vlc.Text" xml:space="preserve">
-    <value>Начните с полноэкранного режима!</value>
-  </data>
-  <data name="textBox2.ToolTip" xml:space="preserve">
-    <value>IP подключенного диска nfs!</value>
-  </data>
-  <data name="label14.Text" xml:space="preserve">
-    <value>Результат столбца поиска!</value>
   </data>
 </root>

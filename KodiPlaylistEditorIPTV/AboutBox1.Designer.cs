@@ -175,6 +175,7 @@
             this.donateButton.Size = new System.Drawing.Size(112, 40);
             this.donateButton.TabIndex = 24;
             this.donateButton.TabStop = false;
+            this.donateButton.Visible = false;
             this.donateButton.Click += new System.EventHandler(this.donateButton_Click);
             // 
             // linkLabel1

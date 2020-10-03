@@ -179,7 +179,7 @@
     <value>nach Paste (Linksverschiebung)</value>
   </data>
   <data name="label2.ToolTip" xml:space="preserve">
-    <value>Anzahl der zu löschenden Zeichen!</value>
+    <value>Anzahl der zu löschenden Zeichen</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 20</value>
@@ -224,7 +224,7 @@
     <value>Farbe für Fehler 403</value>
   </data>
   <data name="label15.ToolTip" xml:space="preserve">
-    <value>Fehler 403: Server antwortet, aber kein gültiger Stream (Passwort fehlt?)!</value>
+    <value>Fehler 403: Server antwortet, aber kein gültiger Stream (Passwort fehlt?)</value>
   </data>
   <data name="nMaxThread.ToolTip" xml:space="preserve">
     <value>max tritt netzwerkabhängig probieren Sie es aus</value>
@@ -236,7 +236,7 @@
     <value>Sprache (benötigt Neustart)</value>
   </data>
   <data name="label17.ToolTip" xml:space="preserve">
-    <value>Fehler 403: Server antwortet, aber kein gültiger Stream (Passwort fehlt?)!</value>
+    <value>Fehler 403: Server antwortet, aber kein gültiger Stream (Passwort fehlt?)</value>
   </data>
   <data name="button_file.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
