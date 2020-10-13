@@ -2065,8 +2065,7 @@ namespace PlaylistEditor
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
 
-            _linkchecked = false;
-            button_check.BackColor = Color.MidnightBlue;
+            if (_linkchecked) RepaintRows();  //#41
 
         }
 

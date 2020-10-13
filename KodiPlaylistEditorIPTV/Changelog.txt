@@ -1,8 +1,10 @@
-﻿1.5.6
+﻿1.5.6 (b1 152)
 - language switch
 - donate button
+- gray for rtmp links bug
+- auto repaint after sort
 
-1.5.5 (509)
+1.5.5 (525)
 - automatic import of user settings
 - 'new window' in context menu
 - redo/undo better UI

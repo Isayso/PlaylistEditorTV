@@ -211,13 +211,12 @@ namespace PlaylistEditor
         }
 
     /// <summary>
-    /// method to get first 1k of stream data to check if stream alive
+    /// method to check if internet connection is alive
     /// </summary>
     /// <param name="uri">URL to check</param>
     /// <returns>errorcode</returns>
         public static int CheckIPTVStream(string uri)
         {
-            if (uri.StartsWith("rt")) return 410;  //rtmp check not implemented
 
             try
             {
@@ -279,7 +278,11 @@ namespace PlaylistEditor
             return 0;
         }
 
-
+        /// <summary>
+        /// method to check if link is alive and store result in class checkList
+        /// </summary>
+        /// <param name="uri">link to check</param>
+        /// <returns>class checkList</returns>
         public static int CheckIPTVStream2(string uri)
         {
             int errorcode = 0;

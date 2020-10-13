@@ -49,6 +49,17 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.textBox_find = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addUseragentCell = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.editCellCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCellPaste = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCellCut = new System.Windows.Forms.ToolStripMenuItem();
+            this.label_central = new System.Windows.Forms.Label();
+            this.lblRowCheck = new System.Windows.Forms.Label();
+            this.lblColCheck = new System.Windows.Forms.Label();
+            this.button_refind = new PlaylistEditor.MyButton();
+            this.button_clearfind = new PlaylistEditor.MyButton();
             this.button_kodi = new PlaylistEditor.MyButton();
             this.button_import = new PlaylistEditor.MyButton();
             this.RedoButton = new PlaylistEditor.MyButton();
@@ -63,22 +74,11 @@
             this.button_del_all = new PlaylistEditor.MyButton();
             this.button_settings = new PlaylistEditor.MyButton();
             this.button_add = new PlaylistEditor.MyButton();
+            this.plabel_Filename = new PathLabel();
             this.button_Info = new PlaylistEditor.MyButton();
             this.button_delLine = new PlaylistEditor.MyButton();
             this.button_save = new PlaylistEditor.MyButton();
             this.button_open = new PlaylistEditor.MyButton();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addUseragentCell = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.editCellCopy = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCellPaste = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCellCut = new System.Windows.Forms.ToolStripMenuItem();
-            this.label_central = new System.Windows.Forms.Label();
-            this.lblRowCheck = new System.Windows.Forms.Label();
-            this.lblColCheck = new System.Windows.Forms.Label();
-            this.button_refind = new PlaylistEditor.MyButton();
-            this.button_clearfind = new PlaylistEditor.MyButton();
-            this.plabel_Filename = new PathLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -215,6 +215,98 @@
             this.toolTip1.SetToolTip(this.textBox_find, resources.GetString("textBox_find.ToolTip"));
             this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChange);
             this.textBox_find.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_find_KeyPress);
+            // 
+            // contextMenuStrip2
+            // 
+            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addUseragentCell,
+            this.toolStripSeparator1,
+            this.editCellCopy,
+            this.editCellPaste,
+            this.editCellCut});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.toolTip1.SetToolTip(this.contextMenuStrip2, resources.GetString("contextMenuStrip2.ToolTip"));
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
+            // 
+            // addUseragentCell
+            // 
+            resources.ApplyResources(this.addUseragentCell, "addUseragentCell");
+            this.addUseragentCell.Name = "addUseragentCell";
+            this.addUseragentCell.Click += new System.EventHandler(this.addUseragentCell_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            // 
+            // editCellCopy
+            // 
+            resources.ApplyResources(this.editCellCopy, "editCellCopy");
+            this.editCellCopy.Name = "editCellCopy";
+            this.editCellCopy.Click += new System.EventHandler(this.editCellCopy_Click);
+            // 
+            // editCellPaste
+            // 
+            resources.ApplyResources(this.editCellPaste, "editCellPaste");
+            this.editCellPaste.Name = "editCellPaste";
+            this.editCellPaste.Click += new System.EventHandler(this.editCellPaste_Click);
+            // 
+            // editCellCut
+            // 
+            resources.ApplyResources(this.editCellCut, "editCellCut");
+            this.editCellCut.Name = "editCellCut";
+            this.editCellCut.Click += new System.EventHandler(this.editCellCut_Click);
+            // 
+            // label_central
+            // 
+            resources.ApplyResources(this.label_central, "label_central");
+            this.label_central.BackColor = System.Drawing.Color.Gray;
+            this.label_central.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_central.Name = "label_central";
+            this.toolTip1.SetToolTip(this.label_central, resources.GetString("label_central.ToolTip"));
+            this.label_central.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // lblRowCheck
+            // 
+            resources.ApplyResources(this.lblRowCheck, "lblRowCheck");
+            this.lblRowCheck.BackColor = System.Drawing.Color.White;
+            this.lblRowCheck.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblRowCheck.Name = "lblRowCheck";
+            this.toolTip1.SetToolTip(this.lblRowCheck, resources.GetString("lblRowCheck.ToolTip"));
+            this.lblRowCheck.Click += new System.EventHandler(this.label_click);
+            // 
+            // lblColCheck
+            // 
+            resources.ApplyResources(this.lblColCheck, "lblColCheck");
+            this.lblColCheck.BackColor = System.Drawing.Color.White;
+            this.lblColCheck.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblColCheck.Name = "lblColCheck";
+            this.toolTip1.SetToolTip(this.lblColCheck, resources.GetString("lblColCheck.ToolTip"));
+            this.lblColCheck.Click += new System.EventHandler(this.label_click);
+            // 
+            // button_refind
+            // 
+            resources.ApplyResources(this.button_refind, "button_refind");
+            this.button_refind.BackColor = System.Drawing.Color.White;
+            this.button_refind.FlatAppearance.BorderSize = 0;
+            this.button_refind.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_refind.Name = "button_refind";
+            this.toolTip1.SetToolTip(this.button_refind, resources.GetString("button_refind.ToolTip"));
+            this.button_refind.UseVisualStyleBackColor = false;
+            this.button_refind.Click += new System.EventHandler(this.button_refind_Click);
+            // 
+            // button_clearfind
+            // 
+            resources.ApplyResources(this.button_clearfind, "button_clearfind");
+            this.button_clearfind.BackColor = System.Drawing.Color.White;
+            this.button_clearfind.FlatAppearance.BorderSize = 0;
+            this.button_clearfind.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_clearfind.Name = "button_clearfind";
+            this.toolTip1.SetToolTip(this.button_clearfind, resources.GetString("button_clearfind.ToolTip"));
+            this.button_clearfind.UseVisualStyleBackColor = false;
+            this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
             // 
             // button_kodi
             // 
@@ -357,6 +449,13 @@
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
             // 
+            // plabel_Filename
+            // 
+            resources.ApplyResources(this.plabel_Filename, "plabel_Filename");
+            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
+            this.plabel_Filename.Name = "plabel_Filename";
+            this.toolTip1.SetToolTip(this.plabel_Filename, resources.GetString("plabel_Filename.ToolTip"));
+            // 
             // button_Info
             // 
             resources.ApplyResources(this.button_Info, "button_Info");
@@ -396,105 +495,6 @@
             this.toolTip1.SetToolTip(this.button_open, resources.GetString("button_open.ToolTip"));
             this.button_open.UseVisualStyleBackColor = true;
             this.button_open.Click += new System.EventHandler(this.button_open_Click);
-            // 
-            // contextMenuStrip2
-            // 
-            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(18, 18);
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addUseragentCell,
-            this.toolStripSeparator1,
-            this.editCellCopy,
-            this.editCellPaste,
-            this.editCellCut});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.toolTip1.SetToolTip(this.contextMenuStrip2, resources.GetString("contextMenuStrip2.ToolTip"));
-            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
-            // 
-            // addUseragentCell
-            // 
-            resources.ApplyResources(this.addUseragentCell, "addUseragentCell");
-            this.addUseragentCell.Name = "addUseragentCell";
-            this.addUseragentCell.Click += new System.EventHandler(this.addUseragentCell_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            // 
-            // editCellCopy
-            // 
-            resources.ApplyResources(this.editCellCopy, "editCellCopy");
-            this.editCellCopy.Name = "editCellCopy";
-            this.editCellCopy.Click += new System.EventHandler(this.editCellCopy_Click);
-            // 
-            // editCellPaste
-            // 
-            resources.ApplyResources(this.editCellPaste, "editCellPaste");
-            this.editCellPaste.Name = "editCellPaste";
-            this.editCellPaste.Click += new System.EventHandler(this.editCellPaste_Click);
-            // 
-            // editCellCut
-            // 
-            resources.ApplyResources(this.editCellCut, "editCellCut");
-            this.editCellCut.Name = "editCellCut";
-            this.editCellCut.Click += new System.EventHandler(this.editCellCut_Click);
-            // 
-            // label_central
-            // 
-            resources.ApplyResources(this.label_central, "label_central");
-            this.label_central.BackColor = System.Drawing.Color.Gray;
-            this.label_central.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label_central.Name = "label_central";
-            this.toolTip1.SetToolTip(this.label_central, resources.GetString("label_central.ToolTip"));
-            this.label_central.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // lblRowCheck
-            // 
-            resources.ApplyResources(this.lblRowCheck, "lblRowCheck");
-            this.lblRowCheck.BackColor = System.Drawing.Color.White;
-            this.lblRowCheck.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblRowCheck.Name = "lblRowCheck";
-            this.toolTip1.SetToolTip(this.lblRowCheck, resources.GetString("lblRowCheck.ToolTip"));
-            this.lblRowCheck.Click += new System.EventHandler(this.label_click);
-            // 
-            // lblColCheck
-            // 
-            resources.ApplyResources(this.lblColCheck, "lblColCheck");
-            this.lblColCheck.BackColor = System.Drawing.Color.White;
-            this.lblColCheck.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblColCheck.Name = "lblColCheck";
-            this.toolTip1.SetToolTip(this.lblColCheck, resources.GetString("lblColCheck.ToolTip"));
-            this.lblColCheck.Click += new System.EventHandler(this.label_click);
-            // 
-            // button_refind
-            // 
-            resources.ApplyResources(this.button_refind, "button_refind");
-            this.button_refind.BackColor = System.Drawing.Color.White;
-            this.button_refind.FlatAppearance.BorderSize = 0;
-            this.button_refind.ForeColor = System.Drawing.SystemColors.Control;
-            this.button_refind.Name = "button_refind";
-            this.toolTip1.SetToolTip(this.button_refind, resources.GetString("button_refind.ToolTip"));
-            this.button_refind.UseVisualStyleBackColor = false;
-            this.button_refind.Click += new System.EventHandler(this.button_refind_Click);
-            // 
-            // button_clearfind
-            // 
-            resources.ApplyResources(this.button_clearfind, "button_clearfind");
-            this.button_clearfind.BackColor = System.Drawing.Color.White;
-            this.button_clearfind.FlatAppearance.BorderSize = 0;
-            this.button_clearfind.ForeColor = System.Drawing.SystemColors.Control;
-            this.button_clearfind.Name = "button_clearfind";
-            this.toolTip1.SetToolTip(this.button_clearfind, resources.GetString("button_clearfind.ToolTip"));
-            this.button_clearfind.UseVisualStyleBackColor = false;
-            this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
-            // 
-            // plabel_Filename
-            // 
-            resources.ApplyResources(this.plabel_Filename, "plabel_Filename");
-            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
-            this.plabel_Filename.Name = "plabel_Filename";
-            this.toolTip1.SetToolTip(this.plabel_Filename, resources.GetString("plabel_Filename.ToolTip"));
             // 
             // Form1
             // 
