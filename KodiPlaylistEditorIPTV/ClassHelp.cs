@@ -285,62 +285,64 @@ namespace PlaylistEditor
             int errorcode = 0;
 
             if (uri.StartsWith("rt")) errorcode = 410;  //rtmp check not implemented
-
-            try
+            else   //issue #41
             {
-
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest;
-                req.Timeout = 6000; //set the timeout
-
-                req.ContentType = "application/x-www-form-urlencoded";
-                //   req.KeepAlive = true;
-                //https://deviceatlas.com/blog/list-smart-tv-user-agent-strings
-                //issue #15
-                req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
-                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
-                //+ " AppleTV/tvOS/9.1.1"
-                //+ " AppleCoreMedia/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)";
-
-                //req.UserAgent = "Mozilla / 5.0(iPhone; CPU iPhone OS 13_1 like Mac OS X) " +
-                //    "AppleWebKit / 605.1.15(KHTML, like Gecko) Version / 13.0.1 Mobile / 15E148";
-
-                if (uri.Contains("|User-Agent") && uri.Contains(".m3u8"))  //#18
+                try
                 {
-                    req.UserAgent = uri.Split('=').Last();
-                }
 
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest;
+                    req.Timeout = 6000; //set the timeout
 
-                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+                    req.ContentType = "application/x-www-form-urlencoded";
+                    //   req.KeepAlive = true;
+                    //https://deviceatlas.com/blog/list-smart-tv-user-agent-strings
+                    //issue #15
+                    req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
+                        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
+                    //+ " AppleTV/tvOS/9.1.1"
+                    //+ " AppleCoreMedia/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)";
 
-                StreamReader sr = new StreamReader(resp.GetResponseStream());
+                    //req.UserAgent = "Mozilla / 5.0(iPhone; CPU iPhone OS 13_1 like Mac OS X) " +
+                    //    "AppleWebKit / 605.1.15(KHTML, like Gecko) Version / 13.0.1 Mobile / 15E148";
 
-                char[] buffer = new char[1024];
-                int results1 = sr.Read(buffer, 0, 1023);
-                if (System.Diagnostics.Debugger.IsAttached)
-                    Console.WriteLine("buffer : {0}", results1);
-
-                sr.Close();
-
-            }
-            catch (WebException e)  //#34
-            {
-                if (e.Status == WebExceptionStatus.ProtocolError)
-                {
-                    if (System.Diagnostics.Debugger.IsAttached)
+                    if (uri.Contains("|User-Agent") && uri.Contains(".m3u8"))  //#18
                     {
-                        Console.WriteLine("Status Code : {0}", (int)((HttpWebResponse)e.Response).StatusCode);
-                        Console.WriteLine("Status Description : {0}", ((HttpWebResponse)e.Response).StatusDescription);
+                        req.UserAgent = uri.Split('=').Last();
                     }
 
-                    errorcode = (int)((HttpWebResponse)e.Response).StatusCode;
+
+                    HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+
+                    StreamReader sr = new StreamReader(resp.GetResponseStream());
+
+                    char[] buffer = new char[1024];
+                    int results1 = sr.Read(buffer, 0, 1023);
+                    if (System.Diagnostics.Debugger.IsAttached)
+                        Console.WriteLine("buffer : {0}", results1);
+
+                    sr.Close();
+
                 }
-                else errorcode = 401;  //Timeout error
-            }
-            catch (Exception ex)
-            {
-                if (System.Diagnostics.Debugger.IsAttached)
-                    Console.WriteLine("ex Code : {0}", ex.Message);
-                errorcode = 401;
+                catch (WebException e)  //#34
+                {
+                    if (e.Status == WebExceptionStatus.ProtocolError)
+                    {
+                        if (System.Diagnostics.Debugger.IsAttached)
+                        {
+                            Console.WriteLine("Status Code : {0}", (int)((HttpWebResponse)e.Response).StatusCode);
+                            Console.WriteLine("Status Description : {0}", ((HttpWebResponse)e.Response).StatusDescription);
+                        }
+
+                        errorcode = (int)((HttpWebResponse)e.Response).StatusCode;
+                    }
+                    else errorcode = 401;  //Timeout error
+                }
+                catch (Exception ex)
+                {
+                    if (System.Diagnostics.Debugger.IsAttached)
+                        Console.WriteLine("ex Code : {0}", ex.Message);
+                    errorcode = 401;
+                }
             }
 
             checkList.Add(new CheckList

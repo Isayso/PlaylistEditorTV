@@ -2,7 +2,7 @@
 - language switch
 - donate button
 
-1.5.5 (466)
+1.5.5 (509)
 - automatic import of user settings
 - 'new window' in context menu
 - redo/undo better UI
