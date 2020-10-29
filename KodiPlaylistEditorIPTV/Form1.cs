@@ -210,7 +210,7 @@ namespace PlaylistEditor
         {
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyID)
             {
-                ClassHelp.PopupForm("List import.....", "blue", 1500);
+                NotificationBox.Show("List import.....", 1500, NotificationMsg.DONE);
 
                 button_import.PerformClick();
             }
@@ -731,7 +731,7 @@ namespace PlaylistEditor
                 button_revert.Visible = true;
                 _savenow = false;
 
-                PopupForm("Playlist Saved", "green", 1500);
+                NotificationBox.Show("Playlist Saved", 1500, NotificationMsg.OK);
                
 
             }
@@ -854,17 +854,19 @@ namespace PlaylistEditor
             {
                 vlcpath = GetVlcPath();
                 if (string.IsNullOrEmpty(vlcpath))
-                    PopupForm("VLC player not found", "red", 3000);
+                NotificationBox.Show("VLC player not found", 3000, NotificationMsg.ERROR);
+
                 return;
             }
             else if (dataGridView1.RowCount > 0 && vlclink.StartsWith("plugin"))
             {
-                PopupForm("Plugin links only work in Kodi ", "red", 3000);
+                NotificationBox.Show("Plugin links only work in Kodi ", 3000, NotificationMsg.ERROR);
+
                 return;  //#18
             }
             else if (dataGridView1.RowCount > 0 && vlclink.Contains("|User"))
             {
-                PopupForm("User-Agent links only work in Kodi ", "red", 3000);
+                NotificationBox.Show("User-Agent links only work in Kodi ", 3000, NotificationMsg.ERROR);
                 return;  //#18
             }
 
@@ -1092,7 +1094,7 @@ namespace PlaylistEditor
 
 
 
-            if (CheckIPTVStream("http://www.google.com") != 0)
+            if (CheckINetConn("http://www.google.com") != 0)
             {
                 MessageBox.Show("No internet connection found!");
                 return;

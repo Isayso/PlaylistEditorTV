@@ -3,6 +3,8 @@
 - donate button
 - gray for rtmp links bug
 - auto repaint after sort
+- player dropdown with mouse
+
 
 1.5.5 (525)
 - automatic import of user settings

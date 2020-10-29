@@ -110,6 +110,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="NativeMethods.cs" />
+    <Compile Include="NotificationBox.cs" />
+    <Compile Include="NotificationBoxF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotificationBoxF.Designer.cs">
+      <DependentUpon>NotificationBoxF.cs</DependentUpon>
+    </Compile>
     <Compile Include="player.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,12 +128,6 @@
     </Compile>
     <Compile Include="popup.Designer.cs">
       <DependentUpon>popup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="popup2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popup2.designer.cs">
-      <DependentUpon>popup2.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,6 +167,9 @@
     <EmbeddedResource Include="Form1.zh.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NotificationBoxF.resx">
+      <DependentUpon>NotificationBoxF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="player.de.resx">
       <DependentUpon>player.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,9 +178,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="popup.resx">
       <DependentUpon>popup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popup2.resx">
-      <DependentUpon>popup2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

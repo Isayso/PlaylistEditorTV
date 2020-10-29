@@ -71,7 +71,7 @@ namespace PlaylistEditor
     
                     if (response.Contains("OK") /*&& link.Contains("Playlist.Add")*/)
                     {
-                        ClassHelp.PopupForm("Kodi response: OK", "ok", 1300);
+                        NotificationBox.Show("Kodi response: OK", 1300, NotificationMsg.OK);
 
 #if DEBUG
                         MessageBox.Show(response);
@@ -81,7 +81,8 @@ namespace PlaylistEditor
                     }
                     else if (response.Contains("error") /*&& link.Contains("Playlist.Add")*/)
                     {
-                        ClassHelp.PopupForm("Kodi response: ERROR", "error", 1300);
+                        NotificationBox.Show("Kodi response: ERROR", 1300, NotificationMsg.ERROR);
+
                         return false;
                     }
                     return true;

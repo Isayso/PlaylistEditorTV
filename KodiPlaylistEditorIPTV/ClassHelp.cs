@@ -107,35 +107,8 @@ namespace PlaylistEditor
         //    return enc.GetBytes(str);
         //}
 
-        /// <summary>
-        /// shows a popup form
-        /// </summary>
-        /// <param name="label">text to show</param>
-        /// <param name="color">green OR blue OR red</param>
-        /// <param name="delay">show time</param>
-        public static async void PopupForm(string label, string color, int delay)
-        {
-            await PopupDelay(label, color, delay);
-            
-        }
 
 
-        /// <summary>
-        /// async thread counter to show popup form
-        /// </summary>
-        /// <param name="item">text, color[green,blue,red], showtime</param>
-        public static async Task PopupDelay(string label, string color, int delay)
-        {
-            popup2 pop = new popup2();
-            pop.Show();
-            pop.label1.Text = label;
-            pop.color(color);
-
-            await Task.Delay(delay);
-
-            pop.Close();
-
-        }
 
         /// <summary>
         /// checks if Diectory exists with timeout
@@ -215,7 +188,7 @@ namespace PlaylistEditor
     /// </summary>
     /// <param name="uri">URL to check</param>
     /// <returns>errorcode</returns>
-        public static int CheckIPTVStream(string uri)
+        public static int CheckINetConn(string uri)
         {
 
             try
@@ -236,11 +209,6 @@ namespace PlaylistEditor
                 //req.UserAgent = "Mozilla / 5.0(iPhone; CPU iPhone OS 13_1 like Mac OS X) " +
                 //    "AppleWebKit / 605.1.15(KHTML, like Gecko) Version / 13.0.1 Mobile / 15E148";
 
-                if (uri.Contains("|User-Agent") && uri.Contains(".m3u8"))  //#18
-                {
-                    req.UserAgent = uri.Split('=').Last();
-                }
-
 
                 HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
@@ -254,7 +222,7 @@ namespace PlaylistEditor
                 sr.Close();
                
             }
-            catch (WebException e)  //#34
+            catch (WebException e)  
             {
                 if (e.Status == WebExceptionStatus.ProtocolError)
                 {

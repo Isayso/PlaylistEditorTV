@@ -157,6 +157,8 @@ namespace PlaylistEditor
 
         private void comboBox1_KeyDown(object sender, KeyEventArgs e)
         {
+            comboBox1.DroppedDown = false;
+
             if (e.KeyCode == Keys.Enter)
             {
                 comboBox1.Focus();
@@ -209,7 +211,10 @@ namespace PlaylistEditor
             Invalidate();
         }
 
-       
+        private void player_Load(object sender, EventArgs e)
+        {
+
+        }
     }
    
 

@@ -34,8 +34,8 @@
             this.button_kodi = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_Top = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.comboBox1 = new PlaylistEditor.MyComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // button_kodi
@@ -70,11 +70,6 @@
             this.button_Top.UseVisualStyleBackColor = true;
             this.button_Top.Click += new System.EventHandler(this.button_Top_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 20;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // comboBox1
             // 
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -88,6 +83,11 @@
             this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             this.comboBox1.Click += new System.EventHandler(this.ComboBox_Click);
             this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyDown);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 20;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // player
             // 
@@ -103,6 +103,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "player";
+            this.Load += new System.EventHandler(this.player_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.popup_MouseDown);
             this.MouseEnter += new System.EventHandler(this.playerCombo_MouseEnter);
             this.Move += new System.EventHandler(this.player_Move);

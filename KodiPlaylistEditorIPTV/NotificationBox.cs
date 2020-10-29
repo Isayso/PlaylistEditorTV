@@ -12,42 +12,47 @@
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PlaylistEditor
 {
-    public partial class popup2 : Form
+    class NotificationBox
     {
-        public popup2()
+        public static DialogResult Show(string text)
         {
-            InitializeComponent();
+            PopupForm(text, 2000, NotificationMsg.OK);
+            return DialogResult.OK;
         }
 
-        private void label1_Click(object sender, System.EventArgs e)
+        public static DialogResult Show(string text, int delay, NotificationMsg message)
         {
-
+            PopupForm(text, delay, message);
+            return DialogResult.OK;
         }
-        public void color(string backgcl)
+
+        public static async void PopupForm(string label, int delay = 4000, NotificationMsg message = NotificationMsg.OK)
         {
-
-            switch (backgcl)
-            {
-                case "green":
-                    this.BackColor = System.Drawing.Color.DarkGreen;                   
-                    break;
-
-                case "red":
-                    this.BackColor = System.Drawing.Color.DarkRed;                    
-                    break;
-
-                case "blue":
-                    this.BackColor = System.Drawing.Color.MidnightBlue;                  
-                    break;
-
-            }
-
-
-
+            await PopupDelay(label, delay, message);
         }
+
+        public static async Task PopupDelay(string label, int delay, NotificationMsg message)
+        {
+            NotificationBoxF box = new NotificationBoxF(label, message);
+
+            box.Show();
+            await Task.Delay(delay);
+
+            box.Close();
+        }
+
+
+    }
+
+    public enum NotificationMsg
+    {
+        OK,
+        ERROR,
+        DONE
     }
 }
