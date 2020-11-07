@@ -131,6 +131,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Mess.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mess.resx</DependentUpon>
+    </Compile>
     <Compile Include="settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,7 +143,25 @@
       <DependentUpon>settings.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings1.cs" />
+    <EmbeddedResource Include="AboutBox1.de.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.en.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.es.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.fr.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.ru.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.zh.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.de.resx">
@@ -173,12 +196,33 @@
     <EmbeddedResource Include="player.de.resx">
       <DependentUpon>player.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="player.en.resx">
+      <DependentUpon>player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="player.es.resx">
+      <DependentUpon>player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="player.fr.resx">
+      <DependentUpon>player.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="player.resx">
+      <DependentUpon>player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="player.ru.resx">
       <DependentUpon>player.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popup.resx">
       <DependentUpon>popup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Mess.de.resx" />
+    <EmbeddedResource Include="Properties\Mess.es.resx" />
+    <EmbeddedResource Include="Properties\Mess.fr.resx" />
+    <EmbeddedResource Include="Properties\Mess.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Mess.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Mess.ru.resx" />
+    <EmbeddedResource Include="Properties\Mess.zh.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

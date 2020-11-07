@@ -80,18 +80,11 @@ namespace PlaylistEditor
 
         public string[] colList = new string[] { "Name", "id", "Title", "logo", "Name2", "Link", "All" };
 
-        //  public List<CheckList> checkList = new List<CheckList>();
 
 
-
+       
         public Form1()
         {
-            //if (Debugger.IsAttached)
-            //{
-            //    string myCulture = "es-ES";
-            //    Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
-            //    Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
-            //}
 
                 string myCulture = Settings.Default.localize;
                 Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
@@ -101,14 +94,12 @@ namespace PlaylistEditor
             InitializeComponent();
 
 
-
             this.Text = String.Format("PlaylistEditor TV " + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 
 #if DEBUG
             //  Clipboard.Clear();
             this.Text = String.Format("PlaylistEditor TV DEBUG" + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 #endif
-
 
 
 
@@ -355,8 +346,8 @@ namespace PlaylistEditor
 
             if (isModified == true && dataGridView1.RowCount > 0)
             {
-                DialogResult dialogSave = MessageBox.Show("Do you want to save your current playlist?",
-                "Save Playlist", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                DialogResult dialogSave = MessageBox.Show(Mess.Do_you_want_to_save_your_current_playlist, Mess.Save_Playlist,
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (dialogSave == DialogResult.Yes)
                 {
                     button_save.PerformClick();
@@ -454,8 +445,8 @@ namespace PlaylistEditor
 
             if (isModified == true && dataGridView1.RowCount > 0)
             {
-                DialogResult dialogSave = MessageBox.Show("Do you want to save your current playlist?",
-                "Save Playlist", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                DialogResult dialogSave = MessageBox.Show(Mess.Do_you_want_to_save_your_current_playlist,
+                Mess.Save_Playlist, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (dialogSave == DialogResult.Yes)
                 {
                     button_save.PerformClick();
@@ -535,7 +526,7 @@ namespace PlaylistEditor
 
             if (!FileIsIPTV(filename))
             {
-                MessageBox.Show("File has wrong format or does not exist!  ");
+                MessageBox.Show(Mess.File_has_wrong_format_or_does_not_exist_);
                 return;
             }
 
@@ -612,7 +603,7 @@ namespace PlaylistEditor
                 }
                 catch (ArgumentOutOfRangeException)
                 {
-                    MessageBox.Show("Argument out of range error. Wrong format.");
+                    MessageBox.Show(Mess.Argument_out_of_range_error__Wrong_format);
                     continue;
                 }
             }
@@ -622,7 +613,7 @@ namespace PlaylistEditor
 
             if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Wrong data structure! ", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Mess.Wrong_data_structure, Mess.File_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -668,8 +659,6 @@ namespace PlaylistEditor
             {
                 foreach (DataGridViewRow row in dataGridView1.GetSelectedRows())
                 {
-                   // int selectedRow = dataGridView1.SelectedCells[0].RowIndex;
-
                     dt.Rows.RemoveAt(row.Index);
                 }
                 toSave(true);
@@ -731,7 +720,7 @@ namespace PlaylistEditor
                 button_revert.Visible = true;
                 _savenow = false;
 
-                NotificationBox.Show("Playlist Saved", 1500, NotificationMsg.OK);
+                NotificationBox.Show(Mess.Playlist_Saved, 1500, NotificationMsg.OK);
                
 
             }
@@ -854,19 +843,19 @@ namespace PlaylistEditor
             {
                 vlcpath = GetVlcPath();
                 if (string.IsNullOrEmpty(vlcpath))
-                NotificationBox.Show("VLC player not found", 3000, NotificationMsg.ERROR);
+                NotificationBox.Show(Mess.VLC_player_not_found, 3000, NotificationMsg.ERROR);
 
                 return;
             }
             else if (dataGridView1.RowCount > 0 && vlclink.StartsWith("plugin"))
             {
-                NotificationBox.Show("Plugin links only work in Kodi ", 3000, NotificationMsg.ERROR);
+                NotificationBox.Show(Mess.Plugin_links_only_work_in_Kodi, 3000, NotificationMsg.ERROR);
 
                 return;  //#18
             }
             else if (dataGridView1.RowCount > 0 && vlclink.Contains("|User"))
             {
-                NotificationBox.Show("User-Agent links only work in Kodi ", 3000, NotificationMsg.ERROR);
+                NotificationBox.Show(Mess.User_Agent_links_only_work_in_Kodi, 3000, NotificationMsg.ERROR);
                 return;  //#18
             }
 
@@ -944,7 +933,7 @@ namespace PlaylistEditor
 
             if (dataGridView1.RowCount > 0)
             {
-                switch (MessageBox.Show("Delete List?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.None))
+                switch (MessageBox.Show(Mess.Delete_List, Mess.Warning, MessageBoxButtons.YesNo, MessageBoxIcon.None))
                 {
                     case DialogResult.Yes:
 
@@ -969,7 +958,7 @@ namespace PlaylistEditor
         {
             if (_linkchecked) button_check.PerformClick();
             //message box -> delete all -> open filename
-            switch (MessageBox.Show("Reload File?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.None))
+            switch (MessageBox.Show(Mess.Reload_File, Mess.Warning, MessageBoxButtons.YesNo, MessageBoxIcon.None))
             {
                 case DialogResult.Yes:
                     importDataset(plabel_Filename.Text, false);
@@ -1096,7 +1085,7 @@ namespace PlaylistEditor
 
             if (CheckINetConn("http://www.google.com") != 0)
             {
-                MessageBox.Show("No internet connection found!");
+                MessageBox.Show(Mess.No_internet_connection_found);
                 return;
             }
 
@@ -1131,11 +1120,6 @@ namespace PlaylistEditor
 
                 await RunStreamCheck2(token, progress);
 
-                //   // Task taskc = new Task();
-                //    await Task.Run(() => RunStreamCheck(token, progress));
-                // //   var t = Task.Run(() => RunStreamCheck(token, progress));
-
-                //   // var newt = t.ContinueWith(tt => Console.WriteLine("Ready"));
                 popup.Close();
 
                 tokenSource.Cancel();
@@ -1203,7 +1187,7 @@ namespace PlaylistEditor
             jLink = "{ \"jsonrpc\":\"2.0\",\"method\":\"Player.Open\",\"params\":{ \"item\":{ \"file\":\"" + jLink + "\"} },\"id\":0}";
 
 
-            await ClassKodi.Run2(jLink);
+            await ClassKodi.RunOnKodi(jLink);
 
         }
 
@@ -1233,7 +1217,7 @@ namespace PlaylistEditor
                 }
                 catch (System.Runtime.InteropServices.ExternalException)
                 {
-                    MessageBox.Show("The Clipboard could not be accessed. Please try again.");
+                    MessageBox.Show(Mess.The_Clipboard_could_not_be_accessed__Please_try_again);
                     Clipboard.Clear();
                 }
             }
@@ -1297,7 +1281,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    MessageBox.Show(Mess.Paste_operation_failed + ex.Message, Mess.Copy_Paste, MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
             }
             else // if ((string.IsNullOrEmpty(fullRowContent) || Clipboard.GetText() != fullRowContent) && Clipboard.ContainsText())  //todo null or not equal
@@ -1333,7 +1317,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    MessageBox.Show(Mess.Paste_operation_failed + ex.Message, Mess.Copy_Paste, MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
 
             }
@@ -1390,7 +1374,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    MessageBox.Show(Mess.Paste_operation_failed + ex.Message, Mess.Copy_Paste, MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
             }
             else // if (string.IsNullOrEmpty(fullRowContent) && Clipboard.ContainsText())
@@ -1427,7 +1411,7 @@ namespace PlaylistEditor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    MessageBox.Show(Mess.Paste_operation_failed + ex.Message, Mess.Copy_Paste, MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
 
             }
@@ -1477,7 +1461,7 @@ namespace PlaylistEditor
                 }
                 catch (System.Runtime.InteropServices.ExternalException)
                 {
-                    MessageBox.Show("The Clipboard could not be accessed. Please try again.");
+                    MessageBox.Show(Mess.The_Clipboard_could_not_be_accessed__Please_try_again);
                     Clipboard.Clear();
                 }
             }
@@ -1637,7 +1621,7 @@ namespace PlaylistEditor
             }
             catch (FormatException)
             {
-                MessageBox.Show("The data you pasted is in the wrong format for the cell");
+                MessageBox.Show(Mess.The_data_you_pasted_is_in_the_wrong_format_for_the_cell);
                 return;
             }
 
@@ -1744,9 +1728,6 @@ namespace PlaylistEditor
                         if (row.Cells[0].Value != null)
                             _name = dt.Rows[row.Index][colS].ToString().ToLower();
 
-                        //foreach (var item in _searchlist)
-                        {
-
                             if (!_searchlist.All(x => _name.Contains(x)))  //logical AND
                                 continue;
 
@@ -1763,7 +1744,6 @@ namespace PlaylistEditor
 
                             _found = true;
                             textBox_find.ForeColor = Color.Black;
-                        }
                     }
 
 
@@ -1861,7 +1841,6 @@ namespace PlaylistEditor
                 if (row != null
                     && !((row.Index == 0 && direction == -1) || (row.Index == maxrow && direction == 1)))
                 {
-                    // if ((row.Index == 0 && direction == -1) || (row.Index == maxrow && direction == 1))  return;  //check end of dataGridView1
 
                     DataGridViewRow swapRow = dataGridView1.Rows[row.Index + direction];
 
@@ -1894,7 +1873,6 @@ namespace PlaylistEditor
         /// </summary>
         public void MoveLineTop()
         {
-            //if (!CheckLinkChecked()) return;  //false don't delete colors
 
             _linkchecked = false;
             _endofLoop = false;
@@ -1944,7 +1922,6 @@ namespace PlaylistEditor
 
         public void MoveLineBottom()
         {
-            //  if (!CheckLinkChecked()) return;  //false don't delete colors
 
             _linkchecked = false;
             _endofLoop = false;
@@ -1964,7 +1941,7 @@ namespace PlaylistEditor
 
                     if (row != null)
                     {
-                        if (/*(row.Index == 0) ||*/ (row.Index == maxrow - 1)) break; // return;  //check end of dataGridView1
+                        if (row.Index == maxrow - 1) break; // return;  //check end of dataGridView1
 
                         var swapRow = dataGridView1.Rows[row.Index + 1];
 
@@ -2003,9 +1980,6 @@ namespace PlaylistEditor
             {
                 undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0);
             }
-
-
-            //       if (isModified == hasChanged) return;
 
             isModified = hasChanged;
 
@@ -2126,8 +2100,6 @@ namespace PlaylistEditor
         {
             checkList.Clear();
 
-            //  UseWaitCursor = true;
-
             string maxrows = dataGridView1.Rows.Count.ToString();
 
             checkList.Add(new CheckList
@@ -2222,8 +2194,6 @@ namespace PlaylistEditor
 
                 ignore = false;
 
-                //UndoButton.Enabled = undoStack.Count > 0;
-                //RedoButton.Enabled = redoStack.Count > 0;
                 ShowReUnDo(0);            
             }
         }
@@ -2257,8 +2227,6 @@ namespace PlaylistEditor
 
                 ignore = false;
 
-                //RedoButton.Enabled = redoStack.Count > 0;
-                //UndoButton.Enabled = undoStack.Count > 0;
                 ShowReUnDo(0);
             }
         }
@@ -2273,8 +2241,6 @@ namespace PlaylistEditor
                     .Select(r => r.Cells.Cast<DataGridViewCell>()
                     .Select(c => c.Value).ToArray()).ToArray());
             }
-            //UndoButton.Enabled = undoStack.Count > 1;
-            //RedoButton.Enabled = redoStack.Count > 1;
             ShowReUnDo(1);
         }
 
@@ -2284,16 +2250,12 @@ namespace PlaylistEditor
             {
                 UndoButton.Enabled = true;
                 UndoButton.BackgroundImage = Resources.undo;
-                //button_save.BackgroundImage = Resources.content_save_modified;
-                //isModified = true;
 
             }
             else
             {
                 UndoButton.Enabled = false;
                 UndoButton.BackgroundImage = Resources.undo_fade;
-                //button_save.BackgroundImage = Resources.content_save_1_;
-                //isModified = false;
 
             }
             if (redoStack.Count > x)
@@ -2482,8 +2444,6 @@ namespace PlaylistEditor
 
         private void button_import_Click(object sender, EventArgs e)
         {
-            //   if (CheckClipboard() || dataGridView1.Rows.Count > 0) return;
-
             dt.TableName = "IPTV";
 
             checkList.Clear();
@@ -2594,7 +2554,7 @@ namespace PlaylistEditor
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex + " Wrong format.");
+                            MessageBox.Show(ex + Mess.Wrong_format);
                             continue;
                         }
                     }
@@ -2607,7 +2567,7 @@ namespace PlaylistEditor
 
             if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Wrong input! ", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Mess.Wrong_input, Mess.File_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -2863,56 +2823,6 @@ public static class ExtensionMethods
             yield return source.Rows[i];
     }
 
-    /*    datagridview.
-     *    .move
-     *    .up()
-     *    .down()
-     *    .top()
-     *    .button()
-     */
-    //public static IEnumerable<DataGridView> MoveTop(this DataGridView source)
-    //{
-    //    if (source.SelectedCells.Count > 0 && source.SelectedRows.Count > 0)  //whole row must be selected
-    //    {
-    //        var row = source.SelectedRows[0];
-    //        var maxrow = source.RowCount /*- 1*/;
-    //        int n = 0;
-
-    //        while (n < maxrow - 1)
-    //        {
-    //            row = source.SelectedRows[0];
-
-    //            if (row != null)
-    //            {
-    //                if ((row.Index == 0) || (row.Index == maxrow)) break; // return;  //check end of dataGridView1
-
-    //                var swapRow = source.Rows[row.Index - 1];
-
-    //                object[] values = new object[swapRow.Cells.Count];
-
-    //                foreach (DataGridViewCell cell in swapRow.Cells)
-    //                {
-    //                    values[cell.ColumnIndex] = cell.Value;
-    //                    cell.Value = row.Cells[cell.ColumnIndex].Value;
-    //                }
-
-    //                foreach (DataGridViewCell cell in row.Cells)
-    //                    cell.Value = values[cell.ColumnIndex];
-
-    //                source.Rows[row.Index].Selected = false;
-    //                source.Rows[row.Index - 1].Selected = true;
-
-
-    //            }
-    //            n += 1;
-    //        }
-    //        //_endofLoop = true;
-    //        //toSave(true);
-    //    }
-
-    //    yield return source;
-
-    //}
 
 }
 

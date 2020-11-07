@@ -27,9 +27,8 @@ namespace PlaylistEditor
 {
     class ClassKodi
     {
-        private static readonly HttpClient _Client = new HttpClient();
 
-        public static async Task<bool> Run2(string link)
+        public static async Task<bool> RunOnKodi(string link)
         {
             string kodiIP = Settings.Default.rpi;
             string kodiUser = Settings.Default.username.Trim();
@@ -71,7 +70,7 @@ namespace PlaylistEditor
     
                     if (response.Contains("OK") /*&& link.Contains("Playlist.Add")*/)
                     {
-                        NotificationBox.Show("Kodi response: OK", 1300, NotificationMsg.OK);
+                        NotificationBox.Show( Mess.Kodi_response__OK, 1300, NotificationMsg.OK);
 
 #if DEBUG
                         MessageBox.Show(response);
@@ -81,7 +80,7 @@ namespace PlaylistEditor
                     }
                     else if (response.Contains("error") /*&& link.Contains("Playlist.Add")*/)
                     {
-                        NotificationBox.Show("Kodi response: ERROR", 1300, NotificationMsg.ERROR);
+                        NotificationBox.Show(Mess.Kodi_response__ERROR, 1300, NotificationMsg.ERROR);
 
                         return false;
                     }
@@ -90,7 +89,7 @@ namespace PlaylistEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kodi not responding. " + ex.Message, "Play", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Mess.Kodi_not_responding + ex.Message, Mess.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
     

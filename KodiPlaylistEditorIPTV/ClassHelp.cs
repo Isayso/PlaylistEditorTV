@@ -108,8 +108,6 @@ namespace PlaylistEditor
         //}
 
 
-
-
         /// <summary>
         /// checks if Diectory exists with timeout
         /// </summary>
