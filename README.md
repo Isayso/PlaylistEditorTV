@@ -5,7 +5,7 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)
 
-1.5.6 pre-release with switchable languages of English, French, German, Spanish, Russia, Chinese. It's from automatic translation, so will have lots of errors. (code in dev tree)  
+1.6 Multi language support of English, French, German, Spanish, Russia, Chinese. It's from automatic translation, if you have better translation, please send me a message.   
 
 1.5.5 better undo/redo UI, SPACE is now the logical AND for find text function
 
@@ -89,6 +89,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5.5/total)
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.5.6/total)
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.6/total)
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN)
 
