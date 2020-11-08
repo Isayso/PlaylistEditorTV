@@ -27,8 +27,8 @@ namespace PlaylistEditor
     public partial class settings : Form
     {
         public string serverName;
-        public  bool isLinux ;
-        public bool replaceDrive ;
+        public bool isLinux;
+        public bool replaceDrive;
         static readonly int unicode = Settings.Default.hotkey;
         static char character = (char)unicode;
         string hotText = character.ToString();
@@ -44,10 +44,12 @@ namespace PlaylistEditor
 
             checkBox_vlc.Checked = Settings.Default.vlc_fullsreen;
             checkBox_F2.Checked = Settings.Default.F2_edit;
-           
+
+
 
             comboBox1.SelectedIndex = Settings.Default.colSearch;
             comboBox2.SelectedIndex = Settings.Default.colDupli;
+            comboBoxSpeech.SelectedIndex = Settings.Default.cobSpeech;
             comboBox_result.SelectedIndex = Settings.Default.findresult;
             textBox1.Text = "0";
             textBox_userAgent.Text = Settings.Default.user_agent;
@@ -57,7 +59,7 @@ namespace PlaylistEditor
             checkBox_hotkey.Checked = Settings.Default.hotkey_enable;
 
             double oopc = Settings.Default.opacity * 100.0;
- 
+
             numericUpDown1.Value = (decimal)oopc;
 
             if (Settings.Default.Error403 == Color.LightSalmon) comboBox_403.SelectedIndex = 0;
@@ -83,6 +85,10 @@ namespace PlaylistEditor
 
         }
 
+        private void SetComboSpeech() 
+        {
+            comboBoxSpeech.Items[0] = "";
+        }
         private void button_cancel_Click(object sender, EventArgs e)
         {
            this.Close();
@@ -130,6 +136,7 @@ namespace PlaylistEditor
             Settings.Default.entropy = entropy;
             //  write preferences settings
             Settings.Default.Save();
+
         }
 
 
@@ -151,6 +158,39 @@ namespace PlaylistEditor
         {
             if (comboBox_403.SelectedIndex == 0) Settings.Default.Error403 = Color.LightSalmon;
             else Settings.Default.Error403 = Color.LightGray;
+        }
+
+        private void comboBoxSpeech_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Settings.Default.cobSpeech = comboBoxSpeech.SelectedIndex;
+
+                string myCulture = "en-EN";
+
+            switch (Settings.Default.cobSpeech)
+            {
+                case 0:
+                    myCulture = "en-EN";
+                    break;
+                case 1:
+                    myCulture = "de-DE";
+                    break;
+                case 2:
+                    myCulture = "fr-FR";
+                    break;
+                case 3:
+                    myCulture = "es-ES";
+                    break;
+                case 4:
+                    myCulture = "ru-RU";
+                    break;
+                case 5:
+                    myCulture = "zh-ZH";
+                    break;
+
+            }
+            
+            Settings.Default.localize = myCulture;
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

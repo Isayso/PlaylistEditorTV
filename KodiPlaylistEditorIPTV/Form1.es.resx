@@ -118,6 +118,95 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 24</value>
+  </data>
+  <data name="toolStripCopy.Text" xml:space="preserve">
+    <value>Copiar</value>
+  </data>
+  <data name="toolStripPaste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 24</value>
+  </data>
+  <data name="toolStripPaste.Text" xml:space="preserve">
+    <value>Pegar</value>
+  </data>
+  <data name="cutRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 24</value>
+  </data>
+  <data name="cutRowMenuItem.Text" xml:space="preserve">
+    <value>Cortar fila</value>
+  </data>
+  <data name="pasteRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 24</value>
+  </data>
+  <data name="pasteRowMenuItem.Text" xml:space="preserve">
+    <value>Pegar Insertar Fila</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 6</value>
+  </data>
+  <data name="playToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 24</value>
+  </data>
+  <data name="playToolStripMenuItem.Text" xml:space="preserve">
+    <value>Kodi jugar</value>
+  </data>
+  <data name="playToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Damos doble click en la celda B6</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 6</value>
+  </data>
+  <data name="hideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 24</value>
+  </data>
+  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ocultar columna</value>
+  </data>
+  <data name="showToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 24</value>
+  </data>
+  <data name="showToolStripMenuItem.Text" xml:space="preserve">
+    <value>Mostrar todas las columnas</value>
+  </data>
+  <data name="cms1NewWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 24</value>
+  </data>
+  <data name="cms1NewWindow.Text" xml:space="preserve">
+    <value>nueva ventana</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 208</value>
+  </data>
+  <data name="addUseragentCell.Text" xml:space="preserve">
+    <value>Usuario/agente</value>
+  </data>
+  <data name="editCellCopy.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+C</value>
+  </data>
+  <data name="editCellCopy.Text" xml:space="preserve">
+    <value>Copiar</value>
+  </data>
+  <data name="editCellPaste.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+V</value>
+  </data>
+  <data name="editCellPaste.Text" xml:space="preserve">
+    <value>Pegar</value>
+  </data>
+  <data name="editCellCut.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+X</value>
+  </data>
+  <data name="editCellCut.Text" xml:space="preserve">
+    <value>Cortar</value>
+  </data>
+  <data name="label_central.Size" type="System.Drawing.Size, System.Drawing">
+    <value>336, 60</value>
+  </data>
+  <data name="label_central.Text" xml:space="preserve">
+    <value>Haga doble clic para abrir el archivo 
+Arrastra y suelta el archivo para abrir o agrega 
+Ctrl-N para abrir una nueva ventana.</value>
+  </data>
   <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
@@ -162,6 +251,11 @@
         KdX38Z125j/DN9uY/Tzf32bm//BfQ2qPx6PF6/UNbHDjjafErpcAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="button_kodi.ToolTip" xml:space="preserve">
+    <value>enviar a Kodi
+Ctrl+P
+Ctrl+ celda doble clic</value>
+  </data>
   <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -175,6 +269,15 @@
         Ni6Mh8vQAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="button_import.ToolTip" xml:space="preserve">
+    <value>Importación del Portapapeles</value>
+  </data>
+  <data name="RedoButton.ToolTip" xml:space="preserve">
+    <value>Volver</value>
+  </data>
+  <data name="UndoButton.ToolTip" xml:space="preserve">
+    <value>Deshacer</value>
+  </data>
   <data name="button_check.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -185,6 +288,10 @@
         7vxfCvZNE32GLxTwvyb6Dl8oaK2JMcIXCrxuYqzwhYIvbyGGERERB03TA/g7H0I+nbubAAAAAElFTkSu
         QmCC
 </value>
+  </data>
+  <data name="button_check.ToolTip" xml:space="preserve">
+    <value>prueba de la izquierda inválida
++ marca ctrl encontrada a la izquierda</value>
   </data>
   <data name="button_vlc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -209,6 +316,13 @@
         YII=
 </value>
   </data>
+  <data name="button_vlc.ToolTip" xml:space="preserve">
+    <value>abierto con vlc
+Doble clic en la celda</value>
+  </data>
+  <data name="button_revert.ToolTip" xml:space="preserve">
+    <value>File Recargar</value>
+  </data>
   <data name="button_dup.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -223,6 +337,10 @@
         yzFe5O2YJ3I5xou8HfNELsd4kbdjnsjlGC/ydjHrX/xy9zfXbxfDen9WessF128Xw3p/VnrtLtZXrq8R
         A3t9Vlpqsy9i1T78p1K73TO6i5Guvh0HMwAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="button_dup.ToolTip" xml:space="preserve">
+    <value>encontrar duplicados
++shift eliminar duplicados</value>
   </data>
   <data name="button_search.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -243,6 +361,20 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <data name="button_search.ToolTip" xml:space="preserve">
+    <value>Búsqueda
+Ctrl+F</value>
+  </data>
+  <data name="button_moveDown.ToolTip" xml:space="preserve">
+    <value>Línea hacia abajo
+Ctrl-2</value>
+  </data>
+  <data name="button_moveUp.ToolTip" xml:space="preserve">
+    <value>Línea alta
+Ctrl-1
+Ctrl-click línea al principio
+Ctrl+T línea para empezar</value>
+  </data>
   <data name="button_del_all.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -257,6 +389,9 @@
         TuOI46jjd64K8UxNHJV8zV0hNtTEUclHzc9UN60nzQdqYqnoQvNF80vzXnaOjWaexVdVVU1otfoHgTXH
         W/rm+XEAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="button_del_all.ToolTip" xml:space="preserve">
+    <value>borrar lista</value>
   </data>
   <data name="button_settings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -284,6 +419,9 @@
         CjTl9XrL/8DR8j8xtfaPfILCWvdn1jZtWpKOjv8BxXil0YeBPn0AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="button_settings.ToolTip" xml:space="preserve">
+    <value>Ajustes</value>
+  </data>
   <data name="button_add.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -292,6 +430,9 @@
         xjgT4hDvYXeI97A7xHvYHeI97A7xOT3H1IT4GrXvvDumJsTXqH3n3TE1Ib5G7TvvjqkJ8TVqf4ddId7D
         7hDvYXeI97A7xHvYHeI97A7xHnaHeA+7Q1xVVfWF5/kDBf86G2b0KnUAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="button_add.ToolTip" xml:space="preserve">
+    <value>nuevo renglón</value>
   </data>
   <data name="button_Info.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -315,15 +456,19 @@
         L6j//zfrgAHbnqGhP4UFrDrDSzWZAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="button_Info.ToolTip" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="button_delLine.ToolTip" xml:space="preserve">
+    <value>Eliminar fila</value>
+  </data>
   <data name="button_save.ToolTip" xml:space="preserve">
     <value>salvar
 +shift salvar
 Ctrl+S salvar</value>
   </data>
   <data name="button_open.ToolTip" xml:space="preserve">
-    <value>abierto m3u
-doble clic en el fondo vacío
-</value>
+    <value>abierto</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -810,5 +955,12 @@ doble clic en el fondo vacío
         ///wAAAQP/+B////////////////////////////////////////////////////////////////////
         //8=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="openFileDialog1.Filter" xml:space="preserve">
+    <value>Playlist|*.m3u</value>
   </data>
 </root>

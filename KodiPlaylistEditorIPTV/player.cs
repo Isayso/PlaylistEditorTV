@@ -151,12 +151,14 @@ namespace PlaylistEditor
             //json string Kodi
             jLink = "{ \"jsonrpc\":\"2.0\",\"method\":\"Player.Open\",\"params\":{ \"item\":{ \"file\":\"" + jLink + "\"} },\"id\":0}";
 
-            await ClassKodi.Run2(jLink);
+            await ClassKodi.RunOnKodi(jLink);
         }
 
 
         private void comboBox1_KeyDown(object sender, KeyEventArgs e)
         {
+            comboBox1.DroppedDown = false;
+
             if (e.KeyCode == Keys.Enter)
             {
                 comboBox1.Focus();
@@ -209,7 +211,10 @@ namespace PlaylistEditor
             Invalidate();
         }
 
-       
+        private void player_Load(object sender, EventArgs e)
+        {
+
+        }
     }
    
 

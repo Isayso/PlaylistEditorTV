@@ -110,6 +110,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="NativeMethods.cs" />
+    <Compile Include="NotificationBox.cs" />
+    <Compile Include="NotificationBoxF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotificationBoxF.Designer.cs">
+      <DependentUpon>NotificationBoxF.cs</DependentUpon>
+    </Compile>
     <Compile Include="player.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,14 +129,13 @@
     <Compile Include="popup.Designer.cs">
       <DependentUpon>popup.cs</DependentUpon>
     </Compile>
-    <Compile Include="popup2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popup2.designer.cs">
-      <DependentUpon>popup2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Mess.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mess.resx</DependentUpon>
+    </Compile>
     <Compile Include="settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,18 +143,30 @@
       <DependentUpon>settings.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings1.cs" />
+    <EmbeddedResource Include="AboutBox1.de.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.en.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.es.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.fr.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.da.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AboutBox1.ru.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.zh.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.de.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.en-US.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.en.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -156,25 +174,55 @@
     <EmbeddedResource Include="Form1.es.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.fo.resx">
+    <EmbeddedResource Include="Form1.fr.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.gl.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.ru.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.zh.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotificationBoxF.resx">
+      <DependentUpon>NotificationBoxF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="player.de.resx">
+      <DependentUpon>player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="player.en.resx">
+      <DependentUpon>player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="player.es.resx">
+      <DependentUpon>player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="player.fr.resx">
       <DependentUpon>player.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="player.resx">
       <DependentUpon>player.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="player.ru.resx">
+      <DependentUpon>player.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="popup.resx">
       <DependentUpon>popup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="popup2.resx">
-      <DependentUpon>popup2.cs</DependentUpon>
+    <EmbeddedResource Include="Properties\Mess.de.resx" />
+    <EmbeddedResource Include="Properties\Mess.es.resx" />
+    <EmbeddedResource Include="Properties\Mess.fr.resx" />
+    <EmbeddedResource Include="Properties\Mess.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Mess.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Mess.ru.resx" />
+    <EmbeddedResource Include="Properties\Mess.zh.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -188,7 +236,22 @@
     <EmbeddedResource Include="settings.de.resx">
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="settings.en.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.es.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.fr.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="settings.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.ru.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.zh.resx">
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="KodiPlaylistEditor.licenseheader" />

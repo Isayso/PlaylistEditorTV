@@ -107,35 +107,6 @@ namespace PlaylistEditor
         //    return enc.GetBytes(str);
         //}
 
-        /// <summary>
-        /// shows a popup form
-        /// </summary>
-        /// <param name="label">text to show</param>
-        /// <param name="color">green OR blue OR red</param>
-        /// <param name="delay">show time</param>
-        public static async void PopupForm(string label, string color, int delay)
-        {
-            await PopupDelay(label, color, delay);
-            
-        }
-
-
-        /// <summary>
-        /// async thread counter to show popup form
-        /// </summary>
-        /// <param name="item">text, color[green,blue,red], showtime</param>
-        public static async Task PopupDelay(string label, string color, int delay)
-        {
-            popup2 pop = new popup2();
-            pop.Show();
-            pop.label1.Text = label;
-            pop.color(color);
-
-            await Task.Delay(delay);
-
-            pop.Close();
-
-        }
 
         /// <summary>
         /// checks if Diectory exists with timeout
@@ -211,13 +182,12 @@ namespace PlaylistEditor
         }
 
     /// <summary>
-    /// method to get first 1k of stream data to check if stream alive
+    /// method to check if internet connection is alive
     /// </summary>
     /// <param name="uri">URL to check</param>
     /// <returns>errorcode</returns>
-        public static int CheckIPTVStream(string uri)
+        public static int CheckINetConn(string uri)
         {
-            if (uri.StartsWith("rt")) return 410;  //rtmp check not implemented
 
             try
             {
@@ -237,11 +207,6 @@ namespace PlaylistEditor
                 //req.UserAgent = "Mozilla / 5.0(iPhone; CPU iPhone OS 13_1 like Mac OS X) " +
                 //    "AppleWebKit / 605.1.15(KHTML, like Gecko) Version / 13.0.1 Mobile / 15E148";
 
-                if (uri.Contains("|User-Agent") && uri.Contains(".m3u8"))  //#18
-                {
-                    req.UserAgent = uri.Split('=').Last();
-                }
-
 
                 HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
@@ -255,7 +220,7 @@ namespace PlaylistEditor
                 sr.Close();
                
             }
-            catch (WebException e)  //#34
+            catch (WebException e)  
             {
                 if (e.Status == WebExceptionStatus.ProtocolError)
                 {
@@ -279,68 +244,74 @@ namespace PlaylistEditor
             return 0;
         }
 
-
+        /// <summary>
+        /// method to check if link is alive and store result in class checkList
+        /// </summary>
+        /// <param name="uri">link to check</param>
+        /// <returns>class checkList</returns>
         public static int CheckIPTVStream2(string uri)
         {
             int errorcode = 0;
 
             if (uri.StartsWith("rt")) errorcode = 410;  //rtmp check not implemented
-
-            try
+            else   //issue #41
             {
-
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest;
-                req.Timeout = 6000; //set the timeout
-
-                req.ContentType = "application/x-www-form-urlencoded";
-                //   req.KeepAlive = true;
-                //https://deviceatlas.com/blog/list-smart-tv-user-agent-strings
-                //issue #15
-                req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
-                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
-                //+ " AppleTV/tvOS/9.1.1"
-                //+ " AppleCoreMedia/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)";
-
-                //req.UserAgent = "Mozilla / 5.0(iPhone; CPU iPhone OS 13_1 like Mac OS X) " +
-                //    "AppleWebKit / 605.1.15(KHTML, like Gecko) Version / 13.0.1 Mobile / 15E148";
-
-                if (uri.Contains("|User-Agent") && uri.Contains(".m3u8"))  //#18
+                try
                 {
-                    req.UserAgent = uri.Split('=').Last();
-                }
 
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest;
+                    req.Timeout = 6000; //set the timeout
 
-                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+                    req.ContentType = "application/x-www-form-urlencoded";
+                    //   req.KeepAlive = true;
+                    //https://deviceatlas.com/blog/list-smart-tv-user-agent-strings
+                    //issue #15
+                    req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
+                        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
+                    //+ " AppleTV/tvOS/9.1.1"
+                    //+ " AppleCoreMedia/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)";
 
-                StreamReader sr = new StreamReader(resp.GetResponseStream());
+                    //req.UserAgent = "Mozilla / 5.0(iPhone; CPU iPhone OS 13_1 like Mac OS X) " +
+                    //    "AppleWebKit / 605.1.15(KHTML, like Gecko) Version / 13.0.1 Mobile / 15E148";
 
-                char[] buffer = new char[1024];
-                int results1 = sr.Read(buffer, 0, 1023);
-                if (System.Diagnostics.Debugger.IsAttached)
-                    Console.WriteLine("buffer : {0}", results1);
-
-                sr.Close();
-
-            }
-            catch (WebException e)  //#34
-            {
-                if (e.Status == WebExceptionStatus.ProtocolError)
-                {
-                    if (System.Diagnostics.Debugger.IsAttached)
+                    if (uri.Contains("|User-Agent") && uri.Contains(".m3u8"))  //#18
                     {
-                        Console.WriteLine("Status Code : {0}", (int)((HttpWebResponse)e.Response).StatusCode);
-                        Console.WriteLine("Status Description : {0}", ((HttpWebResponse)e.Response).StatusDescription);
+                        req.UserAgent = uri.Split('=').Last();
                     }
 
-                    errorcode = (int)((HttpWebResponse)e.Response).StatusCode;
+
+                    HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+
+                    StreamReader sr = new StreamReader(resp.GetResponseStream());
+
+                    char[] buffer = new char[1024];
+                    int results1 = sr.Read(buffer, 0, 1023);
+                    if (System.Diagnostics.Debugger.IsAttached)
+                        Console.WriteLine("buffer : {0}", results1);
+
+                    sr.Close();
+
                 }
-                else errorcode = 401;  //Timeout error
-            }
-            catch (Exception ex)
-            {
-                if (System.Diagnostics.Debugger.IsAttached)
-                    Console.WriteLine("ex Code : {0}", ex.Message);
-                errorcode = 401;
+                catch (WebException e)  //#34
+                {
+                    if (e.Status == WebExceptionStatus.ProtocolError)
+                    {
+                        if (System.Diagnostics.Debugger.IsAttached)
+                        {
+                            Console.WriteLine("Status Code : {0}", (int)((HttpWebResponse)e.Response).StatusCode);
+                            Console.WriteLine("Status Description : {0}", ((HttpWebResponse)e.Response).StatusDescription);
+                        }
+
+                        errorcode = (int)((HttpWebResponse)e.Response).StatusCode;
+                    }
+                    else errorcode = 401;  //Timeout error
+                }
+                catch (Exception ex)
+                {
+                    if (System.Diagnostics.Debugger.IsAttached)
+                        Console.WriteLine("ex Code : {0}", ex.Message);
+                    errorcode = 401;
+                }
             }
 
             checkList.Add(new CheckList

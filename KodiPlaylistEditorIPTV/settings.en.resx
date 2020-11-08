@@ -118,57 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button_kodi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="checkBox_F2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 274</value>
+  </data>
+  <data name="checkBox_F2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 24</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 20</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Edit with F2 (needs restart)</value>
+  </data>
+  <data name="button_file.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAABDqAAAQ6gGC0wqYAAAAGHRF
-        WHRTb2Z0d2FyZQBwYWludC5uZXQgNC4xLjVkR1hSAAABoElEQVRoQ+3OQW7DMAwEwPz/0y1QTAkQtCxZ
-        ZtIePEfuau3X4/Ho9TWh9n/4r21mPs/325j9DN9sZ/59fOeU6pDaKdVetg+pXOb5IZUeNgvxbeYK8T22
-        CnEbs4V4n51E1M58ItpjIxFNqf9wWuJJIrrG20Q0pZ6IlniSiNZ5F5yXeFKIl3gSnNd4k4iWeVaIp9QT
-        0Zx+cL7M80I8pR6c5/SD8xYThfiUanCe0w/O28wU4iG14HxONzjfZq4QD6kF5zG94NzGbCI6pBKcx/SC
-        cyvTiagQB+cxveDcynQhTkTBeUwvOLczn4gSUXAe0wvOrUwnokIcnMf0gnMLk4X4kEpwHtMLzreZK8RD
-        asH5nG5w3mamEA+pBec5/eC8xUQhPqUanOf0g/NlnhfiKfXgPKefiJZ5Voin1BPRGm+C8xJPCvEST4Lz
-        Ou8S0ZR6IlriSSK6xttEtMSTv/n5XzYSUTvziWifnULcxmwhvsdWIb7NXCHuYfOQymWeH1LpZfuU6pDa
-        KdX38Z125j/DN9uY/Tzf32bm//BfQ2qPx6PF6/UNbHDjjafErpcAAAAASUVORK5CYII=
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACWklEQVRoQ+3ZPW4UQRDF8UVAgoR8ARMi
+        MhLEOZwRcBkIibkAEQIjJDIuAM45iLH5iBBIw+vpv1/vana807XTi4TmJ5Vkv+6u6rY2sOzVYrHYreu6
+        e6r3qh+qfT2n7WFoYLr81370fA73CA1LP/kWDvMIDZrjYzOm/SMYZMTVOL7NC7a0wRAjrsbxMe0ewQAj
+        rsbx67R5BM2NuBrHd5n/ETQ24mocn2LeR9DUiKtxfKr5HkFDI67G8RrzPIJmRlyN47X2fwSNjLgax6tx
+        PI4+RlyN49U4HkcfI26GMUYcRx8jboYxRhxHHyNuhjFGHEcfI26GMUYcRx8jboYxRhxHHyNuhjFGHEcf
+        I96L2tzny4E8pSCOo48Rh6nFE9Uv1QnRhjRjHXEcfYw4RMfT5X/3jbrup+ohS5aXCuI4+hhxNR19qvrT
+        NynesmzkRhxHHyMe0NIt1dbPtvJtl/+sussWy0sFcRx9jHiD4puq16pL1WPinr5f/9hcOVMNLp/k5YI4
+        jj5GbIrS5U/7xSz9EewRa5N/8lfyloI4jj5GvEHxy7xqF6pnqqrLJ3lbQRxHHyPeoPiG6lW/Ydzox2Zd
+        3loQx9HHiAe0dFv1sd80NOnySd5eEMfRx4i30vId1ad+YzH58kk+UhDH0ceIR2nLkepLv7ny8kk+VhDH
+        0ceIr6Vtx6o3qqrLJ2nGOuI4+hhxM4wx4jj6GHEzjDHiOPoYcTOMMeI49Wj5D45dvnGNODX5kHv9E6dc
+        I05NHqjSrwaHdq465hr7UaP0n8p3qu+q1tKM9MvhPJdfLP5rq9Vfo4jCoya2i5EAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="button_cancel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAABDoAAAQ6AH9LckRAAAAGHRF
-        WHRTb2Z0d2FyZQBwYWludC5uZXQgNC4xLjVkR1hSAAACXElEQVRoQ+3XsU4jQQzG8RQUgKCj4AGQeAlK
-        SkoKSjpaahoefW4n98+ndTyemd1MIor9SdZKttfj5XJh2W02m7FSA21/B3utxpjL4/xhGHsZnDkc48+H
-        c6poDdFWRetYzC6iZTFuL6JlDGY6lE/GOIfyaZjlUB6GsQ7l9ZhjUBqO8QaldZhhUHLS7W33YenxMZ5T
-        QGkZ7jUoOenmJhf3QSqUrq7+91YemOMMSv24T0g7eZH9QrOg5Gj5Q9zdxb1HSPfhHoOSkRfQMkdBi4S9
-        00PRYnCsQamNfiFt1JY/BK3t3s6HIN1Gv5B2tEAt7u/L+Xl8f08Xj+OFdBv9QrpIS6yNz8/pUsbxQrqO
-        XiFdpWWWxvv7dKljDSEdo09IN2mp3nh9nS5trCGkY/QJ6S5arhUvL9OlD2sI6Rh9QrpLenqyiwZBexfW
-        ENIx+oR0U/48HxZsRvC1WcIaQjpGn5Cuyt8kWq43Oh+CNYR0jD4hHcrf4VpqaVReJQ5YQ0jH6BPSRen3
-        1y60JhoPwRpCuo5eIe1oiSjyK8TXV7k2j+D1muOFdBv9Qtpwb5bHMfuMNz9mwb8CxwvpNvqFtBM+ROE/
-        aPr4KPc+PEyXMo4X0m30G5ScdH1tF5qCkpPe3mzvOf8y4x4hXTR/XSYVyr+F973Pz/WZR0j34z6DUlH+
-        aaafn66DWi9xHGdQWoZ7DUpnwzEGpXWYYVAajvEGpfWY41AehrEO5dMwy6F8MsY5lMdgZhEti3F7ES1j
-        MbuK1hBtVbSeD+cMx/jL4MxhGHt5nL8aY/4O9grRttlshtjt/gGkJCg0FOQXgQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="button_cancel.ToolTip" xml:space="preserve">
-    <value>Schliessen</value>
-  </data>
-  <data name="button_Top.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACDUlEQVRoQ+3ZQWpUQRRA0SxEx67dILgx
-        FeMGYn093FKkqS4Hv7shB2py+z2qEqQH5unNI3l9fX0/zqdxfoxztuPOz+N88Jw9Y/F4/Ndxbu3bOO89
-        63pj6fjN34tnz7reWLrFP5tLXjzrehYjn8a1ka9nL/JpXBv5evYin8a1ka9nL/JpXBt50iNHjrxk/CJj
-        S8YjT3rkyJGXjF9kbMl45EmPHDnykvGLjC0ZjzzpkSNHXjJ+kbEl45EnPXLkyNusR14yHnnSI0eOvM16
-        5CXjkSc9cuTI26xHXjIeedIjR468zXrkJeORJz1y5MjbrEdeMh550iNHjrzNeuQl45EnPXLkyNusR14y
-        HnnSI0eOvM165CXjkSc9cuTI26xHXjIeedIjR468zXrkJeORJz1y5MjbrEdeMh550iNHjrzNeuQl45En
-        PXLkyNusR14yHnnSI0eOvM165CXjkSc9cuTI26xHXjIeedIjR468zXrkJeORJz1y5MincW3kSY8cOfJp
-        XBt50iNHjnwa10ae9MiRI5/GtZEnPXJGuqf/3P3uWZMPImek448L9+KjZ00+iJyRPoxz/HHh1r6M886z
-        pt+fTfJfRj7+SvM8zssxc7Ljzo/j/Pv4w6+RP8iPw7sjPw7vjvw4vDvy4xhvvqfv+f1f4Ni5p+/5//oB
-        7uV7/hfP2jP2bvk9/xdPenPnnp5+Aq5Ikj+yA09fAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="comboBox1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -655,17 +631,5 @@
         ///wAAAQP/+B////////////////////////////////////////////////////////////////////
         //8=
 </value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="button_Top.ToolTip" xml:space="preserve">
-    <value>In den Vordergrund</value>
-  </data>
-  <data name="button_kodi.ToolTip" xml:space="preserve">
-    <value>sende zu Kodi</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>player</value>
   </data>
 </root>

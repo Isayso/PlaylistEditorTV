@@ -118,6 +118,75 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
+  </data>
+  <data name="toolStripCopy.Text" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="toolStripPaste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
+  </data>
+  <data name="toolStripPaste.Text" xml:space="preserve">
+    <value>Вставить</value>
+  </data>
+  <data name="cutRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
+  </data>
+  <data name="cutRowMenuItem.Text" xml:space="preserve">
+    <value>Вырезать строку</value>
+  </data>
+  <data name="pasteRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
+  </data>
+  <data name="pasteRowMenuItem.Text" xml:space="preserve">
+    <value>Вставить строку вставки</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 6</value>
+  </data>
+  <data name="playToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
+  </data>
+  <data name="playToolStripMenuItem.Text" xml:space="preserve">
+    <value>Коди играй</value>
+  </data>
+  <data name="playToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ctrl двойной щелчок по ячейке!</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 6</value>
+  </data>
+  <data name="hideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
+  </data>
+  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Скрыть столбец</value>
+  </data>
+  <data name="showToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
+  </data>
+  <data name="showToolStripMenuItem.Text" xml:space="preserve">
+    <value>Показать все столбцы</value>
+  </data>
+  <data name="cms1NewWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
+  </data>
+  <data name="cms1NewWindow.Text" xml:space="preserve">
+    <value>в новом окне</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 208</value>
+  </data>
+  <data name="contextMenuStrip1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dataGridView1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textBox_find.ToolTip" xml:space="preserve">
+    <value>AND char SPACE</value>
+  </data>
   <data name="button_kodi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -132,42 +201,323 @@
         KdX38Z125j/DN9uY/Tzf32bm//BfQ2qPx6PF6/UNbHDjjafErpcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button_cancel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_kodi.ToolTip" xml:space="preserve">
+    <value>играть с Kodi 
+Ctrl+P
+Ctrl+ двойной щелчок по ячейке</value>
+  </data>
+  <data name="button_import.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAABDoAAAQ6AH9LckRAAAAGHRF
-        WHRTb2Z0d2FyZQBwYWludC5uZXQgNC4xLjVkR1hSAAACXElEQVRoQ+3XsU4jQQzG8RQUgKCj4AGQeAlK
-        SkoKSjpaahoefW4n98+ndTyemd1MIor9SdZKttfj5XJh2W02m7FSA21/B3utxpjL4/xhGHsZnDkc48+H
-        c6poDdFWRetYzC6iZTFuL6JlDGY6lE/GOIfyaZjlUB6GsQ7l9ZhjUBqO8QaldZhhUHLS7W33YenxMZ5T
-        QGkZ7jUoOenmJhf3QSqUrq7+91YemOMMSv24T0g7eZH9QrOg5Gj5Q9zdxb1HSPfhHoOSkRfQMkdBi4S9
-        00PRYnCsQamNfiFt1JY/BK3t3s6HIN1Gv5B2tEAt7u/L+Xl8f08Xj+OFdBv9QrpIS6yNz8/pUsbxQrqO
-        XiFdpWWWxvv7dKljDSEdo09IN2mp3nh9nS5trCGkY/QJ6S5arhUvL9OlD2sI6Rh9QrpLenqyiwZBexfW
-        ENIx+oR0U/48HxZsRvC1WcIaQjpGn5Cuyt8kWq43Oh+CNYR0jD4hHcrf4VpqaVReJQ5YQ0jH6BPSRen3
-        1y60JhoPwRpCuo5eIe1oiSjyK8TXV7k2j+D1muOFdBv9Qtpwb5bHMfuMNz9mwb8CxwvpNvqFtBM+ROE/
-        aPr4KPc+PEyXMo4X0m30G5ScdH1tF5qCkpPe3mzvOf8y4x4hXTR/XSYVyr+F973Pz/WZR0j34z6DUlH+
-        aaafn66DWi9xHGdQWoZ7DUpnwzEGpXWYYVAajvEGpfWY41AehrEO5dMwy6F8MsY5lMdgZhEti3F7ES1j
-        MbuK1hBtVbSeD+cMx/jL4MxhGHt5nL8aY/4O9grRttlshtjt/gGkJCg0FOQXgQAAAABJRU5ErkJggg==
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABfUlEQVRoQ+3YW0rEQBCF4SxEX3WZ+uhW
+        RrxsTMVxA7GK/HNmGAjpVKwKSH/QMBy6Li0+Zei6ruu6JeM43tp5sfNjJ5vPeLNzx/htrJEv/2mn2ped
+        7Y+wJv6X38sra8RZk4p/mzlH1oijkRCnYYwQx9FHiNMwRojj6CPEaRgjxHH0EeI0jBHiOPoI8Sy78sTP
+        kGnKGXEcfYR4FtfCj6BeiOsw14UeQa0Q12HuyepHUCfEdZh7adUjqBHiOsy91vwI7gtxO+oyND2Cu0Lc
+        jrosi4/gnhC3oy7LA2NmcU+I21GXYXF5x10hrsPca03LO+4LcR3mXmpe3lEjxHWYe7JqeUedENdhrlu9
+        vKNWiOPoI8SzuBZa3lEvxHH0EeJZduWRnyHTlDPiOPoIcRrGCHEcfYQ4DWOEOI4+QpyGMUIcRx8hTsMY
+        IY6zHnt+2PpmjThr8j712sWBNeKsyb0d/9Ba7cPODWtsY438C/WznaOdbD7jYOdvlu+6ruv+sWH4Bb0F
+        Ni6Mh8vQAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button_cancel.ToolTip" xml:space="preserve">
-    <value>Schliessen</value>
+  <data name="button_import.ToolTip" xml:space="preserve">
+    <value>Импортировать полный список из буфера обмена</value>
   </data>
-  <data name="button_Top.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="RedoButton.ToolTip" xml:space="preserve">
+    <value>Вернуть</value>
+  </data>
+  <data name="UndoButton.ToolTip" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="button_check.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACDUlEQVRoQ+3ZQWpUQRRA0SxEx67dILgx
-        FeMGYn093FKkqS4Hv7shB2py+z2qEqQH5unNI3l9fX0/zqdxfoxztuPOz+N88Jw9Y/F4/Ndxbu3bOO89
-        63pj6fjN34tnz7reWLrFP5tLXjzrehYjn8a1ka9nL/JpXBv5evYin8a1ka9nL/JpXBt50iNHjrxk/CJj
-        S8YjT3rkyJGXjF9kbMl45EmPHDnykvGLjC0ZjzzpkSNHXjJ+kbEl45EnPXLkyNusR14yHnnSI0eOvM16
-        5CXjkSc9cuTI26xHXjIeedIjR468zXrkJeORJz1y5MjbrEdeMh550iNHjrzNeuQl45EnPXLkyNusR14y
-        HnnSI0eOvM165CXjkSc9cuTI26xHXjIeedIjR468zXrkJeORJz1y5MjbrEdeMh550iNHjrzNeuQl45En
-        PXLkyNusR14yHnnSI0eOvM165CXjkSc9cuTI26xHXjIeedIjR468zXrkJeORJz1y5MincW3kSY8cOfJp
-        XBt50iNHjnwa10ae9MiRI5/GtZEnPXJGuqf/3P3uWZMPImek448L9+KjZ00+iJyRPoxz/HHh1r6M886z
-        pt+fTfJfRj7+SvM8zssxc7Ljzo/j/Pv4w6+RP8iPw7sjPw7vjvw4vDvy4xhvvqfv+f1f4Ni5p+/5//oB
-        7uV7/hfP2jP2bvk9/xdPenPnnp5+Aq5Ikj+yA09fAAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA9klEQVRoQ+3U0Y6CMBSEYd7aS/fSt9aB
+        /au4lkVKJmmT+RITW9qeOShMEREREfFyN6OMD3VsKONDHRvK+FDHhjIR4cKzZkMZH+rYUMaHOjaU8aGO
+        DWUO09YffW4Mx0L4YqwmFHgdvhijCQWthZ9dWdIvhWwLz6JmHPNG04ceQNbX7N95FjbjmCdNrcPsNqE1
+        5/42LG7GMQsNa2E2m9C1c+FnbGjGMQsNL7+zHz6a0Nz58A4KsNuEvvcZvlCQrYDz/OY1tvdBgbZ+iZo+
+        7vxfCvZNE32GLxTwvyb6Dl8oaK2JMcIXCrxuYqzwhYIvbyGGERERB03TA/g7H0I+nbubAAAAAElFTkSu
+        QmCC
 </value>
   </data>
-  <data name="comboBox1.ToolTip" xml:space="preserve">
+  <data name="button_check.ToolTip" xml:space="preserve">
+    <value>проверка на недопустимые ссылки 
++ ctrl выбор оранжевых ссылок 
++ shift-ctrl выбор серых ссылок 
++ Alt принудительное повторное сканирование!</value>
+  </data>
+  <data name="button_vlc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAADxUlEQVRoQ+2ZS0tVURiGxdJAG2k2SP0H
+        TTXrf4RSMy9dxiJag2qkzlUsmmsljbr8jCCpQUGDLhRkBRWUNTk979nf2S4Xe5+99kVNOA+8cPB7v2/t
+        tS/rZluLFi3KU6vVjqCz6Dp6iF6ib+ivSb9fIMXkGUHtln5wcBGDaBF9QHl5jxbQgJXbP2i0D91Bf1BZ
+        VGMVnbDyewsNXUBfUdV8QWPWTPVQvAPdVUspfEdraBINIT0l5Uj6rb9NoXX0A6VxG3VYs9VAwS70VNUT
+        eIXGUZfZM5EXTaDXKIknKLheUyikO5h08b/QNDpq1tyQq9oz6DfyeYzKPwmKJL02unOnzVIaamlY/ajC
+        HqtmKQYFLkZ1dvEM9ZmlMqg5gJ6rAY9Rs+SDRH14/mijO1/5xTegtjrxSQ05bKFes4RDksZ5F73zma8N
+        nlv2sxDk63XaRi4rFg6DBM2w/iQ1beGmmLdsJ25EZWLUofAZG7OWBy4aKoNGm8hep3AnyD2O/FdpwcLN
+        waiFmb+2GbdwJuZvUKYTV6MSMe9Q9gIQk1aVLpph80xSPoU6QV43+lmvsMOwhdPBpOWuy5qFgrAcn6Kd
+        uBelx8xZKB1MWrO7TFooCMtJIncnyLkUpcZsWCgdTNp4uAxZKAjLSSNXJ/CfidJiNi2UDiZ/8sq1Trec
+        ZgR3Au/JKCVmy0LpYPLH/04LBWE5WSyavSn4jkX2mG0LpYNpPzpw0+xNwVeoA4f+FfI/4uyx18Fy0sj7
+        EWtd5BL0EfvD6JSFgrCcJIoMo5ej1JigYfRa5I1Zt1AQluOT++IFeQ+i9JhZC6WDyX9s2oD/L0uJ7DkJ
+        UzvSoZPLhIUzMX+DQhcvyNUJhstbFHaah1EnZi7aiQVtsCN7nTIX34ne1KvsMG/hbDBra+fPBzMWbop5
+        C1+8IH8uKhOjDU2/hcMgQcd9Ljr6GLFwKnjKXvw55G8plywcDkk9SBtqF+2SBs1SOdQ+hfzNlI4ci52b
+        kjhWL7EbHX1UfqJMTe3DN9WAx3mzFIMCOqv00ZPIfJ1CoZZ2gf4eWCybpTgU0fGfzip99J7q9KDbrLkh
+        V6ONJk7/nRePUOFjy11QSIexSZ0QunPagAd3RF6k3ZY/VDbQxVdzuNuAgnoS/sjkollTe1itX7ST0kpS
+        d1jSb/3tCrqP/BnWZRlVc+eToPgo8kenKviMyn2wodBQL1pBSe9uXlRjCfVY+f2DRvuRlh06dMqLcuZR
+        vhl2L+AitAAcRloCbCCN59rZaTki6bfmD8Vmkf7ddPD/Zm3R4tDT1vYPTidY+/kQkrgAAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="button_vlc.ToolTip" xml:space="preserve">
+    <value>играть с vlc 
+двойным щелчком ячейки</value>
+  </data>
+  <data name="button_revert.ToolTip" xml:space="preserve">
+    <value>Перезагрузка файла</value>
+  </data>
+  <data name="button_dup.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACCElEQVRoQ+3YQUocQRSA4dnnCnEtCLmT
+        q1wrkJ0ieBrxEhpiELfjq+mfv1vRPJt+VcmAH9QiP1Wv2jDJzLj79D/a7/cnsa5i/YnVFVfWiZnt4e8P
+        0wfg2joxs/3ND8O1dWJm95fNEtfWYa7Ix4PnFvl48NwiHw+eW+TjwXOL/ELkEe8TbfZ1rFOu/ZjD0QWy
+        Ig19nwi/Yp1wfW46MyMr0tD3CVxyfY4DIivS0PcJPHB9jgMiiyxyOcaLnGO/yCKLXI7xIufYL7LIIpdj
+        vMg59ossssjlGC9yjv0iiyxyOcaLnGO/yCKLXI7xIufYL7LIIpdjvMg59ossssjlGC9yjv0iiyxyOcaL
+        nGO/yCKLXI7xIufYL7LIIpdjvMg59ossssjlGC9yjv0irxZHf8b6wh9XO1y+QM6xX+TVOH4b6xtplen4
+        jJxjv8ircbx5ivWd/GHT0Rk5x36RV+P40qqX1HRkRs7F3p5fWG5inXHVX03bZ+Rc7G1fpHt6jHXOde+a
+        ts7Iudh7Gqt9ke6l7w/QxP72m4fLWA/tcKH+L6Eq3Ls05h9xFe5txv43WoV7x7+RVYk7f8Qa/1EiwzyR
+        yzFe5O2YJ3I5xou8HfNELsd4kbdjnsjlGC/ydjHrX/xy9zfXbxfDen9WessF128Xw3p/VnrtLtZXrq8R
+        A3t9Vlpqsy9i1T78p1K73TO6i5Guvh0HMwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="button_dup.ToolTip" xml:space="preserve">
+    <value>найти дубликаты + сдвиг удалить дубликаты</value>
+  </data>
+  <data name="button_search.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC3UlEQVRoQ+2YO2sVURSFk0qx8BeYSiEI
+        FloaVOKDKAq+Qir9BbHyN1gItlYpRLTSIGitKGIIPkrFRgtbQdQkhU/w+u1zVnZmQq53n1HMBOaDRe5Z
+        56w9e27m3plzhzo6Ojo6OvrR6/VG0B20hP43dsy7aFTtlEHQmv+I1ptPaERtxSFk73xbmFVbcQitx2XT
+        j0W1FUfB1qC24ijXGtRWHOVag9qKo1xrUFtxlHNkh1HMkR1GMUd2HOUc2WEUc2SHUcyRHUc5R3YYxRzZ
+        YRRzZMdRzpEdRjHjOToiO0yOriA7jnKO7DBEfqBpDYshew4tooTsOMo5ssMQ2a+XjaHGbvS+yfH/+gRW
+        Q4lhdALdQG/Rd/QFvUPX0YSW1sDfg5Y0jEOohuxGEN+FnqZCf2Ye7VDMwTuvl3FSuXIeKu7gTaCSB8MF
+        NK54c3KtYvYqnmC8EzV5qrU9QLONzDK5ThEvFU0wtmv+RZqpcx/Zf2Ur2oL2odtoNY9UqhkqUsIlRROM
+        j2e7xhU0rCU18KfTijoHNV2OCjiywxC5mZPOE7Rm88swfyutXGFGU+WogCM7DBH7eqxyRlN9Yc1YXurU
+        LssiVMCRHYbI15x0tmmqL6zZlJc6C5oqRwUc2SFYbh9gu1FViZzAZvQrrc580FQ5KuDIDkPkTU46pzXV
+        F9YcyEuddb2E7PGgymM06EN8L61c4aqmylEBR3YYIsdyssZl1O9r9GJaUWdM0+WogCO7CGJzOV3jATqK
+        Bt3I5lWmGRRo8ghwWPEEY3uU+JxmyvmJplSqHML2w2optvuqXSKMx1HTk7BN0aRKlUFwFNlDVSkXVMLB
+        247WupxW8wzZO1/FTuKsSpVB0H6hnkW+tQtgB1xzN4Z/CF1Dr5Fdolb3FZpBKcPfKWQ1qth44J28NdDs
+        pJquYuOB95LWQLO2/fxmnVfY8CdhjyenNL0xoGHbV9hJbLzml6HxkyYNOzr+HUNDvwH6579OA/3IOgAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="button_search.ToolTip" xml:space="preserve">
+    <value>Поиск 
+Ctrl+F</value>
+  </data>
+  <data name="button_moveDown.ToolTip" xml:space="preserve">
+    <value>переместить строку вниз 
+Ctrl-2 
+Ctrl-щелчок переместить вниз Ctrl-B переместиться вниз</value>
+  </data>
+  <data name="button_moveUp.ToolTip" xml:space="preserve">
+    <value>переместить строку вверх 
+Ctrl-1 
+Ctrl+щелчок переместить наверх 
+Ctrl+T переместиться наверх</value>
+  </data>
+  <data name="button_del_all.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB9ElEQVRoQ+3WTU7bUBTF8cCQjx2UcTeE
+        UIDNdNitpJPOK1qQ2A6qaIe0knvue/937Ti2BMHXcqP3k66IT2yf55h8rKqqqg5D0zSfNK/1mcOWQQt6
+        y+KLeS+C0tlQOx3OOxtqp8N5Z0PtdDjvbKitDg93OAw1cegJQ00cesJQE4eeMNTEoccR743TOOI49Dji
+        vXEaRxyHHkecaPOIh6P6+6STdBDHoccRW36qudOsiXbouUvNveacaBkXoD+2+IcUNM1fzXXauUOZLf6P
+        7SCPmnQRebOVdo5ET9expiy+eNFccogdc6Upiy/sbh3lhy0OiUOPIxtaoN2JW033lS/suZux84WixxFb
+        vtb0F2rbQ9kVhy3nAow2h17tLn/lixy3iOPQ44idIrsIew/07Sze5KdaxHHoccRO0dhdSO8JdnP5qRZx
+        HHoccaLN1/wLbV1EjlvEcehxxJYPfRLZ9lC2rDex/ox+VGqG3hN+J/Jmy7JQ9HTZl5F9KXX1X+XFf5Gd
+        aL6nYPzTpnsn7KfEGfmWtHMkehxxuYhvmp3FF3rOLuKHJi3e6PEW4jj0OOJEm//vz+l9cRpHHIceR7w3
+        TuOI46jjd64K8UxNHJV8zV0hNtTEUclHzc9UN60nzQdqYqnoQvNF80vzXnaOjWaexVdVVU1otfoHgTXH
+        W/rm+XEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button_del_all.ToolTip" xml:space="preserve">
+    <value>удалить список </value>
+  </data>
+  <data name="button_settings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAEqUlEQVRoQ+2Z3YtVVRiHR1NLwi+aGUuR
+        /APMgbnQwcIUMgxBdNJbA0MDI+hiUFGptG77A2ouxT6giLqKUIzqwgtTSQQ1DU2TjDK/RivQ6fmt9c6a
+        vdess2fvcxw5B84DP5z1fqz1nuPe6+t0tGnT5sExPDx8EI3HQQtvLijsSV9fKeZaWvNAUc/52krxrKU1
+        DxT1iq+tFJssrXmgqH2+tsA2c8n3ujcF9pqreaCoj3xtgefNJd8KbwocMNfEw2Aa/Df0CVqJJpnLQXsW
+        2oNuoCxdFqKYLm8KKFY5syzEQXsS0hgaS2OuMFd90ME0dAZlOYt2IBW1Bl1BMVetiwC2P7wrx1X0MpqN
+        tqKTKMs59Kh1UR2SB1w3af6zf1Mcti4CsnlXkqK+BqyLapA4F113XZTnb/QBWmbdBGRDH1pMFVRD9XWD
+        pEGXPoo60n95in/R22impdeEGL0z71hOij9R/D4NWno5SOhF91zqKNvQVLQWfYFGCriAFltqacjpsVyh
+        R+hL1I/03r2BsqiWXksthkDNBN8rK4NerikW4qCtl1gDLTBTZZRrfXSbyUF7CjqFsqim3AyYhKCXXHie
+        z9FUCymEuG70HjqObpuOoXdRrtBaEKcP8BmKWW0htSGoD/3jwvN8izotLAn+jeimgmsg3wYLT4L/CXRI
+        wRGqaamFFUPgEnRRWRG/oGcsLAd2FX9fQeOgmOSHwL4InVdQhGpZYmHlIKETfa3sCH2Lyy3MQVuPTdE3
+        H6NZJqzUgvZylOpDNRT+z9eExMloL4pnpHUW4qCtZz6LZqjtaJ5JK3c8be6zdAft9d4c0Jgae7KF1A+d
+        XFaPGZ42l4P2CW8O7DBXQDbvChwzl4P2Qm8OXDZX49DZXd9nYLq5HLRveXPgKXMFsMUntpvmctCe7s2B
+        u+ZqHDq74/sMxB8gfnbnmSuAbb53BW6Yy0H7cW8ODJmrcehsvEdIc36W1CO007sCE/8I0YkWlPddd3ni
+        l1iLVBa9sHrmi17i3KmMtrbVMRo7twMoDYnajWrxitHKmjto0K46jWpjmJsaab+I4ndNqIZqu1EStBpf
+        UnaENl89FpYD+wZUdiHrt7Qc2LWA6iQWo1r6LKwYBaLUVuI7lFt8YvDrQ8Rb4Sz65pPFj4Bfj9wRBUeU
+        20oQlNrMaWM1zUIKIU67VN1Q/Ig0vUr6W4tSqRWVuMfQVyim1GYutZ0+inIrIu056DXUyHZaU+tmlDsI
+        0dYOQDvYLOW204LA1IHmVfQI0kH+UzTywtV8L4ogZ7HliiG0H72AVPwWlKX8gWYEEuIj5V8odQMh9Hy+
+        hcoeKXX8TL1n4lekY2WWakdKQVI9h/prSIf6MTMGNt2d6lBftU/F13cZTGLRtUqtb1B8Y10EsP3gXUmK
+        +qrvWkWQrAP2adfNKLro0sqq88JqlJq3x2wDsOkRjPkdrUN6rHSx9RPK8jOq/2JL0IGuFnUi+tj+jq8W
+        Z6LdKJ7/Z1uIYjS3Z1HsLjTDQhy0NQNqDI2lMRu7WqwCg8WXu+Fyi79XeVPg4V3uloWi4uv1LeaS701v
+        CjTl9XrL/8DR8j8xtfaPfILCWvdn1jZtWpKOjv8BxXil0YeBPn0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button_settings.ToolTip" xml:space="preserve">
+    <value>Параметры</value>
+  </data>
+  <data name="button_add.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAsElEQVRoQ+3TMYoEMRADwPn/p/eSQhcN
+        LMYN26AKhVEr8VNVVVVV/z7DnJnjzhhn5rgzxpk57oxxpqqm+GtjnAlxiM/pGeNMiEN8Ts8YZ0Ic4nN6
+        xjgT4hDvYXeI97A7xHvYHeI97A7xOT3H1IT4GrXvvDumJsTXqH3n3TE1Ib5G7TvvjqkJ8TVqf4ddId7D
+        7hDvYXeI97A7xHvYHeI97A7xHnaHeA+7Q1xVVfWF5/kDBf86G2b0KnUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button_add.ToolTip" xml:space="preserve">
+    <value>Добавить строку</value>
+  </data>
+  <data name="button_Info.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAADqElEQVRoQ+2Zy2oUQRiFQzQKiStvG2Pe
+        wmiiryEJujXqGyQK2SbuY4jiXlFx5eU9jLoSBS9414UKXjbxO9Mn1Z1i2q7uaUcC88GBof7//NXXquqa
+        oQEDBvTOxsbGDjSFLqI76An6gn5b+v0YKaacY2jY9v8HB3EYXUKvUV1eoWU07nL9g04PoKvoF+oV1VhD
+        +13+30JHp9Bn1Daf0Ky7aR+Kj6Br6qmEr+g6mkNHkO6SPJJ+TyLFbiDllnEFjbjbdqDgKHqg6l14g86j
+        UadXolx0Bj1F3biPkuv9FQrpCnY7+J9oEY05tTZ4VXvetWLuod7vBEW6PTZv0ZRTeoZa0+idCkesOaUZ
+        FDid1dnCI3TYKa1BzQnXjplxSj0w7kMfOyVydJVaP/hNqK2TiO+ERrz6QywmjfNFfqDkxyaz5Li5ElKP
+        o/idWHU4DQyaYeNJatHhJOwJuDkJ0i9kroBOKH3GJlnLgyIaKmuNNpktx81JkL4LPesYc5Yd/jskamEW
+        r23OO5yMfQE3J4PlbOYMvETVC0CStKosolmznUmlBvQ5hr7pAApMOlwOSVruFrnuUN+h75vZIQQWHCqH
+        JK3Zi8w51Hfo+1x2CIHbDpVDkj48ihxxqO/Q99HsEALrDpVDUrxUbrROtzfg5lpgO5i5Ax8dKoekePzf
+        5VAt7A24uRbYdmfuwE+HyiFp25/Atn+E4pe4euztgr0BN9cCm3YviiS9xK0Mo/YG3FwLbI2G0XghdcOh
+        WtgbcHMtsN3K3IF5h8ohKb5tjZYSmTXHzclg2YO+d8w51XMSScNIm05FzjicjH0BNyeDJV7MvUBpu3kk
+        asesiHYPan1gZ7YcNydBuobP5x1jzpLD1ZA8juL5oPr5K2BPwM1JkB4vKPVBc8jhNDBou6+Iikw7XElm
+        yXFzJaSeQPHFW3E4HUx7UbeP+gmntI5qu48i2nJstm+KcbZTYiva+mj9JFQTxZOoOOmUZlBAe5UxukrH
+        ndIz1NJj816FIy47pTkU0faf9ipj9E5o0mu02BPyIr2w8TMv7qKdTu0NCmkztttJCO0eaMxO3rUgV5OU
+        PPFQuYkOvt3vcArqTsQjUxF9gOsbVusXfUlpJakrLOm32rSLreVBPMMWuYzaufLdoPgMikenNviAenth
+        U6Ej7ZuuongLsAmqsYL2unz/oNNDSMsObTrVRZ4lVG+G/RdwEFoA6i+kBXQbrSN92Wl0kfT7IVJMf2jo
+        L6j//zfrgAHbnqGhP4UFrDrDSzWZAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="button_Info.ToolTip" xml:space="preserve">
+    <value>ИНФОРМ</value>
+  </data>
+  <data name="button_delLine.ToolTip" xml:space="preserve">
+    <value>удалить строку или ячейки</value>
+  </data>
+  <data name="button_save.ToolTip" xml:space="preserve">
+    <value>сохранить как 
++ Shift сохранить перезаписать 
+Ctrl+S сохранить</value>
+  </data>
+  <data name="button_open.ToolTip" xml:space="preserve">
+    <value>открыть</value>
+  </data>
+  <data name="addUseragentCell.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 24</value>
+  </data>
+  <data name="addUseragentCell.Text" xml:space="preserve">
+    <value>User-Agent</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 6</value>
+  </data>
+  <data name="editCellCopy.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+C</value>
+  </data>
+  <data name="editCellCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 24</value>
+  </data>
+  <data name="editCellCopy.Text" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="editCellPaste.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+V</value>
+  </data>
+  <data name="editCellPaste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 24</value>
+  </data>
+  <data name="editCellPaste.Text" xml:space="preserve">
+    <value>Вставить</value>
+  </data>
+  <data name="editCellCut.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>Ctrl+X</value>
+  </data>
+  <data name="editCellCut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 24</value>
+  </data>
+  <data name="editCellCut.Text" xml:space="preserve">
+    <value>Вырезать</value>
+  </data>
+  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 106</value>
+  </data>
+  <data name="contextMenuStrip2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_central.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 60</value>
+  </data>
+  <data name="label_central.Text" xml:space="preserve">
+    <value>Дважды щелкните, чтобы открыть файл. 
+Перетащите файл, чтобы открыть, или добавьте 
+Ctrl-N, чтобы открыть новое окно</value>
+  </data>
+  <data name="label_central.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblRowCheck.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblColCheck.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
+        mjmL1VAYhscF7VREUUEsFBREULBQC/0JNoJ7aeOGhZ2VtSiCoIW9NvaiiGAlClrYuqC2LuCOitvz4j1w
+        CN/JTSbJSc6954GHGYa5yZd3krN8mZlMJjNtnB19zQT4izmkEhRQDqkEF1AOKYAfUA7JoBhQDqmAFZDM
+        IY2wwnHmkMAKxncqQlqFB/ES3sbn+B5/ohVK0YkMaRmewkdoXXRdJyak1ag75RtaF9rEpENagGfwK1oX
+        14bJBrQBn6B1UW2ZbDh78DNaF9WWyYZzDH+jdVFFNXNdxgO4BZeiHkvrd32TDecoWhfk+wuv4w4MYX3O
+        mfRjNe7OuYXrcRzWZ2XSA3LZmKPp/QhWxTpGsuFozCibrd7gVqxD8RjJhiO0zilekFPh6O6qi3+MpuGs
+        xUP/v42PVsihRaAeq7p3jsMdo41wXuMH1DYnOto++KH41hlziujzbYXj6jmHUdFfJLS30mzVhLbDkZ9w
+        EUZDu3K/AKfWOVWm8q6Yjy/Rqk3rtGiEWhZaBPbNDbRqu49RULPLKkCWrZBjsQut2v7gCuwcdQKtArS3
+        GgJzsDgGOfdj54RmL208h8IVtGq8iJ2jHrJ1cu3Kh4IWh1aNd7Bz9ChZJ1fLYihsRqvGZ9g5evtgnVz9
+        nKGgWqwaP2LnhF7NaOM6FOahVaNaMp2j6dI6+VwcCgvRqvEHdk6o97MYh8JytGp8i53zAq2Tb8KhoE6C
+        VWOUQfouWiffh0PhMFo13sTOCS0U9fOhcBWtGqMsFEOLsCFtNV6hVeNe7BxtVkMz2Tbsm51o1aaaNXhH
+        4SFaRVzDvgm1Ox5gNE6iVcRT1CKtLzSTht7PHcdoLMEv6Beg6X8NNqFpu/Ue+jU5VWv0rdAFdAW0FY6O
+        NVtOoKun6HmMjgY8bf7aDEfOhu34Hf1QnFr5r8ReUHexzXBkXTbiO/SP4Xsak6UYjqyD7pyycB6j3nQk
+        iRWOrIrGnNBjJfX4r8MkCYUjx6GpPDRbOfV+bjcmSVk40kLbB62QtQis8h9sTV5998q4cKSaXZoh1bLQ
+        rlwbz9DeqqjunIkOp4kacyb2sWqqZquJHJCbqkWg1jnJTuWii4C0t9L2obcVctu0EZL6OWpZaFc+pHdw
+        rVE1JL2a0dsHNdjVQ1abVJ3AaM2uPqkS0tQzLqQMlIWUGREKKeNhhZQpUAwpY+CHlAngQsqUoJAymcy0
+        MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="button_refind.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="button_clearfind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAjUlEQVRIS+2UQQqAMAwE+wnBJ3jQ/5+k
+        f9CDz9HdQiCHGgJNT+3AYkuzm1jBNBmXDcrQWnY2C3RCR9k5oeGFbogBf/CMNaylxw2NF0TjA9XexFNj
+        YgU0hwu1oLBwgYFyz3zqNc9C0FOHTa7p2qDrFenJwz+yFdTcxBPQ1KT7r2KHaLDCBdawlp7JeKT0AcCU
+        QxewpghEAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="button_clearfind.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="plabel_Filename.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -658,14 +1008,5 @@
   </data>
   <data name="$this.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="button_Top.ToolTip" xml:space="preserve">
-    <value>In den Vordergrund</value>
-  </data>
-  <data name="button_kodi.ToolTip" xml:space="preserve">
-    <value>sende zu Kodi</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>player</value>
   </data>
 </root>

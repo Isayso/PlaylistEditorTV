@@ -16,32 +16,31 @@ using System.Windows.Forms;
 
 namespace PlaylistEditor
 {
-    public partial class popup2 : Form
+    public partial class NotificationBoxF : Form
     {
-        public popup2()
+        public NotificationBoxF(string label, NotificationMsg message)
         {
             InitializeComponent();
+
+            color(message);
+            lbl.Text = label;
         }
 
-        private void label1_Click(object sender, System.EventArgs e)
-        {
-
-        }
-        public void color(string backgcl)
+        public void color(NotificationMsg backgcl)
         {
 
             switch (backgcl)
             {
-                case "green":
-                    this.BackColor = System.Drawing.Color.DarkGreen;                   
+                case NotificationMsg.OK:
+                    this.BackColor = System.Drawing.Color.DarkGreen;
                     break;
 
-                case "red":
-                    this.BackColor = System.Drawing.Color.DarkRed;                    
+                case NotificationMsg.ERROR:
+                    this.BackColor = System.Drawing.Color.DarkRed;
                     break;
 
-                case "blue":
-                    this.BackColor = System.Drawing.Color.MidnightBlue;                  
+                case NotificationMsg.DONE:
+                    this.BackColor = System.Drawing.Color.IndianRed;
                     break;
 
             }
@@ -49,5 +48,6 @@ namespace PlaylistEditor
 
 
         }
+
     }
 }

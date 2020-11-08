@@ -1,10 +1,21 @@
-﻿1.5.5
+﻿1.6.0
+- code cleanup
+
+1.5.6 (b1 152 298)
+- language switch
+- donate button
+- gray for rtmp links bug
+- auto repaint after sort
+- player dropdown with mouse
+
+
+1.5.5 (667)
 - automatic import of user settings
 - 'new window' in context menu
 - redo/undo better UI
 - AND search character now space
 
-1.5.4 (219)
+1.5.4 (309)
 - link check multithreading
 
 1.5.3 (150)
