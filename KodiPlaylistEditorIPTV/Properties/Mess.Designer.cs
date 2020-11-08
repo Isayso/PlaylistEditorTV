@@ -187,6 +187,15 @@ namespace PlaylistEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Needs restart to take effect.
+        /// </summary>
+        public static string Needs_restart_to_take_effect {
+            get {
+                return ResourceManager.GetString("Needs restart to take effect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No internet connection found!.
         /// </summary>
         public static string No_internet_connection_found {

@@ -251,9 +251,6 @@
     <EmbeddedResource Include="settings.ru.resx">
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="settings.rwk-TZ.resx">
-      <DependentUpon>settings.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="settings.zh.resx">
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>

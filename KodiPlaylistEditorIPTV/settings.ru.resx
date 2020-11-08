@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button_ok.Location" type="System.Drawing.Point, System.Drawing">
+    <value>285, 389</value>
+  </data>
   <data name="button_cancel.Text" xml:space="preserve">
     <value>Отмена</value>
   </data>
@@ -129,7 +133,6 @@
   <data name="textBox_Port.ToolTip" xml:space="preserve">
     <value>IP подключенного диска nfs</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 20</value>
   </data>
@@ -260,6 +263,9 @@
         I05NHqjSrwaHdq465hr7UaP0n8p3qu+q1tKM9MvhPJdfLP5rq9Vfo4jCoya2i5EAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="button_file.Location" type="System.Drawing.Point, System.Drawing">
+    <value>367, 165</value>
+  </data>
   <data name="button_file.ToolTip" xml:space="preserve">
     <value>Выбрать файл</value>
   </data>
@@ -312,11 +318,20 @@
   <data name="label7.Text" xml:space="preserve">
     <value>Столбец поиска</value>
   </data>
+  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>478, 323</value>
+  </data>
   <data name="tabPage3.Text" xml:space="preserve">
     <value>Параметры</value>
   </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>478, 323</value>
+  </data>
   <data name="checkBox_hotkey.Text" xml:space="preserve">
     <value>Импортировать горячую клавишу из буфера обмена (требуется перезапуск)</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>478, 323</value>
   </data>
   <data name="numericUpDown1.Location" type="System.Drawing.Point, System.Drawing">
     <value>292, 45</value>
@@ -345,6 +360,9 @@
   <data name="label10.Text" xml:space="preserve">
     <value>Окно игрока</value>
   </data>
+  <data name="tabPage4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>478, 323</value>
+  </data>
   <data name="tabPage4.Text" xml:space="preserve">
     <value>Автозагрузка</value>
   </data>
@@ -360,6 +378,9 @@
   <data name="label16.Text" xml:space="preserve">
     <value>максимальное количество 
 используемых потоков</value>
+  </data>
+  <data name="tabPage5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>478, 323</value>
   </data>
   <data name="tabPage5.Text" xml:space="preserve">
     <value>Ссылка</value>
@@ -385,8 +406,17 @@
   <data name="comboBoxSpeech.Location" type="System.Drawing.Point, System.Drawing">
     <value>254, 68</value>
   </data>
+  <data name="tabPage6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>478, 323</value>
+  </data>
   <data name="tabPage6.Text" xml:space="preserve">
     <value>Язык</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>486, 356</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>492, 449</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

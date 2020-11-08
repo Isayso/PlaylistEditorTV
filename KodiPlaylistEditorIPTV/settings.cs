@@ -136,6 +136,7 @@ namespace PlaylistEditor
             Settings.Default.entropy = entropy;
             //  write preferences settings
             Settings.Default.Save();
+
         }
 
 
@@ -187,8 +188,8 @@ namespace PlaylistEditor
                     break;
 
             }
-                Settings.Default.localize = myCulture;
-
+            
+            Settings.Default.localize = myCulture;
 
         }
 

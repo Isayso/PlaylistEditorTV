@@ -159,6 +159,9 @@
   <data name="List import" xml:space="preserve">
     <value>List import.....</value>
   </data>
+  <data name="Needs restart to take effect" xml:space="preserve">
+    <value>Needs restart to take effect</value>
+  </data>
   <data name="No internet connection found" xml:space="preserve">
     <value>No internet connection found!</value>
   </data>

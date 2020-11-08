@@ -117,14 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_ok.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="button_cancel.Text" xml:space="preserve">
     <value>Cancelar</value>
-  </data>
-  <data name="button_cancel.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="textBox_Password.ToolTip" xml:space="preserve">
     <value>IP de la unidad conectada nfs</value>
@@ -260,9 +254,6 @@
   <data name="comboBox_result.Location" type="System.Drawing.Point, System.Drawing">
     <value>337, 68</value>
   </data>
-  <data name="comboBox_result.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 68</value>
   </data>
@@ -272,14 +263,8 @@
   <data name="label14.Text" xml:space="preserve">
     <value>Resultado de la columna de búsqueda</value>
   </data>
-  <data name="label14.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBox_F2.Location" type="System.Drawing.Point, System.Drawing">
     <value>327, 274</value>
-  </data>
-  <data name="checkBox_F2.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>266, 20</value>
@@ -287,23 +272,14 @@
   <data name="label12.Text" xml:space="preserve">
     <value>Edite con F2 (necesita reiniciarse)</value>
   </data>
-  <data name="label12.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="comboBox2.Items2" xml:space="preserve">
     <value>Título</value>
   </data>
   <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>337, 115</value>
   </data>
-  <data name="comboBox2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>337, 20</value>
-  </data>
-  <data name="comboBox1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 118</value>
@@ -314,9 +290,6 @@
   <data name="label8.Text" xml:space="preserve">
     <value>Buscar duplicados en la columna</value>
   </data>
-  <data name="label8.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 23</value>
   </data>
@@ -326,38 +299,11 @@
   <data name="label7.Text" xml:space="preserve">
     <value>Columna de búsqueda</value>
   </data>
-  <data name="label7.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="tabPage3.Text" xml:space="preserve">
     <value>Opciones</value>
   </data>
-  <data name="tabPage3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBox_userAgent.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="panel1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBox_hotkey.Text" xml:space="preserve">
     <value>Importar tecla de acceso rápido desde el portapapeles (necesita reiniciarse)</value>
-  </data>
-  <data name="checkBox_hotkey.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="numericUpDown1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label13.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 20</value>
@@ -365,29 +311,14 @@
   <data name="label9.Text" xml:space="preserve">
     <value>Opacidad</value>
   </data>
-  <data name="label9.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBox_autostart.Text" xml:space="preserve">
     <value>Reproductor de inicio automático</value>
-  </data>
-  <data name="checkBox_autostart.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBox_start.Text" xml:space="preserve">
     <value>Autocargar</value>
   </data>
-  <data name="checkBox_start.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBox_start.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBox_vlc.Text" xml:space="preserve">
     <value>Empiece con pantalla completa</value>
-  </data>
-  <data name="checkBox_vlc.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 20</value>
@@ -395,14 +326,8 @@
   <data name="label10.Text" xml:space="preserve">
     <value>Ventana del reproductor</value>
   </data>
-  <data name="label10.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="tabPage4.Text" xml:space="preserve">
     <value>Autoinicio</value>
-  </data>
-  <data name="tabPage4.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="comboBox_403.Items" xml:space="preserve">
     <value>Naranja</value>
@@ -410,23 +335,14 @@
   <data name="comboBox_403.Items1" xml:space="preserve">
     <value>Gris</value>
   </data>
-  <data name="comboBox_403.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 20</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>max hilos usados</value>
   </data>
-  <data name="label16.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="tabPage5.Text" xml:space="preserve">
     <value>Verificación</value>
-  </data>
-  <data name="tabPage5.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="comboBoxSpeech.Items" xml:space="preserve">
     <value>Inglesa</value>
@@ -446,17 +362,8 @@
   <data name="comboBoxSpeech.Items5" xml:space="preserve">
     <value>Chino</value>
   </data>
-  <data name="comboBoxSpeech.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="tabPage6.Text" xml:space="preserve">
     <value>Idioma</value>
-  </data>
-  <data name="tabPage6.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabControl1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -946,8 +853,5 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Configuración</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
   </data>
 </root>
