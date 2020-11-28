@@ -103,6 +103,7 @@ namespace PlaylistEditor
 
 
 
+
             if (Settings.Default.UpgradeRequired)
             {
                 Settings.Default.Upgrade();
@@ -122,6 +123,13 @@ namespace PlaylistEditor
             if (!MyFileExists(vlcpath + "\\" + "vlc.exe", 5000))  // vlcpath + "\\" + "vlc.exe";
             {
                 vlcpath = GetVlcPath();
+            }
+
+            comboBox_files.Items.Clear();
+
+            foreach (object item in Properties.Settings.Default.lastfiles)
+            {
+                comboBox_files.Items.Add(item);
             }
 
 
@@ -172,6 +180,8 @@ namespace PlaylistEditor
                     }
                 }
             }
+
+           // if (Properties.Settings.Default.F2Size.Width == 0) Properties.Settings.Default.Upgrade();
 
             if (Settings.Default.F2Size.Width == 0 || Settings.Default.F2Size.Height == 0
                 || Settings.Default.nostart)
@@ -359,8 +369,21 @@ namespace PlaylistEditor
 
             NativeMethods.UnregisterHotKey(this.Handle, mActionHotKeyID);
 
-            Settings.Default.F2Location = this.Location;
-            Settings.Default.F2Size = this.Size;
+            //Settings.Default.F2Location = this.Location;
+            //Settings.Default.F2Size = this.Size;
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                // save location and size if the state is normal
+                Properties.Settings.Default.F2Location = this.Location;
+                Properties.Settings.Default.F2Size = this.Size;
+            }
+            else
+            {
+                // save the RestoreBounds if the form is minimized or maximized!
+                Properties.Settings.Default.F2Location = this.RestoreBounds.Location;
+                Properties.Settings.Default.F2Size = this.RestoreBounds.Size;
+            }
 
             Settings.Default.Save();
 

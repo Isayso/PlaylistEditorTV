@@ -79,6 +79,7 @@ namespace PlaylistEditor
             this.WindowState = FormWindowState.Normal;
         }
 
+        #region drag with mouse
         //move window with mouse down
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -100,7 +101,7 @@ namespace PlaylistEditor
                 Properties.Settings.Default.Save();
             }
         }
-
+        #endregion
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //invoke EventHandler
