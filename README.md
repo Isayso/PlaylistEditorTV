@@ -84,6 +84,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Ctrl + +/- change font size
 - Ctrl + 1/2 move line up/down
 - del    delete selected row
+- F2 Edit Cell
 
 
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.6/total)
