@@ -1,7 +1,7 @@
 ﻿1.6.1
 - error ctrl-insert upside down
 
-1.6.0
+1.6.0 1400+
 - code cleanup
 - strings localized
 
