@@ -78,7 +78,7 @@ namespace PlaylistEditor
 
         public int[] colShow = new int[6];
 
-        public string[] colList = new string[] { "Name", "id", "Title", "logo", "Name2", "Link", "All" };
+        public string[] colList = new string[] { "Name", "id", "Group Title", "logo", "Name2", "Link", "All" };
 
 
 
@@ -123,13 +123,6 @@ namespace PlaylistEditor
             if (!MyFileExists(vlcpath + "\\" + "vlc.exe", 5000))  // vlcpath + "\\" + "vlc.exe";
             {
                 vlcpath = GetVlcPath();
-            }
-
-            comboBox_files.Items.Clear();
-
-            foreach (object item in Properties.Settings.Default.lastfiles)
-            {
-                comboBox_files.Items.Add(item);
             }
 
 
@@ -181,7 +174,7 @@ namespace PlaylistEditor
                 }
             }
 
-           // if (Properties.Settings.Default.F2Size.Width == 0) Properties.Settings.Default.Upgrade();
+            // if (Properties.Settings.Default.F2Size.Width == 0) Properties.Settings.Default.Upgrade();
 
             if (Settings.Default.F2Size.Width == 0 || Settings.Default.F2Size.Height == 0
                 || Settings.Default.nostart)
@@ -385,6 +378,7 @@ namespace PlaylistEditor
                 Properties.Settings.Default.F2Size = this.RestoreBounds.Size;
             }
 
+
             Settings.Default.Save();
 
 
@@ -474,6 +468,7 @@ namespace PlaylistEditor
                 {
                     button_save.PerformClick();
                     isModified = false;
+
                 }
                 if (dialogSave == DialogResult.Cancel) return;
             }
@@ -496,6 +491,7 @@ namespace PlaylistEditor
                     toSave(false, true);
                     importDataset(openFileDialog1.FileName, false);
                     button_revert.Visible = true;
+
                 }
                 else  //cancel
                 {
@@ -567,7 +563,7 @@ namespace PlaylistEditor
 
                 plabel_Filename.Text = filename;
 
-                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
+                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Group Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
 
             }
@@ -620,7 +616,7 @@ namespace PlaylistEditor
                 try
                 {
                     dr = dt.NewRow();
-                    dr["Name"] = col[0].Trim(); dr["id"] = col[1].Trim(); dr["Title"] = col[2].Trim();
+                    dr["Name"] = col[0].Trim(); dr["id"] = col[1].Trim(); dr["Group Title"] = col[2].Trim();
                     dr["logo"] = col[3].Trim(); dr["Name2"] = col[4].Trim(); dr["Link"] = col[5].Trim();
                     dt.Rows.Add(dr);
                 }
@@ -642,7 +638,7 @@ namespace PlaylistEditor
 
             if (colShow[0] != 1) dataGridView1.Columns["Name"].Visible = false;
             if (colShow[1] != 1) dataGridView1.Columns["id"].Visible = false;
-            if (colShow[2] != 1) dataGridView1.Columns["Title"].Visible = false;
+            if (colShow[2] != 1) dataGridView1.Columns["Group Title"].Visible = false;
             if (colShow[3] != 1) dataGridView1.Columns["logo"].Visible = false;
             colShow[4] = 1;
             colShow[5] = 1;
@@ -727,7 +723,7 @@ namespace PlaylistEditor
                         writestring = "#EXTINF:-1 ";
                         if (dataGridView1.Columns["Name"].Visible) writestring += "tvg-name=\"" + dt.Rows[i][0] + "\"";
                         if (dataGridView1.Columns["id"].Visible) writestring += " tvg-id=\"" + dt.Rows[i][1] + "\"";
-                        if (dataGridView1.Columns["Title"].Visible) writestring += " group-title=\"" + dt.Rows[i][2] + "\"";
+                        if (dataGridView1.Columns["Group Title"].Visible) writestring += " group-title=\"" + dt.Rows[i][2] + "\"";
                         if (dataGridView1.Columns["logo"].Visible) writestring += " tvg-logo=\"" + dt.Rows[i][3] + "\"";
 
                         writestring += "," + dt.Rows[i][4];
@@ -743,7 +739,7 @@ namespace PlaylistEditor
                 button_revert.Visible = true;
                 _savenow = false;
 
-                NotificationBox.Show(Mess.Playlist_Saved, 1500, NotificationMsg.OK);
+                NotificationBox.Show(this, Mess.Playlist_Saved, 1500, NotificationMsg.OK, Position.Parent);
                
 
             }
@@ -764,7 +760,7 @@ namespace PlaylistEditor
                         writestring = "#EXTINF:-1 ";
                         if (dataGridView1.Columns["Name"].Visible) writestring += "tvg-name=\"" + dt.Rows[i][0] + "\"";
                         if (dataGridView1.Columns["id"].Visible) writestring += " tvg-id=\"" + dt.Rows[i][1] + "\"";
-                        if (dataGridView1.Columns["Title"].Visible) writestring += " group-title=\"" + dt.Rows[i][2] + "\"";
+                        if (dataGridView1.Columns["Group Title"].Visible) writestring += " group-title=\"" + dt.Rows[i][2] + "\"";
                         if (dataGridView1.Columns["logo"].Visible) writestring += " tvg-logo=\"" + dt.Rows[i][3] + "\"";
 
                         writestring += "," + dt.Rows[i][4];
@@ -775,7 +771,7 @@ namespace PlaylistEditor
                     }
 
                 }
-
+                
                 //undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
                 toSave(false, true);
                 button_revert.Visible = true;
@@ -829,7 +825,7 @@ namespace PlaylistEditor
 
                 int a = dataGridView1.SelectedCells[0].RowIndex;  // row index in a datatable
 
-                dr[0] = "Name"; dr[1] = "id"; dr[2] = "Title"; dr[3] = "Logo";
+                dr[0] = "Name"; dr[1] = "id"; dr[2] = "Group Title"; dr[3] = "Logo";
                 dr[4] = "Name2"; dr[5] = "Link";
 
                 dt.Rows.InsertAt(dr, a);
@@ -840,9 +836,9 @@ namespace PlaylistEditor
 
                 dt.TableName = "IPTV";
 
-                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
+                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Group Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
-                dr[0] = "Name"; dr[1] = "id"; dr[2] = "Title"; dr[3] = "Logo";
+                dr[0] = "Name"; dr[1] = "id"; dr[2] = "Group Title"; dr[3] = "Logo";
                 dr[4] = "Name2"; dr[5] = "Link";
 
                 dt.Rows.InsertAt(dr, 0);
@@ -866,19 +862,19 @@ namespace PlaylistEditor
             {
                 vlcpath = GetVlcPath();
                 if (string.IsNullOrEmpty(vlcpath))
-                NotificationBox.Show(Mess.VLC_player_not_found, 3000, NotificationMsg.ERROR);
+                NotificationBox.Show(this, Mess.VLC_player_not_found, 3000, NotificationMsg.ERROR, Position.Parent);
 
                 return;
             }
             else if (dataGridView1.RowCount > 0 && vlclink.StartsWith("plugin"))
             {
-                NotificationBox.Show(Mess.Plugin_links_only_work_in_Kodi, 3000, NotificationMsg.ERROR);
+                NotificationBox.Show(this, Mess.Plugin_links_only_work_in_Kodi, 3000, NotificationMsg.ERROR, Position.Parent);
 
                 return;  //#18
             }
             else if (dataGridView1.RowCount > 0 && vlclink.Contains("|User"))
             {
-                NotificationBox.Show(Mess.User_Agent_links_only_work_in_Kodi, 3000, NotificationMsg.ERROR);
+                NotificationBox.Show(this, Mess.User_Agent_links_only_work_in_Kodi, 3000, NotificationMsg.ERROR, Position.Parent);
                 return;  //#18
             }
 
@@ -1263,7 +1259,7 @@ namespace PlaylistEditor
                 _dtEmpty = true;
                 DataRow dr = dt.NewRow();
 
-                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
+                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Group Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
                 dataGridView1.DataSource = dt;
 
@@ -1282,12 +1278,12 @@ namespace PlaylistEditor
 
                     string[] pastedRows = Regex.Split(fullRowContent.TrimEnd("\r\n".ToCharArray()), "\r\n");
 
-                    foreach (string pastedRow in pastedRows)
+                    foreach (string pastedRow in pastedRows.GetRows())  //#44
                     {
                         string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
 
                         dr = dt.NewRow();
-                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Title"] = pastedRowCells[2];
+                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Group Title"] = pastedRowCells[2];
                         dr["logo"] = pastedRowCells[3]; dr["Name2"] = pastedRowCells[4]; dr["Link"] = pastedRowCells[5];
 
                         if (_dtEmpty)
@@ -1323,7 +1319,7 @@ namespace PlaylistEditor
                         string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
 
                         dr = dt.NewRow();
-                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Title"] = pastedRowCells[2];
+                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Group Title"] = pastedRowCells[2];
                         dr["logo"] = pastedRowCells[3]; dr["Name2"] = pastedRowCells[4]; dr["Link"] = pastedRowCells[5];
 
                         if (_dtEmpty)
@@ -1357,7 +1353,7 @@ namespace PlaylistEditor
                 _dtEmpty = true;
                 DataRow dr = dt.NewRow();
 
-                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
+                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Group Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
                 dataGridView1.DataSource = dt;
 
@@ -1378,7 +1374,7 @@ namespace PlaylistEditor
                         string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
 
                         dr = dt.NewRow();
-                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Title"] = pastedRowCells[2];
+                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Group Title"] = pastedRowCells[2];
                         dr["logo"] = pastedRowCells[3]; dr["Name2"] = pastedRowCells[4]; dr["Link"] = pastedRowCells[5];
 
                         if (_dtEmpty)
@@ -1416,7 +1412,7 @@ namespace PlaylistEditor
                         string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
 
                         dr = dt.NewRow();
-                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Title"] = pastedRowCells[2];
+                        dr["Name"] = pastedRowCells[0]; dr["id"] = pastedRowCells[1]; dr["Group Title"] = pastedRowCells[2];
                         dr["logo"] = pastedRowCells[3]; dr["Name2"] = pastedRowCells[4]; dr["Link"] = pastedRowCells[5];
 
                         if (_dtEmpty)
@@ -2480,7 +2476,7 @@ namespace PlaylistEditor
                 dt.Clear();  // row clear
                 dt.Columns.Clear();  // col clear
 
-                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Title");
+                dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Group Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
             }
 
@@ -2571,7 +2567,7 @@ namespace PlaylistEditor
                         {
 
                             dr = dt.NewRow();
-                            dr["Name"] = col[0].Trim(); dr["id"] = col[1].Trim(); dr["Title"] = col[2].Trim();
+                            dr["Name"] = col[0].Trim(); dr["id"] = col[1].Trim(); dr["Group Title"] = col[2].Trim();
                             dr["logo"] = col[3].Trim(); dr["Name2"] = col[4].Trim(); dr["Link"] = col[5].Trim();
                             dt.Rows.Add(dr);
                         }
@@ -2596,7 +2592,7 @@ namespace PlaylistEditor
 
             if (colShow[0] != 1) dataGridView1.Columns["Name"].Visible = false;
             if (colShow[1] != 1) dataGridView1.Columns["id"].Visible = false;
-            if (colShow[2] != 1) dataGridView1.Columns["Title"].Visible = false;
+            if (colShow[2] != 1) dataGridView1.Columns["Group Title"].Visible = false;
             if (colShow[3] != 1) dataGridView1.Columns["logo"].Visible = false;
             colShow[4] = 1;
             colShow[5] = 1;
@@ -2846,6 +2842,16 @@ public static class ExtensionMethods
             yield return source.Rows[i];
     }
 
+    /// <summary>
+    /// reverse order of rows for foreach
+    /// </summary>
+    /// <param name="source">string</param>
+    /// <returns>string</returns>
+    public static IEnumerable<string> GetRows(this string[] source)  //#44
+    {
+        for (int i = source.Length - 1; i >= 0; i--)
+            yield return source[i];
+    }
 
 }
 

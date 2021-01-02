@@ -79,7 +79,6 @@
             this.button_refind = new PlaylistEditor.MyButton();
             this.button_clearfind = new PlaylistEditor.MyButton();
             this.plabel_Filename = new PathLabel();
-            this.comboBox_files = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -488,21 +487,11 @@
             this.plabel_Filename.ForeColor = System.Drawing.SystemColors.Control;
             this.plabel_Filename.Name = "plabel_Filename";
             // 
-            // comboBox_files
-            // 
-            this.comboBox_files.BackColor = System.Drawing.Color.IndianRed;
-            this.comboBox_files.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.comboBox_files, "comboBox_files");
-            this.comboBox_files.ForeColor = System.Drawing.SystemColors.Control;
-            this.comboBox_files.FormattingEnabled = true;
-            this.comboBox_files.Name = "comboBox_files";
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.Controls.Add(this.comboBox_files);
             this.Controls.Add(this.button_refind);
             this.Controls.Add(this.lblColCheck);
             this.Controls.Add(this.lblRowCheck);
@@ -590,7 +579,6 @@
         private System.Windows.Forms.Label lblColCheck;
         private MyButton button_refind;
         private System.Windows.Forms.ToolStripMenuItem cms1NewWindow;
-        public System.Windows.Forms.ComboBox comboBox_files;
     }
 }
 
