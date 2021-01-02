@@ -268,6 +268,7 @@ namespace PlaylistEditor
                 {
                     Settings.Default.startfile = openFileDialog1.FileName;
                     textBox_start.Text = openFileDialog1.FileName;
+
                 }
                 else  //cancel
                 {

@@ -19,28 +19,39 @@ namespace PlaylistEditor
 {
     class NotificationBox
     {
+        private static Form _owner;
+
         public static DialogResult Show(string text)
         {
-            PopupForm(text, 2000, NotificationMsg.OK);
+            PopupForm(null, text, 2000, NotificationMsg.OK);
             return DialogResult.OK;
         }
-
         public static DialogResult Show(string text, int delay, NotificationMsg message)
         {
-            PopupForm(text, delay, message);
+            PopupForm(null, text, delay, message, Position.Center);
             return DialogResult.OK;
         }
 
-        public static async void PopupForm(string label, int delay = 4000, NotificationMsg message = NotificationMsg.OK)
+        public static DialogResult Show(Form owner, string text, int delay, NotificationMsg message, Position pos)
         {
-            await PopupDelay(label, delay, message);
+            _owner = owner;
+
+            PopupForm(_owner, text, delay, message, pos);
+            return DialogResult.OK;
         }
 
-        public static async Task PopupDelay(string label, int delay, NotificationMsg message)
+        public static async void PopupForm(Form _owner, string label, int delay = 4000, NotificationMsg message = NotificationMsg.OK, Position pos = Position.Center)
         {
-            NotificationBoxF box = new NotificationBoxF(label, message);
+            await PopupDelay(_owner, label, delay, message, pos);
+        }
+
+        public static async Task PopupDelay(Form _owner, string label, int delay, NotificationMsg message, Position pos)
+        {
+
+            NotificationBoxF box = new NotificationBoxF(_owner, label, message, pos);
 
             box.Show();
+
             await Task.Delay(delay);
 
             box.Close();
@@ -55,4 +66,11 @@ namespace PlaylistEditor
         ERROR,
         DONE
     }
+
+    public enum Position
+    {
+        Center,
+        Parent
+    }
+
 }

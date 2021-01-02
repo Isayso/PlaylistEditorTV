@@ -12,21 +12,25 @@
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PlaylistEditor
 {
     public partial class NotificationBoxF : Form
     {
-        public NotificationBoxF(string label, NotificationMsg message)
+        public NotificationBoxF(Form _owner, string label, NotificationMsg message, Position pos)
         {
             InitializeComponent();
+            
+            Owner = _owner;
 
-            color(message);
+            color(message, pos);
+
             lbl.Text = label;
         }
 
-        public void color(NotificationMsg backgcl)
+        public void color(NotificationMsg backgcl, Position screenpos)
         {
 
             switch (backgcl)
@@ -45,6 +49,22 @@ namespace PlaylistEditor
 
             }
 
+            switch (screenpos)
+            {
+                case Position.Center:
+                    this.StartPosition = FormStartPosition.CenterScreen;
+                    break;
+
+                case Position.Parent:
+                    this.StartPosition = FormStartPosition.Manual;
+
+                    if (Owner != null)
+                        Location = new Point(Owner.Location.X + Owner.Width / 2 - Width / 2,
+                            Owner.Location.Y + Owner.Height / 2 - Height / 2);
+
+                    //this.StartPosition = FormStartPosition.CenterParent;
+                    break;
+            }
 
 
         }

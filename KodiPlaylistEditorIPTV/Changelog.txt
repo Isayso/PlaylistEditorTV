@@ -1,7 +1,11 @@
-﻿1.6.0
-- code cleanup
+﻿1.6.1
+- error ctrl-insert upside down
 
-1.5.6 (b1 152 298)
+1.6.0 1400+
+- code cleanup
+- strings localized
+
+1.5.6 (b1 152 299)
 - language switch
 - donate button
 - gray for rtmp links bug
@@ -9,7 +13,7 @@
 - player dropdown with mouse
 
 
-1.5.5 (667)
+1.5.5 (670)
 - automatic import of user settings
 - 'new window' in context menu
 - redo/undo better UI
