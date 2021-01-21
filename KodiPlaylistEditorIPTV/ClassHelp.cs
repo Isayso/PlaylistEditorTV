@@ -260,7 +260,8 @@ namespace PlaylistEditor
                 {
 
                     HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest;
-                    req.Timeout = 6000; //set the timeout
+
+                    req.Timeout = Properties.Settings.Default.timeout; //set the timeout #47
 
                     req.ContentType = "application/x-www-form-urlencoded";
                     //   req.KeepAlive = true;

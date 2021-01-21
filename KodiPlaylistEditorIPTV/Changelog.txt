@@ -1,4 +1,8 @@
-﻿1.6.1
+﻿1.6.2
+- bugfix open file
+- timeout for linkcheck optional
+
+1.6.1
 - error ctrl-insert upside down
 
 1.6.0 1400+

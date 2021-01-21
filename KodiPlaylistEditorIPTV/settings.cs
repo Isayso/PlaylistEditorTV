@@ -45,7 +45,7 @@ namespace PlaylistEditor
             checkBox_vlc.Checked = Settings.Default.vlc_fullsreen;
             checkBox_F2.Checked = Settings.Default.F2_edit;
 
-
+            textBox3.Text = Settings.Default.timeout.ToString();
 
             comboBox1.SelectedIndex = Settings.Default.colSearch;
             comboBox2.SelectedIndex = Settings.Default.colDupli;
@@ -317,5 +317,14 @@ namespace PlaylistEditor
             Settings.Default.Save();
         }
 
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (!Int32.TryParse(textBox3.Text, out int val))
+            {
+                textBox3.Text = "";
+            }
+            Settings.Default.timeout = val;
+
+        }
     }
 }

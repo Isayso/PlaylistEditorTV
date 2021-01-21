@@ -79,6 +79,8 @@
             this.checkBox_vlc = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox_403 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -535,6 +537,8 @@
             // 
             resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabPage5.Controls.Add(this.label18);
+            this.tabPage5.Controls.Add(this.textBox3);
             this.tabPage5.Controls.Add(this.nMaxThread);
             this.tabPage5.Controls.Add(this.comboBox_403);
             this.tabPage5.Controls.Add(this.label16);
@@ -542,6 +546,19 @@
             this.tabPage5.ForeColor = System.Drawing.SystemColors.Control;
             this.tabPage5.Name = "tabPage5";
             this.toolTip1.SetToolTip(this.tabPage5, resources.GetString("tabPage5.ToolTip"));
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            this.toolTip1.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
+            // 
+            // textBox3
+            // 
+            resources.ApplyResources(this.textBox3, "textBox3");
+            this.textBox3.Name = "textBox3";
+            this.toolTip1.SetToolTip(this.textBox3, resources.GetString("textBox3.ToolTip"));
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // comboBox_403
             // 
@@ -671,5 +688,7 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox comboBoxSpeech;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

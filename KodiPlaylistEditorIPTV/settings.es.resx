@@ -329,6 +329,13 @@
   <data name="tabPage4.Text" xml:space="preserve">
     <value>Autoinicio</value>
   </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 40</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>tiempo de espera máximo para
+verificación de enlace (ms)</value>
+  </data>
   <data name="comboBox_403.Items" xml:space="preserve">
     <value>Naranja</value>
   </data>

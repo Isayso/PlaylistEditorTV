@@ -45,22 +45,22 @@ namespace PlaylistEditor
 
         bool isModified = false;
 
-        public string fullRowContent = "";
-        public string fullCopyContent = "";
-        public string fileName = "";
-        public string line;
-        private string path;
+        private string fullRowContent = "";
+        //public string fullCopyContent = "";
+        //public string fileName = "";
+        private string line;
+        public string path;
         private string _sort = "";
 
-        public bool _isIt = true;
-        public bool _found = false;
-        public bool _savenow = false;
-        public bool _linkchecked = false;
-        public bool _isSingle = false;
-        public bool _controlpressed = false;
+        private bool _isIt = true;
+        private bool _found = false;
+        private bool _savenow = false;
+        private bool _linkchecked = false;
+        private bool _isSingle = false;
+        private bool _controlpressed = false;
 
-        public bool _isPlayer = false;
-        public bool _endofLoop = false;   //loop of move to top finished
+        //public bool _isPlayer = false;
+        private bool _endofLoop = false;   //loop of move to top finished
 
         const int mActionHotKeyID = 1;  //var for key hook listener
 
@@ -78,11 +78,14 @@ namespace PlaylistEditor
 
         public int[] colShow = new int[6];
 
-        public string[] colList = new string[] { "Name", "id", "Group Title", "logo", "Name2", "Link", "All" };
+        private readonly string[] colList = new string[] { "Name", "id", "Group Title", "logo", "Name2", "Link", "All" };
+
+        private DataGridViewCell drag_cell;
+
+        private Rectangle dragBoxFromMouseDown;
+        private int rowIndexFromMouseDown;
 
 
-
-       
         public Form1()
         {
 
@@ -317,7 +320,9 @@ namespace PlaylistEditor
                 {
                     _endofLoop = true;
                     dataGridView1.BeginEdit(true);
+                    
                 }
+
 
             }
             catch (Exception ex)
@@ -655,7 +660,7 @@ namespace PlaylistEditor
                 if (string.IsNullOrEmpty(col[v]) || (col[v].Contains("N/A") && colShow[v] == 0))
                 {
                     col[v] = "N/A";
-                    colShow[v] = 0;
+                    if (colShow[v] !=1) colShow[v] = 0;  //#48
                 }
                 else
                 {
@@ -1821,7 +1826,22 @@ namespace PlaylistEditor
                 }
             }
 
+            /*
+            // The mouse locations are relative to the screen, so they must be 
+            // converted to client coordinates.
+            Point clientPoint = dataGridView1.PointToClient(new Point(e.X, e.Y));
 
+            // Get the row index of the item the mouse is below. 
+            DataGridView.HitTestInfo hti = dataGridView1.HitTest(clientPoint.X, clientPoint.Y);
+            DataGridViewCell targetCell = dataGridView1[hti.ColumnIndex, hti.RowIndex];
+
+
+            // If the drag operation was a move then remove and insert the row.
+            if (e.Effect == DragDropEffects.Move)
+            {
+                targetCell.Value = drag_cell.Value;
+                dataGridView1.Refresh();
+            }*/
         }
 
 
@@ -2624,6 +2644,47 @@ namespace PlaylistEditor
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.ContextMenuStrip = contextMenuStrip2;
+
+            //#47 no solution so far
+            //Int32 selectedCellCount = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
+            //if (selectedCellCount > 1)
+            //{
+            //    DataGridViewTextBoxEditingControl tb = (DataGridViewTextBoxEditingControl)e.Control;
+            //    //tb.KeyPress += new KeyPressEventHandler(dataGridViewTextBox_KeyPress);
+            //    tb.PreviewKeyDown += new PreviewKeyDownEventHandler(dataGridViewTextBox_KeyPress);
+            //    // e.Control.KeyPress += new KeyPressEventHandler(dataGridViewTextBox_KeyPress);
+            //}
+        }
+
+        void dataGridViewTextBox_KeyPress(object sender, PreviewKeyDownEventArgs e)
+        {
+            
+            if (e.KeyCode == Keys.Enter )
+            {
+                //Int32 selectedCellCount = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
+                //if (selectedCellCount > 1)
+                {
+                    var activecell = dataGridView1.CurrentCell.Value.ToString();
+                    // get active cell value and copy to all other
+                    //Clipboard.SetText(activecell);
+
+                    //FillCells();
+
+                    string s = activecell;
+                    DataGridViewCell oCell;
+
+
+                    foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+                    {
+                        oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
+                        oCell.Value = Convert.ChangeType(s.Trim(), oCell.ValueType);  
+                    }
+                    toSave(true);
+
+                }
+
+            }
+
         }
 
         private void editCellCopy_Click(object sender, EventArgs e)
@@ -2778,6 +2839,42 @@ namespace PlaylistEditor
                 button_refind.Visible = false;
             }
 
+        }
+
+        private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            //if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            //{
+            //    DataGridView.HitTestInfo hti = dataGridView1.HitTest(e.X, e.Y);
+            //    drag_cell = dataGridView1[hti.ColumnIndex, hti.RowIndex];
+            //    rowIndexFromMouseDown = hti.RowIndex;
+            //    // Proceed with the drag and drop, passing in the list item.                    
+            //    DragDropEffects dropEffect = dataGridView1.DoDragDrop(
+            //    drag_cell,
+            //    DragDropEffects.Move);
+            //}
+        }
+
+        private void dataGridView1_MouseMove(object sender, MouseEventArgs e)
+        {
+            //if ((e.Button & MouseButtons.Right) == MouseButtons.Right)
+            //{
+            //    // If the mouse moves outside the rectangle, start the drag.
+            //    if (dragBoxFromMouseDown != Rectangle.Empty &&
+            //        !dragBoxFromMouseDown.Contains(e.X, e.Y))
+            //    {
+
+            //        // Proceed with the drag and drop, passing in the list item.                    
+            //        DragDropEffects dropEffect = dataGridView1.DoDragDrop(
+            //        dataGridView1.Rows[rowIndexFromMouseDown],
+            //        DragDropEffects.Move);
+            //    }
+            //}
+        }
+
+        private void dataGridView1_DragOver(object sender, DragEventArgs e)
+        {
+          //  e.Effect = DragDropEffects.Move;
         }
 
     }

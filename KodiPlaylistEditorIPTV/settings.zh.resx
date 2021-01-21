@@ -350,6 +350,16 @@
   <data name="tabPage4.Text" xml:space="preserve">
     <value>自动启动</value>
   </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>69, 217</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 40</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>的最大等待时间
+链接检查（毫秒）</value>
+  </data>
   <data name="comboBox_403.Items" xml:space="preserve">
     <value>橙色</value>
   </data>
