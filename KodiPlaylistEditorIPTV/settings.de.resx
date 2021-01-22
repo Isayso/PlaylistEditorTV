@@ -335,6 +335,16 @@
   <data name="tabPage5.Text" xml:space="preserve">
     <value>Linkcheck</value>
   </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 217</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 40</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>maximale Wartezeit für
+Link Check (ms)</value>
+  </data>
   <data name="comboBox_403.Items1" xml:space="preserve">
     <value>Grau</value>
   </data>

@@ -45,32 +45,27 @@ namespace PlaylistEditor
 
         bool isModified = false;
 
-        public string fullRowContent = "";
-        public string fullCopyContent = "";
-        public string fileName = "";
-        public string line;
-        private string path;
+        private string fullRowContent = "";
+        private string line;
+        public string path;
         private string _sort = "";
 
-        public bool _isIt = true;
-        public bool _found = false;
-        public bool _savenow = false;
-        public bool _linkchecked = false;
-        public bool _isSingle = false;
-        public bool _controlpressed = false;
+        private bool _isIt = true;
+        private bool _found = false;
+        private bool _savenow = false;
+        private bool _linkchecked = false;
+        private bool _isSingle = false;
+        private bool _controlpressed = false;
 
-        public bool _isPlayer = false;
-        public bool _endofLoop = false;   //loop of move to top finished
+        private bool _endofLoop = false;   //loop of move to top finished
 
         const int mActionHotKeyID = 1;  //var for key hook listener
-
-        //   if (Properties.Settings.Default.F1Size.Width==0) Properties.Settings.Default.Upgrade();
 
 
         //zoom of fonts
         public float zoomf = 1F;
-        // private static readonly int ROWHEIGHT = 47;
         private const float FONTSIZE = 9.163636F;
+
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         DataRow dr;
@@ -78,11 +73,9 @@ namespace PlaylistEditor
 
         public int[] colShow = new int[6];
 
-        public string[] colList = new string[] { "Name", "id", "Group Title", "logo", "Name2", "Link", "All" };
+        private readonly string[] colList = new string[] { "Name", "id", "Group Title", "logo", "Name2", "Link", "All" };
 
 
-
-       
         public Form1()
         {
 
@@ -174,7 +167,6 @@ namespace PlaylistEditor
                 }
             }
 
-            // if (Properties.Settings.Default.F2Size.Width == 0) Properties.Settings.Default.Upgrade();
 
             if (Settings.Default.F2Size.Width == 0 || Settings.Default.F2Size.Height == 0
                 || Settings.Default.nostart)
@@ -317,7 +309,9 @@ namespace PlaylistEditor
                 {
                     _endofLoop = true;
                     dataGridView1.BeginEdit(true);
+                    
                 }
+
 
             }
             catch (Exception ex)
@@ -655,7 +649,7 @@ namespace PlaylistEditor
                 if (string.IsNullOrEmpty(col[v]) || (col[v].Contains("N/A") && colShow[v] == 0))
                 {
                     col[v] = "N/A";
-                    colShow[v] = 0;
+                    if (colShow[v] !=1) colShow[v] = 0;  //#48
                 }
                 else
                 {
@@ -1821,7 +1815,6 @@ namespace PlaylistEditor
                 }
             }
 
-
         }
 
 
@@ -2523,7 +2516,6 @@ namespace PlaylistEditor
 
                         else if ((line.StartsWith("ht") || line.StartsWith("plugin") || line.StartsWith("rt"))  //issue #32
                             && (line.Contains("//") || line.Contains(":\\")))
-                        // && !string.IsNullOrEmpty(col[0]))
                         {
                             if (string.IsNullOrEmpty(col[0]) && string.IsNullOrEmpty(col[4]))
                             {
@@ -2536,17 +2528,7 @@ namespace PlaylistEditor
 
                             col[5] = line;
 
-                            //  continue;
                         }
-
-                        //else if (line.StartsWith("plugin")  //#18
-                        //    && ((line.Contains("//") || line.Contains(":\\")))
-                        //    && !string.IsNullOrEmpty(col[0]))
-                        //{
-                        //    if (!line.Contains("|User-Agent") && line.Contains(".m3u8") && Settings.Default.user_agent)
-                        //        col[5] = line + "|User-Agent=Mozilla/5.0 (X11; Linux i686; rv:42.0) Gecko/20100101 Firefox/42.0 Iceweasel/42.0";
-                        //    else col[5] = line;
-                        //}
 
                         else
                         {
@@ -2624,7 +2606,9 @@ namespace PlaylistEditor
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.ContextMenuStrip = contextMenuStrip2;
+
         }
+
 
         private void editCellCopy_Click(object sender, EventArgs e)
         {
@@ -2778,6 +2762,42 @@ namespace PlaylistEditor
                 button_refind.Visible = false;
             }
 
+        }
+
+        private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            //if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            //{
+            //    DataGridView.HitTestInfo hti = dataGridView1.HitTest(e.X, e.Y);
+            //    drag_cell = dataGridView1[hti.ColumnIndex, hti.RowIndex];
+            //    rowIndexFromMouseDown = hti.RowIndex;
+            //    // Proceed with the drag and drop, passing in the list item.                    
+            //    DragDropEffects dropEffect = dataGridView1.DoDragDrop(
+            //    drag_cell,
+            //    DragDropEffects.Move);
+            //}
+        }
+
+        private void dataGridView1_MouseMove(object sender, MouseEventArgs e)
+        {
+            //if ((e.Button & MouseButtons.Right) == MouseButtons.Right)
+            //{
+            //    // If the mouse moves outside the rectangle, start the drag.
+            //    if (dragBoxFromMouseDown != Rectangle.Empty &&
+            //        !dragBoxFromMouseDown.Contains(e.X, e.Y))
+            //    {
+
+            //        // Proceed with the drag and drop, passing in the list item.                    
+            //        DragDropEffects dropEffect = dataGridView1.DoDragDrop(
+            //        dataGridView1.Rows[rowIndexFromMouseDown],
+            //        DragDropEffects.Move);
+            //    }
+            //}
+        }
+
+        private void dataGridView1_DragOver(object sender, DragEventArgs e)
+        {
+          //  e.Effect = DragDropEffects.Move;
         }
 
     }

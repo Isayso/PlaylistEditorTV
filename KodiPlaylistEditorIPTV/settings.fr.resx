@@ -338,8 +338,16 @@ Essaie</value>
   <data name="label10.Text" xml:space="preserve">
     <value>Fenêtre du joueur</value>
   </data>
-  <data name="tabPage5.Text" xml:space="preserve">
-    <value>Linkcheck</value>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 217</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 40</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>temps d'attente maximal pour
+vérification de lien (ms)
+</value>
   </data>
   <data name="comboBox_403.Items1" xml:space="preserve">
     <value>Gris</value>
@@ -350,8 +358,11 @@ Essaie</value>
   <data name="label16.Text" xml:space="preserve">
     <value>fils max utilisés</value>
   </data>
-  <data name="tabPage6.Text" xml:space="preserve">
-    <value>Langue</value>
+  <data name="label16.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Linkcheck</value>
   </data>
   <data name="comboBoxSpeech.Items" xml:space="preserve">
     <value>Anglaise</value>
@@ -376,6 +387,9 @@ Essaie</value>
   </data>
   <data name="comboBoxSpeech.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 28</value>
+  </data>
+  <data name="tabPage6.Text" xml:space="preserve">
+    <value>Langue</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
