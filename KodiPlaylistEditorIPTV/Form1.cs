@@ -46,8 +46,6 @@ namespace PlaylistEditor
         bool isModified = false;
 
         private string fullRowContent = "";
-        //public string fullCopyContent = "";
-        //public string fileName = "";
         private string line;
         public string path;
         private string _sort = "";
@@ -59,18 +57,15 @@ namespace PlaylistEditor
         private bool _isSingle = false;
         private bool _controlpressed = false;
 
-        //public bool _isPlayer = false;
         private bool _endofLoop = false;   //loop of move to top finished
 
         const int mActionHotKeyID = 1;  //var for key hook listener
 
-        //   if (Properties.Settings.Default.F1Size.Width==0) Properties.Settings.Default.Upgrade();
-
 
         //zoom of fonts
         public float zoomf = 1F;
-        // private static readonly int ROWHEIGHT = 47;
         private const float FONTSIZE = 9.163636F;
+
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         DataRow dr;
@@ -79,11 +74,6 @@ namespace PlaylistEditor
         public int[] colShow = new int[6];
 
         private readonly string[] colList = new string[] { "Name", "id", "Group Title", "logo", "Name2", "Link", "All" };
-
-        private DataGridViewCell drag_cell;
-
-        private Rectangle dragBoxFromMouseDown;
-        private int rowIndexFromMouseDown;
 
 
         public Form1()
@@ -177,7 +167,6 @@ namespace PlaylistEditor
                 }
             }
 
-            // if (Properties.Settings.Default.F2Size.Width == 0) Properties.Settings.Default.Upgrade();
 
             if (Settings.Default.F2Size.Width == 0 || Settings.Default.F2Size.Height == 0
                 || Settings.Default.nostart)
@@ -1826,22 +1815,6 @@ namespace PlaylistEditor
                 }
             }
 
-            /*
-            // The mouse locations are relative to the screen, so they must be 
-            // converted to client coordinates.
-            Point clientPoint = dataGridView1.PointToClient(new Point(e.X, e.Y));
-
-            // Get the row index of the item the mouse is below. 
-            DataGridView.HitTestInfo hti = dataGridView1.HitTest(clientPoint.X, clientPoint.Y);
-            DataGridViewCell targetCell = dataGridView1[hti.ColumnIndex, hti.RowIndex];
-
-
-            // If the drag operation was a move then remove and insert the row.
-            if (e.Effect == DragDropEffects.Move)
-            {
-                targetCell.Value = drag_cell.Value;
-                dataGridView1.Refresh();
-            }*/
         }
 
 
@@ -2543,7 +2516,6 @@ namespace PlaylistEditor
 
                         else if ((line.StartsWith("ht") || line.StartsWith("plugin") || line.StartsWith("rt"))  //issue #32
                             && (line.Contains("//") || line.Contains(":\\")))
-                        // && !string.IsNullOrEmpty(col[0]))
                         {
                             if (string.IsNullOrEmpty(col[0]) && string.IsNullOrEmpty(col[4]))
                             {
@@ -2556,17 +2528,7 @@ namespace PlaylistEditor
 
                             col[5] = line;
 
-                            //  continue;
                         }
-
-                        //else if (line.StartsWith("plugin")  //#18
-                        //    && ((line.Contains("//") || line.Contains(":\\")))
-                        //    && !string.IsNullOrEmpty(col[0]))
-                        //{
-                        //    if (!line.Contains("|User-Agent") && line.Contains(".m3u8") && Settings.Default.user_agent)
-                        //        col[5] = line + "|User-Agent=Mozilla/5.0 (X11; Linux i686; rv:42.0) Gecko/20100101 Firefox/42.0 Iceweasel/42.0";
-                        //    else col[5] = line;
-                        //}
 
                         else
                         {
@@ -2645,47 +2607,8 @@ namespace PlaylistEditor
         {
             e.Control.ContextMenuStrip = contextMenuStrip2;
 
-            //#47 no solution so far
-            //Int32 selectedCellCount = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
-            //if (selectedCellCount > 1)
-            //{
-            //    DataGridViewTextBoxEditingControl tb = (DataGridViewTextBoxEditingControl)e.Control;
-            //    //tb.KeyPress += new KeyPressEventHandler(dataGridViewTextBox_KeyPress);
-            //    tb.PreviewKeyDown += new PreviewKeyDownEventHandler(dataGridViewTextBox_KeyPress);
-            //    // e.Control.KeyPress += new KeyPressEventHandler(dataGridViewTextBox_KeyPress);
-            //}
         }
 
-        void dataGridViewTextBox_KeyPress(object sender, PreviewKeyDownEventArgs e)
-        {
-            
-            if (e.KeyCode == Keys.Enter )
-            {
-                //Int32 selectedCellCount = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
-                //if (selectedCellCount > 1)
-                {
-                    var activecell = dataGridView1.CurrentCell.Value.ToString();
-                    // get active cell value and copy to all other
-                    //Clipboard.SetText(activecell);
-
-                    //FillCells();
-
-                    string s = activecell;
-                    DataGridViewCell oCell;
-
-
-                    foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
-                    {
-                        oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
-                        oCell.Value = Convert.ChangeType(s.Trim(), oCell.ValueType);  
-                    }
-                    toSave(true);
-
-                }
-
-            }
-
-        }
 
         private void editCellCopy_Click(object sender, EventArgs e)
         {
