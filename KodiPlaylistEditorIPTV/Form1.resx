@@ -210,8 +210,17 @@
   <data name="cms1NewWindow.Text" xml:space="preserve">
     <value>New Window</value>
   </data>
+  <data name="cms1Number.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cms1Number.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 24</value>
+  </data>
+  <data name="cms1Number.Text" xml:space="preserve">
+    <value>Numbering</value>
+  </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 208</value>
+    <value>226, 257</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -347,7 +356,7 @@ Ctrl + double click cell</value>
     <value>button_kodi</value>
   </data>
   <data name="&gt;&gt;button_kodi.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_kodi.Parent" xml:space="preserve">
     <value>$this</value>
@@ -399,7 +408,7 @@ Ctrl + double click cell</value>
     <value>button_import</value>
   </data>
   <data name="&gt;&gt;button_import.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_import.Parent" xml:space="preserve">
     <value>$this</value>
@@ -438,7 +447,7 @@ Ctrl + double click cell</value>
     <value>RedoButton</value>
   </data>
   <data name="&gt;&gt;RedoButton.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;RedoButton.Parent" xml:space="preserve">
     <value>$this</value>
@@ -477,7 +486,7 @@ Ctrl + double click cell</value>
     <value>UndoButton</value>
   </data>
   <data name="&gt;&gt;UndoButton.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;UndoButton.Parent" xml:space="preserve">
     <value>$this</value>
@@ -530,7 +539,7 @@ Ctrl + double click cell</value>
     <value>button_check</value>
   </data>
   <data name="&gt;&gt;button_check.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_check.Parent" xml:space="preserve">
     <value>$this</value>
@@ -593,7 +602,7 @@ double click cell</value>
     <value>button_vlc</value>
   </data>
   <data name="&gt;&gt;button_vlc.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_vlc.Parent" xml:space="preserve">
     <value>$this</value>
@@ -632,7 +641,7 @@ double click cell</value>
     <value>button_revert</value>
   </data>
   <data name="&gt;&gt;button_revert.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_revert.Parent" xml:space="preserve">
     <value>$this</value>
@@ -687,7 +696,7 @@ double click cell</value>
     <value>button_dup</value>
   </data>
   <data name="&gt;&gt;button_dup.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_dup.Parent" xml:space="preserve">
     <value>$this</value>
@@ -746,7 +755,7 @@ Ctrl+F</value>
     <value>button_search</value>
   </data>
   <data name="&gt;&gt;button_search.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_search.Parent" xml:space="preserve">
     <value>$this</value>
@@ -788,7 +797,7 @@ Ctrl-B move to bottom</value>
     <value>button_moveDown</value>
   </data>
   <data name="&gt;&gt;button_moveDown.Type" xml:space="preserve">
-    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_moveDown.Parent" xml:space="preserve">
     <value>$this</value>
@@ -830,7 +839,7 @@ Ctrl+T move to top</value>
     <value>button_moveUp</value>
   </data>
   <data name="&gt;&gt;button_moveUp.Type" xml:space="preserve">
-    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_moveUp.Parent" xml:space="preserve">
     <value>$this</value>
@@ -884,7 +893,7 @@ Ctrl+T move to top</value>
     <value>button_del_all</value>
   </data>
   <data name="&gt;&gt;button_del_all.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_del_all.Parent" xml:space="preserve">
     <value>$this</value>
@@ -949,7 +958,7 @@ Ctrl+T move to top</value>
     <value>button_settings</value>
   </data>
   <data name="&gt;&gt;button_settings.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_settings.Parent" xml:space="preserve">
     <value>$this</value>
@@ -997,7 +1006,7 @@ Ctrl+T move to top</value>
     <value>button_add</value>
   </data>
   <data name="&gt;&gt;button_add.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_add.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1058,7 +1067,7 @@ Ctrl+T move to top</value>
     <value>button_Info</value>
   </data>
   <data name="&gt;&gt;button_Info.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_Info.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1097,7 +1106,7 @@ Ctrl+T move to top</value>
     <value>button_delLine</value>
   </data>
   <data name="&gt;&gt;button_delLine.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_delLine.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1138,7 +1147,7 @@ Ctrl+S save</value>
     <value>button_save</value>
   </data>
   <data name="&gt;&gt;button_save.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_save.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1177,7 +1186,7 @@ Ctrl+S save</value>
     <value>button_open</value>
   </data>
   <data name="&gt;&gt;button_open.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_open.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1425,7 +1434,7 @@ Ctrl-N to open new window</value>
     <value>button_refind</value>
   </data>
   <data name="&gt;&gt;button_refind.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_refind.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1482,7 +1491,7 @@ Ctrl-N to open new window</value>
     <value>button_clearfind</value>
   </data>
   <data name="&gt;&gt;button_clearfind.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_clearfind.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1515,7 +1524,7 @@ Ctrl-N to open new window</value>
     <value>plabel_Filename</value>
   </data>
   <data name="&gt;&gt;plabel_Filename.Type" xml:space="preserve">
-    <value>PathLabel, PlaylistEditorIPTV, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PathLabel, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;plabel_Filename.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2082,6 +2091,12 @@ Ctrl-N to open new window</value>
     <value>cms1NewWindow</value>
   </data>
   <data name="&gt;&gt;cms1NewWindow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cms1Number.Name" xml:space="preserve">
+    <value>cms1Number</value>
+  </data>
+  <data name="&gt;&gt;cms1Number.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;openFileDialog1.Name" xml:space="preserve">

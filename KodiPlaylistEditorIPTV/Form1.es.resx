@@ -963,4 +963,7 @@ Ctrl+S salvar</value>
   <data name="openFileDialog1.Filter" xml:space="preserve">
     <value>Playlist|*.m3u</value>
   </data>
+  <data name="cms1Number.Text" xml:space="preserve">
+    <value>Numeración</value>
+  </data>
 </root>

@@ -128,14 +128,15 @@ namespace PlaylistEditor
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-         //   System.Diagnostics.Process.Start("https://github.com/Isayso?tab=repositories");
             System.Diagnostics.Process.Start("https://github.com/Isayso/PlaylistEditorTV/releases");
         }
 
         private void donateButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN&source=url");
-
+            MessageBox.Show("Thank You for considering a donation. " + Environment.NewLine + 
+                "I recived so far 1$ of donations and PayPal took 40ct fees." + Environment.NewLine +
+                "Small money donation doesn't make sense, Bigtec is making money and screw elections with it. " + Environment.NewLine + "So enjoy my small program!"
+                + Environment.NewLine);
         }
     }
 }

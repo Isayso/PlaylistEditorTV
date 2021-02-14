@@ -1009,4 +1009,7 @@ Ctrl-N, чтобы открыть новое окно</value>
   <data name="$this.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="cms1Number.Text" xml:space="preserve">
+    <value>Нумерация</value>
+  </data>
 </root>

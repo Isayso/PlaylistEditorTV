@@ -1002,4 +1002,7 @@ Strg+S speichern</value>
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="cms1Number.Text" xml:space="preserve">
+    <value>Nummerierung</value>
+  </data>
 </root>

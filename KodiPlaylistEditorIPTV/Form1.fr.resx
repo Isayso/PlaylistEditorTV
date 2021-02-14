@@ -1015,4 +1015,7 @@ Ctrl-N pour ouvrir une nouvelle fenêtre</value>
   <data name="cutRowMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Ctrl+X</value>
   </data>
+  <data name="cms1Number.Text" xml:space="preserve">
+    <value>Numérotation</value>
+  </data>
 </root>
