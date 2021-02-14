@@ -545,6 +545,8 @@ namespace PlaylistEditor
 
             dt.TableName = "IPTV";
 
+            FileData fileData = new FileData();
+
             dataGridView1.DataSource = dt;
             string[] col = new string[6];
             Array.Clear(colShow, 0, 6);
@@ -562,32 +564,29 @@ namespace PlaylistEditor
 
             }
 
+            Cursor.Current = Cursors.WaitCursor;
+
             while ((line = playlistFile.ReadLine()) != null)
             {
                 line = line.Trim();  //remove spaces
 
                 if (line.StartsWith("#EXTINF"))
                 {
+                    fileData = GetFileData(line);
 
-                    col[0] = GetPartString(line, "tvg-name=\"", "\"");
+                    col[0] = fileData.Name;
                     CheckEntry(0);
 
-
-                    col[1] = GetPartString(line, "tvg-id=\"", "\"");
+                    col[1] = fileData.Id;
                     CheckEntry(1);
 
-
-                    col[2] = GetPartString(line, "group-title=\"", "\"");
+                    col[2] = fileData.Title;
                     CheckEntry(2);
 
-
-                    col[3] = GetPartString(line, "tvg-logo=\"", "\"");
+                    col[3] = fileData.Logo;
                     CheckEntry(3);
 
-
-                    col[4] = line.Split(',').Last();
-                    if (string.IsNullOrEmpty(col[4])) col[4] = "N/A";
-
+                    col[4] = fileData.Name2;
 
                     continue;
 
@@ -597,6 +596,7 @@ namespace PlaylistEditor
                     && (line.Contains("//") || line.Contains(":\\")))
                 {
                     col[5] = line;
+                   // fileData.Link = line.Trim();
                 }
 
 
@@ -610,8 +610,10 @@ namespace PlaylistEditor
                 try
                 {
                     dr = dt.NewRow();
-                    dr["Name"] = col[0].Trim(); dr["id"] = col[1].Trim(); dr["Group Title"] = col[2].Trim();
-                    dr["logo"] = col[3].Trim(); dr["Name2"] = col[4].Trim(); dr["Link"] = col[5].Trim();
+                    //dr["Name"] = fileData.Name; dr["id"] = fileData.Id; dr["Group Title"] = fileData.Title;
+                    //dr["logo"] = fileData.Logo; dr["Name2"] = fileData.Name2; dr["Link"] = fileData.Link;
+                    dr["Name"] = col[0]; dr["id"] = col[1]; dr["Group Title"] = col[2];
+                    dr["logo"] = col[3]; dr["Name2"] = col[4]; dr["Link"] = col[5];
                     dt.Rows.Add(dr);
                 }
                 catch (ArgumentOutOfRangeException)
@@ -644,11 +646,12 @@ namespace PlaylistEditor
             label_central.SendToBack();
 
 
+
             void CheckEntry(int v)
             {//issue #12
                 if (string.IsNullOrEmpty(col[v]) || (col[v].Contains("N/A") && colShow[v] == 0))
                 {
-                    col[v] = "N/A";
+                    //col[v] = "N/A";
                     if (colShow[v] !=1) colShow[v] = 0;  //#48
                 }
                 else
@@ -659,7 +662,7 @@ namespace PlaylistEditor
 
             }
 
-
+            Cursor.Current = Cursors.Default;
 
         }
 
@@ -670,7 +673,7 @@ namespace PlaylistEditor
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                foreach (DataGridViewRow row in dataGridView1.GetSelectedRows())
+                foreach (DataGridViewRow row in dataGridView1.InvSelectedRows())
                 {
                     dt.Rows.RemoveAt(row.Index);
                 }
@@ -1214,7 +1217,7 @@ namespace PlaylistEditor
                 {
                     StringBuilder rowString = new StringBuilder();
 
-                    foreach (DataGridViewRow row in dataGridView1.GetSelectedRows())
+                    foreach (DataGridViewRow row in dataGridView1.InvSelectedRows())
                     {
                         for (int i = 0; i < 5; i++)
                         {
@@ -1272,7 +1275,7 @@ namespace PlaylistEditor
 
                     string[] pastedRows = Regex.Split(fullRowContent.TrimEnd("\r\n".ToCharArray()), "\r\n");
 
-                    foreach (string pastedRow in pastedRows.GetRows())  //#44
+                    foreach (string pastedRow in pastedRows.InvRows())  //#44
                     {
                         string[] pastedRowCells = pastedRow.Split(new char[] { '\t' });
 
@@ -1500,7 +1503,7 @@ namespace PlaylistEditor
                 int minRow = dataGridView1.CurrentCell.RowIndex;
                 int minCol = dataGridView1.CurrentCell.ColumnIndex;
                 int maxRow = 0, maxCol = 0;
-                int x, y;
+                int x, y;   //rows, columns
                 int[] array = Array.Empty<int>();
                 int j = 0;
 
@@ -1521,6 +1524,7 @@ namespace PlaylistEditor
                     j += 1;
                 }
 
+                //set active cell
                 dataGridView1.CurrentCell = dataGridView1.Rows[minRow].Cells[minCol];
 
                 for (int i = 0; i <= array.Length - 2; i += 2)
@@ -1708,7 +1712,7 @@ namespace PlaylistEditor
 
 
 
-                foreach (DataGridViewRow row in dataGridView1.GetRows())
+                foreach (DataGridViewRow row in dataGridView1.InvRows())
                 {
                     if (colS == 6)  //if search in all cells
                     {
@@ -2417,7 +2421,7 @@ namespace PlaylistEditor
                 contextMenuStrip1.Items["cms1NewWindow"].Enabled = true;
 
             }
-            else  //open 
+            else  //open menu
             {
                 string[] itemsNList = new string[] { "toolStripCopy", "playToolStripMenuItem",
                     "hideToolStripMenuItem", "showToolStripMenuItem"};
@@ -2432,9 +2436,34 @@ namespace PlaylistEditor
                     contextMenuStrip1.Items["cutRowMenuItem"].Enabled = true;  //cut
                 }
                 else
-                {
+                {   
                     contextMenuStrip1.Items["cutRowMenuItem"].Enabled = false;
                 }
+
+                //Numbering only in rows
+                if (dataGridView1.SelectedCells.Count > 1)  
+                {
+                    Int32 selectedCellCount = dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
+
+                    int minCol = dataGridView1.CurrentCell.ColumnIndex;
+                    int maxCol = 0;
+                    int y;   //columns
+
+                    for (int i = 0; i < selectedCellCount; i++)
+                    {
+                        y = dataGridView1.SelectedCells[i].ColumnIndex;
+                        if (y < minCol) minCol = y;
+                        if (y > maxCol) maxCol = y;
+                    }
+
+                    if (minCol == maxCol)
+                        contextMenuStrip1.Items["cms1Number"].Enabled = true;  
+                    else                   
+                        contextMenuStrip1.Items["cms1Number"].Enabled = false; 
+
+                }
+                else
+                    contextMenuStrip1.Items["cms1Number"].Enabled = false;  
 
                 if (Clipboard.ContainsText())
                 {
@@ -2482,6 +2511,7 @@ namespace PlaylistEditor
 
                 using (StringReader playlistFile = new StringReader(o.GetData(DataFormats.UnicodeText).ToString()))
                 {
+                    Cursor.Current = Cursors.WaitCursor;
 
                     while ((line = playlistFile.ReadLine()) != null)
                     {
@@ -2489,7 +2519,23 @@ namespace PlaylistEditor
 
                         if (line.StartsWith("#EXTINF"))
                         {
+                            FileData fileData = GetFileData(line);
 
+                            col[0] = fileData.Name;
+                            CheckEntry(0);
+
+                            col[1] = fileData.Id;
+                            CheckEntry(1);
+
+                            col[2] = fileData.Title;
+                            CheckEntry(2);
+
+                            col[3] = fileData.Logo;
+                            CheckEntry(3);
+
+                            col[4] = fileData.Name2;
+
+                            /*
                             col[0] = GetPartString(line, "tvg-name=\"", "\"");
                             CheckEntry(0);
 
@@ -2504,11 +2550,11 @@ namespace PlaylistEditor
 
                             col[3] = GetPartString(line, "tvg-logo=\"", "\"");
                             CheckEntry(3);
-
+                            
 
                             col[4] = line.Split(',').Last();
                             if (string.IsNullOrEmpty(col[4])) col[4] = "N/A";
-
+                            */
 
                             continue;
 
@@ -2549,8 +2595,8 @@ namespace PlaylistEditor
                         {
 
                             dr = dt.NewRow();
-                            dr["Name"] = col[0].Trim(); dr["id"] = col[1].Trim(); dr["Group Title"] = col[2].Trim();
-                            dr["logo"] = col[3].Trim(); dr["Name2"] = col[4].Trim(); dr["Link"] = col[5].Trim();
+                            dr["Name"] = col[0]; dr["id"] = col[1]; dr["Group Title"] = col[2];
+                            dr["logo"] = col[3]; dr["Name2"] = col[4]; dr["Link"] = col[5];
                             dt.Rows.Add(dr);
                         }
                         catch (Exception ex)
@@ -2559,6 +2605,9 @@ namespace PlaylistEditor
                             continue;
                         }
                     }
+
+                    Cursor.Current = Cursors.Default;
+
                 }
                 label_central.SendToBack();
 
@@ -2800,6 +2849,25 @@ namespace PlaylistEditor
           //  e.Effect = DragDropEffects.Move;
         }
 
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            toSave(true);
+        }
+
+        private void cms1Number_Click(object sender, EventArgs e)
+        {
+            DataGridViewCell oCell;
+            int n = 1;
+
+            foreach (DataGridViewCell cell in dataGridView1.InvSelectedCells())
+            {
+                oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
+                oCell.Value = Convert.ChangeType(n.ToString(), oCell.ValueType);
+                n += 1;
+            }
+            toSave(true);
+
+        }
     }
 }
 
@@ -2817,6 +2885,18 @@ class Check
 
         return;
     }
+}
+
+
+public class FileData
+{
+    public string Name { get; set; }
+    public string Id { get; set; }
+    public string Title { get; set; }
+    public string Logo { get; set; }
+    public string Name2 { get; set; }
+    public string Link { get; set; }
+
 }
 
 /// <summary>
@@ -2845,29 +2925,43 @@ public static class ExtensionMethods
     /// </summary>
     /// <param name="source"></param>
     /// <returns></returns>
-    public static IEnumerable<DataGridViewRow> GetSelectedRows(this DataGridView source)
+    public static IEnumerable<DataGridViewRow> InvSelectedRows(this DataGridView source)
     {
         for (int i = source.SelectedRows.Count - 1; i >= 0; i--)
             yield return source.SelectedRows[i];
     }
 
     /// <summary>
-    /// reverse order of rows for foreach
+    /// inverse order of selected cells for foreach
     /// </summary>
     /// <param name="source"></param>
     /// <returns></returns>
-    public static IEnumerable<DataGridViewRow> GetRows(this DataGridView source)
+    public static IEnumerable<DataGridViewCell> InvSelectedCells(this DataGridView source)
+    {
+        for (int i = source.SelectedCells.Count - 1; i >= 0; i--)
+            yield return source.SelectedCells[i];
+    }
+
+
+    /// <summary>
+    /// inverse order of rows for foreach
+    /// </summary>
+    /// <param name="source"></param>
+    /// <returns></returns>
+    public static IEnumerable<DataGridViewRow> InvRows(this DataGridView source)
     {
         for (int i = source.Rows.Count - 1; i >= 0; i--)
             yield return source.Rows[i];
     }
 
+
+
     /// <summary>
-    /// reverse order of rows for foreach
+    /// inverse order of rows for foreach
     /// </summary>
     /// <param name="source">string</param>
     /// <returns>string</returns>
-    public static IEnumerable<string> GetRows(this string[] source)  //#44
+    public static IEnumerable<string> InvRows(this string[] source)  //#44
     {
         for (int i = source.Length - 1; i >= 0; i--)
             yield return source[i];

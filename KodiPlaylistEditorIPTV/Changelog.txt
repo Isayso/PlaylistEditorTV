@@ -1,4 +1,7 @@
-﻿1.6.2
+﻿1.6.3
+- bug in cell changed detection
+
+1.6.2
 - bugfix open file
 - timeout for linkcheck optional
 

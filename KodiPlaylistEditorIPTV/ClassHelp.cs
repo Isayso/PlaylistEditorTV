@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -89,6 +90,35 @@ namespace PlaylistEditor
                 return "";
             }
         }
+
+        public static FileData GetFileData(string fullstr)
+        {
+            FileData fileData = new FileData();
+
+            Regex regex1 = new Regex("tvg-name =\"([^\"]*)");
+            fileData.Name = regex1.Match(fullstr).Groups[1].ToString().Trim();
+            if (string.IsNullOrEmpty(fileData.Name)) fileData.Name = "N/A";
+
+            Regex regex2 = new Regex("tvg-id=\"([^\"]*)");
+            fileData.Id = regex2.Match(fullstr).Groups[1].ToString().Trim();
+            if (string.IsNullOrEmpty(fileData.Id)) fileData.Id = "N/A";
+
+            Regex regex3 = new Regex("group-title=\"([^\"]*)");
+            fileData.Title = regex3.Match(fullstr).Groups[1].ToString().Trim();
+            if (string.IsNullOrEmpty(fileData.Title)) fileData.Title = "N/A";
+
+            Regex regex4 = new Regex("tvg-logo=\"([^\"]*)");
+            fileData.Logo = regex4.Match(fullstr).Groups[1].ToString().Trim();
+            if (string.IsNullOrEmpty(fileData.Logo)) fileData.Logo = "N/A";
+
+            fileData.Name2 = fullstr.Split(',').Last().Trim();
+            if (string.IsNullOrEmpty(fileData.Name2)) fileData.Name2 = "N/A";
+
+
+            return fileData;
+            
+        }
+
 
         /// <summary>
         /// byte to string / string to byte

@@ -45,6 +45,7 @@
             this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cms1NewWindow = new System.Windows.Forms.ToolStripMenuItem();
+            this.cms1Number = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -104,10 +105,12 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             this.dataGridView1.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValidated);
@@ -132,7 +135,8 @@
             this.toolStripSeparator3,
             this.hideToolStripMenuItem,
             this.showToolStripMenuItem,
-            this.cms1NewWindow});
+            this.cms1NewWindow,
+            this.cms1Number});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
@@ -194,6 +198,12 @@
             this.cms1NewWindow.Name = "cms1NewWindow";
             resources.ApplyResources(this.cms1NewWindow, "cms1NewWindow");
             this.cms1NewWindow.Click += new System.EventHandler(this.newWindowToolStripMenuItem_Click);
+            // 
+            // cms1Number
+            // 
+            resources.ApplyResources(this.cms1Number, "cms1Number");
+            this.cms1Number.Name = "cms1Number";
+            this.cms1Number.Click += new System.EventHandler(this.cms1Number_Click);
             // 
             // openFileDialog1
             // 
@@ -579,6 +589,7 @@
         private System.Windows.Forms.Label lblColCheck;
         private MyButton button_refind;
         private System.Windows.Forms.ToolStripMenuItem cms1NewWindow;
+        private System.Windows.Forms.ToolStripMenuItem cms1Number;
     }
 }
 
