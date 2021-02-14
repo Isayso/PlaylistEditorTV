@@ -5,20 +5,6 @@
 # Playlist Editor TV
 Editor for IPTV m3u files (with vlc media player and kodi support)  
 
-1.6.2 Bugfix show wrong columns on open file. The maximum timeout for link response can be set in options.
-
-1.6.1 Bugfix Paste Insert (Ctrl-i)
-
-1.6 Multi language support of English, French, German, Spanish, Russia, Chinese. It's from automatic translation, if you have better translation, please send me a message.   
-
-1.5.5 better undo/redo UI, SPACE is now the logical AND for find text function
-
-1.5.4 Multi-threading for link check, up to 20 parallel tasks, can be selected in settings. Big performance increase. 
-
-1.5.3 Result of link check is stored a re-scan is often not necessary (force re-scan with Alt-click).
-
-1.5.2 bugfix for *Fill cells from Clipboard* function, rtmp (links cannot be tested) and links with Error 403 are now marked with gray and can be selected separately. *Fill cells from Clipboard* can be activated with Ctrl-v. 
-
  
   Special thanks to dobbelina for helpful ideas and testing, improved the usablility a lot. 
 
