@@ -2857,11 +2857,19 @@ namespace PlaylistEditor
         private void cms1Number_Click(object sender, EventArgs e)
         {
             DataGridViewCell oCell;
-            int n = 1;
+            int n = 1; bool chknum = true;
 
             foreach (DataGridViewCell cell in dataGridView1.InvSelectedCells())
             {
                 oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
+
+                if (chknum)
+                {
+                    var isNumeric = int.TryParse(oCell.Value.ToString(), out int z);
+                    if (isNumeric) n = z;
+                    chknum = false;
+                }
+
                 oCell.Value = Convert.ChangeType(n.ToString(), oCell.ValueType);
                 n += 1;
             }

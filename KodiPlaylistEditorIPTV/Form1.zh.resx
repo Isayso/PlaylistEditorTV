@@ -983,4 +983,7 @@ Ctrl + S保存</value>
   <data name="$this.Text" xml:space="preserve">
     <value>Playlist Editor TV CN</value>
   </data>
+  <data name="cms1Number.Text" xml:space="preserve">
+    <value>编号</value>
+  </data>
 </root>
