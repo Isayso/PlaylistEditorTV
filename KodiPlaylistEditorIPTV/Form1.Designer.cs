@@ -85,6 +85,7 @@
             this.plabel_Filename = new PathLabel();
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cm3Scrollbar = new System.Windows.Forms.ToolStripMenuItem();
+            this.cm3EditF2 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -119,7 +120,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -530,7 +531,8 @@
             // 
             this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cm3Scrollbar});
+            this.cm3Scrollbar,
+            this.cm3EditF2});
             this.contextMenuStrip3.Name = "contextMenuStrip3";
             resources.ApplyResources(this.contextMenuStrip3, "contextMenuStrip3");
             // 
@@ -542,6 +544,15 @@
             this.cm3Scrollbar.Name = "cm3Scrollbar";
             resources.ApplyResources(this.cm3Scrollbar, "cm3Scrollbar");
             this.cm3Scrollbar.CheckedChanged += new System.EventHandler(this.cm3Scrollbar_CheckedChanged);
+            // 
+            // cm3EditF2
+            // 
+            this.cm3EditF2.Checked = true;
+            this.cm3EditF2.CheckOnClick = true;
+            this.cm3EditF2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cm3EditF2.Name = "cm3EditF2";
+            resources.ApplyResources(this.cm3EditF2, "cm3EditF2");
+            this.cm3EditF2.CheckStateChanged += new System.EventHandler(this.cm3EditF2_CheckStateChanged);
             // 
             // Form1
             // 
@@ -640,6 +651,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         private System.Windows.Forms.ToolStripMenuItem cm3Scrollbar;
+        private System.Windows.Forms.ToolStripMenuItem cm3EditF2;
     }
 }
 

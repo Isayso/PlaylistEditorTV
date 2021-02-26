@@ -129,16 +129,17 @@ namespace PlaylistEditor
             //    dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
 
-            if (cm3Scrollbar.Checked)
+            cm3Scrollbar.Checked = Settings.Default.scrollbar;
+            cm3EditF2.Checked = Settings.Default.F2_edit;
+
+
+            if (Settings.Default.scrollbar)
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             else
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-
-
-            //switch from setting
             if (Settings.Default.F2_edit)
-                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;//   .EditOnF2;
+                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
 
 
 
@@ -543,6 +544,10 @@ namespace PlaylistEditor
 
             //scrollbar change
             cm3Scrollbar.Checked = Settings.Default.scrollbar;
+
+            cm3EditF2.Checked = Settings.Default.F2_edit;
+
+           // dataGridView1_EditModeChanged(null, null);
         }
 
 
@@ -2915,10 +2920,27 @@ namespace PlaylistEditor
             else
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+
             Settings.Default.scrollbar = cm3Scrollbar.Checked;
             Settings.Default.Save();
 
             dataGridView1.Refresh();
+        }
+
+
+        private void cm3EditF2_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (cm3EditF2.Checked)
+                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            else
+                dataGridView1.EditMode = DataGridViewEditMode.EditOnF2;
+
+
+            Settings.Default.F2_edit = cm3EditF2.Checked;
+            Settings.Default.Save();
+
+            dataGridView1.Refresh();
+
         }
     }
 }
