@@ -86,7 +86,6 @@ namespace PlaylistEditor
 
             InitializeComponent();
 
-
             this.Text = String.Format("PlaylistEditor TV " + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 
 #if DEBUG
@@ -129,6 +128,12 @@ namespace PlaylistEditor
             // dataGridView1.BringToFront();
             //    dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
+
+            if (cm3Scrollbar.Checked)
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            else
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
 
 
             //switch from setting
@@ -184,6 +189,8 @@ namespace PlaylistEditor
             Settings.Default.nostart = false;
             Settings.Default.Save();
 
+
+
         }
 
 
@@ -203,6 +210,14 @@ namespace PlaylistEditor
             base.WndProc(ref m);
         }
 
+        private void SetHeaderContextMenu()
+        {
+            foreach (DataGridViewColumn gridViewColumn in dataGridView1.Columns)
+            {
+                gridViewColumn.HeaderCell.ContextMenuStrip = contextMenuStrip3;
+            }
+
+        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -524,8 +539,10 @@ namespace PlaylistEditor
                 var searchindex = Settings.Default.colSearch;
                 lblColCheck.Text = colList[searchindex];
 
-
             }
+
+            //scrollbar change
+            cm3Scrollbar.Checked = Settings.Default.scrollbar;
         }
 
 
@@ -561,6 +578,8 @@ namespace PlaylistEditor
 
                 dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Group Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
+                
+                SetHeaderContextMenu();
 
             }
 
@@ -843,6 +862,9 @@ namespace PlaylistEditor
 
                 dataGridView1.DataSource = dt;
                 dataGridView1.AllowUserToAddRows = false;
+
+                SetHeaderContextMenu();
+
             }
             label_central.SendToBack();
 
@@ -2037,27 +2059,36 @@ namespace PlaylistEditor
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            toSave(true);
-
-            if (_sort == "desc")
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    contextMenuStrip3.Show(dataGridView1, dataGridView1.PointToClient(Cursor.Position));
+            //}
+            if (e.Button == MouseButtons.Left)
             {
-                _sort = "asc";
-                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+                toSave(true);
+
+                if (_sort == "desc")
+                {
+                    _sort = "asc";
+                    dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+                }
+                else
+                {
+                    _sort = "desc";
+                    dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
+                }
+
+                dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
+                dt = dt.DefaultView.ToTable("IPTV");
+
+                //#25 rebind after sort
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+
+                if (_linkchecked) RepaintRows();  //#41
+
             }
-            else
-            {
-                _sort = "desc";
-                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
-            }
-
-            dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
-            dt = dt.DefaultView.ToTable("IPTV");
-
-            //#25 rebind after sort
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
-
-            if (_linkchecked) RepaintRows();  //#41
+            
 
         }
 
@@ -2875,6 +2906,19 @@ namespace PlaylistEditor
             }
             toSave(true);
 
+        }
+
+        private void cm3Scrollbar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cm3Scrollbar.Checked)
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            else
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            Settings.Default.scrollbar = cm3Scrollbar.Checked;
+            Settings.Default.Save();
+
+            dataGridView1.Refresh();
         }
     }
 }

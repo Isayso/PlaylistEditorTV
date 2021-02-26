@@ -85,6 +85,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.comboBoxSpeech = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.checkBox_scroll = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -102,37 +104,35 @@
             resources.ApplyResources(this.button_ok, "button_ok");
             this.button_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button_ok.Name = "button_ok";
-            this.toolTip1.SetToolTip(this.button_ok, resources.GetString("button_ok.ToolTip"));
             this.button_ok.UseVisualStyleBackColor = true;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // button_cancel
             // 
-            resources.ApplyResources(this.button_cancel, "button_cancel");
             this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.button_cancel, "button_cancel");
             this.button_cancel.Name = "button_cancel";
-            this.toolTip1.SetToolTip(this.button_cancel, resources.GetString("button_cancel.ToolTip"));
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // textBox_Password
             // 
-            resources.ApplyResources(this.textBox_Password, "textBox_Password");
             this.textBox_Password.BackColor = System.Drawing.SystemColors.Menu;
+            resources.ApplyResources(this.textBox_Password, "textBox_Password");
             this.textBox_Password.Name = "textBox_Password";
             this.toolTip1.SetToolTip(this.textBox_Password, resources.GetString("textBox_Password.ToolTip"));
             // 
             // textBox_Username
             // 
-            resources.ApplyResources(this.textBox_Username, "textBox_Username");
             this.textBox_Username.BackColor = System.Drawing.SystemColors.Menu;
+            resources.ApplyResources(this.textBox_Username, "textBox_Username");
             this.textBox_Username.Name = "textBox_Username";
             this.toolTip1.SetToolTip(this.textBox_Username, resources.GetString("textBox_Username.ToolTip"));
             // 
             // textBox_Port
             // 
-            resources.ApplyResources(this.textBox_Port, "textBox_Port");
             this.textBox_Port.BackColor = System.Drawing.SystemColors.Menu;
+            resources.ApplyResources(this.textBox_Port, "textBox_Port");
             this.textBox_Port.Name = "textBox_Port";
             this.toolTip1.SetToolTip(this.textBox_Port, resources.GetString("textBox_Port.ToolTip"));
             // 
@@ -159,8 +159,8 @@
             // 
             // textBox2
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
+            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.Name = "textBox2";
             this.toolTip1.SetToolTip(this.textBox2, resources.GetString("textBox2.ToolTip"));
             // 
@@ -206,16 +206,16 @@
             // 
             // textBox_hot
             // 
-            resources.ApplyResources(this.textBox_hot, "textBox_hot");
             this.textBox_hot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            resources.ApplyResources(this.textBox_hot, "textBox_hot");
             this.textBox_hot.Name = "textBox_hot";
             this.toolTip1.SetToolTip(this.textBox_hot, resources.GetString("textBox_hot.ToolTip"));
             // 
             // checkBox_a
             // 
-            resources.ApplyResources(this.checkBox_a, "checkBox_a");
             this.checkBox_a.Checked = true;
             this.checkBox_a.CheckState = System.Windows.Forms.CheckState.Checked;
+            resources.ApplyResources(this.checkBox_a, "checkBox_a");
             this.checkBox_a.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBox_a.Name = "checkBox_a";
             this.toolTip1.SetToolTip(this.checkBox_a, resources.GetString("checkBox_a.ToolTip"));
@@ -282,7 +282,6 @@
             // 
             // tabControl1
             // 
-            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
@@ -290,14 +289,15 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.toolTip1.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
             // 
             // tabPage3
             // 
-            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabPage3.Controls.Add(this.checkBox_scroll);
+            this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.comboBox_result);
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Controls.Add(this.checkBox_F2);
@@ -310,18 +310,17 @@
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.ForeColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
-            this.toolTip1.SetToolTip(this.tabPage3, resources.GetString("tabPage3.ToolTip"));
             // 
             // comboBox_result
             // 
-            resources.ApplyResources(this.comboBox_result, "comboBox_result");
             this.comboBox_result.FormattingEnabled = true;
             this.comboBox_result.Items.AddRange(new object[] {
             resources.GetString("comboBox_result.Items"),
             resources.GetString("comboBox_result.Items1")});
+            resources.ApplyResources(this.comboBox_result, "comboBox_result");
             this.comboBox_result.Name = "comboBox_result";
-            this.toolTip1.SetToolTip(this.comboBox_result, resources.GetString("comboBox_result.ToolTip"));
             this.comboBox_result.SelectedIndexChanged += new System.EventHandler(this.comboBox_result_SelectedIndexChanged);
             this.comboBox_result.Click += new System.EventHandler(this.ComboBox_Click);
             // 
@@ -329,27 +328,23 @@
             // 
             resources.ApplyResources(this.label14, "label14");
             this.label14.Name = "label14";
-            this.toolTip1.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
             // 
             // checkBox_F2
             // 
-            resources.ApplyResources(this.checkBox_F2, "checkBox_F2");
             this.checkBox_F2.Checked = true;
             this.checkBox_F2.CheckState = System.Windows.Forms.CheckState.Checked;
+            resources.ApplyResources(this.checkBox_F2, "checkBox_F2");
             this.checkBox_F2.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBox_F2.Name = "checkBox_F2";
-            this.toolTip1.SetToolTip(this.checkBox_F2, resources.GetString("checkBox_F2.ToolTip"));
             this.checkBox_F2.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
-            this.toolTip1.SetToolTip(this.label12, resources.GetString("label12.ToolTip"));
             // 
             // comboBox2
             // 
-            resources.ApplyResources(this.comboBox2, "comboBox2");
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             resources.GetString("comboBox2.Items"),
@@ -358,14 +353,13 @@
             resources.GetString("comboBox2.Items3"),
             resources.GetString("comboBox2.Items4"),
             resources.GetString("comboBox2.Items5")});
+            resources.ApplyResources(this.comboBox2, "comboBox2");
             this.comboBox2.Name = "comboBox2";
-            this.toolTip1.SetToolTip(this.comboBox2, resources.GetString("comboBox2.ToolTip"));
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             this.comboBox2.Click += new System.EventHandler(this.ComboBox_Click);
             // 
             // comboBox1
             // 
-            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             resources.GetString("comboBox1.Items"),
@@ -375,8 +369,8 @@
             resources.GetString("comboBox1.Items4"),
             resources.GetString("comboBox1.Items5"),
             resources.GetString("comboBox1.Items6")});
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
-            this.toolTip1.SetToolTip(this.comboBox1, resources.GetString("comboBox1.ToolTip"));
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.Click += new System.EventHandler(this.ComboBox_Click);
             // 
@@ -384,17 +378,14 @@
             // 
             resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
-            this.toolTip1.SetToolTip(this.label8, resources.GetString("label8.ToolTip"));
             // 
             // label7
             // 
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.toolTip1.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
             // 
             // tabPage1
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage1.Controls.Add(this.textBox_userAgent);
             this.tabPage1.Controls.Add(this.label11);
@@ -407,50 +398,45 @@
             this.tabPage1.Controls.Add(this.textBox2);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.ForeColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
-            this.toolTip1.SetToolTip(this.tabPage1, resources.GetString("tabPage1.ToolTip"));
             // 
             // textBox_userAgent
             // 
             resources.ApplyResources(this.textBox_userAgent, "textBox_userAgent");
             this.textBox_userAgent.Name = "textBox_userAgent";
-            this.toolTip1.SetToolTip(this.textBox_userAgent, resources.GetString("textBox_userAgent.ToolTip"));
             // 
             // tabPage2
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.checkBox_hotkey);
             this.tabPage2.ForeColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
-            this.toolTip1.SetToolTip(this.tabPage2, resources.GetString("tabPage2.ToolTip"));
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.checkBox_w);
             this.panel1.Controls.Add(this.textBox_hot);
             this.panel1.Controls.Add(this.checkBox_a);
             this.panel1.Controls.Add(this.checkBox_s);
             this.panel1.Controls.Add(this.checkBox_c);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.toolTip1.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip"));
             // 
             // checkBox_hotkey
             // 
-            resources.ApplyResources(this.checkBox_hotkey, "checkBox_hotkey");
             this.checkBox_hotkey.Checked = true;
             this.checkBox_hotkey.CheckState = System.Windows.Forms.CheckState.Checked;
+            resources.ApplyResources(this.checkBox_hotkey, "checkBox_hotkey");
             this.checkBox_hotkey.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBox_hotkey.Name = "checkBox_hotkey";
-            this.toolTip1.SetToolTip(this.checkBox_hotkey, resources.GetString("checkBox_hotkey.ToolTip"));
             this.checkBox_hotkey.UseVisualStyleBackColor = true;
             this.checkBox_hotkey.CheckedChanged += new System.EventHandler(this.checkBox_hotkey_CheckedChanged);
             // 
             // tabPage4
             // 
-            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage4.Controls.Add(this.numericUpDown1);
             this.tabPage4.Controls.Add(this.label13);
@@ -462,8 +448,8 @@
             this.tabPage4.Controls.Add(this.label10);
             this.tabPage4.Controls.Add(this.button_file);
             this.tabPage4.ForeColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Name = "tabPage4";
-            this.toolTip1.SetToolTip(this.tabPage4, resources.GetString("tabPage4.ToolTip"));
             // 
             // numericUpDown1
             // 
@@ -474,7 +460,6 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.toolTip1.SetToolTip(this.numericUpDown1, resources.GetString("numericUpDown1.ToolTip"));
             this.numericUpDown1.Value = new decimal(new int[] {
             100,
             0,
@@ -486,20 +471,17 @@
             // 
             resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
-            this.toolTip1.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
             // 
             // label9
             // 
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
-            this.toolTip1.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
             // 
             // checkBox_autostart
             // 
             resources.ApplyResources(this.checkBox_autostart, "checkBox_autostart");
             this.checkBox_autostart.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBox_autostart.Name = "checkBox_autostart";
-            this.toolTip1.SetToolTip(this.checkBox_autostart, resources.GetString("checkBox_autostart.ToolTip"));
             this.checkBox_autostart.UseVisualStyleBackColor = true;
             // 
             // checkBox_start
@@ -507,7 +489,6 @@
             resources.ApplyResources(this.checkBox_start, "checkBox_start");
             this.checkBox_start.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBox_start.Name = "checkBox_start";
-            this.toolTip1.SetToolTip(this.checkBox_start, resources.GetString("checkBox_start.ToolTip"));
             this.checkBox_start.UseVisualStyleBackColor = true;
             this.checkBox_start.CheckedChanged += new System.EventHandler(this.checkBox_start_CheckedChanged);
             // 
@@ -515,27 +496,23 @@
             // 
             resources.ApplyResources(this.textBox_start, "textBox_start");
             this.textBox_start.Name = "textBox_start";
-            this.toolTip1.SetToolTip(this.textBox_start, resources.GetString("textBox_start.ToolTip"));
             // 
             // checkBox_vlc
             // 
-            resources.ApplyResources(this.checkBox_vlc, "checkBox_vlc");
             this.checkBox_vlc.Checked = true;
             this.checkBox_vlc.CheckState = System.Windows.Forms.CheckState.Checked;
+            resources.ApplyResources(this.checkBox_vlc, "checkBox_vlc");
             this.checkBox_vlc.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBox_vlc.Name = "checkBox_vlc";
-            this.toolTip1.SetToolTip(this.checkBox_vlc, resources.GetString("checkBox_vlc.ToolTip"));
             this.checkBox_vlc.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
-            this.toolTip1.SetToolTip(this.label10, resources.GetString("label10.ToolTip"));
             // 
             // tabPage5
             // 
-            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage5.Controls.Add(this.label18);
             this.tabPage5.Controls.Add(this.textBox3);
@@ -544,52 +521,46 @@
             this.tabPage5.Controls.Add(this.label16);
             this.tabPage5.Controls.Add(this.label15);
             this.tabPage5.ForeColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Name = "tabPage5";
-            this.toolTip1.SetToolTip(this.tabPage5, resources.GetString("tabPage5.ToolTip"));
             // 
             // label18
             // 
             resources.ApplyResources(this.label18, "label18");
             this.label18.Name = "label18";
-            this.toolTip1.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
             // 
             // textBox3
             // 
             resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.Name = "textBox3";
-            this.toolTip1.SetToolTip(this.textBox3, resources.GetString("textBox3.ToolTip"));
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // comboBox_403
             // 
-            resources.ApplyResources(this.comboBox_403, "comboBox_403");
             this.comboBox_403.FormattingEnabled = true;
             this.comboBox_403.Items.AddRange(new object[] {
             resources.GetString("comboBox_403.Items"),
             resources.GetString("comboBox_403.Items1")});
+            resources.ApplyResources(this.comboBox_403, "comboBox_403");
             this.comboBox_403.Name = "comboBox_403";
-            this.toolTip1.SetToolTip(this.comboBox_403, resources.GetString("comboBox_403.ToolTip"));
             this.comboBox_403.Click += new System.EventHandler(this.ComboBox_Click);
             // 
             // label16
             // 
             resources.ApplyResources(this.label16, "label16");
             this.label16.Name = "label16";
-            this.toolTip1.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
             // 
             // tabPage6
             // 
-            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage6.Controls.Add(this.label17);
             this.tabPage6.Controls.Add(this.comboBoxSpeech);
             this.tabPage6.ForeColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.Name = "tabPage6";
-            this.toolTip1.SetToolTip(this.tabPage6, resources.GetString("tabPage6.ToolTip"));
             // 
             // comboBoxSpeech
             // 
-            resources.ApplyResources(this.comboBoxSpeech, "comboBoxSpeech");
             this.comboBoxSpeech.FormattingEnabled = true;
             this.comboBoxSpeech.Items.AddRange(new object[] {
             resources.GetString("comboBoxSpeech.Items"),
@@ -598,10 +569,22 @@
             resources.GetString("comboBoxSpeech.Items3"),
             resources.GetString("comboBoxSpeech.Items4"),
             resources.GetString("comboBoxSpeech.Items5")});
+            resources.ApplyResources(this.comboBoxSpeech, "comboBoxSpeech");
             this.comboBoxSpeech.Name = "comboBoxSpeech";
-            this.toolTip1.SetToolTip(this.comboBoxSpeech, resources.GetString("comboBoxSpeech.ToolTip"));
             this.comboBoxSpeech.SelectedIndexChanged += new System.EventHandler(this.comboBoxSpeech_SelectedIndexChanged);
             this.comboBoxSpeech.Click += new System.EventHandler(this.ComboBox_Click);
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            // 
+            // checkBox_scroll
+            // 
+            resources.ApplyResources(this.checkBox_scroll, "checkBox_scroll");
+            this.checkBox_scroll.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_scroll.Name = "checkBox_scroll";
+            this.checkBox_scroll.UseVisualStyleBackColor = true;
             // 
             // settings
             // 
@@ -613,7 +596,6 @@
             this.Controls.Add(this.button_ok);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "settings";
-            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
             ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -690,5 +672,7 @@
         private System.Windows.Forms.ComboBox comboBoxSpeech;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.CheckBox checkBox_scroll;
+        private System.Windows.Forms.Label label19;
     }
 }
