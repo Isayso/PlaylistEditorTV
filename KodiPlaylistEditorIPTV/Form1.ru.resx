@@ -1012,4 +1012,7 @@ Ctrl-N, чтобы открыть новое окно</value>
   <data name="cms1Number.Text" xml:space="preserve">
     <value>Нумерация</value>
   </data>
+  <data name="cm3Scrollbar.Text" xml:space="preserve">
+    <value>Полоса прокрутки</value>
+  </data>
 </root>

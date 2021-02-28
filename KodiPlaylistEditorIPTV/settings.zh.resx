@@ -273,10 +273,10 @@
     <value>搜索列结果</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 20</value>
+    <value>45, 20</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
-    <value>用F2编辑（需要重新启动）</value>
+    <value>用F2</value>
   </data>
   <data name="comboBox2.Items" xml:space="preserve">
     <value>名称</value>

@@ -966,4 +966,7 @@ Ctrl+S salvar</value>
   <data name="cms1Number.Text" xml:space="preserve">
     <value>Numeración</value>
   </data>
+  <data name="cm3Scrollbar.Text" xml:space="preserve">
+    <value>Barra de desplazamiento</value>
+  </data>
 </root>

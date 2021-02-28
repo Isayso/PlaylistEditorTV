@@ -213,9 +213,11 @@ namespace PlaylistEditor
 
         private void SetHeaderContextMenu()
         {
-            foreach (DataGridViewColumn gridViewColumn in dataGridView1.Columns)
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
-                gridViewColumn.HeaderCell.ContextMenuStrip = contextMenuStrip3;
+                column.HeaderCell.ContextMenuStrip = contextMenuStrip3;
+               // column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
             }
 
         }
@@ -1192,7 +1194,7 @@ namespace PlaylistEditor
                             switch (checkList[j].ErrorCode)
                             {
                                 case 0:
-                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.White;
+                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = SystemColors.Control;
                                     break;
 
                                 case 403:
@@ -2090,10 +2092,12 @@ namespace PlaylistEditor
                 dataGridView1.DataSource = dt;
                 dataGridView1.Refresh();
 
+                SetHeaderContextMenu();
+
                 if (_linkchecked) RepaintRows();  //#41
 
             }
-            
+
 
         }
 
@@ -2205,7 +2209,7 @@ namespace PlaylistEditor
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = Color.White;
+                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = SystemColors.Control;
                 }
             }
         }
@@ -2913,19 +2917,6 @@ namespace PlaylistEditor
 
         }
 
-        private void cm3Scrollbar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cm3Scrollbar.Checked)
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            else
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-
-            Settings.Default.scrollbar = cm3Scrollbar.Checked;
-            Settings.Default.Save();
-
-            dataGridView1.Refresh();
-        }
 
 
         private void cm3EditF2_CheckStateChanged(object sender, EventArgs e)
@@ -2935,13 +2926,24 @@ namespace PlaylistEditor
             else
                 dataGridView1.EditMode = DataGridViewEditMode.EditOnF2;
 
-
             Settings.Default.F2_edit = cm3EditF2.Checked;
-            Settings.Default.Save();
-
             dataGridView1.Refresh();
 
         }
+
+        private void cm3Scrollbar_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (cm3Scrollbar.Checked)
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            else
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            Settings.Default.scrollbar = cm3Scrollbar.Checked;
+            dataGridView1.Refresh();
+
+
+        }
+
     }
 }
 

@@ -146,13 +146,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 195</value>
+    <value>314, 253</value>
   </data>
   <data name="textBox1.ToolTip" xml:space="preserve">
     <value>réinitialisation automatique sur les paramètres ouverts</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 195</value>
+    <value>22, 253</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 20</value>
@@ -164,7 +164,7 @@
     <value>nombre de caractères à supprimer</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 215</value>
+    <value>22, 273</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 20</value>
@@ -245,6 +245,12 @@ Essaie</value>
   <data name="button_file.ToolTip" xml:space="preserve">
     <value>Sélectionner un fichier</value>
   </data>
+  <data name="checkBox_scroll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 173</value>
+  </data>
+  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 172</value>
+  </data>
   <data name="comboBox_result.Location" type="System.Drawing.Point, System.Drawing">
     <value>327, 68</value>
   </data>
@@ -258,16 +264,16 @@ Essaie</value>
     <value>Résultat de colonne de recherche</value>
   </data>
   <data name="checkBox_F2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 252</value>
+    <value>327, 203</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 252</value>
+    <value>22, 203</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>331, 20</value>
+    <value>133, 20</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
-    <value>Modifier avec F2 (besoins de redémarrage)</value>
+    <value>Modifier avec F2</value>
   </data>
   <data name="comboBox2.Items" xml:space="preserve">
     <value>Nom</value>
@@ -338,6 +344,9 @@ Essaie</value>
   <data name="label10.Text" xml:space="preserve">
     <value>Fenêtre du joueur</value>
   </data>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Linkcheck</value>
+  </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
     <value>65, 217</value>
   </data>
@@ -358,11 +367,8 @@ vérification de lien (ms)
   <data name="label16.Text" xml:space="preserve">
     <value>fils max utilisés</value>
   </data>
-  <data name="label16.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage5.Text" xml:space="preserve">
-    <value>Linkcheck</value>
+  <data name="tabPage6.Text" xml:space="preserve">
+    <value>Langue</value>
   </data>
   <data name="comboBoxSpeech.Items" xml:space="preserve">
     <value>Anglaise</value>
@@ -387,9 +393,6 @@ vérification de lien (ms)
   </data>
   <data name="comboBoxSpeech.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 28</value>
-  </data>
-  <data name="tabPage6.Text" xml:space="preserve">
-    <value>Langue</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

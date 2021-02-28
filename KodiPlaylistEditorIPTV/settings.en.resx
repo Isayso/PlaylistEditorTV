@@ -128,7 +128,7 @@
     <value>213, 20</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
-    <value>Edit with F2 (needs restart)</value>
+    <value>Edit with F2</value>
   </data>
   <data name="button_file.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

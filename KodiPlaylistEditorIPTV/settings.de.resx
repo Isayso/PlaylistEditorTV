@@ -158,7 +158,7 @@
     <value>NFS-Pfad auf dem Kodi-System</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 219</value>
+    <value>332, 280</value>
   </data>
   <data name="textBox1.ToolTip" xml:space="preserve">
     <value>Auto-Reset bei geöffneten Einstellungen</value>
@@ -267,16 +267,16 @@
     <value>Suchspaltenergebnis</value>
   </data>
   <data name="checkBox_F2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>335, 274</value>
+    <value>311, 207</value>
   </data>
   <data name="checkBox_F2.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 24</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 20</value>
+    <value>139, 20</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
-    <value>Mit F2 bearbeiten (nach Neustart)</value>
+    <value>Mit F2 bearbeiten</value>
   </data>
   <data name="comboBox2.Items1" xml:space="preserve">
     <value>ID</value>
