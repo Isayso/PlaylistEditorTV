@@ -1380,19 +1380,19 @@ Ctrl-N to open new window</value>
     <value>803, 17</value>
   </metadata>
   <data name="cm3Scrollbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 24</value>
+    <value>198, 24</value>
   </data>
   <data name="cm3Scrollbar.Text" xml:space="preserve">
     <value>Scrollbar</value>
   </data>
   <data name="cm3EditF2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 24</value>
+    <value>198, 24</value>
   </data>
   <data name="cm3EditF2.Text" xml:space="preserve">
     <value>Edit with F2</value>
   </data>
   <data name="contextMenuStrip3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 52</value>
+    <value>199, 77</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip3.Name" xml:space="preserve">
     <value>contextMenuStrip3</value>

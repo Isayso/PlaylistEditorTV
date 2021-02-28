@@ -129,6 +129,7 @@ namespace PlaylistEditor
             //    dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
 
+            // context menu 3 options
             cm3Scrollbar.Checked = Settings.Default.scrollbar;
             cm3EditF2.Checked = Settings.Default.F2_edit;
 
@@ -1194,7 +1195,7 @@ namespace PlaylistEditor
                             switch (checkList[j].ErrorCode)
                             {
                                 case 0:
-                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = SystemColors.Control;
+                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.White; // SystemColors.Control;
                                     break;
 
                                 case 403:
@@ -1701,6 +1702,52 @@ namespace PlaylistEditor
 
         }
 
+        private void cms1Number_Click(object sender, EventArgs e)
+        {
+            DataGridViewCell oCell;
+            int n = 1; bool chknum = true;
+
+            foreach (DataGridViewCell cell in dataGridView1.InvSelectedCells())
+            {
+                oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
+
+                if (chknum)
+                {
+                    var isNumeric = int.TryParse(oCell.Value.ToString(), out int z);
+                    if (isNumeric) n = z;
+                    chknum = false;
+                }
+
+                oCell.Value = Convert.ChangeType(n.ToString(), oCell.ValueType);
+                n += 1;
+            }
+            toSave(true);
+
+        }
+
+
+
+        private void cm3EditF2_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (cm3EditF2.Checked)
+                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            else
+                dataGridView1.EditMode = DataGridViewEditMode.EditOnF2;
+
+            Settings.Default.F2_edit = cm3EditF2.Checked;
+            dataGridView1.Refresh();
+        }
+
+        private void cm3Scrollbar_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (cm3Scrollbar.Checked)
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            else
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            Settings.Default.scrollbar = cm3Scrollbar.Checked;
+            dataGridView1.Refresh();
+        }
 
 
         #endregion
@@ -2209,7 +2256,7 @@ namespace PlaylistEditor
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = SystemColors.Control;
+                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = Color.White; //   SystemColors.Control;
                 }
             }
         }
@@ -2894,55 +2941,6 @@ namespace PlaylistEditor
             toSave(true);
         }
 
-        private void cms1Number_Click(object sender, EventArgs e)
-        {
-            DataGridViewCell oCell;
-            int n = 1; bool chknum = true;
-
-            foreach (DataGridViewCell cell in dataGridView1.InvSelectedCells())
-            {
-                oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
-
-                if (chknum)
-                {
-                    var isNumeric = int.TryParse(oCell.Value.ToString(), out int z);
-                    if (isNumeric) n = z;
-                    chknum = false;
-                }
-
-                oCell.Value = Convert.ChangeType(n.ToString(), oCell.ValueType);
-                n += 1;
-            }
-            toSave(true);
-
-        }
-
-
-
-        private void cm3EditF2_CheckStateChanged(object sender, EventArgs e)
-        {
-            if (cm3EditF2.Checked)
-                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            else
-                dataGridView1.EditMode = DataGridViewEditMode.EditOnF2;
-
-            Settings.Default.F2_edit = cm3EditF2.Checked;
-            dataGridView1.Refresh();
-
-        }
-
-        private void cm3Scrollbar_CheckStateChanged(object sender, EventArgs e)
-        {
-            if (cm3Scrollbar.Checked)
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            else
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            Settings.Default.scrollbar = cm3Scrollbar.Checked;
-            dataGridView1.Refresh();
-
-
-        }
 
     }
 }
