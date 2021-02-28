@@ -201,6 +201,9 @@
   <data name="showToolStripMenuItem.Text" xml:space="preserve">
     <value>Show all columns</value>
   </data>
+  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 6</value>
+  </data>
   <data name="cms1NewWindow.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Ctrl+N</value>
   </data>
@@ -220,7 +223,7 @@
     <value>Numbering</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 257</value>
+    <value>226, 238</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -253,7 +256,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -307,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox_find.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="button_kodi.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -356,13 +359,13 @@ Ctrl + double click cell</value>
     <value>button_kodi</value>
   </data>
   <data name="&gt;&gt;button_kodi.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_kodi.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_kodi.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="button_import.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -408,13 +411,13 @@ Ctrl + double click cell</value>
     <value>button_import</value>
   </data>
   <data name="&gt;&gt;button_import.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_import.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_import.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="RedoButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -447,13 +450,13 @@ Ctrl + double click cell</value>
     <value>RedoButton</value>
   </data>
   <data name="&gt;&gt;RedoButton.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;RedoButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;RedoButton.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="UndoButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -486,13 +489,13 @@ Ctrl + double click cell</value>
     <value>UndoButton</value>
   </data>
   <data name="&gt;&gt;UndoButton.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;UndoButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;UndoButton.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="button_check.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -539,13 +542,13 @@ Ctrl + double click cell</value>
     <value>button_check</value>
   </data>
   <data name="&gt;&gt;button_check.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_check.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_check.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="button_vlc.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -602,13 +605,13 @@ double click cell</value>
     <value>button_vlc</value>
   </data>
   <data name="&gt;&gt;button_vlc.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_vlc.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_vlc.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="button_revert.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -641,13 +644,13 @@ double click cell</value>
     <value>button_revert</value>
   </data>
   <data name="&gt;&gt;button_revert.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_revert.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_revert.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="button_dup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -696,13 +699,13 @@ double click cell</value>
     <value>button_dup</value>
   </data>
   <data name="&gt;&gt;button_dup.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_dup.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_dup.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="button_search.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -755,13 +758,13 @@ Ctrl+F</value>
     <value>button_search</value>
   </data>
   <data name="&gt;&gt;button_search.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_search.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_search.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="button_moveDown.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -797,13 +800,13 @@ Ctrl-B move to bottom</value>
     <value>button_moveDown</value>
   </data>
   <data name="&gt;&gt;button_moveDown.Type" xml:space="preserve">
-    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_moveDown.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_moveDown.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="button_moveUp.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -839,13 +842,13 @@ Ctrl+T move to top</value>
     <value>button_moveUp</value>
   </data>
   <data name="&gt;&gt;button_moveUp.Type" xml:space="preserve">
-    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>RepeatingButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_moveUp.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_moveUp.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="button_del_all.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -893,13 +896,13 @@ Ctrl+T move to top</value>
     <value>button_del_all</value>
   </data>
   <data name="&gt;&gt;button_del_all.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_del_all.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_del_all.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="button_settings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -958,13 +961,13 @@ Ctrl+T move to top</value>
     <value>button_settings</value>
   </data>
   <data name="&gt;&gt;button_settings.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_settings.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_settings.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="button_add.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1006,13 +1009,13 @@ Ctrl+T move to top</value>
     <value>button_add</value>
   </data>
   <data name="&gt;&gt;button_add.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_add.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_add.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="button_Info.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1067,13 +1070,13 @@ Ctrl+T move to top</value>
     <value>button_Info</value>
   </data>
   <data name="&gt;&gt;button_Info.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_Info.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_Info.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="button_delLine.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1106,13 +1109,13 @@ Ctrl+T move to top</value>
     <value>button_delLine</value>
   </data>
   <data name="&gt;&gt;button_delLine.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_delLine.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_delLine.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="button_save.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1147,13 +1150,13 @@ Ctrl+S save</value>
     <value>button_save</value>
   </data>
   <data name="&gt;&gt;button_save.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_save.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_save.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>27</value>
   </data>
   <data name="button_open.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1186,13 +1189,13 @@ Ctrl+S save</value>
     <value>button_open</value>
   </data>
   <data name="&gt;&gt;button_open.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_open.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_open.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>28</value>
   </data>
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>628, 17</value>
@@ -1284,7 +1287,7 @@ Ctrl-N to open new window</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label_central.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lblRowCheck.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1326,7 +1329,7 @@ Ctrl-N to open new window</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblRowCheck.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lblColCheck.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1371,7 +1374,31 @@ Ctrl-N to open new window</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblColCheck.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
+  </data>
+  <metadata name="contextMenuStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>803, 17</value>
+  </metadata>
+  <data name="cm3Scrollbar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 24</value>
+  </data>
+  <data name="cm3Scrollbar.Text" xml:space="preserve">
+    <value>Scrollbar</value>
+  </data>
+  <data name="cm3EditF2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 24</value>
+  </data>
+  <data name="cm3EditF2.Text" xml:space="preserve">
+    <value>Edit with F2</value>
+  </data>
+  <data name="contextMenuStrip3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 77</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip3.Name" xml:space="preserve">
+    <value>contextMenuStrip3</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="button_refind.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1434,13 +1461,13 @@ Ctrl-N to open new window</value>
     <value>button_refind</value>
   </data>
   <data name="&gt;&gt;button_refind.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_refind.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_refind.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="button_clearfind.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1491,13 +1518,13 @@ Ctrl-N to open new window</value>
     <value>button_clearfind</value>
   </data>
   <data name="&gt;&gt;button_clearfind.Type" xml:space="preserve">
-    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PlaylistEditor.MyButton, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;button_clearfind.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_clearfind.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="plabel_Filename.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1524,13 +1551,13 @@ Ctrl-N to open new window</value>
     <value>plabel_Filename</value>
   </data>
   <data name="&gt;&gt;plabel_Filename.Type" xml:space="preserve">
-    <value>PathLabel, PlaylistEditorIPTV, Version=1.6.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>PathLabel, PlaylistEditorIPTV, Version=1.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;plabel_Filename.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;plabel_Filename.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2087,6 +2114,12 @@ Ctrl-N to open new window</value>
   <data name="&gt;&gt;showToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+    <value>toolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;cms1NewWindow.Name" xml:space="preserve">
     <value>cms1NewWindow</value>
   </data>
@@ -2145,6 +2178,18 @@ Ctrl-N to open new window</value>
     <value>editCellCut</value>
   </data>
   <data name="&gt;&gt;editCellCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cm3Scrollbar.Name" xml:space="preserve">
+    <value>cm3Scrollbar</value>
+  </data>
+  <data name="&gt;&gt;cm3Scrollbar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cm3EditF2.Name" xml:space="preserve">
+    <value>cm3EditF2</value>
+  </data>
+  <data name="&gt;&gt;cm3EditF2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -1018,4 +1018,7 @@ Ctrl-N pour ouvrir une nouvelle fenêtre</value>
   <data name="cms1Number.Text" xml:space="preserve">
     <value>Numérotation</value>
   </data>
+  <data name="cm3Scrollbar.Text" xml:space="preserve">
+    <value>Barre de défilement</value>
+  </data>
 </root>

@@ -86,7 +86,6 @@ namespace PlaylistEditor
 
             InitializeComponent();
 
-
             this.Text = String.Format("PlaylistEditor TV " + " v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5));
 
 #if DEBUG
@@ -130,10 +129,18 @@ namespace PlaylistEditor
             //    dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
 
+            // context menu 3 options
+            cm3Scrollbar.Checked = Settings.Default.scrollbar;
+            cm3EditF2.Checked = Settings.Default.F2_edit;
 
-            //switch from setting
+
+            if (Settings.Default.scrollbar)
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            else
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             if (Settings.Default.F2_edit)
-                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;//   .EditOnF2;
+                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
 
 
 
@@ -184,6 +191,8 @@ namespace PlaylistEditor
             Settings.Default.nostart = false;
             Settings.Default.Save();
 
+
+
         }
 
 
@@ -203,6 +212,16 @@ namespace PlaylistEditor
             base.WndProc(ref m);
         }
 
+        private void SetHeaderContextMenu()
+        {
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.HeaderCell.ContextMenuStrip = contextMenuStrip3;
+               // column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            }
+
+        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -524,8 +543,14 @@ namespace PlaylistEditor
                 var searchindex = Settings.Default.colSearch;
                 lblColCheck.Text = colList[searchindex];
 
-
             }
+
+            //scrollbar change
+            cm3Scrollbar.Checked = Settings.Default.scrollbar;
+
+            cm3EditF2.Checked = Settings.Default.F2_edit;
+
+           // dataGridView1_EditModeChanged(null, null);
         }
 
 
@@ -561,6 +586,8 @@ namespace PlaylistEditor
 
                 dt.Columns.Add("Name"); dt.Columns.Add("id"); dt.Columns.Add("Group Title");
                 dt.Columns.Add("logo"); dt.Columns.Add("Name2"); dt.Columns.Add("Link");
+                
+                SetHeaderContextMenu();
 
             }
 
@@ -843,6 +870,9 @@ namespace PlaylistEditor
 
                 dataGridView1.DataSource = dt;
                 dataGridView1.AllowUserToAddRows = false;
+
+                SetHeaderContextMenu();
+
             }
             label_central.SendToBack();
 
@@ -1165,7 +1195,7 @@ namespace PlaylistEditor
                             switch (checkList[j].ErrorCode)
                             {
                                 case 0:
-                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.White;
+                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.White; // SystemColors.Control;
                                     break;
 
                                 case 403:
@@ -1672,6 +1702,52 @@ namespace PlaylistEditor
 
         }
 
+        private void cms1Number_Click(object sender, EventArgs e)
+        {
+            DataGridViewCell oCell;
+            int n = 1; bool chknum = true;
+
+            foreach (DataGridViewCell cell in dataGridView1.InvSelectedCells())
+            {
+                oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
+
+                if (chknum)
+                {
+                    var isNumeric = int.TryParse(oCell.Value.ToString(), out int z);
+                    if (isNumeric) n = z;
+                    chknum = false;
+                }
+
+                oCell.Value = Convert.ChangeType(n.ToString(), oCell.ValueType);
+                n += 1;
+            }
+            toSave(true);
+
+        }
+
+
+
+        private void cm3EditF2_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (cm3EditF2.Checked)
+                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            else
+                dataGridView1.EditMode = DataGridViewEditMode.EditOnF2;
+
+            Settings.Default.F2_edit = cm3EditF2.Checked;
+            dataGridView1.Refresh();
+        }
+
+        private void cm3Scrollbar_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (cm3Scrollbar.Checked)
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            else
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            Settings.Default.scrollbar = cm3Scrollbar.Checked;
+            dataGridView1.Refresh();
+        }
 
 
         #endregion
@@ -2037,27 +2113,38 @@ namespace PlaylistEditor
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            toSave(true);
-
-            if (_sort == "desc")
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    contextMenuStrip3.Show(dataGridView1, dataGridView1.PointToClient(Cursor.Position));
+            //}
+            if (e.Button == MouseButtons.Left)
             {
-                _sort = "asc";
-                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+                toSave(true);
+
+                if (_sort == "desc")
+                {
+                    _sort = "asc";
+                    dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+                }
+                else
+                {
+                    _sort = "desc";
+                    dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
+                }
+
+                dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
+                dt = dt.DefaultView.ToTable("IPTV");
+
+                //#25 rebind after sort
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+
+                SetHeaderContextMenu();
+
+                if (_linkchecked) RepaintRows();  //#41
+
             }
-            else
-            {
-                _sort = "desc";
-                dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
-            }
 
-            dt = dt.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
-            dt = dt.DefaultView.ToTable("IPTV");
-
-            //#25 rebind after sort
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
-
-            if (_linkchecked) RepaintRows();  //#41
 
         }
 
@@ -2169,7 +2256,7 @@ namespace PlaylistEditor
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = Color.White;
+                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = Color.White; //   SystemColors.Control;
                 }
             }
         }
@@ -2854,28 +2941,7 @@ namespace PlaylistEditor
             toSave(true);
         }
 
-        private void cms1Number_Click(object sender, EventArgs e)
-        {
-            DataGridViewCell oCell;
-            int n = 1; bool chknum = true;
 
-            foreach (DataGridViewCell cell in dataGridView1.InvSelectedCells())
-            {
-                oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
-
-                if (chknum)
-                {
-                    var isNumeric = int.TryParse(oCell.Value.ToString(), out int z);
-                    if (isNumeric) n = z;
-                    chknum = false;
-                }
-
-                oCell.Value = Convert.ChangeType(n.ToString(), oCell.ValueType);
-                n += 1;
-            }
-            toSave(true);
-
-        }
     }
 }
 

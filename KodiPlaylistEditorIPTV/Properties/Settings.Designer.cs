@@ -467,5 +467,17 @@ namespace PlaylistEditor.Properties {
                 this["timeout"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool scrollbar {
+            get {
+                return ((bool)(this["scrollbar"]));
+            }
+            set {
+                this["scrollbar"] = value;
+            }
+        }
     }
 }

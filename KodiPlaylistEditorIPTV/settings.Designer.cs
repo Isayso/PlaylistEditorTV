@@ -56,6 +56,8 @@
             this.button_file = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBox_scroll = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.comboBox_result = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.checkBox_F2 = new System.Windows.Forms.CheckBox();
@@ -183,12 +185,14 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label11
             // 
@@ -298,6 +302,8 @@
             // 
             resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabPage3.Controls.Add(this.checkBox_scroll);
+            this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.comboBox_result);
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Controls.Add(this.checkBox_F2);
@@ -312,6 +318,20 @@
             this.tabPage3.ForeColor = System.Drawing.SystemColors.Control;
             this.tabPage3.Name = "tabPage3";
             this.toolTip1.SetToolTip(this.tabPage3, resources.GetString("tabPage3.ToolTip"));
+            // 
+            // checkBox_scroll
+            // 
+            resources.ApplyResources(this.checkBox_scroll, "checkBox_scroll");
+            this.checkBox_scroll.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_scroll.Name = "checkBox_scroll";
+            this.toolTip1.SetToolTip(this.checkBox_scroll, resources.GetString("checkBox_scroll.ToolTip"));
+            this.checkBox_scroll.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            this.toolTip1.SetToolTip(this.label19, resources.GetString("label19.ToolTip"));
             // 
             // comboBox_result
             // 
@@ -690,5 +710,7 @@
         private System.Windows.Forms.ComboBox comboBoxSpeech;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.CheckBox checkBox_scroll;
+        private System.Windows.Forms.Label label19;
     }
 }

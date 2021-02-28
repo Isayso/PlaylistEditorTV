@@ -164,7 +164,7 @@
     <value>ruta nfs en el sistema Kodi</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 207</value>
+    <value>370, 280</value>
   </data>
   <data name="textBox1.ToolTip" xml:space="preserve">
     <value>reinicio automático en la configuración abierta</value>
@@ -251,6 +251,12 @@
   <data name="button_file.ToolTip" xml:space="preserve">
     <value>Seleccionar archivo</value>
   </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Opciones</value>
+  </data>
+  <data name="checkBox_scroll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>337, 170</value>
+  </data>
   <data name="comboBox_result.Location" type="System.Drawing.Point, System.Drawing">
     <value>337, 68</value>
   </data>
@@ -264,13 +270,13 @@
     <value>Resultado de la columna de búsqueda</value>
   </data>
   <data name="checkBox_F2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>327, 274</value>
+    <value>337, 203</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 20</value>
+    <value>103, 20</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
-    <value>Edite con F2 (necesita reiniciarse)</value>
+    <value>Edite con F2</value>
   </data>
   <data name="comboBox2.Items2" xml:space="preserve">
     <value>Título</value>
@@ -299,11 +305,11 @@
   <data name="label7.Text" xml:space="preserve">
     <value>Columna de búsqueda</value>
   </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>Opciones</value>
-  </data>
   <data name="checkBox_hotkey.Text" xml:space="preserve">
     <value>Importar tecla de acceso rápido desde el portapapeles (necesita reiniciarse)</value>
+  </data>
+  <data name="tabPage4.Text" xml:space="preserve">
+    <value>Autoinicio</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 20</value>
@@ -326,8 +332,8 @@
   <data name="label10.Text" xml:space="preserve">
     <value>Ventana del reproductor</value>
   </data>
-  <data name="tabPage4.Text" xml:space="preserve">
-    <value>Autoinicio</value>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Verificación</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>239, 40</value>
@@ -348,8 +354,8 @@ verificación de enlace (ms)</value>
   <data name="label16.Text" xml:space="preserve">
     <value>max hilos usados</value>
   </data>
-  <data name="tabPage5.Text" xml:space="preserve">
-    <value>Verificación</value>
+  <data name="tabPage6.Text" xml:space="preserve">
+    <value>Idioma</value>
   </data>
   <data name="comboBoxSpeech.Items" xml:space="preserve">
     <value>Inglesa</value>
@@ -368,9 +374,6 @@ verificación de enlace (ms)</value>
   </data>
   <data name="comboBoxSpeech.Items5" xml:space="preserve">
     <value>Chino</value>
-  </data>
-  <data name="tabPage6.Text" xml:space="preserve">
-    <value>Idioma</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

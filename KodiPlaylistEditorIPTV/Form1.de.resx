@@ -1005,4 +1005,7 @@ Strg+S speichern</value>
   <data name="cms1Number.Text" xml:space="preserve">
     <value>Nummerierung</value>
   </data>
+  <data name="cm3Scrollbar.Text" xml:space="preserve">
+    <value>Bildlaufleiste</value>
+  </data>
 </root>

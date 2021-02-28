@@ -57,6 +57,7 @@ namespace PlaylistEditor
             checkBox_start.Checked = Settings.Default.filestart;
             checkBox_autostart.Checked = Settings.Default.autoplayer;
             checkBox_hotkey.Checked = Settings.Default.hotkey_enable;
+            checkBox_scroll.Checked = Settings.Default.scrollbar;
 
             double oopc = Settings.Default.opacity * 100.0;
 
@@ -110,6 +111,7 @@ namespace PlaylistEditor
             Settings.Default.autoplayer = checkBox_autostart.Checked;
             Settings.Default.nostart = false;
             Settings.Default.hotkey_enable = checkBox_hotkey.Checked;
+            Settings.Default.scrollbar = checkBox_scroll.Checked;
 
             Settings.Default.maxthread = (int)nMaxThread.Value;
 
@@ -324,6 +326,16 @@ namespace PlaylistEditor
                 textBox3.Text = "";
             }
             Settings.Default.timeout = val;
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

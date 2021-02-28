@@ -116,5 +116,8 @@
     <Setting Name="timeout" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">6000</Value>
     </Setting>
+    <Setting Name="scrollbar" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
