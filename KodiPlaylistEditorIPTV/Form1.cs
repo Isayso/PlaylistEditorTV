@@ -1111,7 +1111,7 @@ namespace PlaylistEditor
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Color.LightGray)
+                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == SystemColors.InactiveCaption) //SystemColors.ControlLight) //   Color.LightGray)
                         {
                             dataGridView1.Rows[row.Index].Selected = true;
                         }
@@ -1195,7 +1195,7 @@ namespace PlaylistEditor
                             switch (checkList[j].ErrorCode)
                             {
                                 case 0:
-                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.White; // SystemColors.Control;
+                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = SystemColors.Window;
                                     break;
 
                                 case 403:
@@ -1203,7 +1203,7 @@ namespace PlaylistEditor
                                     break;
 
                                 case 410:
-                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = Color.LightGray;
+                                    dataGridView1.Rows[i].Cells[k].Style.BackColor = SystemColors.InactiveCaption; //  Color.LightGray;
                                     break;
 
                                 case int n when (n != 0 && n != 403 && n != 410):
@@ -1812,7 +1812,7 @@ namespace PlaylistEditor
 
 
                             _found = true;
-                            textBox_find.ForeColor = Color.Black;
+                            textBox_find.ForeColor = SystemColors.WindowText; //Color.Black;
 
                         }
                     }
@@ -1836,7 +1836,7 @@ namespace PlaylistEditor
                             dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
 
                             _found = true;
-                            textBox_find.ForeColor = Color.Black;
+                        textBox_find.ForeColor = SystemColors.WindowText; //Color.Black;
                     }
 
 
@@ -2077,13 +2077,15 @@ namespace PlaylistEditor
 
             if (hasChanged)
             {
-                button_save.BackgroundImage = Resources.content_save_modified;
+               // button_save.BackgroundImage = Resources.content_save_modified;
+                button_save.Image = Resources.content_save_modified_r;
                 DataGridView1_CellValidated(null, null);
             }
 
 
             if (!hasChanged)
-                button_save.BackgroundImage = Resources.content_save_1_;
+               // button_save.BackgroundImage = Resources.content_save_1_;
+                button_save.Image = Resources.content_save_r;
 
         }
 
@@ -2223,7 +2225,7 @@ namespace PlaylistEditor
 
                 if (iLink.StartsWith("plugin")/* || iLink.Contains("|User")*/)   //plugin will not be checked
                 {
-                    dataGridView1.Rows[item.Index].Cells["Link"].Style.BackColor = Color.LightGray;
+                    dataGridView1.Rows[item.Index].Cells["Link"].Style.BackColor = SystemColors.InactiveCaption; //Color.LightGray;
                     dataGridView1.FirstDisplayedScrollingRowIndex = item.Index;
                     continue;
                 }
@@ -2256,7 +2258,7 @@ namespace PlaylistEditor
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = Color.White; //   SystemColors.Control;
+                    dataGridView1.Rows[item.Index].Cells[j].Style.BackColor = SystemColors.Window;
                 }
             }
         }
@@ -2352,24 +2354,24 @@ namespace PlaylistEditor
             if (undoStack.Count > x)
             {
                 UndoButton.Enabled = true;
-                UndoButton.BackgroundImage = Resources.undo;
+                UndoButton.Image = Resources.undo_r;
 
             }
             else
             {
                 UndoButton.Enabled = false;
-                UndoButton.BackgroundImage = Resources.undo_fade;
+                UndoButton.Image = Resources.undo_fade_r;
 
             }
             if (redoStack.Count > x)
             {
                 RedoButton.Enabled = true;
-                RedoButton.BackgroundImage = Resources.redo;
+                RedoButton.Image = Resources.redo_r;
             }
             else
             {
                 RedoButton.Enabled = false;
-                RedoButton.BackgroundImage = Resources.redo_fade;
+                RedoButton.Image = Resources.redo_fade_r;
             }
 
         }

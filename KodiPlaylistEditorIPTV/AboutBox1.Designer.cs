@@ -36,8 +36,8 @@
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelCompanyName = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.donateButton = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.donateButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.MidnightBlue;
             resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.tableLayoutPanel.SetRowSpan(this.textBox1, 8);
@@ -98,22 +98,23 @@
             this.textBoxDescription.ReadOnly = true;
             this.textBoxDescription.TabStop = false;
             // 
+            // linkLabel1
+            // 
+            resources.ApplyResources(this.linkLabel1, "linkLabel1");
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // donateButton
             // 
             resources.ApplyResources(this.donateButton, "donateButton");
             this.donateButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.donateButton.FlatAppearance.BorderSize = 0;
+            this.donateButton.Image = global::PlaylistEditor.Properties.Resources.paypal_donate2_r;
             this.donateButton.Name = "donateButton";
             this.donateButton.TabStop = false;
             this.donateButton.Click += new System.EventHandler(this.donateButton_Click);
-            // 
-            // linkLabel1
-            // 
-            resources.ApplyResources(this.linkLabel1, "linkLabel1");
-            this.linkLabel1.LinkColor = System.Drawing.SystemColors.ControlLight;
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // AboutBox1
             // 
@@ -122,7 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.Controls.Add(this.tableLayoutPanel);
-            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

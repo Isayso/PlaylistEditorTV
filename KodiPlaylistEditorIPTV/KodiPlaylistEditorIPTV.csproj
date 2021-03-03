@@ -136,6 +136,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Mess.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox1.zh.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.ar.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.de.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -226,13 +234,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="settings.de.resx">
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +317,52 @@
     <Content Include="KodiPlaylistEditor.ico" />
     <Content Include="KodiPlaylistEditor2.ico" />
     <Content Include="KodiPlaylistEditorW.ico" />
+    <None Include="Resources\onTop_outline36.png" />
+    <None Include="Resources\stop_circle_outline_red34_r.png" />
+    <None Include="Resources\arrow_right_kodi_34_r.png" />
+    <None Include="Resources\arrow_up_bold_r.png" />
+    <None Include="Resources\arrow_down_bold_r.png" />
+    <None Include="Resources\close_box_outline_r.png" />
+    <None Include="Resources\content_duplicate_r.png" />
+    <None Include="Resources\paypal_donate2_r.png" />
+    <None Include="Resources\import_r.png" />
+    <None Include="Resources\playlist_check_r.png" />
+    <None Include="Resources\arrow_right_circle_outline_2_r.png" />
+    <None Include="Resources\arrow_right_drop_circle_outline_r.png" />
+    <None Include="Resources\table_search_r.png" />
+    <None Include="Resources\reload_r.png" />
+    <None Include="Resources\undo_r.png" />
+    <None Include="Resources\content_save_modified_r.png" />
+    <None Include="Resources\content_save_r.png" />
+    <None Include="Resources\open_in_app_r.png" />
+    <None Include="Resources\information_outline_r.png" />
+    <None Include="Resources\settings_outline_r.png" />
+    <None Include="Resources\undo_fade_r.png" />
+    <None Include="Resources\redo_fade_r.png" />
+    <None Include="Resources\redo_r.png" />
+    <None Include="Resources\images\table_search_r.png" />
+    <None Include="Resources\images\arrow_right_drop_circle_outline_r.png" />
+    <None Include="Resources\images\arrow_right_circle_outline_2_r.png" />
+    <None Include="Resources\images\playlist_check_r.png" />
+    <None Include="Resources\images\import_r.png" />
+    <None Include="Resources\playlist_plus_r.png" />
+    <None Include="Resources\images\paypal_donate2_r.png" />
+    <None Include="Resources\images\content_duplicate_r.png" />
+    <None Include="Resources\images\redo_fade_r.png" />
+    <None Include="Resources\images\undo_fade_r.png" />
+    <None Include="Resources\images\content_save_modified_r.png" />
+    <None Include="Resources\delete_forever_outline_r.png" />
+    <None Include="Resources\images\settings_outline_r.png" />
+    <None Include="Resources\images\information_outline_r.png" />
+    <None Include="Resources\images\content_save_r.png" />
+    <None Include="Resources\images\open_in_app_r.png" />
+    <None Include="Resources\images\reload_r.png" />
+    <None Include="Resources\images\undo_r.png" />
+    <None Include="Resources\images\redo_r.png" />
+    <None Include="Resources\images\playlist_plus_r.png" />
+    <None Include="Resources\images\arrow_up_bold_r.png" />
+    <None Include="Resources\images\arrow_down_bold_r.png" />
+    <None Include="Resources\images\close_box_outline_r.png" />
     <None Include="Resources\undo_fade.png" />
     <None Include="Resources\redo_fade.png" />
     <None Include="Resources\redo.png" />

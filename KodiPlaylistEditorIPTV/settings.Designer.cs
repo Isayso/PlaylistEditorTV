@@ -141,21 +141,21 @@
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Name = "label6";
             this.toolTip1.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Name = "label5";
             this.toolTip1.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Name = "label4";
             this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
@@ -169,7 +169,7 @@
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Name = "label3";
             this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
@@ -203,7 +203,7 @@
             // checkBox_w
             // 
             resources.ApplyResources(this.checkBox_w, "checkBox_w");
-            this.checkBox_w.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_w.ForeColor = System.Drawing.Color.White;
             this.checkBox_w.Name = "checkBox_w";
             this.toolTip1.SetToolTip(this.checkBox_w, resources.GetString("checkBox_w.ToolTip"));
             this.checkBox_w.UseVisualStyleBackColor = true;
@@ -220,7 +220,7 @@
             resources.ApplyResources(this.checkBox_a, "checkBox_a");
             this.checkBox_a.Checked = true;
             this.checkBox_a.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_a.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_a.ForeColor = System.Drawing.Color.White;
             this.checkBox_a.Name = "checkBox_a";
             this.toolTip1.SetToolTip(this.checkBox_a, resources.GetString("checkBox_a.ToolTip"));
             this.checkBox_a.UseVisualStyleBackColor = true;
@@ -228,7 +228,7 @@
             // checkBox_s
             // 
             resources.ApplyResources(this.checkBox_s, "checkBox_s");
-            this.checkBox_s.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_s.ForeColor = System.Drawing.Color.White;
             this.checkBox_s.Name = "checkBox_s";
             this.toolTip1.SetToolTip(this.checkBox_s, resources.GetString("checkBox_s.ToolTip"));
             this.checkBox_s.UseVisualStyleBackColor = true;
@@ -236,7 +236,7 @@
             // checkBox_c
             // 
             resources.ApplyResources(this.checkBox_c, "checkBox_c");
-            this.checkBox_c.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_c.ForeColor = System.Drawing.Color.White;
             this.checkBox_c.Name = "checkBox_c";
             this.toolTip1.SetToolTip(this.checkBox_c, resources.GetString("checkBox_c.ToolTip"));
             this.checkBox_c.UseVisualStyleBackColor = true;
@@ -315,14 +315,14 @@
             this.tabPage3.Controls.Add(this.comboBox1);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.ForeColor = System.Drawing.Color.White;
             this.tabPage3.Name = "tabPage3";
             this.toolTip1.SetToolTip(this.tabPage3, resources.GetString("tabPage3.ToolTip"));
             // 
             // checkBox_scroll
             // 
             resources.ApplyResources(this.checkBox_scroll, "checkBox_scroll");
-            this.checkBox_scroll.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_scroll.ForeColor = System.Drawing.Color.White;
             this.checkBox_scroll.Name = "checkBox_scroll";
             this.toolTip1.SetToolTip(this.checkBox_scroll, resources.GetString("checkBox_scroll.ToolTip"));
             this.checkBox_scroll.UseVisualStyleBackColor = true;
@@ -356,7 +356,7 @@
             resources.ApplyResources(this.checkBox_F2, "checkBox_F2");
             this.checkBox_F2.Checked = true;
             this.checkBox_F2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_F2.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_F2.ForeColor = System.Drawing.Color.White;
             this.checkBox_F2.Name = "checkBox_F2";
             this.toolTip1.SetToolTip(this.checkBox_F2, resources.GetString("checkBox_F2.ToolTip"));
             this.checkBox_F2.UseVisualStyleBackColor = true;
@@ -426,7 +426,7 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.textBox2);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.ForeColor = System.Drawing.Color.White;
             this.tabPage1.Name = "tabPage1";
             this.toolTip1.SetToolTip(this.tabPage1, resources.GetString("tabPage1.ToolTip"));
             // 
@@ -442,7 +442,7 @@
             this.tabPage2.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.checkBox_hotkey);
-            this.tabPage2.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.ForeColor = System.Drawing.Color.White;
             this.tabPage2.Name = "tabPage2";
             this.toolTip1.SetToolTip(this.tabPage2, resources.GetString("tabPage2.ToolTip"));
             // 
@@ -462,7 +462,7 @@
             resources.ApplyResources(this.checkBox_hotkey, "checkBox_hotkey");
             this.checkBox_hotkey.Checked = true;
             this.checkBox_hotkey.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_hotkey.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_hotkey.ForeColor = System.Drawing.Color.White;
             this.checkBox_hotkey.Name = "checkBox_hotkey";
             this.toolTip1.SetToolTip(this.checkBox_hotkey, resources.GetString("checkBox_hotkey.ToolTip"));
             this.checkBox_hotkey.UseVisualStyleBackColor = true;
@@ -481,7 +481,7 @@
             this.tabPage4.Controls.Add(this.checkBox_vlc);
             this.tabPage4.Controls.Add(this.label10);
             this.tabPage4.Controls.Add(this.button_file);
-            this.tabPage4.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.ForeColor = System.Drawing.Color.White;
             this.tabPage4.Name = "tabPage4";
             this.toolTip1.SetToolTip(this.tabPage4, resources.GetString("tabPage4.ToolTip"));
             // 
@@ -517,7 +517,7 @@
             // checkBox_autostart
             // 
             resources.ApplyResources(this.checkBox_autostart, "checkBox_autostart");
-            this.checkBox_autostart.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_autostart.ForeColor = System.Drawing.Color.White;
             this.checkBox_autostart.Name = "checkBox_autostart";
             this.toolTip1.SetToolTip(this.checkBox_autostart, resources.GetString("checkBox_autostart.ToolTip"));
             this.checkBox_autostart.UseVisualStyleBackColor = true;
@@ -525,7 +525,7 @@
             // checkBox_start
             // 
             resources.ApplyResources(this.checkBox_start, "checkBox_start");
-            this.checkBox_start.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_start.ForeColor = System.Drawing.Color.White;
             this.checkBox_start.Name = "checkBox_start";
             this.toolTip1.SetToolTip(this.checkBox_start, resources.GetString("checkBox_start.ToolTip"));
             this.checkBox_start.UseVisualStyleBackColor = true;
@@ -542,7 +542,7 @@
             resources.ApplyResources(this.checkBox_vlc, "checkBox_vlc");
             this.checkBox_vlc.Checked = true;
             this.checkBox_vlc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_vlc.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBox_vlc.ForeColor = System.Drawing.Color.White;
             this.checkBox_vlc.Name = "checkBox_vlc";
             this.toolTip1.SetToolTip(this.checkBox_vlc, resources.GetString("checkBox_vlc.ToolTip"));
             this.checkBox_vlc.UseVisualStyleBackColor = true;
@@ -563,7 +563,7 @@
             this.tabPage5.Controls.Add(this.comboBox_403);
             this.tabPage5.Controls.Add(this.label16);
             this.tabPage5.Controls.Add(this.label15);
-            this.tabPage5.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage5.ForeColor = System.Drawing.Color.White;
             this.tabPage5.Name = "tabPage5";
             this.toolTip1.SetToolTip(this.tabPage5, resources.GetString("tabPage5.ToolTip"));
             // 
@@ -603,7 +603,7 @@
             this.tabPage6.BackColor = System.Drawing.Color.DarkBlue;
             this.tabPage6.Controls.Add(this.label17);
             this.tabPage6.Controls.Add(this.comboBoxSpeech);
-            this.tabPage6.ForeColor = System.Drawing.SystemColors.Control;
+            this.tabPage6.ForeColor = System.Drawing.Color.White;
             this.tabPage6.Name = "tabPage6";
             this.toolTip1.SetToolTip(this.tabPage6, resources.GetString("tabPage6.ToolTip"));
             // 
