@@ -6,7 +6,8 @@
 
 
 # Playlist Editor TV
-Editor for IPTV m3u files (with vlc media player and kodi support)  
+Editor for IPTV m3u files with vlc media player and kodi support.   
+A version for Kodi playlist files: [Playlist Editor](https://github.com/Isayso/PlaylistEditor)  
 
  
   Special thanks to dobbelina for helpful ideas and testing, improved the usablility a lot. 
