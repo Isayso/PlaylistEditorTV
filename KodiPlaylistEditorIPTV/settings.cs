@@ -188,6 +188,12 @@ namespace PlaylistEditor
                 case 5:
                     myCulture = "zh-ZH";
                     break;
+                case 6:
+                    myCulture = "ar-AR";
+                    break;
+                case 7:
+                    myCulture = "tr-TR";
+                    break;
 
             }
             

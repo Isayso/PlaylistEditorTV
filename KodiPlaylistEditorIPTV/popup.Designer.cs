@@ -37,7 +37,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(112, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
@@ -48,9 +48,9 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::PlaylistEditor.Properties.Resources.close_box_outline_1_;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::PlaylistEditor.Properties.Resources.close_box_outline_r;
             this.button1.Location = new System.Drawing.Point(275, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 30);

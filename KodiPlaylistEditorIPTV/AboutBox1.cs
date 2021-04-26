@@ -136,7 +136,7 @@ namespace PlaylistEditor
             MessageBox.Show("Thank You for considering a donation. " + Environment.NewLine + 
                 "I recived so far 1$ of donations and PayPal took 40ct fees." + Environment.NewLine +
                 "Small money donation doesn't make sense, Bigtec is making money and screw elections with it. " + Environment.NewLine + "So enjoy my small program!"
-                + Environment.NewLine);
+                + Environment.NewLine + "If you want to donate money, you find my donate link on th Github page, Thanks!");
         }
     }
 }

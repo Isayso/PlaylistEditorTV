@@ -1,8 +1,16 @@
-﻿1.6.3
+﻿1.6.5
+- high contrast color support
+- new user agent
+
+1.6.4
+- scrollbar
+- option menu with F2 edit switch
+
+1.6.3 331
 - automatic cell numbering
 - bug in cell changed detection
 
-1.6.2
+1.6.2 565
 - bugfix open file
 - timeout for linkcheck optional
 
