@@ -229,8 +229,10 @@ namespace PlaylistEditor
                 //   req.KeepAlive = true;
                 //https://deviceatlas.com/blog/list-smart-tv-user-agent-strings
                 //issue #15
-                req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
-                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
+                req.UserAgent = "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" +
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
+                //req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
+                //    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
                     //+ " AppleTV/tvOS/9.1.1"
                     //+ " AppleCoreMedia/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)";
 
@@ -296,9 +298,12 @@ namespace PlaylistEditor
                     req.ContentType = "application/x-www-form-urlencoded";
                     //   req.KeepAlive = true;
                     //https://deviceatlas.com/blog/list-smart-tv-user-agent-strings
-                    //issue #15
-                    req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
+                    req.UserAgent = "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" +
                         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
+
+                    //issue #15
+                    //req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
+                    //    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
                     //+ " AppleTV/tvOS/9.1.1"
                     //+ " AppleCoreMedia/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)";
 
@@ -420,6 +425,9 @@ namespace PlaylistEditor
 
 
         //here new methods
+
+
+
     }
 
   

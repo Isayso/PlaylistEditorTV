@@ -117,212 +117,217 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button_ok.Text" xml:space="preserve">
+    <value>OK </value>
+  </data>
+  <data name="button_cancel.Text" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="textBox_Port.Text" xml:space="preserve">
+    <value>Örnek: 8080</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 24</value>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 156</value>
   </data>
-  <data name="toolStripCopy.Text" xml:space="preserve">
-    <value>Copiar</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
   </data>
-  <data name="toolStripPaste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 24</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Parola</value>
   </data>
-  <data name="toolStripPaste.Text" xml:space="preserve">
-    <value>Pegar</value>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 117</value>
   </data>
-  <data name="cutRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 24</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 20</value>
   </data>
-  <data name="cutRowMenuItem.Text" xml:space="preserve">
-    <value>Cortar fila</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Kullanıcı Adı:</value>
   </data>
-  <data name="pasteRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 24</value>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 84</value>
   </data>
-  <data name="pasteRowMenuItem.Text" xml:space="preserve">
-    <value>Pegar Insertar Fila</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 20</value>
   </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 6</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Bağlantı Noktası:</value>
   </data>
-  <data name="playToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 24</value>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 46</value>
   </data>
-  <data name="playToolStripMenuItem.Text" xml:space="preserve">
-    <value>Kodi jugar</value>
+  <data name="checkBox_w.Text" xml:space="preserve">
+    <value>Win</value>
   </data>
-  <data name="playToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Damos doble click en la celda B6</value>
+  <data name="checkBox_w.ToolTip" xml:space="preserve">
+    <value>Kullanıcı Hesabı Denetimi'ni etkinleştirmenin etkili olabilmesi yeniden başlatma gerektirir.</value>
   </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 6</value>
+  <data name="textBox_hot.Text" xml:space="preserve">
+    <value>A</value>
   </data>
-  <data name="hideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 24</value>
+  <data name="textBox_hot.ToolTip" xml:space="preserve">
+    <value>Kullanıcı Hesabı Denetimi'ni etkinleştirmenin etkili olabilmesi yeniden başlatma gerektirir.</value>
   </data>
-  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ocultar columna</value>
+  <data name="checkBox_a.Text" xml:space="preserve">
+    <value>Alt</value>
   </data>
-  <data name="showToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 24</value>
+  <data name="checkBox_a.ToolTip" xml:space="preserve">
+    <value>Kullanıcı Hesabı Denetimi'ni etkinleştirmenin etkili olabilmesi yeniden başlatma gerektirir.</value>
   </data>
-  <data name="showToolStripMenuItem.Text" xml:space="preserve">
-    <value>Mostrar todas las columnas</value>
+  <data name="checkBox_s.Text" xml:space="preserve">
+    <value>Vardiya</value>
   </data>
-  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 6</value>
+  <data name="checkBox_s.ToolTip" xml:space="preserve">
+    <value>Kullanıcı Hesabı Denetimi'ni etkinleştirmenin etkili olabilmesi yeniden başlatma gerektirir.</value>
   </data>
-  <data name="cms1NewWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 24</value>
+  <data name="checkBox_c.Text" xml:space="preserve">
+    <value>Ctrl</value>
   </data>
-  <data name="cms1NewWindow.Text" xml:space="preserve">
-    <value>nueva ventana</value>
+  <data name="checkBox_c.ToolTip" xml:space="preserve">
+    <value>Kullanıcı Hesabı Denetimi'ni etkinleştirmenin etkili olabilmesi yeniden başlatma gerektirir.</value>
   </data>
-  <data name="cms1Number.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 24</value>
-  </data>
-  <data name="cms1Number.Text" xml:space="preserve">
-    <value>Numeración</value>
-  </data>
-  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 238</value>
-  </data>
-  <data name="button_search.ToolTip" xml:space="preserve">
-    <value>Búsqueda
-Ctrl+F</value>
-  </data>
-  <data name="button_kodi.ToolTip" xml:space="preserve">
-    <value>enviar a Kodi
-Ctrl+P
-Ctrl+ celda doble clic</value>
-  </data>
-  <data name="button_import.ToolTip" xml:space="preserve">
-    <value>Importación del Portapapeles</value>
-  </data>
-  <data name="RedoButton.ToolTip" xml:space="preserve">
-    <value>Volver</value>
-  </data>
-  <data name="UndoButton.ToolTip" xml:space="preserve">
-    <value>Deshacer</value>
-  </data>
-  <data name="button_check.ToolTip" xml:space="preserve">
-    <value>prueba de la izquierda inválida
-+ marca ctrl encontrada a la izquierda</value>
-  </data>
-  <data name="button_vlc.ToolTip" xml:space="preserve">
-    <value>abierto con vlc
-Doble clic en la celda</value>
-  </data>
-  <data name="button_revert.ToolTip" xml:space="preserve">
-    <value>File Recargar</value>
-  </data>
-  <data name="button_dup.ToolTip" xml:space="preserve">
-    <value>encontrar duplicados
-+shift eliminar duplicados</value>
-  </data>
-  <data name="button_moveDown.ToolTip" xml:space="preserve">
-    <value>Línea hacia abajo
-Ctrl-2</value>
-  </data>
-  <data name="button_moveUp.ToolTip" xml:space="preserve">
-    <value>Línea alta
-Ctrl-1
-Ctrl-click línea al principio
-Ctrl+T línea para empezar</value>
-  </data>
-  <data name="button_del_all.ToolTip" xml:space="preserve">
-    <value>borrar lista</value>
-  </data>
-  <data name="button_settings.ToolTip" xml:space="preserve">
-    <value>Ajustes</value>
-  </data>
-  <data name="button_add.ToolTip" xml:space="preserve">
-    <value>nuevo renglón</value>
-  </data>
-  <data name="button_Info.ToolTip" xml:space="preserve">
-    <value>Manual</value>
-  </data>
-  <data name="button_delLine.ToolTip" xml:space="preserve">
-    <value>Eliminar fila</value>
-  </data>
-  <data name="button_save.ToolTip" xml:space="preserve">
-    <value>salvar
-+shift salvar
-Ctrl+S salvar</value>
-  </data>
-  <data name="button_open.ToolTip" xml:space="preserve">
-    <value>abierto</value>
-  </data>
-  <data name="addUseragentCell.Text" xml:space="preserve">
-    <value>Usuario/agente</value>
-  </data>
-  <data name="editCellCopy.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+C</value>
-  </data>
-  <data name="editCellCopy.Text" xml:space="preserve">
-    <value>Copiar</value>
-  </data>
-  <data name="editCellPaste.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+V</value>
-  </data>
-  <data name="editCellPaste.Text" xml:space="preserve">
-    <value>Pegar</value>
-  </data>
-  <data name="editCellCut.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+X</value>
-  </data>
-  <data name="editCellCut.Text" xml:space="preserve">
-    <value>Cortar</value>
-  </data>
-  <data name="label_central.Size" type="System.Drawing.Size, System.Drawing">
-    <value>336, 60</value>
-  </data>
-  <data name="label_central.Text" xml:space="preserve">
-    <value>Haga doble clic para abrir el archivo 
-Arrastra y suelta el archivo para abrir o agrega 
-Ctrl-N para abrir una nueva ventana.</value>
-  </data>
-  <data name="cm3Scrollbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 24</value>
-  </data>
-  <data name="cm3Scrollbar.Text" xml:space="preserve">
-    <value>Barra de desplazamiento</value>
-  </data>
-  <data name="cm3EditF2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 24</value>
-  </data>
-  <data name="contextMenuStrip3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 52</value>
-  </data>
-  <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_file.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
-        mjmL1VAYhscF7VREUUEsFBREULBQC/0JNoJ7aeOGhZ2VtSiCoIW9NvaiiGAlClrYuqC2LuCOitvz4j1w
-        CN/JTSbJSc6954GHGYa5yZd3krN8mZlMJjNtnB19zQT4izmkEhRQDqkEF1AOKYAfUA7JoBhQDqmAFZDM
-        IY2wwnHmkMAKxncqQlqFB/ES3sbn+B5/ohVK0YkMaRmewkdoXXRdJyak1ag75RtaF9rEpENagGfwK1oX
-        14bJBrQBn6B1UW2ZbDh78DNaF9WWyYZzDH+jdVFFNXNdxgO4BZeiHkvrd32TDecoWhfk+wuv4w4MYX3O
-        mfRjNe7OuYXrcRzWZ2XSA3LZmKPp/QhWxTpGsuFozCibrd7gVqxD8RjJhiO0zilekFPh6O6qi3+MpuGs
-        xUP/v42PVsihRaAeq7p3jsMdo41wXuMH1DYnOto++KH41hlziujzbYXj6jmHUdFfJLS30mzVhLbDkZ9w
-        EUZDu3K/AKfWOVWm8q6Yjy/Rqk3rtGiEWhZaBPbNDbRqu49RULPLKkCWrZBjsQut2v7gCuwcdQKtArS3
-        GgJzsDgGOfdj54RmL208h8IVtGq8iJ2jHrJ1cu3Kh4IWh1aNd7Bz9ChZJ1fLYihsRqvGZ9g5evtgnVz9
-        nKGgWqwaP2LnhF7NaOM6FOahVaNaMp2j6dI6+VwcCgvRqvEHdk6o97MYh8JytGp8i53zAq2Tb8KhoE6C
-        VWOUQfouWiffh0PhMFo13sTOCS0U9fOhcBWtGqMsFEOLsCFtNV6hVeNe7BxtVkMz2Tbsm51o1aaaNXhH
-        4SFaRVzDvgm1Ox5gNE6iVcRT1CKtLzSTht7PHcdoLMEv6Beg6X8NNqFpu/Ue+jU5VWv0rdAFdAW0FY6O
-        NVtOoKun6HmMjgY8bf7aDEfOhu34Hf1QnFr5r8ReUHexzXBkXTbiO/SP4Xsak6UYjqyD7pyycB6j3nQk
-        iRWOrIrGnNBjJfX4r8MkCYUjx6GpPDRbOfV+bjcmSVk40kLbB62QtQis8h9sTV5998q4cKSaXZoh1bLQ
-        rlwbz9DeqqjunIkOp4kacyb2sWqqZquJHJCbqkWg1jnJTuWii4C0t9L2obcVctu0EZL6OWpZaFc+pHdw
-        rVE1JL2a0dsHNdjVQ1abVJ3AaM2uPqkS0tQzLqQMlIWUGREKKeNhhZQpUAwpY+CHlAngQsqUoJAymcy0
-        MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACWklEQVRoQ+3ZPW4UQRDF8UVAgoR8ARMi
+        MhLEOZwRcBkIibkAEQIjJDIuAM45iLH5iBBIw+vpv1/vana807XTi4TmJ5Vkv+6u6rY2sOzVYrHYreu6
+        e6r3qh+qfT2n7WFoYLr81370fA73CA1LP/kWDvMIDZrjYzOm/SMYZMTVOL7NC7a0wRAjrsbxMe0ewQAj
+        rsbx67R5BM2NuBrHd5n/ETQ24mocn2LeR9DUiKtxfKr5HkFDI67G8RrzPIJmRlyN47X2fwSNjLgax6tx
+        PI4+RlyN49U4HkcfI26GMUYcRx8jboYxRhxHHyNuhjFGHEcfI26GMUYcRx8jboYxRhxHHyNuhjFGHEcf
+        I96L2tzny4E8pSCOo48Rh6nFE9Uv1QnRhjRjHXEcfYw4RMfT5X/3jbrup+ohS5aXCuI4+hhxNR19qvrT
+        NynesmzkRhxHHyMe0NIt1dbPtvJtl/+sussWy0sFcRx9jHiD4puq16pL1WPinr5f/9hcOVMNLp/k5YI4
+        jj5GbIrS5U/7xSz9EewRa5N/8lfyloI4jj5GvEHxy7xqF6pnqqrLJ3lbQRxHHyPeoPiG6lW/Ydzox2Zd
+        3loQx9HHiAe0dFv1sd80NOnySd5eEMfRx4i30vId1ad+YzH58kk+UhDH0ceIR2nLkepLv7ny8kk+VhDH
+        0ceIr6Vtx6o3qqrLJ2nGOuI4+hhxM4wx4jj6GHEzjDHiOPoYcTOMMeI49Wj5D45dvnGNODX5kHv9E6dc
+        I05NHqjSrwaHdq465hr7UaP0n8p3qu+q1tKM9MvhPJdfLP5rq9Vfo4jCoya2i5EAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button_clearfind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAjUlEQVRIS+2UQQqAMAwE+wnBJ3jQ/5+k
-        f9CDz9HdQiCHGgJNT+3AYkuzm1jBNBmXDcrQWnY2C3RCR9k5oeGFbogBf/CMNaylxw2NF0TjA9XexFNj
-        YgU0hwu1oLBwgYFyz3zqNc9C0FOHTa7p2qDrFenJwz+yFdTcxBPQ1KT7r2KHaLDCBdawlp7JeKT0AcCU
-        QxewpghEAAAAAElFTkSuQmCC
-</value>
+  <data name="button_file.ToolTip" xml:space="preserve">
+    <value>Dosya seç</value>
+  </data>
+  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 20</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>Yatay Kaydırma Çubuğu</value>
+  </data>
+  <data name="comboBox_result.Items" xml:space="preserve">
+    <value>Satır</value>
+  </data>
+  <data name="comboBox_result.Items1" xml:space="preserve">
+    <value>HÜCRE</value>
+  </data>
+  <data name="comboBox_result.Location" type="System.Drawing.Point, System.Drawing">
+    <value>330, 68</value>
+  </data>
+  <data name="comboBox2.Items" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="comboBox2.Items1" xml:space="preserve">
+    <value>Kimlik</value>
+  </data>
+  <data name="comboBox2.Items2" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="comboBox2.Items3" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="comboBox2.Items4" xml:space="preserve">
+    <value>Ad2</value>
+  </data>
+  <data name="comboBox2.Items5" xml:space="preserve">
+    <value>Bağlantı</value>
+  </data>
+  <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>330, 115</value>
+  </data>
+  <data name="comboBox1.Items" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="comboBox1.Items1" xml:space="preserve">
+    <value>Kimlik</value>
+  </data>
+  <data name="comboBox1.Items2" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="comboBox1.Items3" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="comboBox1.Items4" xml:space="preserve">
+    <value>Ad2</value>
+  </data>
+  <data name="comboBox1.Items5" xml:space="preserve">
+    <value>Bağlantı</value>
+  </data>
+  <data name="comboBox1.Items6" xml:space="preserve">
+    <value>Tüm hücreler</value>
+  </data>
+  <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>330, 20</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 20</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Sütun özniteliklerinde arama yapın.</value>
+  </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Seçenekler</value>
+  </data>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Kısayol</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 20</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Opaklık</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 20</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Uzak Windows Player</value>
+  </data>
+  <data name="tabPage4.Text" xml:space="preserve">
+    <value>Otomatik Başlat</value>
+  </data>
+  <data name="comboBox_403.Items" xml:space="preserve">
+    <value>Turuncu</value>
+  </data>
+  <data name="comboBox_403.Items1" xml:space="preserve">
+    <value>Gri</value>
+  </data>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Bağlantı denetimi başarılı</value>
+  </data>
+  <data name="comboBoxSpeech.Items" xml:space="preserve">
+    <value>İngiliz</value>
+  </data>
+  <data name="comboBoxSpeech.Items1" xml:space="preserve">
+    <value>Almanca</value>
+  </data>
+  <data name="comboBoxSpeech.Items2" xml:space="preserve">
+    <value>Fransızca</value>
+  </data>
+  <data name="comboBoxSpeech.Items3" xml:space="preserve">
+    <value>İspanyolca</value>
+  </data>
+  <data name="comboBoxSpeech.Items4" xml:space="preserve">
+    <value>Rusça</value>
+  </data>
+  <data name="comboBoxSpeech.Items5" xml:space="preserve">
+    <value>Çince</value>
+  </data>
+  <data name="comboBoxSpeech.Items6" xml:space="preserve">
+    <value>Arapça</value>
+  </data>
+  <data name="comboBoxSpeech.Items7" xml:space="preserve">
+    <value>Türkçe</value>
+  </data>
+  <data name="tabPage6.Text" xml:space="preserve">
+    <value>Dil:</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -809,5 +814,8 @@ Ctrl-N para abrir una nueva ventana.</value>
         ///wAAAQP/+B////////////////////////////////////////////////////////////////////
         //8=
 </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Ayarlar</value>
   </data>
 </root>

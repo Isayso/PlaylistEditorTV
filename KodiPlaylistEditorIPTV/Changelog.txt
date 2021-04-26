@@ -1,4 +1,8 @@
-﻿1.6.4
+﻿1.6.5
+- high contrast color support
+- new user agent
+
+1.6.4
 - scrollbar
 - option menu with F2 edit switch
 

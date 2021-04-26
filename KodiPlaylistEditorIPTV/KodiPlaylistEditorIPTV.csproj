@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PlaylistEditor</RootNamespace>
     <AssemblyName>PlaylistEditorIPTV</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -24,8 +24,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.6.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -148,6 +148,9 @@
       <DependentUpon>settings.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings1.cs" />
+    <EmbeddedResource Include="AboutBox1.ar.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox1.de.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +167,9 @@
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox1.ru.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox1.tr.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox1.zh.resx">
@@ -195,11 +201,17 @@
     <EmbeddedResource Include="Form1.ru.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.tr.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.zh.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NotificationBoxF.resx">
       <DependentUpon>NotificationBoxF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="player.ar.resx">
+      <DependentUpon>player.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="player.de.resx">
       <DependentUpon>player.cs</DependentUpon>
@@ -219,9 +231,13 @@
     <EmbeddedResource Include="player.ru.resx">
       <DependentUpon>player.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="player.tr.resx">
+      <DependentUpon>player.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="popup.resx">
       <DependentUpon>popup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Mess.ar.resx" />
     <EmbeddedResource Include="Properties\Mess.de.resx" />
     <EmbeddedResource Include="Properties\Mess.es.resx" />
     <EmbeddedResource Include="Properties\Mess.fr.resx" />
@@ -230,10 +246,14 @@
       <LastGenOutput>Mess.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Mess.ru.resx" />
+    <EmbeddedResource Include="Properties\Mess.tr.resx" />
     <EmbeddedResource Include="Properties\Mess.zh.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.ar.resx">
+      <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="settings.de.resx">
       <DependentUpon>settings.cs</DependentUpon>
@@ -251,6 +271,9 @@
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="settings.ru.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.tr.resx">
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="settings.zh.resx">
@@ -379,9 +402,9 @@
     <None Include="Resources\playlist-plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

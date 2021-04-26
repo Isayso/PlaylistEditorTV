@@ -79,9 +79,11 @@ namespace PlaylistEditor
         public Form1()
         {
 
-                string myCulture = Settings.Default.localize;
-                Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
-                Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
+            string myCulture = Settings.Default.localize;
+            if (string.IsNullOrEmpty(myCulture)) myCulture = "en-EN";
+
+            Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
+            Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
 
 
             InitializeComponent();
@@ -2942,7 +2944,6 @@ namespace PlaylistEditor
         {
             toSave(true);
         }
-
 
     }
 }
