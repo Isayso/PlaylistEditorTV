@@ -80,7 +80,7 @@ namespace PlaylistEditor
         {
 
             string myCulture = Settings.Default.localize;
-            if (string.IsNullOrEmpty(myCulture)) myCulture = "en-EN";
+            if (string.IsNullOrEmpty(myCulture)) myCulture = "en-US";
 
             Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
             Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);

@@ -179,43 +179,49 @@ namespace PlaylistEditor
             object line;
             string [] registry_key = { @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
                             @"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall" };
-            using (var baseKey = Microsoft.Win32.RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
+            try  //issue #58
             {
-                for (int i = 0; i < 2; i++)
+                using (var baseKey = Microsoft.Win32.RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
                 {
-                    using (var key = baseKey.OpenSubKey(registry_key[i]))
+                    for (int i = 0; i < 2; i++)
                     {
-                        foreach (string subkey_name in key.GetSubKeyNames())
+                        using (var key = baseKey.OpenSubKey(registry_key[i]))
                         {
-                            using (var subKey = key.OpenSubKey(subkey_name))
+                            foreach (string subkey_name in key.GetSubKeyNames())
                             {
-                                line = subKey.GetValue("DisplayName");
-                                if (line != null && (line.ToString().ToUpper().Contains("VLC")))
+                                using (var subKey = key.OpenSubKey(subkey_name))
                                 {
+                                    line = subKey.GetValue("DisplayName");
+                                    if (line != null && (line.ToString().ToUpper().Contains("VLC")))
+                                    {
 
-                                    string VlcPath = subKey.GetValue("InstallLocation").ToString();
+                                        string VlcPath = subKey.GetValue("InstallLocation").ToString();
 
-                                    Properties.Settings.Default.vlcpath = VlcPath;
-                                    Properties.Settings.Default.Save();
-                                    return VlcPath;
+                                        Properties.Settings.Default.vlcpath = VlcPath;
+                                        Properties.Settings.Default.Save();
+                                        return VlcPath;
 
+                                    }
                                 }
                             }
                         }
-                    }
 
+                    }
                 }
             }
-            return  "";  //no vlc found
-
+            catch  
+            {
+                return "";  //no vlc found
+            }
+            return "";  //no vlc found
 
         }
 
-    /// <summary>
-    /// method to check if internet connection is alive
-    /// </summary>
-    /// <param name="uri">URL to check</param>
-    /// <returns>errorcode</returns>
+        /// <summary>
+        /// method to check if internet connection is alive
+        /// </summary>
+        /// <param name="uri">URL to check</param>
+        /// <returns>errorcode</returns>
         public static int CheckINetConn(string uri)
         {
 
