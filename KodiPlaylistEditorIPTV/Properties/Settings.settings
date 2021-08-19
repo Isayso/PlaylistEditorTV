@@ -102,7 +102,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="localize" Type="System.String" Scope="User">
-      <Value Profile="(Default)">en-EN</Value>
+      <Value Profile="(Default)">en-US</Value>
     </Setting>
     <Setting Name="lastfiles" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;

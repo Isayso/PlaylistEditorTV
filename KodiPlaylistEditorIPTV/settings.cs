@@ -166,12 +166,12 @@ namespace PlaylistEditor
         {
             Settings.Default.cobSpeech = comboBoxSpeech.SelectedIndex;
 
-                string myCulture = "en-EN";
+                string myCulture = "en-US";
 
             switch (Settings.Default.cobSpeech)
             {
                 case 0:
-                    myCulture = "en-EN";
+                    myCulture = "en-US";
                     break;
                 case 1:
                     myCulture = "de-DE";
