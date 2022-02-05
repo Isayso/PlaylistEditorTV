@@ -89,6 +89,7 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassDataset.cs" />
     <Compile Include="ClassHelp.cs" />
     <Compile Include="ClassKodi.cs" />
     <Compile Include="ClassMyButton.cs">

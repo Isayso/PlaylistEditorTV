@@ -9,25 +9,21 @@
 //  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 //
 //  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using PlaylistEditor.Properties;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-
 namespace PlaylistEditor
 {
-    class ClassKodi
+    internal class ClassKodi
     {
-
         public static async Task<bool> RunOnKodi(string link)
         {
             string kodiIP = Settings.Default.rpi;
@@ -49,17 +45,14 @@ namespace PlaylistEditor
             var values = new Dictionary<string, string>
             {
                 {kodiUser,kodiPass}
-
             };
 
             string url = "http://" + kodiIP + ":" + kodiPort + "/jsonrpc?request=";
-
 
             //url = "http://192.168.178.91:8080/jsonrpc"; //?request=";
 
             try
             {
-
                 using (var webClient = new WebClient())
                 {
                     // Required to prevent HTTP 401: Unauthorized messages
@@ -67,10 +60,10 @@ namespace PlaylistEditor
                     // API Doc: http://kodi.wiki/view/JSON-RPC_API/v6
                     //  var json = "{\"jsonrpc\":\"2.0\",\"method\":\"GUI.ShowNotification\",\"params\":{\"title\":\"This is the title of the message\",\"message\":\"This is the body of the message\"},\"id\":1}";
                     string response = webClient.UploadString($"http://{kodiIP}:{kodiPort}/jsonrpc", "POST", link);
-    
+
                     if (response.Contains("OK") /*&& link.Contains("Playlist.Add")*/)
                     {
-                        NotificationBox.Show( Mess.Kodi_response__OK, 1300, NotificationMsg.OK);
+                        NotificationBox.Show(Mess.Kodi_response__OK, 1300, NotificationMsg.OK);
 
 #if DEBUG
                         MessageBox.Show(response);
@@ -92,10 +85,6 @@ namespace PlaylistEditor
                 MessageBox.Show(Mess.Kodi_not_responding + ex.Message, Mess.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-    
         }
-
-
     }
-
 }

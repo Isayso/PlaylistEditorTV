@@ -9,7 +9,7 @@
 //  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 //
 //  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace PlaylistEditor
 {
-    public partial class player : Form 
+    public partial class player : Form
     {
         public DataGridView Dgv { get; set; }
         private readonly double opc;
@@ -39,7 +39,6 @@ namespace PlaylistEditor
             MouseLeave += OnMouseLeave;
 
             HookMouseMove(this.Controls);
-
         }
 
         private void OnMouseMove(object sender, MouseEventArgs e)
@@ -50,14 +49,12 @@ namespace PlaylistEditor
                 opacity = 1;
                 timer1.Enabled = false;
                 this.Opacity = 1;
-               
             }
         }
 
         private void OnMouseLeave(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-
         }
 
         /// <summary>
@@ -73,18 +70,21 @@ namespace PlaylistEditor
             }
         }
 
-
         private void player_Move(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
         }
 
         #region drag with mouse
+
         //move window with mouse down
         public const int WM_NCLBUTTONDOWN = 0xA1;
+
         public const int HT_CAPTION = 0x2;
+
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
         private static extern bool ReleaseCapture();
 
@@ -101,7 +101,9 @@ namespace PlaylistEditor
                 Properties.Settings.Default.Save();
             }
         }
-        #endregion
+
+        #endregion drag with mouse
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //invoke EventHandler
@@ -117,7 +119,6 @@ namespace PlaylistEditor
         {
             comboBox1.DroppedDown = true;
         }
-
 
         private void button_Top_Click(object sender, EventArgs e)
         {
@@ -139,14 +140,14 @@ namespace PlaylistEditor
         {
             this.Opacity = opc;
             Properties.Settings.Default.F1Location = this.Location;
-           
+
             Properties.Settings.Default.Save();
 
             this.Close();
         }
 
         private async void button_kodi_Click(object sender, EventArgs e)
-        {           
+        {
             string jLink = Dgv.Rows[comboBox1.SelectedIndex].Cells[5].Value.ToString();
 
             //json string Kodi
@@ -154,7 +155,6 @@ namespace PlaylistEditor
 
             await ClassKodi.RunOnKodi(jLink);
         }
-
 
         private void comboBox1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -168,7 +168,6 @@ namespace PlaylistEditor
 
         private void playerCombo_MouseEnter(object sender, EventArgs e)
         {
-
             if (!CompItemsWithBox())
             {
                 comboBox1.BeginUpdate();
@@ -214,9 +213,6 @@ namespace PlaylistEditor
 
         private void player_Load(object sender, EventArgs e)
         {
-
         }
     }
-   
-
 }

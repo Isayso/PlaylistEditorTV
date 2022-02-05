@@ -9,16 +9,18 @@
 //  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 //
 //  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,7 +32,7 @@ namespace PlaylistEditor
         public int ErrorCode { get; set; }
     }
 
-    static class ClassHelp
+    internal static class ClassHelp
     {
         public static List<CheckList> checkList = new List<CheckList>();
 
@@ -56,17 +58,14 @@ namespace PlaylistEditor
                         {
                             return false;  //is Video
                         }
-
                     }
                     return false;
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 return false;
             }
-            
-
         }
 
         /// <summary>
@@ -83,7 +82,7 @@ namespace PlaylistEditor
             {
                 start = fullstr.IndexOf(startstr, 0) + startstr.Length;
                 end = fullstr.IndexOf(endstr, start);
-                return fullstr.Substring(start, end - start);  
+                return fullstr.Substring(start, end - start);
             }
             else
             {
@@ -91,9 +90,15 @@ namespace PlaylistEditor
             }
         }
 
-        public static FileData GetFileData(string fullstr)
+
+        /// <summary>
+        /// read data from string
+        /// </summary>
+        /// <param name="fullstr">full row of file</param>
+        /// <returns>FileData</returns>
+        public static RowData GetFileData(string fullstr)
         {
-            FileData fileData = new FileData();
+            RowData fileData = new RowData();
 
             Regex regex1 = new Regex("tvg-name =\"([^\"]*)");
             fileData.Name = regex1.Match(fullstr).Groups[1].ToString().Trim();
@@ -114,11 +119,8 @@ namespace PlaylistEditor
             fileData.Name2 = fullstr.Split(',').Last().Trim();
             if (string.IsNullOrEmpty(fileData.Name2)) fileData.Name2 = "N/A";
 
-
             return fileData;
-            
         }
-
 
         /// <summary>
         /// byte to string / string to byte
@@ -137,7 +139,6 @@ namespace PlaylistEditor
         //    return enc.GetBytes(str);
         //}
 
-
         /// <summary>
         /// checks if Diectory exists with timeout
         /// </summary>
@@ -150,7 +151,6 @@ namespace PlaylistEditor
             task.Start();
 
             return task.Wait(timeout) && task.Result;
-
         }
 
         /// <summary>
@@ -170,6 +170,7 @@ namespace PlaylistEditor
             //return task.Result;
             return task.Wait(timeout) && task.Result;
         }
+
         /// <summary>
         /// function to get the path of installed vlc
         /// </summary>
@@ -177,7 +178,7 @@ namespace PlaylistEditor
         public static string GetVlcPath()
         {
             object line;
-            string [] registry_key = { @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
+            string[] registry_key = { @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
                             @"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall" };
             try  //issue #58
             {
@@ -194,27 +195,23 @@ namespace PlaylistEditor
                                     line = subKey.GetValue("DisplayName");
                                     if (line != null && (line.ToString().ToUpper().Contains("VLC")))
                                     {
-
                                         string VlcPath = subKey.GetValue("InstallLocation").ToString();
 
                                         Properties.Settings.Default.vlcpath = VlcPath;
                                         Properties.Settings.Default.Save();
                                         return VlcPath;
-
                                     }
                                 }
                             }
                         }
-
                     }
                 }
             }
-            catch  
+            catch
             {
                 return "";  //no vlc found
             }
             return "";  //no vlc found
-
         }
 
         /// <summary>
@@ -224,13 +221,11 @@ namespace PlaylistEditor
         /// <returns>errorcode</returns>
         public static int CheckINetConn(string uri)
         {
-
             try
             {
-               
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest; 
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest;
                 req.Timeout = 6000; //set the timeout
-           
+
                 req.ContentType = "application/x-www-form-urlencoded";
                 //   req.KeepAlive = true;
                 //https://deviceatlas.com/blog/list-smart-tv-user-agent-strings
@@ -239,26 +234,24 @@ namespace PlaylistEditor
                 "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
                 //req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
                 //    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36";
-                    //+ " AppleTV/tvOS/9.1.1"
-                    //+ " AppleCoreMedia/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)";
+                //+ " AppleTV/tvOS/9.1.1"
+                //+ " AppleCoreMedia/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)";
 
                 //req.UserAgent = "Mozilla / 5.0(iPhone; CPU iPhone OS 13_1 like Mac OS X) " +
                 //    "AppleWebKit / 605.1.15(KHTML, like Gecko) Version / 13.0.1 Mobile / 15E148";
-
 
                 HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
                 StreamReader sr = new StreamReader(resp.GetResponseStream());
 
                 char[] buffer = new char[1024];
-                int results1 = sr.Read(buffer,0,1023);
+                int results1 = sr.Read(buffer, 0, 1023);
                 if (System.Diagnostics.Debugger.IsAttached)
                     Console.WriteLine("buffer : {0}", results1);
 
                 sr.Close();
-               
             }
-            catch (WebException e)  
+            catch (WebException e)
             {
                 if (e.Status == WebExceptionStatus.ProtocolError)
                 {
@@ -291,12 +284,11 @@ namespace PlaylistEditor
         {
             int errorcode = 0;
 
-            if (uri.StartsWith("rt")) errorcode = 410;  //rtmp check not implemented
+            if (uri.StartsWith("rt") || uri.StartsWith("ud")) errorcode = 410;  //rtmp check not implemented  issue #61
             else   //issue #41
             {
                 try
                 {
-
                     HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest;
 
                     req.Timeout = Properties.Settings.Default.timeout; //set the timeout #47
@@ -321,7 +313,6 @@ namespace PlaylistEditor
                         req.UserAgent = uri.Split('=').Last();
                     }
 
-
                     HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
                     StreamReader sr = new StreamReader(resp.GetResponseStream());
@@ -332,7 +323,6 @@ namespace PlaylistEditor
                         Console.WriteLine("buffer : {0}", results1);
 
                     sr.Close();
-
                 }
                 catch (WebException e)  //#34
                 {
@@ -362,11 +352,8 @@ namespace PlaylistEditor
                 ErrorCode = errorcode
             });
 
-
-
             return 0;
         }
-
 
         /// <summary>
         /// load on undo stack
@@ -394,7 +381,6 @@ namespace PlaylistEditor
                 .Cells.Cast<DataGridViewCell>().Select(c => c.Value).ToArray()));
         }
 
-
         /// <summary>
         /// checks if a full row (6) is in clipboard
         /// </summary>
@@ -407,17 +393,14 @@ namespace PlaylistEditor
             {
                 try
                 {
-
                     string[] pastedRows = System.Text.RegularExpressions.Regex
                         .Split(o.GetData(DataFormats.UnicodeText).ToString()
                         .TrimEnd("\r\n".ToCharArray()), "\r\n");
 
                     string[] pastedRowCells = pastedRows[0].Split(new char[] { '\t' });
 
-                    if (pastedRowCells.Length == 6)  return true;  
+                    if (pastedRowCells.Length == 6) return true;
                     // check for visible rows
-                   
-
                 }
                 catch (Exception ex)
                 {
@@ -429,13 +412,165 @@ namespace PlaylistEditor
         }
 
 
+        /// <summary>
+        /// get stream name with ffprobe
+        /// </summary>
+        /// <param name="linkUrl">link url</param>
+        /// <param name="ffprobepath">full path to ffprobe.exe</param>
+        /// <returns>Stream_name tag</returns>
+        public static string GetFFrobeStreamName(string linkUrl, string ffprobepath)
+        {
+            string output = null, streamName = null;
+
+            try
+            {
+                //* Create Process
+                using (Process process = new Process())
+                {
+                    process.StartInfo.FileName = "cmd.exe";
+                    process.StartInfo.Arguments = "/c " + ffprobepath + " -v quiet -print_format json -show_programs \"" + linkUrl + "\"";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.CreateNoWindow = true;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.RedirectStandardError = true;
+                    //  process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);  //russia: 866
+                    process.StartInfo.StandardOutputEncoding = System.Text.Encoding.UTF8;
+                    process.StartInfo.StandardErrorEncoding = System.Text.Encoding.UTF8;
+
+                    //  var encod = Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);
+
+                    process.ErrorDataReceived += new DataReceivedEventHandler(ErrorOutputHandler);
+
+                    process.Start();
+
+                    //* Read one element asynchronously
+                    process.BeginErrorReadLine();
+
+                    //* Read the other one synchronously
+                    output = process.StandardOutput.ReadToEnd().Replace("\r\n", "");
+
+                    if (process.WaitForExit(6000))
+                    {
+                        Console.WriteLine("OK!");
+
+                    }
+                    else Console.WriteLine("Timeout!");
+
+                    if (!process.HasExited)
+                    {
+                        if (!process.Responding) 
+                            process.Kill();
+                    }
+
+
+
+                }
+
+                Regex regex1 = new Regex("service_name\": \"([^\"]*)");
+                streamName = regex1.Match(output).Groups[1].ToString().Trim();  //[0] codec_long_name + result   [1] result
+
+#if DEBUG
+                //regex1 = new Regex("codec_name\": \"([^\"]*)");
+                //streamName = regex1.Match(output).Groups[1].ToString().Trim();  //[0] codec_long_name + result   [1] result
+
+                MessageBox.Show( output /*StreamName*/, "Key press", MessageBoxButtons.OK, MessageBoxIcon.None);
+#endif
+
+            }
+            catch
+            {
+                 return streamName = "";
+            }
+
+            return streamName; // StreamName;
+
+        }
+
+
+        static void ErrorOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+        {
+            Console.WriteLine(outLine.Data);
+        }
+
+
+
+        /// <summary>
+        /// get Path for ffprobe
+        /// </summary>
+        /// <returns>location of ffprobe</returns>
+        public static string GetFfprobePath()
+        {
+            string ffpPath = NativeMethods.GetFullPathFromWindows("ffprobe.exe");
+
+            if (!string.IsNullOrEmpty(ffpPath))
+            {
+                return ffpPath;
+            }
+            else if (File.Exists(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\ffprobe.exe"))
+            {
+                return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\ffprobe.exe";
+            }
+            return null;
+        }
+
+
+        public static string GetFFrobeStreamName2(string linkUrl, string ffprobepath)
+        {
+            string output = null;
+
+            using (Process process = new Process())
+            {
+                process.StartInfo.FileName = "cmd.exe";
+                process.StartInfo.Arguments = "/c " + ffprobepath + " -v quiet -print_format json -show_programs \"" + linkUrl + "\"";
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.CreateNoWindow = true;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+                //  process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);  //russia: 866
+                process.StartInfo.StandardOutputEncoding = System.Text.Encoding.UTF8;
+                process.StartInfo.StandardErrorEncoding = System.Text.Encoding.UTF8;
+
+
+
+                process.EnableRaisingEvents = true;
+
+                process.Exited += process_Exited;
+                process.OutputDataReceived += ProccesOutputDataReceived;
+                process.ErrorDataReceived += ProccesErrorDataReceived;
+
+                process.Start();
+
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
+            }
+
+            return output;
+
+            void process_Exited(object sender, EventArgs e)
+            {
+                // Handle exit here
+            }
+
+            void ProccesErrorDataReceived(object sender, DataReceivedEventArgs e)
+            {
+                // Handle error here
+            }
+
+            void ProccesOutputDataReceived(object sender, DataReceivedEventArgs e)
+            {
+                // Handle output here using e.Data
+                //output = e.Data.Append.Replace("\r\n", "");
+                while (e.Data != null)
+                output += e.Data;
+
+              //  return output;
+
+
+            }
+
+        }
+
 
         //here new methods
-
-
-
     }
-
-  
-
 }

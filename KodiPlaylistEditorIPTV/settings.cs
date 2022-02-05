@@ -9,34 +9,34 @@
 //  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 //
 //  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
+using PlaylistEditor.Properties;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
-using PlaylistEditor.Properties;
 
 namespace PlaylistEditor
 {
-
     public partial class settings : Form
     {
         public string serverName;
         public bool isLinux;
         public bool replaceDrive;
-        static readonly int unicode = Settings.Default.hotkey;
-        static char character = (char)unicode;
-        string hotText = character.ToString();
-
+        private static readonly int unicode = Settings.Default.hotkey;
+        private static char character = (char)unicode;
+        private string hotText = character.ToString();
 
         public settings()
         {
             InitializeComponent();
+
+            //test code
+            tabControl1.TabPages.Remove(tabColumns);
 
             textBox2.Text = Settings.Default.rpi;
             textBox_Port.Text = Settings.Default.port;
@@ -80,24 +80,22 @@ namespace PlaylistEditor
                 textBox_Password.Text = "";
             }
 
-
             textBox_hot.Text = hotText;
             setHotkeyInt();
-
         }
 
-        private void SetComboSpeech() 
+        private void SetComboSpeech()
         {
             comboBoxSpeech.Items[0] = "";
         }
+
         private void button_cancel_Click(object sender, EventArgs e)
         {
-           this.Close();
+            this.Close();
         }
 
         private void button_ok_Click(object sender, EventArgs e)
         {
-
             getHotkeyInt();
 
             Settings.Default.rpi = textBox2.Text;
@@ -115,13 +113,11 @@ namespace PlaylistEditor
 
             Settings.Default.maxthread = (int)nMaxThread.Value;
 
-
             double opc = (double)numericUpDown1.Value;
             Settings.Default.opacity = opc * 0.01;
 
             // Data to protect. Convert a string to a byte[] using Encoding.UTF8.GetBytes().
             byte[] plaintext = Encoding.Default.GetBytes(textBox_Password.Text); ;
-
 
             // Generate additional entropy (will be used as the Initialization vector)
             byte[] entropy = new byte[20];
@@ -138,9 +134,7 @@ namespace PlaylistEditor
             Settings.Default.entropy = entropy;
             //  write preferences settings
             Settings.Default.Save();
-
         }
-
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -156,6 +150,7 @@ namespace PlaylistEditor
         {
             Settings.Default.findresult = comboBox_result.SelectedIndex;
         }
+
         private void comboBox_403_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox_403.SelectedIndex == 0) Settings.Default.Error403 = Color.LightSalmon;
@@ -166,39 +161,44 @@ namespace PlaylistEditor
         {
             Settings.Default.cobSpeech = comboBoxSpeech.SelectedIndex;
 
-                string myCulture = "en-US";
+            string myCulture = "en-US";
 
             switch (Settings.Default.cobSpeech)
             {
                 case 0:
                     myCulture = "en-US";
                     break;
+
                 case 1:
                     myCulture = "de-DE";
                     break;
+
                 case 2:
                     myCulture = "fr-FR";
                     break;
+
                 case 3:
                     myCulture = "es-ES";
                     break;
+
                 case 4:
                     myCulture = "ru-RU";
                     break;
+
                 case 5:
                     myCulture = "zh-ZH";
                     break;
+
                 case 6:
                     myCulture = "ar-AR";
                     break;
+
                 case 7:
                     myCulture = "tr-TR";
                     break;
-
             }
-            
-            Settings.Default.localize = myCulture;
 
+            Settings.Default.localize = myCulture;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -208,7 +208,6 @@ namespace PlaylistEditor
                 textBox1.Text = "";
             }
             Settings.Default.leftshift = val;
-
         }
 
         private void ComboBox_Click(object sender, EventArgs e)
@@ -219,7 +218,6 @@ namespace PlaylistEditor
 
         private void getHotkeyInt()
         {
-
             //bin from checkboxes
             int spec_a = checkBox_a.Checked ? 1 : 0;
             int spec_c = checkBox_c.Checked ? 2 : 0;
@@ -233,8 +231,7 @@ namespace PlaylistEditor
             int spec_key = spec_a + spec_c + spec_s + spec_w;
             Settings.Default.specKey = spec_key;
             Settings.Default.hotkey = charByte[0];
-          //  NativeMethods.RegisterHotKey(this.Handle, 1, spec_key, charByte[0]);  //ALT-Y
-
+            //  NativeMethods.RegisterHotKey(this.Handle, 1, spec_key, charByte[0]);  //ALT-Y
         }
 
         private void setHotkeyInt()
@@ -255,10 +252,7 @@ namespace PlaylistEditor
 
             var hotlabel = (char)Settings.Default.hotkey;
             textBox_hot.Text = hotlabel.ToString();
-
-
         }
-
 
         private void button_file_Click(object sender, EventArgs e)
         {
@@ -276,7 +270,6 @@ namespace PlaylistEditor
                 {
                     Settings.Default.startfile = openFileDialog1.FileName;
                     textBox_start.Text = openFileDialog1.FileName;
-
                 }
                 else  //cancel
                 {
@@ -287,7 +280,6 @@ namespace PlaylistEditor
                 Settings.Default.Save();
             }
             Cursor.Current = Cursors.Default;
-
         }
 
         private void checkBox_start_CheckedChanged(object sender, EventArgs e)
@@ -314,7 +306,6 @@ namespace PlaylistEditor
             }
         }
 
-
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             double opc = (double)numericUpDown1.Value;
@@ -332,17 +323,14 @@ namespace PlaylistEditor
                 textBox3.Text = "";
             }
             Settings.Default.timeout = val;
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

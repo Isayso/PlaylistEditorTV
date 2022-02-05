@@ -55,7 +55,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.button_file = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabOption = new System.Windows.Forms.TabPage();
             this.checkBox_scroll = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
             this.comboBox_result = new System.Windows.Forms.ComboBox();
@@ -66,12 +66,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabKodi = new System.Windows.Forms.TabPage();
             this.textBox_userAgent = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabHotkey = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBox_hotkey = new System.Windows.Forms.CheckBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabAutostart = new System.Windows.Forms.TabPage();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -80,23 +80,27 @@
             this.textBox_start = new System.Windows.Forms.TextBox();
             this.checkBox_vlc = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabLinkcheck = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox_403 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabLanguage = new System.Windows.Forms.TabPage();
             this.comboBoxSpeech = new System.Windows.Forms.ComboBox();
+            this.tabColumns = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabOption.SuspendLayout();
+            this.tabKodi.SuspendLayout();
+            this.tabHotkey.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tabAutostart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.tabLinkcheck.SuspendLayout();
+            this.tabLanguage.SuspendLayout();
+            this.tabColumns.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_ok
@@ -284,36 +288,37 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabOption);
+            this.tabControl1.Controls.Add(this.tabColumns);
+            this.tabControl1.Controls.Add(this.tabKodi);
+            this.tabControl1.Controls.Add(this.tabHotkey);
+            this.tabControl1.Controls.Add(this.tabAutostart);
+            this.tabControl1.Controls.Add(this.tabLinkcheck);
+            this.tabControl1.Controls.Add(this.tabLanguage);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
-            // tabPage3
+            // tabOption
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.DarkBlue;
-            this.tabPage3.Controls.Add(this.checkBox_scroll);
-            this.tabPage3.Controls.Add(this.label19);
-            this.tabPage3.Controls.Add(this.comboBox_result);
-            this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.checkBox_F2);
-            this.tabPage3.Controls.Add(this.label12);
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.textBox1);
-            this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.comboBox2);
-            this.tabPage3.Controls.Add(this.comboBox1);
-            this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.tabPage3, "tabPage3");
-            this.tabPage3.Name = "tabPage3";
+            this.tabOption.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabOption.Controls.Add(this.checkBox_scroll);
+            this.tabOption.Controls.Add(this.label19);
+            this.tabOption.Controls.Add(this.comboBox_result);
+            this.tabOption.Controls.Add(this.label14);
+            this.tabOption.Controls.Add(this.checkBox_F2);
+            this.tabOption.Controls.Add(this.label12);
+            this.tabOption.Controls.Add(this.label2);
+            this.tabOption.Controls.Add(this.textBox1);
+            this.tabOption.Controls.Add(this.label1);
+            this.tabOption.Controls.Add(this.comboBox2);
+            this.tabOption.Controls.Add(this.comboBox1);
+            this.tabOption.Controls.Add(this.label8);
+            this.tabOption.Controls.Add(this.label7);
+            this.tabOption.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tabOption, "tabOption");
+            this.tabOption.Name = "tabOption";
             // 
             // checkBox_scroll
             // 
@@ -398,36 +403,36 @@
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
             // 
-            // tabPage1
+            // tabKodi
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.DarkBlue;
-            this.tabPage1.Controls.Add(this.textBox_userAgent);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.textBox_Password);
-            this.tabPage1.Controls.Add(this.textBox_Username);
-            this.tabPage1.Controls.Add(this.textBox_Port);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
+            this.tabKodi.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabKodi.Controls.Add(this.textBox_userAgent);
+            this.tabKodi.Controls.Add(this.label11);
+            this.tabKodi.Controls.Add(this.textBox_Password);
+            this.tabKodi.Controls.Add(this.textBox_Username);
+            this.tabKodi.Controls.Add(this.textBox_Port);
+            this.tabKodi.Controls.Add(this.label6);
+            this.tabKodi.Controls.Add(this.label5);
+            this.tabKodi.Controls.Add(this.label4);
+            this.tabKodi.Controls.Add(this.textBox2);
+            this.tabKodi.Controls.Add(this.label3);
+            this.tabKodi.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tabKodi, "tabKodi");
+            this.tabKodi.Name = "tabKodi";
             // 
             // textBox_userAgent
             // 
             resources.ApplyResources(this.textBox_userAgent, "textBox_userAgent");
             this.textBox_userAgent.Name = "textBox_userAgent";
             // 
-            // tabPage2
+            // tabHotkey
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.DarkBlue;
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this.checkBox_hotkey);
-            this.tabPage2.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Name = "tabPage2";
+            this.tabHotkey.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabHotkey.Controls.Add(this.panel1);
+            this.tabHotkey.Controls.Add(this.checkBox_hotkey);
+            this.tabHotkey.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tabHotkey, "tabHotkey");
+            this.tabHotkey.Name = "tabHotkey";
             // 
             // panel1
             // 
@@ -449,21 +454,21 @@
             this.checkBox_hotkey.UseVisualStyleBackColor = true;
             this.checkBox_hotkey.CheckedChanged += new System.EventHandler(this.checkBox_hotkey_CheckedChanged);
             // 
-            // tabPage4
+            // tabAutostart
             // 
-            this.tabPage4.BackColor = System.Drawing.Color.DarkBlue;
-            this.tabPage4.Controls.Add(this.numericUpDown1);
-            this.tabPage4.Controls.Add(this.label13);
-            this.tabPage4.Controls.Add(this.label9);
-            this.tabPage4.Controls.Add(this.checkBox_autostart);
-            this.tabPage4.Controls.Add(this.checkBox_start);
-            this.tabPage4.Controls.Add(this.textBox_start);
-            this.tabPage4.Controls.Add(this.checkBox_vlc);
-            this.tabPage4.Controls.Add(this.label10);
-            this.tabPage4.Controls.Add(this.button_file);
-            this.tabPage4.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.tabPage4, "tabPage4");
-            this.tabPage4.Name = "tabPage4";
+            this.tabAutostart.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabAutostart.Controls.Add(this.numericUpDown1);
+            this.tabAutostart.Controls.Add(this.label13);
+            this.tabAutostart.Controls.Add(this.label9);
+            this.tabAutostart.Controls.Add(this.checkBox_autostart);
+            this.tabAutostart.Controls.Add(this.checkBox_start);
+            this.tabAutostart.Controls.Add(this.textBox_start);
+            this.tabAutostart.Controls.Add(this.checkBox_vlc);
+            this.tabAutostart.Controls.Add(this.label10);
+            this.tabAutostart.Controls.Add(this.button_file);
+            this.tabAutostart.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tabAutostart, "tabAutostart");
+            this.tabAutostart.Name = "tabAutostart";
             // 
             // numericUpDown1
             // 
@@ -525,18 +530,18 @@
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
             // 
-            // tabPage5
+            // tabLinkcheck
             // 
-            this.tabPage5.BackColor = System.Drawing.Color.DarkBlue;
-            this.tabPage5.Controls.Add(this.label18);
-            this.tabPage5.Controls.Add(this.textBox3);
-            this.tabPage5.Controls.Add(this.nMaxThread);
-            this.tabPage5.Controls.Add(this.comboBox_403);
-            this.tabPage5.Controls.Add(this.label16);
-            this.tabPage5.Controls.Add(this.label15);
-            this.tabPage5.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.tabPage5, "tabPage5");
-            this.tabPage5.Name = "tabPage5";
+            this.tabLinkcheck.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabLinkcheck.Controls.Add(this.label18);
+            this.tabLinkcheck.Controls.Add(this.textBox3);
+            this.tabLinkcheck.Controls.Add(this.nMaxThread);
+            this.tabLinkcheck.Controls.Add(this.comboBox_403);
+            this.tabLinkcheck.Controls.Add(this.label16);
+            this.tabLinkcheck.Controls.Add(this.label15);
+            this.tabLinkcheck.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tabLinkcheck, "tabLinkcheck");
+            this.tabLinkcheck.Name = "tabLinkcheck";
             // 
             // label18
             // 
@@ -564,14 +569,14 @@
             resources.ApplyResources(this.label16, "label16");
             this.label16.Name = "label16";
             // 
-            // tabPage6
+            // tabLanguage
             // 
-            this.tabPage6.BackColor = System.Drawing.Color.DarkBlue;
-            this.tabPage6.Controls.Add(this.label17);
-            this.tabPage6.Controls.Add(this.comboBoxSpeech);
-            this.tabPage6.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.tabPage6, "tabPage6");
-            this.tabPage6.Name = "tabPage6";
+            this.tabLanguage.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabLanguage.Controls.Add(this.label17);
+            this.tabLanguage.Controls.Add(this.comboBoxSpeech);
+            this.tabLanguage.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tabLanguage, "tabLanguage");
+            this.tabLanguage.Name = "tabLanguage";
             // 
             // comboBoxSpeech
             // 
@@ -590,6 +595,27 @@
             this.comboBoxSpeech.SelectedIndexChanged += new System.EventHandler(this.comboBoxSpeech_SelectedIndexChanged);
             this.comboBoxSpeech.Click += new System.EventHandler(this.ComboBox_Click);
             // 
+            // tabColumns
+            // 
+            this.tabColumns.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabColumns.Controls.Add(this.label20);
+            this.tabColumns.Controls.Add(this.checkBox1);
+            this.tabColumns.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tabColumns, "tabColumns");
+            this.tabColumns.Name = "tabColumns";
+            // 
+            // checkBox1
+            // 
+            resources.ApplyResources(this.checkBox1, "checkBox1");
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            resources.ApplyResources(this.label20, "label20");
+            this.label20.Name = "label20";
+            // 
             // settings
             // 
             resources.ApplyResources(this, "$this");
@@ -602,20 +628,22 @@
             this.Name = "settings";
             ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tabOption.ResumeLayout(false);
+            this.tabOption.PerformLayout();
+            this.tabKodi.ResumeLayout(false);
+            this.tabKodi.PerformLayout();
+            this.tabHotkey.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
+            this.tabAutostart.ResumeLayout(false);
+            this.tabAutostart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
+            this.tabLinkcheck.ResumeLayout(false);
+            this.tabLinkcheck.PerformLayout();
+            this.tabLanguage.ResumeLayout(false);
+            this.tabLanguage.PerformLayout();
+            this.tabColumns.ResumeLayout(false);
+            this.tabColumns.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -625,14 +653,14 @@
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabOption;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabKodi;
         private System.Windows.Forms.TextBox textBox_Password;
         private System.Windows.Forms.TextBox textBox_Username;
         private System.Windows.Forms.TextBox textBox_Port;
@@ -642,12 +670,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabHotkey;
         private System.Windows.Forms.TextBox textBox_userAgent;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox checkBox_F2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabAutostart;
         private System.Windows.Forms.CheckBox checkBox_start;
         private System.Windows.Forms.TextBox textBox_start;
         private System.Windows.Forms.CheckBox checkBox_vlc;
@@ -666,17 +694,20 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.ComboBox comboBox_result;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabLinkcheck;
         private System.Windows.Forms.NumericUpDown nMaxThread;
         private System.Windows.Forms.ComboBox comboBox_403;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabLanguage;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox comboBoxSpeech;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.CheckBox checkBox_scroll;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TabPage tabColumns;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
