@@ -4,6 +4,8 @@
 [//]: <[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN)>
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN)
 
+[![Bitcoin Donate Button](https://github.com/Isayso/PlaylistEditorTV/blob/master/bitcoin/Bitcoin-Donate-button.png)](https://github.com/Isayso/PlaylistEditorTV/blob/master/bitcoin/bitcoin-redirect.html)
+
 
 # Playlist Editor TV
 Editor for IPTV m3u files with vlc media player and kodi support.   
