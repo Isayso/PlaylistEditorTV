@@ -4,6 +4,9 @@
 [//]: <[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN)>
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN)
 
+![UI](https://github.com/Isayso/PlaylistEditorTV/blob/master/bitcoin/Bitcoin-Donate-button112.png)
+![UI](https://github.com/Isayso/PlaylistEditorTV/blob/master/bitcoin/qrcode-1EU-Github.png) bc1q0cte24tuax2kx25kypeqtewk73rvggqtqw9pzc
+
 
 
 # Playlist Editor TV
