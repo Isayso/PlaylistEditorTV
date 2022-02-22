@@ -2,12 +2,10 @@
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/total)
 
 [//]: <[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN)>
-[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN)
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FF26SM3X8UAN) PayPal
 
 ![UI](https://github.com/Isayso/PlaylistEditorTV/blob/master/bitcoin/Bitcoin-Donate-button112.png)
-![UI](https://github.com/Isayso/PlaylistEditorTV/blob/master/bitcoin/qrcode-1EU-Github.png) bc1q0cte24tuax2kx25kypeqtewk73rvggqtqw9pzc
-
-
+bc1q0cte24tuax2kx25kypeqtewk73rvggqtqw9pzc
 
 # Playlist Editor TV
 Editor for IPTV m3u files with vlc media player and kodi support.   
@@ -83,6 +81,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Ctrl + 1/2 move line up/down
 - del    delete selected row
 - F2 Edit Cell
+
+![UI](https://github.com/Isayso/PlaylistEditorTV/blob/master/bitcoin/qrcode-1EU-Github.png) bc1q0cte24tuax2kx25kypeqtewk73rvggqtqw9pzc
+
 
 
 ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.6.5/total)
