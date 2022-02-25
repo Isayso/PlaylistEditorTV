@@ -148,7 +148,7 @@ namespace PlaylistEditor
 
         private async void button_kodi_Click(object sender, EventArgs e)
         {
-            string jLink = Dgv.Rows[comboBox1.SelectedIndex].Cells[5].Value.ToString();
+            string jLink = Dgv.Rows[comboBox1.SelectedIndex].Cells["Link"].Value.ToString();
 
             //json string Kodi
             jLink = "{ \"jsonrpc\":\"2.0\",\"method\":\"Player.Open\",\"params\":{ \"item\":{ \"file\":\"" + jLink + "\"} },\"id\":0}";
@@ -175,7 +175,7 @@ namespace PlaylistEditor
 
                 for (int i = 0; i < Dgv.Rows.Count; i++)
                 {
-                    comboBox1.Items.Add(Dgv.Rows[i].Cells[4].Value.ToString());
+                    comboBox1.Items.Add(Dgv.Rows[i].Cells["Name2"].Value.ToString());
                 }
                 comboBox1.EndUpdate();
             }
@@ -189,7 +189,7 @@ namespace PlaylistEditor
         {
             for (int i = 0; i < Dgv.Rows.Count; i++)
             {
-                if (comboBox1.Items[i].ToString() != Dgv.Rows[i].Cells[4].Value.ToString())
+                if (comboBox1.Items[i].ToString() != Dgv.Rows[i].Cells["Name2"].Value.ToString())
                     return false;
             }
             return true;

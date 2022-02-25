@@ -1,6 +1,10 @@
-﻿1.6.7
+﻿1.7.0
+- more columns
+- all known elements
 - udp support
 - support ffprobe to get Name from Link (needs ffprobe in Path or Progam Dir)
+- tvg-shift, url element in first line support
+- right-click menu bug
 
 1.6.6
 - Language error en-EN
@@ -128,3 +132,18 @@
 
 1.4.1 (44) 
 1.4 (35) 
+
+
+
+
+
+copy full row:
+
+rows.select >0  -> column names in first string line + FULLROW -> clipboard
+
+paste full row:
+
+check if start with FULLROW -> get columns -> compare with datatable -> add columns
+
+
+

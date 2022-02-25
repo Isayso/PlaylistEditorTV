@@ -19,8 +19,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
+using System.Reflection;
+using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,42 +33,21 @@ namespace PlaylistEditor
         public string Url { get; set; }
         public int ErrorCode { get; set; }
     }
-
+    public class ColList
+    {
+        public string Name { get; set; }
+        public bool Visible { get; set; }
+    }
     internal static class ClassHelp
     {
         public static List<CheckList> checkList = new List<CheckList>();
+        public static List<ColList> columnList = new List<ColList>();
 
-        /// <summary>
-        /// detects if fietype is video or IPTV
-        /// </summary>
-        /// <param name="filename">filename</param>
-        /// <returns>true if IPTV</returns>
-        public static bool FileIsIPTV(string filename)
-        {
-            try
-            {
-                string line;
-                using (StreamReader playlistFile = new StreamReader(filename))
-                {
-                    while ((line = playlistFile.ReadLine()) != null)
-                    {
-                        if (line.StartsWith("#EXTM3U"))
-                        {
-                            return true;  //is IPTV
-                        }
-                        else if (line.StartsWith("#EXTCPlayListM3U::M3U"))
-                        {
-                            return false;  //is Video
-                        }
-                    }
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
+        public static string fileHeader = null;
+
+        public static string Message { get; private set; }
+        public static object AfterReceive { get; private set; }
+
 
         /// <summary>
         /// returns string between 2 stings
@@ -91,36 +72,6 @@ namespace PlaylistEditor
         }
 
 
-        /// <summary>
-        /// read data from string
-        /// </summary>
-        /// <param name="fullstr">full row of file</param>
-        /// <returns>FileData</returns>
-        public static RowData GetFileData(string fullstr)
-        {
-            RowData fileData = new RowData();
-
-            Regex regex1 = new Regex("tvg-name =\"([^\"]*)");
-            fileData.Name = regex1.Match(fullstr).Groups[1].ToString().Trim();
-            if (string.IsNullOrEmpty(fileData.Name)) fileData.Name = "N/A";
-
-            Regex regex2 = new Regex("tvg-id=\"([^\"]*)");
-            fileData.Id = regex2.Match(fullstr).Groups[1].ToString().Trim();
-            if (string.IsNullOrEmpty(fileData.Id)) fileData.Id = "N/A";
-
-            Regex regex3 = new Regex("group-title=\"([^\"]*)");
-            fileData.Title = regex3.Match(fullstr).Groups[1].ToString().Trim();
-            if (string.IsNullOrEmpty(fileData.Title)) fileData.Title = "N/A";
-
-            Regex regex4 = new Regex("tvg-logo=\"([^\"]*)");
-            fileData.Logo = regex4.Match(fullstr).Groups[1].ToString().Trim();
-            if (string.IsNullOrEmpty(fileData.Logo)) fileData.Logo = "N/A";
-
-            fileData.Name2 = fullstr.Split(',').Last().Trim();
-            if (string.IsNullOrEmpty(fileData.Name2)) fileData.Name2 = "N/A";
-
-            return fileData;
-        }
 
         /// <summary>
         /// byte to string / string to byte
@@ -215,7 +166,7 @@ namespace PlaylistEditor
         }
 
         /// <summary>
-        /// method to check if internet connection is alive
+        /// check if internet connection is alive
         /// </summary>
         /// <param name="uri">URL to check</param>
         /// <returns>errorcode</returns>
@@ -276,15 +227,15 @@ namespace PlaylistEditor
         }
 
         /// <summary>
-        /// method to check if link is alive and store result in class checkList
+        /// check if link is alive and store result in class checkList
         /// </summary>
         /// <param name="uri">link to check</param>
         /// <returns>class checkList</returns>
-        public static int CheckIPTVStream2(string uri)
+        public static int CheckIPTVStream(string uri)
         {
             int errorcode = 0;
 
-            if (uri.StartsWith("rt") || uri.StartsWith("ud")) errorcode = 410;  //rtmp check not implemented  issue #61
+            if (uri.StartsWith("rt") /*|| uri.StartsWith("ud")*/) errorcode = 410;  //rtmp check not implemented  issue #61
             else   //issue #41
             {
                 try
@@ -382,10 +333,36 @@ namespace PlaylistEditor
         }
 
         /// <summary>
-        /// checks if a full row (6) is in clipboard
+        /// checks if a full row is in clipboard
         /// </summary>
         /// <returns></returns>
         public static bool CheckClipboard()
+        {
+            try
+            {
+                DataObject o = (DataObject)Clipboard.GetDataObject();
+
+                if (Clipboard.ContainsText())
+                {
+                    string content = o.GetData(DataFormats.UnicodeText).ToString();
+                    if (content.StartsWith("FULLROW"))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Paste operation failed. (check clip) " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+            return false;
+        }
+
+        public static bool CheckClipboard3(List<string> cols)
         {
             DataObject o = (DataObject)Clipboard.GetDataObject();
 
@@ -397,14 +374,30 @@ namespace PlaylistEditor
                         .Split(o.GetData(DataFormats.UnicodeText).ToString()
                         .TrimEnd("\r\n".ToCharArray()), "\r\n");
 
-                    string[] pastedRowCells = pastedRows[0].Split(new char[] { '\t' });
+                    pastedRows[0] = pastedRows[0].Trim('\t');
 
-                    if (pastedRowCells.Length == 6) return true;
+                    string[] pastedRowCells = pastedRows[0].Split(new char[] { '\t' });  //TODO 0 or 1
+
+                    if (cols.Count.Equals(0))
+                    {
+                        List<ColList> elements = new List<ColList>();
+                        elements = ClassHelp.SeekFileElements(pastedRows[0]);
+
+                        if (pastedRowCells.Length == elements.Count + 2) return true;   //TODO more columns
+
+                    }
+                    else
+                    {
+                        if (pastedRowCells.Length == cols.Count) return true;
+                    }
+
+                    // if (pastedRowCells.Length == 6) return true;   //TODO more columns
+                    // if (pastedRowCells.Length == cols.Count) return true;   //TODO more columns
                     // check for visible rows
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Paste operation failed. " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Paste operation failed. (check clip) " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 
@@ -420,47 +413,82 @@ namespace PlaylistEditor
         /// <returns>Stream_name tag</returns>
         public static string GetFFrobeStreamName(string linkUrl, string ffprobepath)
         {
+            string method = string.Format("{0}.{1}",
+              MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+
+            if (linkUrl.StartsWith("ud"))
+            {
+#if DEBUG
+                //bool udpanswer = UDPSentRec(linkUrl);
+                //ClassLog.LogWriter.LogWrite(method + "\n UDP Answer 1 " + udpanswer);
+
+                bool udpanswer = ReceiveUDP2(linkUrl);
+                ClassLog.LogWriter.LogWrite(method + "\n UDP Answer 1 " + udpanswer);
+                bool udpanswer2 = ReceiveUDP(linkUrl);
+                ClassLog.LogWriter.LogWrite(method + "\n UDP Answer 2 " + udpanswer2);
+                if (!udpanswer && !udpanswer2) return null;
+
+#else
+
+             //   if (!UDPSentRec(linkUrl)) 
+                    return null;
+
+#endif
+
+            }
+
             string output = null, streamName = null;
 
             try
             {
                 //* Create Process
-                using (Process process = new Process())
+                using (Process proc = new Process())
                 {
-                    process.StartInfo.FileName = "cmd.exe";
-                    process.StartInfo.Arguments = "/c " + ffprobepath + " -v quiet -print_format json -show_programs \"" + linkUrl + "\"";
-                    process.StartInfo.UseShellExecute = false;
-                    process.StartInfo.CreateNoWindow = true;
-                    process.StartInfo.RedirectStandardOutput = true;
-                    process.StartInfo.RedirectStandardError = true;
-                    //  process.StartInfo.StandardOutputEncoding = Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);  //russia: 866
-                    process.StartInfo.StandardOutputEncoding = System.Text.Encoding.UTF8;
-                    process.StartInfo.StandardErrorEncoding = System.Text.Encoding.UTF8;
+                    proc.StartInfo.FileName = "cmd.exe";
+                    proc.StartInfo.Arguments = "/c " + ffprobepath + " -v quiet -print_format json -show_programs \"" + linkUrl + "\"";
+                    proc.StartInfo.UseShellExecute = false;
+                    proc.StartInfo.CreateNoWindow = true;
+                    proc.StartInfo.RedirectStandardOutput = true;
+                    proc.StartInfo.RedirectStandardError = true;
+                    proc.StartInfo.StandardOutputEncoding = System.Text.Encoding.UTF8;
+                    proc.StartInfo.StandardErrorEncoding = System.Text.Encoding.UTF8;
 
                     //  var encod = Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);
 
-                    process.ErrorDataReceived += new DataReceivedEventHandler(ErrorOutputHandler);
 
-                    process.Start();
+                    proc.ErrorDataReceived += new DataReceivedEventHandler(ErrorOutputHandler);
+
+                    proc.Start();
 
                     //* Read one element asynchronously
-                    process.BeginErrorReadLine();
+                    proc.BeginErrorReadLine();
 
                     //* Read the other one synchronously
-                    output = process.StandardOutput.ReadToEnd().Replace("\r\n", "");
+                    output = proc.StandardOutput.ReadToEnd().Replace("\r\n", "");
 
-                    if (process.WaitForExit(6000))
+                    if (proc.WaitForExit(6000))
                     {
+#if DEBUG
+
+                        ClassLog.LogWriter.LogWrite(method + "\n Wait for exit OK! " + linkUrl);
+#endif
+
                         Console.WriteLine("OK!");
 
                     }
-                    else Console.WriteLine("Timeout!");
+                    //else Console.WriteLine("Timeout!");
+                    else ClassLog.LogWriter.LogWrite("Timeout!");
 
-                    if (!process.HasExited)
+                    if (!proc.HasExited)
                     {
-                        if (!process.Responding) 
-                            process.Kill();
+                        if (!proc.Responding)
+                            proc.Kill();
+                        ClassLog.LogWriter.LogWrite(method + "\n killed! " + linkUrl);
+
                     }
+#if DEBUG
+                    ClassLog.LogWriter.LogWrite(output);
+#endif
 
 
 
@@ -473,13 +501,13 @@ namespace PlaylistEditor
                 //regex1 = new Regex("codec_name\": \"([^\"]*)");
                 //streamName = regex1.Match(output).Groups[1].ToString().Trim();  //[0] codec_long_name + result   [1] result
 
-                MessageBox.Show( output /*StreamName*/, "Key press", MessageBoxButtons.OK, MessageBoxIcon.None);
+                //  MessageBox.Show( output /*StreamName*/, "Key press", MessageBoxButtons.OK, MessageBoxIcon.None);
 #endif
 
             }
             catch
             {
-                 return streamName = "";
+                return streamName = "";
             }
 
             return streamName; // StreamName;
@@ -492,7 +520,120 @@ namespace PlaylistEditor
             Console.WriteLine(outLine.Data);
         }
 
+       
+        static bool ReceiveUDP(string udpLink)
+        {
+            var match = Regex.Match(udpLink, @"\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\b:\d{1,5}");
+            string udpIP = match.Captures[0].Value;
 
+            Int32.TryParse(udpIP.Split(':')[1], out int udpport);
+            var ipAddress = udpIP.Split(':')[0];
+
+
+
+            try
+            {
+                IPAddress mcastAddress = IPAddress.Parse(ipAddress);
+                int mcastPort = udpport;
+
+                ClassUDP2.TestMulticastOption s = new ClassUDP2.TestMulticastOption();
+                // Start a multicast group.
+                s.StartMulticast();
+
+                s.mcastPort = udpport;
+                s.mcastAddress = mcastAddress;
+
+                // Display MulticastOption properties.
+                s.MulticastOptionProperties();
+
+                // Receive broadcast messages.
+                s.ReceiveBroadcastMessages();
+
+
+                ClassUDP.UDPSocket t = new ClassUDP.UDPSocket();
+                t.Server(ipAddress, udpport);
+
+                ClassUDP.UDPSocket c = new ClassUDP.UDPSocket();
+                c.Client(ipAddress, udpport);
+                c.Send("TEST!");
+
+            }
+            catch
+            {
+                return false;
+            }
+
+
+            return true;
+        }
+        static bool ReceiveUDP2(string udpLink)
+        {
+            var match = Regex.Match(udpLink, @"\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\b:\d{1,5}");
+            string udpIP = match.Captures[0].Value;
+
+            Int32.TryParse(udpIP.Split(':')[1], out int udpport);
+            var ipAddress = udpIP.Split(':')[0];
+
+            try
+            {
+                Socket sock = new Socket(AddressFamily.InterNetwork,
+                            SocketType.Dgram, ProtocolType.Udp);
+
+                sock.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                sock.LingerState = new LingerOption(true, 0);
+
+                Console.WriteLine("Ready to receive…");
+                IPEndPoint iep = new IPEndPoint(IPAddress.Any, udpport);
+                EndPoint ep = (EndPoint)iep;
+                sock.Bind(iep);
+                sock.SetSocketOption(SocketOptionLevel.IP,
+                           SocketOptionName.AddMembership,
+                           new MulticastOption(IPAddress.Parse(ipAddress)));
+
+                byte[] data = new byte[1024];
+
+                while (true)
+                {
+                    // this blocks until some bytes are received
+                    int recv = sock.ReceiveFrom(data, ref ep);
+                    string stringData = Encoding.ASCII.GetString(data, 0, recv);
+                    Console.WriteLine("received: {0} from: {1}", stringData, ep.ToString());
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+
+            return true;
+        }
+        static bool ReceiveUDP3(string udpLink)
+        {
+            var match = Regex.Match(udpLink, @"\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\b:\d{1,5}");
+            string udpIP = match.Captures[0].Value;
+
+            Int32.TryParse(udpIP.Split(':')[1], out int udpport);
+            var ipAddress = udpIP.Split(':')[0];
+
+            try
+            {
+                ClassUDP.UDPSocket s = new ClassUDP.UDPSocket();
+                s.Server(ipAddress, udpport);
+
+                ClassUDP.UDPSocket c = new ClassUDP.UDPSocket();
+                c.Client(ipAddress, udpport);
+                c.Send("TEST!");
+
+            }
+            catch
+            {
+                return false;
+            }
+
+
+            return true;
+        }
 
         /// <summary>
         /// get Path for ffprobe
@@ -561,14 +702,51 @@ namespace PlaylistEditor
                 // Handle output here using e.Data
                 //output = e.Data.Append.Replace("\r\n", "");
                 while (e.Data != null)
-                output += e.Data;
+                    output += e.Data;
 
-              //  return output;
+                //  return output;
 
 
             }
 
         }
+
+        public static List<ColList> SeekFileElements(string fullstr)
+        {
+            columnList.Clear();
+
+            string[] regArray = { "tvg-name", "tvg-id", "tvg-title", "tvg-logo", "tvg-chno", "tvg-shift",
+                "group-title", "radio", "catchup", "catchup-source", "catchup-days", "catchup-correction",
+                "provider", "provider-type", "provider-logo", "provider-countries", "provider-languages",
+                "media", "media-dir", "media-size"};
+
+            for (int i = 0; i < regArray.Length; i++)
+            {
+                if (fullstr.ContainsElement(regArray[i] + "=\"([^\"]*)"))
+                {
+
+                    columnList.Add(new ColList
+                    {
+                        Name = regArray[i],
+                        Visible = true,
+                    });
+
+                }
+
+            }
+
+            return columnList;
+        }
+
+        private static bool ContainsElement(this string input, string regString)
+        {
+            var match = Regex.Match(input, regString);
+
+            if (match.Success) return true;
+
+            return false;
+        }
+
 
 
         //here new methods

@@ -14,6 +14,7 @@
 
 using PlaylistEditor.Properties;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Security.Cryptography;
@@ -30,13 +31,14 @@ namespace PlaylistEditor
         private static readonly int unicode = Settings.Default.hotkey;
         private static char character = (char)unicode;
         private string hotText = character.ToString();
+        private List<string> columnNames;
 
-        public settings()
+
+        public settings(List<string> arr)
         {
             InitializeComponent();
 
-            //test code
-            tabControl1.TabPages.Remove(tabColumns);
+            //TODO test code
 
             textBox2.Text = Settings.Default.rpi;
             textBox_Port.Text = Settings.Default.port;
@@ -44,13 +46,37 @@ namespace PlaylistEditor
 
             checkBox_vlc.Checked = Settings.Default.vlc_fullsreen;
             checkBox_F2.Checked = Settings.Default.F2_edit;
+            cbDClick.Checked = Settings.Default.dclick;
 
             textBox3.Text = Settings.Default.timeout.ToString();
 
-            comboBox1.SelectedIndex = Settings.Default.colSearch;
-            comboBox2.SelectedIndex = Settings.Default.colDupli;
+
+
+            try
+            {
+                columnNames = arr;
+
+                foreach (string s in columnNames)
+                {
+                    comboBox2.Items.Add(s);
+                }
+
+                // comboBox1.SelectedIndex = Settings.Default.colSearch;
+                comboBox2.SelectedIndex = Settings.Default.colDupli2;
+
+            }
+            catch
+            {
+                // comboBox1.SelectedIndex = 0;
+                // comboBox2.SelectedIndex = 0;
+                comboBox2.Enabled = false; ;
+            }
+
             comboBoxSpeech.SelectedIndex = Settings.Default.cobSpeech;
-            comboBox_result.SelectedIndex = Settings.Default.findresult;
+            //  comboBox_result.SelectedIndex = Settings.Default.findresult;
+
+
+
             textBox1.Text = "0";
             textBox_userAgent.Text = Settings.Default.user_agent;
             textBox_start.Text = Settings.Default.startfile;
@@ -103,6 +129,7 @@ namespace PlaylistEditor
             Settings.Default.username = textBox_Username.Text;
             Settings.Default.vlc_fullsreen = checkBox_vlc.Checked;
             Settings.Default.F2_edit = checkBox_F2.Checked;
+            Settings.Default.dclick = cbDClick.Checked;
             Settings.Default.user_agent = textBox_userAgent.Text;
             Settings.Default.startfile = textBox_start.Text;
             Settings.Default.filestart = checkBox_start.Checked;
@@ -136,20 +163,20 @@ namespace PlaylistEditor
             Settings.Default.Save();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Settings.Default.colSearch = comboBox1.SelectedIndex;
-        }
+        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    Settings.Default.colSearch = comboBox1.SelectedIndex;
+        //}
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Settings.Default.colDupli = comboBox2.SelectedIndex;
+            Settings.Default.colDupli2 = comboBox2.SelectedIndex;
         }
 
-        private void comboBox_result_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Settings.Default.findresult = comboBox_result.SelectedIndex;
-        }
+        //private void comboBox_result_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        // //   Settings.Default.findresult = comboBox_result.SelectedIndex;
+        //}
 
         private void comboBox_403_SelectedIndexChanged(object sender, EventArgs e)
         {

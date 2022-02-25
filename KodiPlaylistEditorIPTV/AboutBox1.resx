@@ -444,7 +444,7 @@ SPACE is AND in find box</value>
     <value>315, 304</value>
   </data>
   <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 20</value>
+    <value>132, 18</value>
   </data>
   <data name="linkLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
