@@ -51,7 +51,7 @@
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon_PlayIPTV3.ico</ApplicationIcon>
+    <ApplicationIcon>Icon_iptv2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>8A946B33C36878C0C75812748241B36B8F8DFDA1</ManifestCertificateThumbprint>
@@ -89,8 +89,16 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="AboutBox2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox2.Designer.cs">
+      <DependentUpon>AboutBox2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassDataset.cs" />
     <Compile Include="ClassHelp.cs" />
     <Compile Include="ClassKodi.cs" />
+    <Compile Include="ClassLog.cs" />
     <Compile Include="ClassMyButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -102,6 +110,14 @@
     </Compile>
     <Compile Include="ClassRepeatButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassUDP.cs" />
+    <Compile Include="ClassUDP2.cs" />
+    <Compile Include="EditHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditHeader.Designer.cs">
+      <DependentUpon>EditHeader.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -174,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox1.zh.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox2.resx">
+      <DependentUpon>AboutBox2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditHeader.resx">
+      <DependentUpon>EditHeader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.ar.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -335,6 +357,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Changelog.txt" />
+    <Content Include="Icon_iptv.ico" />
+    <Content Include="Icon_iptv2.ico" />
     <Content Include="icon_PlayIPTV2.ico" />
     <Content Include="icon_PlayIPTV3.ico" />
     <Content Include="KodiPlaylistEditor.ico" />

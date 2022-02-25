@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripCopy = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,13 +43,20 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cm1NewColumn = new System.Windows.Forms.ToolStripMenuItem();
+            this.cm1ColCombo = new System.Windows.Forms.ToolStripComboBox();
+            this.cm1AddColumn = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.cms1NewWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.cms1Number = new System.Windows.Forms.ToolStripMenuItem();
+            this.cms1GetName = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.textBox_find = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip5 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cm5ColumNames = new System.Windows.Forms.ToolStripComboBox();
+            this.cm5StartSearchDupli = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addUseragentCell = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -60,6 +69,8 @@
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cm3Scrollbar = new System.Windows.Forms.ToolStripMenuItem();
             this.cm3EditF2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip4 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cm4EditFIleHeader = new System.Windows.Forms.ToolStripMenuItem();
             this.button_refind = new PlaylistEditor.MyButton();
             this.button_clearfind = new PlaylistEditor.MyButton();
             this.button_kodi = new PlaylistEditor.MyButton();
@@ -83,24 +94,42 @@
             this.button_open = new PlaylistEditor.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip5.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
+            this.contextMenuStrip4.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.AllowDrop = true;
             this.dataGridView1.AllowUserToAddRows = false;
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gray;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.toolTip1.SetToolTip(this.dataGridView1, resources.GetString("dataGridView1.ToolTip"));
+            this.dataGridView1.CellContextMenuStripNeeded += new System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventHandler(this.dataGridView1_CellContextMenuStripNeeded);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
@@ -115,7 +144,6 @@
             // 
             // contextMenuStrip1
             // 
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripCopy,
@@ -127,17 +155,19 @@
             this.toolStripSeparator3,
             this.hideToolStripMenuItem,
             this.showToolStripMenuItem,
+            this.cm1NewColumn,
             this.toolStripSeparator4,
             this.cms1NewWindow,
-            this.cms1Number});
+            this.cms1Number,
+            this.cms1GetName});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.toolTip1.SetToolTip(this.contextMenuStrip1, resources.GetString("contextMenuStrip1.ToolTip"));
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // toolStripCopy
             // 
-            resources.ApplyResources(this.toolStripCopy, "toolStripCopy");
             this.toolStripCopy.Name = "toolStripCopy";
+            resources.ApplyResources(this.toolStripCopy, "toolStripCopy");
             this.toolStripCopy.Click += new System.EventHandler(this.toolStripCopy_Click);
             // 
             // toolStripPaste
@@ -160,48 +190,77 @@
             // 
             // toolStripSeparator2
             // 
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // playToolStripMenuItem
             // 
-            resources.ApplyResources(this.playToolStripMenuItem, "playToolStripMenuItem");
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
+            resources.ApplyResources(this.playToolStripMenuItem, "playToolStripMenuItem");
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
-            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // hideToolStripMenuItem
             // 
-            resources.ApplyResources(this.hideToolStripMenuItem, "hideToolStripMenuItem");
             this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
+            resources.ApplyResources(this.hideToolStripMenuItem, "hideToolStripMenuItem");
             this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
             // 
             // showToolStripMenuItem
             // 
-            resources.ApplyResources(this.showToolStripMenuItem, "showToolStripMenuItem");
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            resources.ApplyResources(this.showToolStripMenuItem, "showToolStripMenuItem");
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // cm1NewColumn
+            // 
+            this.cm1NewColumn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cm1ColCombo,
+            this.cm1AddColumn});
+            this.cm1NewColumn.Name = "cm1NewColumn";
+            resources.ApplyResources(this.cm1NewColumn, "cm1NewColumn");
+            this.cm1NewColumn.Click += new System.EventHandler(this.cm1NewColumn_Click);
+            // 
+            // cm1ColCombo
+            // 
+            this.cm1ColCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cm1ColCombo.Name = "cm1ColCombo";
+            resources.ApplyResources(this.cm1ColCombo, "cm1ColCombo");
+            this.cm1ColCombo.SelectedIndexChanged += new System.EventHandler(this.cm1ColCombo_SelectedIndexChanged);
+            this.cm1ColCombo.Click += new System.EventHandler(this.cm1ColCombo_Click);
+            // 
+            // cm1AddColumn
+            // 
+            resources.ApplyResources(this.cm1AddColumn, "cm1AddColumn");
+            this.cm1AddColumn.Name = "cm1AddColumn";
+            this.cm1AddColumn.Click += new System.EventHandler(this.cm1AddColumn_Click);
             // 
             // toolStripSeparator4
             // 
-            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
             // cms1NewWindow
             // 
-            resources.ApplyResources(this.cms1NewWindow, "cms1NewWindow");
             this.cms1NewWindow.Name = "cms1NewWindow";
+            resources.ApplyResources(this.cms1NewWindow, "cms1NewWindow");
             this.cms1NewWindow.Click += new System.EventHandler(this.newWindowToolStripMenuItem_Click);
             // 
             // cms1Number
             // 
             resources.ApplyResources(this.cms1Number, "cms1Number");
             this.cms1Number.Name = "cms1Number";
-            this.cms1Number.Click += new System.EventHandler(this.cms1Number_Click);
+            this.cms1Number.Click += new System.EventHandler(this.cm1Number_Click);
+            // 
+            // cms1GetName
+            // 
+            this.cms1GetName.Name = "cms1GetName";
+            resources.ApplyResources(this.cms1GetName, "cms1GetName");
+            this.cms1GetName.Click += new System.EventHandler(this.cms1GetName_Click);
             // 
             // openFileDialog1
             // 
@@ -222,9 +281,31 @@
             this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChange);
             this.textBox_find.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_find_KeyPress);
             // 
+            // contextMenuStrip5
+            // 
+            this.contextMenuStrip5.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cm5ColumNames,
+            this.cm5StartSearchDupli});
+            this.contextMenuStrip5.Name = "contextMenuStrip5";
+            resources.ApplyResources(this.contextMenuStrip5, "contextMenuStrip5");
+            this.contextMenuStrip5.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip5_Opening);
+            // 
+            // cm5ColumNames
+            // 
+            this.cm5ColumNames.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cm5ColumNames.Name = "cm5ColumNames";
+            resources.ApplyResources(this.cm5ColumNames, "cm5ColumNames");
+            this.cm5ColumNames.SelectedIndexChanged += new System.EventHandler(this.cm5ColumNames_SelectedIndexChanged);
+            // 
+            // cm5StartSearchDupli
+            // 
+            resources.ApplyResources(this.cm5StartSearchDupli, "cm5StartSearchDupli");
+            this.cm5StartSearchDupli.Name = "cm5StartSearchDupli";
+            this.cm5StartSearchDupli.Click += new System.EventHandler(this.cm5StartSearchDupli_Click);
+            // 
             // contextMenuStrip2
             // 
-            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
             this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addUseragentCell,
@@ -233,36 +314,36 @@
             this.editCellPaste,
             this.editCellCut});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.toolTip1.SetToolTip(this.contextMenuStrip2, resources.GetString("contextMenuStrip2.ToolTip"));
+            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
             this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
             // 
             // addUseragentCell
             // 
-            resources.ApplyResources(this.addUseragentCell, "addUseragentCell");
             this.addUseragentCell.Name = "addUseragentCell";
+            resources.ApplyResources(this.addUseragentCell, "addUseragentCell");
             this.addUseragentCell.Click += new System.EventHandler(this.addUseragentCell_Click);
             // 
             // toolStripSeparator1
             // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // editCellCopy
             // 
-            resources.ApplyResources(this.editCellCopy, "editCellCopy");
             this.editCellCopy.Name = "editCellCopy";
+            resources.ApplyResources(this.editCellCopy, "editCellCopy");
             this.editCellCopy.Click += new System.EventHandler(this.editCellCopy_Click);
             // 
             // editCellPaste
             // 
-            resources.ApplyResources(this.editCellPaste, "editCellPaste");
             this.editCellPaste.Name = "editCellPaste";
+            resources.ApplyResources(this.editCellPaste, "editCellPaste");
             this.editCellPaste.Click += new System.EventHandler(this.editCellPaste_Click);
             // 
             // editCellCut
             // 
-            resources.ApplyResources(this.editCellCut, "editCellCut");
             this.editCellCut.Name = "editCellCut";
+            resources.ApplyResources(this.editCellCut, "editCellCut");
             this.editCellCut.Click += new System.EventHandler(this.editCellCut_Click);
             // 
             // label_central
@@ -271,7 +352,6 @@
             this.label_central.BackColor = System.Drawing.Color.Gray;
             this.label_central.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label_central.Name = "label_central";
-            this.toolTip1.SetToolTip(this.label_central, resources.GetString("label_central.ToolTip"));
             this.label_central.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // lblRowCheck
@@ -280,7 +360,6 @@
             this.lblRowCheck.BackColor = System.Drawing.Color.White;
             this.lblRowCheck.ForeColor = System.Drawing.Color.Black;
             this.lblRowCheck.Name = "lblRowCheck";
-            this.toolTip1.SetToolTip(this.lblRowCheck, resources.GetString("lblRowCheck.ToolTip"));
             this.lblRowCheck.Click += new System.EventHandler(this.label_click);
             // 
             // lblColCheck
@@ -289,36 +368,48 @@
             this.lblColCheck.BackColor = System.Drawing.Color.White;
             this.lblColCheck.ForeColor = System.Drawing.Color.Black;
             this.lblColCheck.Name = "lblColCheck";
-            this.toolTip1.SetToolTip(this.lblColCheck, resources.GetString("lblColCheck.ToolTip"));
             this.lblColCheck.Click += new System.EventHandler(this.label_click);
             // 
             // contextMenuStrip3
             // 
-            resources.ApplyResources(this.contextMenuStrip3, "contextMenuStrip3");
             this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cm3Scrollbar,
             this.cm3EditF2});
             this.contextMenuStrip3.Name = "contextMenuStrip3";
-            this.toolTip1.SetToolTip(this.contextMenuStrip3, resources.GetString("contextMenuStrip3.ToolTip"));
+            resources.ApplyResources(this.contextMenuStrip3, "contextMenuStrip3");
             // 
             // cm3Scrollbar
             // 
-            resources.ApplyResources(this.cm3Scrollbar, "cm3Scrollbar");
             this.cm3Scrollbar.Checked = true;
             this.cm3Scrollbar.CheckOnClick = true;
             this.cm3Scrollbar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cm3Scrollbar.Name = "cm3Scrollbar";
+            resources.ApplyResources(this.cm3Scrollbar, "cm3Scrollbar");
             this.cm3Scrollbar.CheckStateChanged += new System.EventHandler(this.cm3Scrollbar_CheckStateChanged);
             // 
             // cm3EditF2
             // 
-            resources.ApplyResources(this.cm3EditF2, "cm3EditF2");
             this.cm3EditF2.Checked = true;
             this.cm3EditF2.CheckOnClick = true;
             this.cm3EditF2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cm3EditF2.Name = "cm3EditF2";
+            resources.ApplyResources(this.cm3EditF2, "cm3EditF2");
             this.cm3EditF2.CheckStateChanged += new System.EventHandler(this.cm3EditF2_CheckStateChanged);
+            // 
+            // contextMenuStrip4
+            // 
+            this.contextMenuStrip4.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cm4EditFIleHeader});
+            this.contextMenuStrip4.Name = "contextMenuStrip4";
+            resources.ApplyResources(this.contextMenuStrip4, "contextMenuStrip4");
+            // 
+            // cm4EditFIleHeader
+            // 
+            this.cm4EditFIleHeader.Name = "cm4EditFIleHeader";
+            resources.ApplyResources(this.cm4EditFIleHeader, "cm4EditFIleHeader");
+            this.cm4EditFIleHeader.Click += new System.EventHandler(this.cm4EditFIleHeader_Click);
             // 
             // button_refind
             // 
@@ -327,7 +418,6 @@
             this.button_refind.FlatAppearance.BorderSize = 0;
             this.button_refind.ForeColor = System.Drawing.Color.Black;
             this.button_refind.Name = "button_refind";
-            this.toolTip1.SetToolTip(this.button_refind, resources.GetString("button_refind.ToolTip"));
             this.button_refind.UseVisualStyleBackColor = false;
             this.button_refind.Click += new System.EventHandler(this.button_refind_Click);
             // 
@@ -338,7 +428,6 @@
             this.button_clearfind.FlatAppearance.BorderSize = 0;
             this.button_clearfind.ForeColor = System.Drawing.SystemColors.Control;
             this.button_clearfind.Name = "button_clearfind";
-            this.toolTip1.SetToolTip(this.button_clearfind, resources.GetString("button_clearfind.ToolTip"));
             this.button_clearfind.UseVisualStyleBackColor = false;
             this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
             // 
@@ -366,8 +455,8 @@
             // 
             // RedoButton
             // 
-            resources.ApplyResources(this.RedoButton, "RedoButton");
             this.RedoButton.BackColor = System.Drawing.Color.MidnightBlue;
+            resources.ApplyResources(this.RedoButton, "RedoButton");
             this.RedoButton.FlatAppearance.BorderSize = 0;
             this.RedoButton.Image = global::PlaylistEditor.Properties.Resources.redo_r;
             this.RedoButton.Name = "RedoButton";
@@ -377,8 +466,8 @@
             // 
             // UndoButton
             // 
-            resources.ApplyResources(this.UndoButton, "UndoButton");
             this.UndoButton.BackColor = System.Drawing.Color.MidnightBlue;
+            resources.ApplyResources(this.UndoButton, "UndoButton");
             this.UndoButton.FlatAppearance.BorderSize = 0;
             this.UndoButton.Image = global::PlaylistEditor.Properties.Resources.undo_r;
             this.UndoButton.Name = "UndoButton";
@@ -410,8 +499,8 @@
             // 
             // button_revert
             // 
-            resources.ApplyResources(this.button_revert, "button_revert");
             this.button_revert.BackColor = System.Drawing.Color.MidnightBlue;
+            resources.ApplyResources(this.button_revert, "button_revert");
             this.button_revert.FlatAppearance.BorderSize = 0;
             this.button_revert.Image = global::PlaylistEditor.Properties.Resources.reload_r;
             this.button_revert.Name = "button_revert";
@@ -423,6 +512,7 @@
             // 
             resources.ApplyResources(this.button_dup, "button_dup");
             this.button_dup.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_dup.ContextMenuStrip = this.contextMenuStrip5;
             this.button_dup.FlatAppearance.BorderSize = 0;
             this.button_dup.Image = global::PlaylistEditor.Properties.Resources.content_duplicate_r;
             this.button_dup.Name = "button_dup";
@@ -496,9 +586,9 @@
             // 
             resources.ApplyResources(this.plabel_Filename, "plabel_Filename");
             this.plabel_Filename.BackColor = System.Drawing.Color.MidnightBlue;
+            this.plabel_Filename.ContextMenuStrip = this.contextMenuStrip4;
             this.plabel_Filename.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.plabel_Filename.Name = "plabel_Filename";
-            this.toolTip1.SetToolTip(this.plabel_Filename, resources.GetString("plabel_Filename.ToolTip"));
             // 
             // button_Info
             // 
@@ -574,14 +664,15 @@
             this.Controls.Add(this.button_open);
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip5.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip3.ResumeLayout(false);
+            this.contextMenuStrip4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -640,6 +731,15 @@
         private System.Windows.Forms.ToolStripMenuItem cm3EditF2;
         private System.Windows.Forms.ToolStripMenuItem cm3Scrollbar;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem cms1GetName;
+        private System.Windows.Forms.ToolStripMenuItem cm1NewColumn;
+        private System.Windows.Forms.ToolStripComboBox cm1ColCombo;
+        private System.Windows.Forms.ToolStripMenuItem cm1AddColumn;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip4;
+        private System.Windows.Forms.ToolStripMenuItem cm4EditFIleHeader;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip5;
+        private System.Windows.Forms.ToolStripMenuItem cm5StartSearchDupli;
+        private System.Windows.Forms.ToolStripComboBox cm5ColumNames;
     }
 }
 

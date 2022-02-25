@@ -117,103 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Argument out of range error. Wrong format" xml:space="preserve">
-    <value>Argument out of range error. Wrong format.</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button_cancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABWklEQVRoQ+2Y7UrDQBBFA+obij/07cTi
+        D99QhXgmzMVQNrTNTpMJzIGBdj/u3Jtt2pKhKIqiKIqjMI7jA/VOvflQGGg+U5/Ukw/FgrCZP1HGLxUW
+        Ai0z/2PC8EXFh0BU5oU1fPHp1ZiGa805+XQciNpV+p7k/+k6CfbOr7wwzVdfEgvCYSHYs615QYPuEKzd
+        x7yg0eoQrNnXvKDhzSGYy2Fe0PjqEIzlMi8wcDEEr3OaFxhZDEHlNi8w1PpBsvetse4fwLuAsdZJzMl3
+        5c/B4FKI/OYNTLY+88Z0T/iynGBwybzIGwJjx72JMbT4VUm17ok8J4GRRfO+RGvyhcDARfOCsVwhaHy1
+        ecFcjhA0vNm8YM2+IWi02rxg7T4haNBtXrBn2xAIh5kX7N0uBKKHf6xiD7Y+JvnOK38OWvOTsAdbjz4V
+        iwlTdhLhfwVM07XvY74oiqIoinCG4Q8MjAPyvzZg+AAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="Cell" xml:space="preserve">
-    <value>Cell</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="Copy/Paste" xml:space="preserve">
-    <value>Copy/Paste</value>
-  </data>
-  <data name="Delete List" xml:space="preserve">
-    <value>Delete List?</value>
-  </data>
-  <data name="Do you want to save your current playlist" xml:space="preserve">
-    <value>Do you want to save your current playlist?</value>
-  </data>
-  <data name="File Error" xml:space="preserve">
-    <value>File Error</value>
-  </data>
-  <data name="File has wrong format or does not exist!" xml:space="preserve">
-    <value>File has wrong format or does not exist!   </value>
-  </data>
-  <data name="Hidden Columns will not be saved" xml:space="preserve">
-    <value>Hidden Columns will not be saved! Proceed?</value>
-  </data>
-  <data name="Import only on empty" xml:space="preserve">
-    <value>Clipboard import only on empty table.</value>
-  </data>
-  <data name="Key press" xml:space="preserve">
-    <value>Key press</value>
-  </data>
-  <data name="Key press operation failed" xml:space="preserve">
-    <value>Key press operation failed. </value>
-  </data>
-  <data name="Kodi not responding" xml:space="preserve">
-    <value>Kodi not responding.</value>
-  </data>
-  <data name="Kodi response: ERROR" xml:space="preserve">
-    <value>Kodi response: ERROR</value>
-  </data>
-  <data name="Kodi response: OK" xml:space="preserve">
-    <value>Kodi response: OK</value>
-  </data>
-  <data name="List import" xml:space="preserve">
-    <value>List import.....</value>
-  </data>
-  <data name="Needs restart to take effect" xml:space="preserve">
-    <value>Needs restart to take effect</value>
-  </data>
-  <data name="No internet connection found" xml:space="preserve">
-    <value>No internet connection found!</value>
-  </data>
-  <data name="Paste operation failed" xml:space="preserve">
-    <value>Paste operation failed.</value>
-  </data>
-  <data name="Playlist Saved" xml:space="preserve">
-    <value>Playlist Saved</value>
-  </data>
-  <data name="Plugin links only work in Kodi" xml:space="preserve">
-    <value>Plugin links only work in Kodi</value>
-  </data>
-  <data name="Proceed" xml:space="preserve">
-    <value>Hidden Columns found !</value>
-  </data>
-  <data name="Reload File" xml:space="preserve">
-    <value>Reload File?</value>
-  </data>
-  <data name="Row" xml:space="preserve">
-    <value>Row</value>
-  </data>
-  <data name="Save Playlist" xml:space="preserve">
-    <value>Save Playlist</value>
-  </data>
-  <data name="The Clipboard could not be accessed. Please try again" xml:space="preserve">
-    <value>The Clipboard could not be accessed. Please try again.</value>
-  </data>
-  <data name="The data you pasted is in the wrong format for the cell" xml:space="preserve">
-    <value>The data you pasted is in the wrong format for the cell</value>
-  </data>
-  <data name="User-Agent links only work in Kodi" xml:space="preserve">
-    <value>User-Agent links only work in Kodi</value>
-  </data>
-  <data name="VLC player not found" xml:space="preserve">
-    <value>VLC player not found</value>
-  </data>
-  <data name="Warning" xml:space="preserve">
-    <value>Warning</value>
-  </data>
-  <data name="Wrong data structure" xml:space="preserve">
-    <value>Wrong data structure!</value>
-  </data>
-  <data name="Wrong format" xml:space="preserve">
-    <value>Wrong format.</value>
-  </data>
-  <data name="Wrong input" xml:space="preserve">
-    <value>Wrong input!</value>
+  <data name="button_ok.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA+UlEQVRoQ+2UWwrCQAxFuyW1qDvrp366
+        WcUd1BOdiAyttkKdjNwDgXaaIef21QghhBBC/CF937dUl07rAvEVdaaMU1quA4TXlMs7dYRAdEjeOKSW
+        uCAp+SIgKfkiICn5IiAp+SIgWU6eIR3VptPZsHdLXamcY2pZDhvymHUX2KXlybBnQxW78y7vzApBr8lf
+        bGPGb955BtmrkzMpBD1l5R0Gzg7BtRjyDoPHQuxTyxPWYsk7CHwMwXFMeQeR0RBUbHkHofzPZFgIq5zl
+        //PfgNjQk8iJdedzEHwXIra8g+hQiDrkHYRfQ9Ql7yBuH3bMD1YIIYQQi9E0N4/OWvhlkugGAAAAAElF
+        TkSuQmCC
+</value>
   </data>
 </root>

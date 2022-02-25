@@ -133,10 +133,15 @@ namespace PlaylistEditor
 
         private void donateButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Thank You for considering a donation. " + Environment.NewLine + 
-                "I recived so far 1$ of donations and PayPal took 40ct fees." + Environment.NewLine +
-                "Small money donation doesn't make sense, Bigtec is making money and screw elections with it. " + Environment.NewLine + "So enjoy my small program!"
-                + Environment.NewLine + "If you want to donate money, you find my donate link on th Github page, Thanks!");
+            using(AboutBox2 a = new AboutBox2())
+            {
+                a.ShowDialog();
+            }
+
+            //MessageBox.Show("Thank You for considering a donation. " + Environment.NewLine + 
+            //    "Paypal fee from 1$ donation is 40 ct." + Environment.NewLine +
+            //    "Small money donation doesn't make sense, Bigtec is making money and screw elections with it. " + Environment.NewLine + "So enjoy my small program!"
+            //    + Environment.NewLine + "If you want to donate money, you find my donate link on th Github page, Thanks!");
         }
     }
 }

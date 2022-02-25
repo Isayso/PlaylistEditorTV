@@ -19,7 +19,7 @@ namespace PlaylistEditor.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Mess {
@@ -133,6 +133,24 @@ namespace PlaylistEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hidden Columns will not be saved! Proceed?.
+        /// </summary>
+        public static string Hidden_Columns_will_not_be_saved {
+            get {
+                return ResourceManager.GetString("Hidden Columns will not be saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clipboard import only on empty table..
+        /// </summary>
+        public static string Import_only_on_empty {
+            get {
+                return ResourceManager.GetString("Import only on empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Key press.
         /// </summary>
         public static string Key_press {
@@ -228,6 +246,15 @@ namespace PlaylistEditor.Properties {
         public static string Plugin_links_only_work_in_Kodi {
             get {
                 return ResourceManager.GetString("Plugin links only work in Kodi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden Columns found !.
+        /// </summary>
+        public static string Proceed {
+            get {
+                return ResourceManager.GetString("Proceed", resourceCulture);
             }
         }
         
