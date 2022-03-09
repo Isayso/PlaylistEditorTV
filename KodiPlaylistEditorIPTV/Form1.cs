@@ -80,6 +80,10 @@ namespace PlaylistEditor
         public List<string> cNameArr = new List<string>();  //search box
 
 
+        private Rectangle dragBoxFromMouseDown;
+        private int rowIndexFromMouseDown;
+        private int rowIndexOfItemUnderMouseToDrop;
+
         public Form1()
         {
             myCulture = Settings.Default.localize;
@@ -410,7 +414,7 @@ namespace PlaylistEditor
             if (Settings.Default.findresult == 0) lblRowCheck.Text = "Row";
             else lblRowCheck.Text = "Cell";
 
-            lblColCheck.Text = cNameArr[cNameArr.Count - 1]; 
+            lblColCheck.Text = cNameArr[cNameArr.Count - 1];
 
             if (_isIt)
             {
@@ -1592,7 +1596,7 @@ namespace PlaylistEditor
                     chknum = false;
                 }
 
-                 oCell.Value = Convert.ChangeType(n.ToString(), oCell.ValueType);
+                oCell.Value = Convert.ChangeType(n.ToString(), oCell.ValueType);
                 //oCell.Value = Convert.ChangeType(Convert.ToInt32(n), oCell.ValueType);  //test for sort
                 n += 1;
             }
@@ -1756,7 +1760,40 @@ namespace PlaylistEditor
 
         private void dataGridView1_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data.GetDataPresent(typeof(DataGridViewRow)))
+            {
+
+                // The mouse locations are relative to the screen, so they must be 
+                // converted to client coordinates.
+                Point clientPoint = dataGridView1.PointToClient(new Point(e.X, e.Y));
+
+                rowIndexOfItemUnderMouseToDrop =
+                    dataGridView1.HitTest(clientPoint.X, clientPoint.Y).RowIndex;
+
+
+                // If the drag operation was a copy then add the row to the other control.
+                if (e.Effect == DragDropEffects.Move)
+                {
+                    if (rowIndexOfItemUnderMouseToDrop < 0)
+                    {
+                        return;
+                    }
+
+                    DataRow dr = dt.NewRow();
+
+                    for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                    {
+                        dr[i] = dataGridView1[i, rowIndexFromMouseDown].Value.ToString();
+                    }
+
+                    dt.Rows.RemoveAt(rowIndexFromMouseDown);
+                    dt.Rows.InsertAt(dr, rowIndexOfItemUnderMouseToDrop);
+
+
+                    toSave(true);
+                }
+            }
+            else if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 string dirName, shortName, driveName, extName;
 
@@ -2443,7 +2480,7 @@ namespace PlaylistEditor
 
         private void button_import_Click(object sender, EventArgs e)  //TODO
         {
-            if (dataGridView1.RowCount > 0 )
+            if (dataGridView1.RowCount > 0)
             {
                 MessageBox.Show(Mess.Import_only_on_empty);
                 return;
@@ -2669,7 +2706,7 @@ namespace PlaylistEditor
                 "group-title", "radio", "catchup", "catchup-source", "catchup-days", "catchup-correction",
                 "provider", "provider-type", "provider-logo", "provider-countries", "provider-languages",
                 "media", "media-dir", "media-size"};
-            
+
             droplist.AddRange(regArray);
 
             List<string> regArray2 = new List<string>();
@@ -2698,8 +2735,8 @@ namespace PlaylistEditor
             else
             {
                 if (dataGridView1.RowCount > 0 && !string.IsNullOrEmpty(vlcpath))
-                     button_vlc_Click(sender,e);
-                   // button_vlc.PerformClick();
+                    button_vlc_Click(sender, e);
+                // button_vlc.PerformClick();
             }
 
         }
@@ -2820,7 +2857,6 @@ namespace PlaylistEditor
         private void button_refind_Click(object sender, EventArgs e)
         {
             textBox_find_TextChange(sender, e);
-            //  textBox_find_TextChanged(sender, e);
         }
 
 
@@ -2836,37 +2872,46 @@ namespace PlaylistEditor
 
         private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
         {
-            //if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            //{
-            //    DataGridView.HitTestInfo hti = dataGridView1.HitTest(e.X, e.Y);
-            //    drag_cell = dataGridView1[hti.ColumnIndex, hti.RowIndex];
-            //    rowIndexFromMouseDown = hti.RowIndex;
-            //    // Proceed with the drag and drop, passing in the list item.
-            //    DragDropEffects dropEffect = dataGridView1.DoDragDrop(
-            //    drag_cell,
-            //    DragDropEffects.Move);
-            //}
+            // Get the index of the item the mouse is below.
+            rowIndexFromMouseDown = dataGridView1.HitTest(e.X, e.Y).RowIndex;
+            if (rowIndexFromMouseDown != -1)
+            {
+                // Remember the point where the mouse down occurred. 
+                // The DragSize indicates the size that the mouse can move 
+                // before a drag event should be started.                
+                Size dragSize = SystemInformation.DragSize;
+
+                // Create a rectangle using the DragSize, with the mouse position being
+                // at the center of the rectangle.
+                dragBoxFromMouseDown = new Rectangle(new Point(e.X - (dragSize.Width / 2),
+                                                               e.Y - (dragSize.Height / 2)),
+                                    dragSize);
+            }
+            else
+                // Reset the rectangle if the mouse is not over an item in the ListBox.
+                dragBoxFromMouseDown = Rectangle.Empty;
+
         }
 
         private void dataGridView1_MouseMove(object sender, MouseEventArgs e)
         {
-            //if ((e.Button & MouseButtons.Right) == MouseButtons.Right)
-            //{
-            //    // If the mouse moves outside the rectangle, start the drag.
-            //    if (dragBoxFromMouseDown != Rectangle.Empty &&
-            //        !dragBoxFromMouseDown.Contains(e.X, e.Y))
-            //    {
-            //        // Proceed with the drag and drop, passing in the list item.
-            //        DragDropEffects dropEffect = dataGridView1.DoDragDrop(
-            //        dataGridView1.Rows[rowIndexFromMouseDown],
-            //        DragDropEffects.Move);
-            //    }
-            //}
+            if ((e.Button & MouseButtons.Right) == MouseButtons.Right)
+            {
+                // If the mouse moves outside the rectangle, start the drag.
+                if (dragBoxFromMouseDown != Rectangle.Empty &&
+                    !dragBoxFromMouseDown.Contains(e.X, e.Y))
+                {
+                    // Proceed with the drag and drop, passing in the list item.
+                    DragDropEffects dropEffect = dataGridView1.DoDragDrop(
+                    dataGridView1.Rows[rowIndexFromMouseDown],
+                    DragDropEffects.Move);
+                }
+            }
         }
 
         private void dataGridView1_DragOver(object sender, DragEventArgs e)
         {
-            //  e.Effect = DragDropEffects.Move;
+            e.Effect = DragDropEffects.Move;
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
