@@ -1052,7 +1052,7 @@ namespace PlaylistEditor
         {
             if (dataGridView1.Rows.Count == 0) return;
 
-            bool _altpressed = false; bool _cnrtshiftpressed = false;
+            bool _altpressed = false; bool _ctrlshiftpressed = false;
             _controlpressed = false;
 
             switch (ModifierKeys)
@@ -1066,7 +1066,7 @@ namespace PlaylistEditor
                     break;
 
                 case (Keys.Control | Keys.Shift):
-                    _cnrtshiftpressed = true;
+                    _ctrlshiftpressed = true;
                     break;
             }
 
@@ -1097,11 +1097,12 @@ namespace PlaylistEditor
                     }
                     return;
                 }
-                else if (_cnrtshiftpressed)
+                else if (_ctrlshiftpressed)
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == SystemColors.InactiveCaption) //SystemColors.ControlLight) //   Color.LightGray)
+                        if (dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == SystemColors.InactiveCaption
+                            || dataGridView1.Rows[row.Index].Cells[0].Style.BackColor == Settings.Default.Error403) //SystemColors.ControlLight) //   Color.LightGray)
                         {
                             dataGridView1.Rows[row.Index].Selected = true;
                         }
@@ -2177,6 +2178,9 @@ namespace PlaylistEditor
         private void UndoButton_Click(object sender, EventArgs e)
         {
             if (dt.Rows.Count == 0) return;
+            int Index = dataGridView1.CurrentCell.RowIndex;
+
+
             if (redoStack.Count == 0 || redoStack.LoadItem(dataGridView1))
             {
                 redoStack.Push(dataGridView1.Rows.Cast<DataGridViewRow>()
@@ -2209,6 +2213,9 @@ namespace PlaylistEditor
                 ignore = false;
 
                 ShowReUnDo(0);
+
+                dataGridView1.CurrentCell = dataGridView1[0, Index];
+
             }
         }
 
@@ -2502,6 +2509,13 @@ namespace PlaylistEditor
                 {
                     Cursor.Current = Cursors.WaitCursor;
 
+                    line = playlistFile.ReadLine();  //first line
+
+                    if (line.StartsWith("#EXTM3U"))
+                    {
+                        fileHeader = line;
+                    }
+
                     string fullTxt = playlistFile.ReadToEnd();  //read rest of file
                     string[] fileRows = fullTxt.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -2509,6 +2523,7 @@ namespace PlaylistEditor
                     elements = ClassHelp.SeekFileElements(fullTxt);
 
                     CreateDataTable(elements);
+
                     for (int i = 0; i < fileRows.Length; i++)
                     {
 

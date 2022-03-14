@@ -362,47 +362,47 @@ namespace PlaylistEditor
             return false;
         }
 
-        public static bool CheckClipboard3(List<string> cols)
-        {
-            DataObject o = (DataObject)Clipboard.GetDataObject();
+        //public static bool CheckClipboard3(List<string> cols)
+        //{
+        //    DataObject o = (DataObject)Clipboard.GetDataObject();
 
-            if (Clipboard.ContainsText())
-            {
-                try
-                {
-                    string[] pastedRows = System.Text.RegularExpressions.Regex
-                        .Split(o.GetData(DataFormats.UnicodeText).ToString()
-                        .TrimEnd("\r\n".ToCharArray()), "\r\n");
+        //    if (Clipboard.ContainsText())
+        //    {
+        //        try
+        //        {
+        //            string[] pastedRows = System.Text.RegularExpressions.Regex
+        //                .Split(o.GetData(DataFormats.UnicodeText).ToString()
+        //                .TrimEnd("\r\n".ToCharArray()), "\r\n");
 
-                    pastedRows[0] = pastedRows[0].Trim('\t');
+        //            pastedRows[0] = pastedRows[0].Trim('\t');
 
-                    string[] pastedRowCells = pastedRows[0].Split(new char[] { '\t' });  //TODO 0 or 1
+        //            string[] pastedRowCells = pastedRows[0].Split(new char[] { '\t' });  //TODO 0 or 1
 
-                    if (cols.Count.Equals(0))
-                    {
-                        List<ColList> elements = new List<ColList>();
-                        elements = ClassHelp.SeekFileElements(pastedRows[0]);
+        //            if (cols.Count.Equals(0))
+        //            {
+        //                List<ColList> elements = new List<ColList>();
+        //                elements = ClassHelp.SeekFileElements(pastedRows[0]);
 
-                        if (pastedRowCells.Length == elements.Count + 2) return true;   //TODO more columns
+        //                if (pastedRowCells.Length == elements.Count + 2) return true;   //TODO more columns
 
-                    }
-                    else
-                    {
-                        if (pastedRowCells.Length == cols.Count) return true;
-                    }
+        //            }
+        //            else
+        //            {
+        //                if (pastedRowCells.Length == cols.Count) return true;
+        //            }
 
-                    // if (pastedRowCells.Length == 6) return true;   //TODO more columns
-                    // if (pastedRowCells.Length == cols.Count) return true;   //TODO more columns
-                    // check for visible rows
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Paste operation failed. (check clip) " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
+        //            // if (pastedRowCells.Length == 6) return true;   //TODO more columns
+        //            // if (pastedRowCells.Length == cols.Count) return true;   //TODO more columns
+        //            // check for visible rows
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Paste operation failed. (check clip) " + ex.Message, "Copy/Paste", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
 
         /// <summary>

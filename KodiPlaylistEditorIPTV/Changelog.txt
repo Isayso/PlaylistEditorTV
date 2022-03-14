@@ -1,5 +1,7 @@
 ﻿1.7.1
 - D&D with right mouse button
+- bug file header 
+- bug grey links 
 
 1.7.0
 - more columns
