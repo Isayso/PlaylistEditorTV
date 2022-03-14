@@ -42,7 +42,7 @@
             this.button_cancel.FlatAppearance.BorderSize = 0;
             this.button_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_cancel.Image = ((System.Drawing.Image)(resources.GetObject("button_cancel.Image")));
-            this.button_cancel.Location = new System.Drawing.Point(88, 127);
+            this.button_cancel.Location = new System.Drawing.Point(144, 107);
             this.button_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(76, 43);
@@ -58,7 +58,7 @@
             this.button_ok.FlatAppearance.BorderSize = 0;
             this.button_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_ok.Image = ((System.Drawing.Image)(resources.GetObject("button_ok.Image")));
-            this.button_ok.Location = new System.Drawing.Point(216, 127);
+            this.button_ok.Location = new System.Drawing.Point(272, 107);
             this.button_ok.Margin = new System.Windows.Forms.Padding(2);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(81, 43);
@@ -70,9 +70,9 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(46, 71);
+            this.textBox1.Location = new System.Drawing.Point(46, 56);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 28);
+            this.textBox1.Size = new System.Drawing.Size(414, 28);
             this.textBox1.TabIndex = 8;
             // 
             // label1
@@ -80,7 +80,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(62, 21);
+            this.label1.Location = new System.Drawing.Point(191, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 25);
             this.label1.TabIndex = 9;
@@ -91,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(383, 207);
+            this.ClientSize = new System.Drawing.Size(514, 174);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button_ok);
