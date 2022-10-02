@@ -25,6 +25,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace PlaylistEditor
 {
@@ -241,7 +242,7 @@ namespace PlaylistEditor
                 try
                 {
                     HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri) as HttpWebRequest;
-
+                    
                     req.Timeout = Properties.Settings.Default.timeout; //set the timeout #47
 
                     req.ContentType = "application/x-www-form-urlencoded";
@@ -647,7 +648,7 @@ namespace PlaylistEditor
             {
                 return ffpPath;
             }
-            else if (File.Exists(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\ffprobe.exe"))
+            else if (System.IO.File.Exists(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\ffprobe.exe"))
             {
                 return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\ffprobe.exe";
             }
@@ -730,10 +731,24 @@ namespace PlaylistEditor
                         Name = regArray[i],
                         Visible = true,
                     });
+                }
+            }
 
+            string[] regArray2 = { ":http-referrer", ":http-user-agent" };
+
+            for (int i = 0; i < regArray2.Length; i++)
+            {
+                if (fullstr.ContainsElement(regArray2[i]))
+                {
+                    columnList.Add(new ColList
+                    {
+                        Name = regArray2[i],
+                        Visible = true,
+                    });
                 }
 
             }
+
 
             return columnList;
         }

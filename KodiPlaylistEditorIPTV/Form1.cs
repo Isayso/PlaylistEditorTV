@@ -27,6 +27,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PlaylistEditor.ClassHelp;
+using static PlaylistEditor.ClassDataset;
+using System.Security.Permissions;
+using static System.Net.WebRequestMethods;
 
 namespace PlaylistEditor
 {
@@ -57,6 +60,8 @@ namespace PlaylistEditor
                      _isSingle = false,
                      _controlpressed = false,
                      _ffprobefound = false,
+                     _vlcopt1 = false,
+                     _vlcopt2 = false,
                      _endofLoop = false; //loop of move to top finished
 
 
@@ -163,7 +168,7 @@ namespace PlaylistEditor
             if (args.Length > 1) //drag drop
             {
                 plabel_Filename.Text = args[1];
-                ImportDataset(args[1], false);
+                ImportDataset(args[1]);
                 button_revert.Visible = true;
             }
 
@@ -178,7 +183,7 @@ namespace PlaylistEditor
                 //check if path exist
                 if (MyFileExists(plabel_Filename.Text, 5000))
                 {
-                    ImportDataset(plabel_Filename.Text, false);
+                    ImportDataset(plabel_Filename.Text);
                     button_revert.Visible = true;
 
                     if (Settings.Default.autoplayer)
@@ -236,117 +241,134 @@ namespace PlaylistEditor
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            //try
+            //{
+            if (e.Modifiers == Keys.Control)
             {
-                if (e.Modifiers == Keys.Control)
+                switch (e.KeyCode)
                 {
-                    switch (e.KeyCode)
-                    {
-                        case Keys.B:
-                            MoveLineBottom();
-                            break;
+                    case Keys.B:
+                        MoveLineBottom();
+                        break;
 
-                        case Keys.C:
-                            if (dataGridView1.SelectedRows.Count > 0)  //Full row
-                            {
-                                contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;
-                                CopyFullRow();
-                            }
-                            else toolStripCopy.PerformClick();
-                            break;
+                    case Keys.C:
+                        if (dataGridView1.SelectedRows.Count > 0)  //Full row
+                        {
+                            contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;
+                            CopyFullRow();
+                        }
+                        else toolStripCopy.PerformClick();
+                        break;
 
-                        case Keys.V:
-                            contextMenuStrip1.Items["toolStripPaste"].Enabled = true;
-                            toolStripPaste.PerformClick();   //#35
-                            break;
+                    case Keys.V:
+                        contextMenuStrip1.Items["toolStripPaste"].Enabled = true;
+                        toolStripPaste.PerformClick();   //#35
+                        break;
 
-                        case Keys.I:
-                            if (dataGridView1.SelectedRows.Count > 0 || dataGridView1.Rows.Count == 0
-                                || (string.IsNullOrEmpty(fullRowContent) && CheckClipboard()))
-                                contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;  //paste add
+                    case Keys.I:
+                        if (dataGridView1.SelectedRows.Count > 0 || dataGridView1.Rows.Count == 0
+                            || (string.IsNullOrEmpty(fullRowContent) && CheckClipboard()))
+                            contextMenuStrip1.Items["pasteRowMenuItem"].Enabled = true;  //paste add
 
-                            pasteRowMenuItem.PerformClick();
-                            break;
+                        pasteRowMenuItem.PerformClick();
+                        break;
 
-                        case Keys.X:
-                            if (dataGridView1.SelectedRows.Count > 0)
-                            {
-                                contextMenuStrip1.Items["cutRowMenuItem"].Enabled = true;
-                                cutRowMenuItem.PerformClick();
-                            }
-                            break;
+                    case Keys.X:
+                        if (dataGridView1.SelectedRows.Count > 0)
+                        {
+                            contextMenuStrip1.Items["cutRowMenuItem"].Enabled = true;
+                            cutRowMenuItem.PerformClick();
+                        }
+                        break;
 
-                        case Keys.Z:
-                            UndoButton.PerformClick();
-                            break;
+                    case Keys.Z:
+                        UndoButton.PerformClick();
+                        break;
 
-                        case Keys.T:  //move line to top
-                            MoveLineTop();
-                            break;
+                    case Keys.T:  //move line to top
+                        MoveLineTop();
+                        break;
 
-                        case Keys.F:
-                            button_search.PerformClick();
-                            break;
+                    case Keys.F:
+                        button_search.PerformClick();
+                        break;
 
-                        case Keys.N:
-                            Settings.Default.nostart = true;
-                            Settings.Default.Save();
-                            var deffile = new ProcessStartInfo(Application.ExecutablePath);
-                            Process.Start(deffile);
-                            break;
+                    case Keys.N:
+                        Settings.Default.nostart = true;
+                        Settings.Default.Save();
+                        var deffile = new ProcessStartInfo(Application.ExecutablePath);
+                        Process.Start(deffile);
+                        break;
 
-                        case Keys.P:
-                            playToolStripMenuItem.PerformClick();
-                            break;
+                    case Keys.P:
+                        playToolStripMenuItem.PerformClick();
+                        break;
 
-                        case Keys.S:
-                            _savenow = true;
-                            button_save.PerformClick();
-                            break;
+                    case Keys.S:
+                        _savenow = true;
+                        button_save.PerformClick();
+                        break;
 
-                        case Keys.Add:    //change font size
-                            zoomf += 0.1F;
-                            ZoomGrid(zoomf);
-                            break;
+                    case Keys.Add:    //change font size
+                        zoomf += 0.1F;
+                        ZoomGrid(zoomf);
+                        break;
 
-                        case Keys.Oemplus:      //change font size
-                            zoomf += 0.1F;
-                            ZoomGrid(zoomf);
-                            break;
+                    case Keys.Oemplus:      //change font size
+                        zoomf += 0.1F;
+                        ZoomGrid(zoomf);
+                        break;
 
-                        case Keys.Subtract:    //change font size
-                            zoomf -= 0.1F;
-                            ZoomGrid(zoomf);
-                            break;
+                    case Keys.Subtract:    //change font size
+                        zoomf -= 0.1F;
+                        ZoomGrid(zoomf);
+                        break;
 
-                        case Keys.OemMinus:     //change font size
-                            zoomf -= 0.1F;
-                            ZoomGrid(zoomf);
-                            break;
+                    case Keys.OemMinus:     //change font size
+                        zoomf -= 0.1F;
+                        ZoomGrid(zoomf);
+                        break;
 
-                        case Keys.D1:
-                            MoveLine(-1);
-                            break;
+                    case Keys.D1:
+                        MoveLine(-1);
+                        break;
 
-                        case Keys.D2:
-                            MoveLine(1);
-                            break;
-                    }
-                }
-                if (e.KeyCode == Keys.Delete && dataGridView1.IsCurrentCellInEditMode == false)
-                {
-                    button_delLine.PerformClick();
-                }
-                if (e.KeyCode == Keys.F2)
-                {
-                    _endofLoop = true;
-                    dataGridView1.BeginEdit(true);
+                    case Keys.D2:
+                        MoveLine(1);
+                        break;
                 }
             }
-            catch (Exception ex)
+            if (e.KeyCode == Keys.Delete && dataGridView1.IsCurrentCellInEditMode == false)
             {
-                MessageBox.Show("Key press operation failed. " + ex.Message, "Key press", MessageBoxButtons.OK, MessageBoxIcon.None);
+                button_delLine.PerformClick();
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
             }
+            
+            if (e.KeyCode == Keys.F2)
+            {
+                _endofLoop = true;
+                dataGridView1.BeginEdit(true);
+            }
+            
+            if (e.KeyCode == Keys.Escape && textBox_find.Visible == true)
+            {
+                button_clearfind.PerformClick();
+                button_search.PerformClick();
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+            }
+           // e.Handled = true;
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Key press operation failed. " + ex.Message, "Key press", MessageBoxButtons.OK, MessageBoxIcon.None);
+            //}
         }
 
         /// <summary>
@@ -503,8 +525,8 @@ namespace PlaylistEditor
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     //undoStack.Clear(); redoStack.Clear(); toSave(false); ShowReUnDo(0);//reset stacks
-                    toSave(false, true);
-                    ImportDataset(openFileDialog1.FileName, false);
+                    toSave(Modified.Reset);
+                    ImportDataset(openFileDialog1.FileName);
                     button_revert.Visible = true;
                 }
                 else  //cancel
@@ -555,7 +577,7 @@ namespace PlaylistEditor
         /// <param name="filename"></param>
         /// <param name="append">false/true for append</param>
 
-        public void ImportDataset(string filename, bool append)
+        public void ImportDataset(string filename, bool append = false)
         {
             if (filename == null) return;
 
@@ -625,6 +647,23 @@ namespace PlaylistEditor
 
                     continue;
                 }
+                else if (fileRows[i].StartsWith("#EXTVLCOPT"))   //issue #65
+                {
+                    if (fileRows[i].Contains("user-agent"))
+                    {
+                      //  dr[":http-user-agent"] = fileRows[i].Replace("#EXTVLCOPT", "").Replace(":http-user-agent=", "");
+                        dr[":http-user-agent"] = fileRows[i].Remove(0, 27);
+                        _vlcopt1 = true;
+                        continue;
+                    }
+                    if (fileRows[i].Contains("-referrer"))
+                    {
+                      //  dr[":http-referrer"] = fileRows[i].Replace("#EXTVLCOPT:http-referrer=", "");
+                        dr[":http-referrer"] = fileRows[i].Remove(0,25);
+                        _vlcopt2 = true;
+                        continue;
+                    }
+                }
                 else if ((linktypes.Any(fileRows[i].StartsWith))
                     && (fileRows[i].Contains("//") || fileRows[i].Contains(":\\")))//issue #32 issue #61
                 {
@@ -667,7 +706,7 @@ namespace PlaylistEditor
                 {
                     dt.Rows.RemoveAt(row.Index);
                 }
-                toSave(true);
+                toSave();
             }
             else  //delete cells only
             {
@@ -681,7 +720,7 @@ namespace PlaylistEditor
                     }
                 }
 
-                toSave(true);
+                toSave();
             }
         }
 
@@ -701,12 +740,13 @@ namespace PlaylistEditor
             {
                 DialogResult dialogHidden = MessageBox.Show(Mess.Hidden_Columns_will_not_be_saved, Mess.Proceed,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
                 if (dialogHidden == DialogResult.Yes)
                 {
-                    button_save.PerformClick();
+                    // button_save.PerformClick();
                     isModified = false;
                 }
-                if (dialogHidden == DialogResult.No) return;
+                else if (dialogHidden == DialogResult.No) return;
 
             }
 
@@ -738,11 +778,23 @@ namespace PlaylistEditor
                         writestring += "," + dt.Rows[i][dt.Columns.Count - 2];  //Name2
 
                         file.WriteLine(writestring);
+
+                        if (_vlcopt1)
+                            if (dataGridView1.Columns[":http-user-agent"].Visible && !string.IsNullOrEmpty(dataGridView1.Rows[i]
+                                .Cells[dataGridView1.Columns[":http-user-agent"].Index].Value.ToString()))
+                                file.WriteLine("#EXTVLCOPT:http-user-agent=" + dt.Rows[i][dataGridView1.Columns[":http-user-agent"].Index]);
+
+                        if (_vlcopt2)
+                            if (dataGridView1.Columns[":http-referrer"].Visible && !string.IsNullOrEmpty(dataGridView1.Rows[i]
+                                .Cells[dataGridView1.Columns[":http-referrer"].Index].Value.ToString()))
+                                file.WriteLine("#EXTVLCOPT:http-referrer=" + dt.Rows[i][dataGridView1.Columns[":http-referrer"].Index]);
+
                         file.WriteLine(dt.Rows[i][dt.Columns.Count - 1]);
+
                     }
                 }
                 //undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
-                toSave(false, true);
+                toSave(Modified.Reset);
                 button_revert.Visible = true;
                 _savenow = false;
 
@@ -773,12 +825,23 @@ namespace PlaylistEditor
                         writestring += "," + dt.Rows[i][dt.Columns.Count - 2];  //Name2
 
                         file.WriteLine(writestring);
-                        file.WriteLine(dt.Rows[i][dt.Columns.Count - 1]);
+
+                        if (_vlcopt1)
+                            if (dataGridView1.Columns[":http-user-agent"].Visible && !string.IsNullOrEmpty(dataGridView1.Rows[i]
+                                .Cells[dataGridView1.Columns[":http-user-agent"].Index].Value.ToString()))
+                                file.WriteLine("#EXTVLCOPT:http-user-agent=" + dt.Rows[i][dataGridView1.Columns[":http-user-agent"].Index]);
+
+                        if (_vlcopt2)
+                            if (dataGridView1.Columns[":http-referrer"].Visible && !string.IsNullOrEmpty(dataGridView1.Rows[i]
+                                .Cells[dataGridView1.Columns[":http-referrer"].Index].Value.ToString()))
+                                file.WriteLine("#EXTVLCOPT:http-referrer=" + dt.Rows[i][dataGridView1.Columns[":http-referrer"].Index]);
+
+                        file.WriteLine(dt.Rows[i][dt.Columns.Count - 1]);  //link
                     }
                 }
 
                 //undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
-                toSave(false, true);
+                toSave(Modified.Reset);
                 button_revert.Visible = true;
                 Cursor.Current = Cursors.Default;
             }
@@ -825,7 +888,7 @@ namespace PlaylistEditor
             {
                 dt.Clear();
                 dt.Columns.Clear();
-                toSave(false);
+                toSave(Modified.No);
                 plabel_Filename.Text = "";
                 button_revert.Visible = false;
             }
@@ -855,7 +918,7 @@ namespace PlaylistEditor
             }
             label_central.SendToBack();
 
-            toSave(true);
+            toSave();
         }
 
         private void button_vlc_Click(object sender, EventArgs e)
@@ -932,8 +995,19 @@ namespace PlaylistEditor
 
                 ps.Arguments += " --no-qt-error-dialogs";
 
+                if (_vlcopt1)
+                    if (dataGridView1.Columns[":http-user-agent"].Visible && 
+                        !string.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[":http-user-agent"].Value.ToString()))
+                        ps.Arguments += " :http-user-agent=" + "\"" + dataGridView1.CurrentRow.Cells[":http-user-agent"].Value.ToString() +"\"";
+
+                if (_vlcopt2)
+                    if (dataGridView1.Columns[":http-referrer"].Visible && 
+                        !string.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[":http-referrer"].Value.ToString()))
+                        ps.Arguments += " :http-referrer=" + "\"" + dataGridView1.CurrentRow.Cells[":http-referrer"].Value.ToString() +"\"";
+                   
+
 #if DEBUG
-                //   MessageBox.Show("param: " + ps.Arguments.ToString());
+                       MessageBox.Show("param: " + ps.Arguments.ToString());
 #endif
 
                 ps.CreateNoWindow = true;
@@ -967,7 +1041,7 @@ namespace PlaylistEditor
                         dt.Clear();
                         dt.Columns.Clear();
                         //undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
-                        toSave(false, true);
+                        toSave(Modified.Reset);
                         plabel_Filename.Text = "";
                         button_revert.Visible = false;
                         label_central.BringToFront();
@@ -990,9 +1064,9 @@ namespace PlaylistEditor
             switch (MessageBox.Show(Mess.Reload_File, Mess.Warning, MessageBoxButtons.YesNo, MessageBoxIcon.None))
             {
                 case DialogResult.Yes:
-                    ImportDataset(plabel_Filename.Text, false);
+                    ImportDataset(plabel_Filename.Text);
                     //undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0); toSave(false);
-                    toSave(false, true);
+                    toSave(Modified.Reset);
                     break;
 
                 case DialogResult.No:
@@ -1219,6 +1293,9 @@ namespace PlaylistEditor
             await ClassKodi.RunOnKodi(jLink);
         }
 
+        /// <summary>
+        /// copy full row
+        /// </summary>
         private void CopyFullRow()
         {
             try
@@ -1290,6 +1367,12 @@ namespace PlaylistEditor
 
         }
 
+        /// <summary>
+        /// paste full rows
+        /// </summary>
+        /// <param name="clipText">clipboard content</param>
+        /// <param name="insert">insert/overwrite</param>
+        /// <param name="emptyGrid">new table</param>
         private void PasteMethod(string clipText, bool insert, bool emptyGrid = false)
         {
             int a = 0;
@@ -1331,7 +1414,7 @@ namespace PlaylistEditor
 
                 }
 
-                toSave(true);
+                toSave();
 
             }
             catch (Exception ex)
@@ -1554,7 +1637,7 @@ namespace PlaylistEditor
                 return;
             }
 
-            toSave(true);
+            toSave();
         }
 
         private void FillCells()
@@ -1569,7 +1652,7 @@ namespace PlaylistEditor
                     oCell = dataGridView1[cell.ColumnIndex, cell.RowIndex];
                     oCell.Value = Convert.ChangeType(s.Trim(), oCell.ValueType);  //#35
                 }
-                toSave(true);
+                toSave();
             }
         }
 
@@ -1601,7 +1684,7 @@ namespace PlaylistEditor
                 //oCell.Value = Convert.ChangeType(Convert.ToInt32(n), oCell.ValueType);  //test for sort
                 n += 1;
             }
-            toSave(true);
+            toSave();
 
             //foreach (DataGridViewCell cell in dataGridView1.InvSelectedCells())
             //{
@@ -1618,7 +1701,7 @@ namespace PlaylistEditor
 
             DataGridViewCell oCell;
             string cellName = null;
-            bool save = false;
+            Modified save = Modified.No;
 
 
             foreach (DataGridViewCell cell in dataGridView1.InvSelectedCells())
@@ -1634,7 +1717,7 @@ namespace PlaylistEditor
                 if (!string.IsNullOrEmpty(cellName))
                 {
                     oCell.Value = Convert.ChangeType(cellName.ToString(), oCell.ValueType);
-                    save = true;
+                    save = Modified.Yes;
                 }
             }
             toSave(save);
@@ -1777,7 +1860,7 @@ namespace PlaylistEditor
                 {
                     if (rowIndexOfItemUnderMouseToDrop < 0)
                     {
-                        return;
+                        return;  //otherwise line will disappear 
                     }
 
                     DataRow dr = dt.NewRow();
@@ -1791,7 +1874,7 @@ namespace PlaylistEditor
                     dt.Rows.InsertAt(dr, rowIndexOfItemUnderMouseToDrop);
 
 
-                    toSave(true);
+                    toSave();
                 }
             }
             else if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -1814,19 +1897,19 @@ namespace PlaylistEditor
 
                         if (dataGridView1.RowCount == 0)
                         {
-                            ImportDataset(fileName, false);
+                            ImportDataset(fileName);
                             break;
                         }
                         else  //imoprt and add
                         {
                             ImportDataset(fileName, true);
-                            toSave(true);
+                            toSave();
                             break;
                         }
                     }
                     label_central.SendToBack();
 
-                    toSave(true);
+                    toSave();
                 }
             }
         }
@@ -1884,7 +1967,7 @@ namespace PlaylistEditor
                     dataGridView1.CurrentCell = dataGridView1.Rows[row.Index + direction].Cells[i];  //scroll automatic to cell
                 }
             }
-            toSave(true);
+            toSave();
         }
 
         /// <summary>
@@ -1931,7 +2014,7 @@ namespace PlaylistEditor
                     n += 1;
                 }
                 _endofLoop = true;
-                toSave(true);
+                toSave();
             }
         }
 
@@ -1976,7 +2059,7 @@ namespace PlaylistEditor
                     n += 1;
                 }
                 _endofLoop = true;
-                toSave(true);
+                toSave();
             }
         }
 
@@ -1985,25 +2068,46 @@ namespace PlaylistEditor
         /// </summary>
         /// <param name="hasChanged">true if grid modified vs file</param>
         /// <param name="reset">reset undo/redo stack</param>
-        public void toSave(bool hasChanged, bool reset = false)
+        public void toSave(/*bool hasChanged, bool reset = false,*/ Modified modified = Modified.Yes)
         {
-            if (reset)
+            switch (modified)
             {
-                undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0);
+                case Modified.Yes:
+                    button_save.Image = Resources.content_save_modified_r;
+                    isModified = true;
+                    DataGridView1_CellValidated(null, null);
+                    break;
+
+                case Modified.No:
+                    isModified = false;
+                    button_save.Image = Resources.content_save_r;
+                    break;
+
+                case Modified.Reset:
+                    isModified = false;
+                    undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0);
+                    button_save.Image = Resources.content_save_r;
+                    break;
             }
 
-            isModified = hasChanged;
 
-            if (hasChanged)
-            {
-                // button_save.BackgroundImage = Resources.content_save_modified;
-                button_save.Image = Resources.content_save_modified_r;
-                DataGridView1_CellValidated(null, null);
-            }
+            //if (reset)
+            //{
+            //    undoStack.Clear(); redoStack.Clear(); ShowReUnDo(0);
+            //}
 
-            if (!hasChanged)
-                // button_save.BackgroundImage = Resources.content_save_1_;
-                button_save.Image = Resources.content_save_r;
+            //isModified = hasChanged;
+
+            //if (hasChanged)
+            //{
+            //    // button_save.BackgroundImage = Resources.content_save_modified;
+            //    button_save.Image = Resources.content_save_modified_r;
+            //    DataGridView1_CellValidated(null, null);
+            //}
+
+            //if (!hasChanged)
+            //    // button_save.BackgroundImage = Resources.content_save_1_;
+            //    button_save.Image = Resources.content_save_r;
         }
 
         /// <summary>
@@ -2025,7 +2129,7 @@ namespace PlaylistEditor
         {
             if (!_endofLoop) return;  //avoid lag with player open
 
-            toSave(true);
+            toSave();
 
             _endofLoop = false;
         }
@@ -2039,7 +2143,7 @@ namespace PlaylistEditor
             if (e.Button == MouseButtons.Left)
             {
 
-                toSave(true);
+                toSave();
 
                 if (_sort == "desc")
                 {
@@ -2548,6 +2652,23 @@ namespace PlaylistEditor
 
                             continue;
                         }
+                        else if (fileRows[i].StartsWith("#EXTVLCOPT"))   //issue #65
+                        {
+                            if (fileRows[i].Contains("user-agent"))
+                            {
+                                //  dr[":http-user-agent"] = fileRows[i].Replace("#EXTVLCOPT", "").Replace(":http-user-agent=", "");
+                                dr[":http-user-agent"] = fileRows[i].Remove(0, 27);
+                                _vlcopt1 = true;
+                                continue;
+                            }
+                            if (fileRows[i].Contains("-referrer"))
+                            {
+                                //  dr[":http-referrer"] = fileRows[i].Replace("#EXTVLCOPT:http-referrer=", "");
+                                dr[":http-referrer"] = fileRows[i].Remove(0, 25);
+                                _vlcopt2 = true;
+                                continue;
+                            }
+                        }
                         else if (linktypes.Any(fileRows[i].StartsWith)
                                 && (fileRows[i].Contains("//") || fileRows[i].Contains(":\\")))//issue #32 issue #61
 
@@ -2568,7 +2689,7 @@ namespace PlaylistEditor
                 }
                 label_central.SendToBack();
 
-                toSave(true);
+                toSave();
             }
 
             if (dt.Rows.Count == 0)
@@ -2931,7 +3052,7 @@ namespace PlaylistEditor
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            toSave(true);
+            toSave();
         }
 
 

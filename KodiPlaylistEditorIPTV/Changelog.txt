@@ -1,4 +1,8 @@
-﻿1.7.1
+﻿1.7.2
+- ESC closes find box
+- support of vlc options #EXTVCLOPT
+
+1.7.1
 - D&D with right mouse button
 - bug file header 
 - bug grey links 
