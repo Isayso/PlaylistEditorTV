@@ -15,6 +15,7 @@ A version for Kodi playlist files: [Playlist Editor](https://github.com/Isayso/P
   Special thanks to dobbelina for helpful ideas and testing, improved the usablility a lot. 
   
   New in 1.7 multi column support, all tags autodetect, new context menus, file header edit 
+  1.7.2 #EXTVLCOPT tag support
 
 ![UI](KodiPlaylistEditorTV1.7.png)
 ![UI](screenshot_1.4.PNG)
