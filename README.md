@@ -57,11 +57,6 @@ PlaylistEditorTV.exe
 You can connect the .m3u filename extension with the program or open files with drag and drop on the icon.
 
 
-## Built With
-
-* [Visual Studio 2017](https://visualstudio.microsoft.com/) - C# with .NET 4.6.2
-
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
