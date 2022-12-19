@@ -84,7 +84,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ![UI](https://github.com/Isayso/PlaylistEditorTV/blob/master/bitcoin/qrcode-1EU-Github.png) bc1q0cte24tuax2kx25kypeqtewk73rvggqtqw9pzc
 
 
-![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v.1.7.2/total)
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Isayso/PlaylistEditorTV/v1.7.3/total)
 
 
 
