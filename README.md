@@ -8,6 +8,10 @@
 bc1q0cte24tuax2kx25kypeqtewk73rvggqtqw9pzc
 
 # Playlist Editor TV
+
+## Further development at [Codeberg](https://codeberg.org/Isayso)
+
+
 Editor for IPTV m3u files with vlc media player and kodi support.   
 A version for Kodi playlist files: [Playlist Editor](https://github.com/Isayso/PlaylistEditor)  
 
