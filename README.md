@@ -9,7 +9,8 @@ bc1q0cte24tuax2kx25kypeqtewk73rvggqtqw9pzc
 
 # Playlist Editor TV
 
-## Further development at [Codeberg](https://codeberg.org/Isayso)
+## Further development at [Codeberg](https://codeberg.org/Isayso)  
+I do not comply with your power grep to my cell phone "for my safety". Goodby. 
 
 
 Editor for IPTV m3u files with vlc media player and kodi support.   
