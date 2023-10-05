@@ -128,7 +128,7 @@ namespace PlaylistEditor
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/Isayso/PlaylistEditorTV/releases");
+            System.Diagnostics.Process.Start("https://codeberg.org/Isayso/PlaylistEditorTV/releases");
         }
 
         private void donateButton_Click(object sender, EventArgs e)

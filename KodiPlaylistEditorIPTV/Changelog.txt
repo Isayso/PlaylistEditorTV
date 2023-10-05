@@ -1,4 +1,12 @@
-﻿1.7.2
+﻿1.7.4
+- bugfix
+
+1.7.3
+- missing option on German
+- no Kodi IP disables button
+- Install Package
+
+1.7.2
 - ESC closes find box
 - support of vlc options #EXTVCLOPT
 

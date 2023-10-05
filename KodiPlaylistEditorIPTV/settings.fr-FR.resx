@@ -118,232 +118,130 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 308</value>
   </data>
-  <data name="toolStripCopy.Text" xml:space="preserve">
-    <value>Copier</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 258</value>
   </data>
-  <data name="toolStripPaste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 24</value>
   </data>
-  <data name="toolStripPaste.Text" xml:space="preserve">
-    <value>Coller</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 308</value>
   </data>
-  <data name="cutRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 24</value>
   </data>
-  <data name="cutRowMenuItem.Text" xml:space="preserve">
-    <value>Couper la ligne</value>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>387, 24</value>
   </data>
-  <data name="pasteRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 24</value>
   </data>
-  <data name="pasteRowMenuItem.Text" xml:space="preserve">
-    <value>Coller Insérer une ligne</value>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 24</value>
   </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 6</value>
-  </data>
-  <data name="playToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="playToolStripMenuItem.Text" xml:space="preserve">
-    <value>Kodi jouer</value>
-  </data>
-  <data name="playToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>double-cliquer sur</value>
-  </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 6</value>
-  </data>
-  <data name="hideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Masquer la colonne</value>
-  </data>
-  <data name="showToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="showToolStripMenuItem.Text" xml:space="preserve">
-    <value>Afficher toutes les colonnes</value>
-  </data>
-  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 6</value>
-  </data>
-  <data name="cms1NewWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="cms1NewWindow.Text" xml:space="preserve">
-    <value>nouvelle fenêtre</value>
-  </data>
-  <data name="cms1Number.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="cms1Number.Text" xml:space="preserve">
-    <value>Numérotation</value>
-  </data>
-  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 238</value>
-  </data>
-  <data name="textBox_find.ToolTip" xml:space="preserve">
-    <value>AND char ESPACE</value>
-  </data>
-  <data name="button_search.ToolTip" xml:space="preserve">
-    <value>Rechercher
-Ctrl +F</value>
-  </data>
-  <data name="button_kodi.ToolTip" xml:space="preserve">
-    <value>jouer avec Kodi
-Ctrl+P 
-Ctrl+ double clic sur la cellule
+  <data name="button_file.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACWklEQVRoQ+3ZPW4UQRDF8UVAgoR8ARMi
+        MhLEOZwRcBkIibkAEQIjJDIuAM45iLH5iBBIw+vpv1/vana807XTi4TmJ5Vkv+6u6rY2sOzVYrHYreu6
+        e6r3qh+qfT2n7WFoYLr81370fA73CA1LP/kWDvMIDZrjYzOm/SMYZMTVOL7NC7a0wRAjrsbxMe0ewQAj
+        rsbx67R5BM2NuBrHd5n/ETQ24mocn2LeR9DUiKtxfKr5HkFDI67G8RrzPIJmRlyN47X2fwSNjLgax6tx
+        PI4+RlyN49U4HkcfI26GMUYcRx8jboYxRhxHHyNuhjFGHEcfI26GMUYcRx8jboYxRhxHHyNuhjFGHEcf
+        I96L2tzny4E8pSCOo48Rh6nFE9Uv1QnRhjRjHXEcfYw4RMfT5X/3jbrup+ohS5aXCuI4+hhxNR19qvrT
+        NynesmzkRhxHHyMe0NIt1dbPtvJtl/+sussWy0sFcRx9jHiD4puq16pL1WPinr5f/9hcOVMNLp/k5YI4
+        jj5GbIrS5U/7xSz9EewRa5N/8lfyloI4jj5GvEHxy7xqF6pnqqrLJ3lbQRxHHyPeoPiG6lW/Ydzox2Zd
+        3loQx9HHiAe0dFv1sd80NOnySd5eEMfRx4i30vId1ad+YzH58kk+UhDH0ceIR2nLkepLv7ny8kk+VhDH
+        0ceIr6Vtx6o3qqrLJ2nGOuI4+hhxM4wx4jj6GHEzjDHiOPoYcTOMMeI49Wj5D45dvnGNODX5kHv9E6dc
+        I05NHqjSrwaHdq465hr7UaP0n8p3qu+q1tKM9MvhPJdfLP5rq9Vfo4jCoya2i5EAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button_import.ToolTip" xml:space="preserve">
-    <value>Importez la liste complète du presse-papiers</value>
-  </data>
-  <data name="RedoButton.ToolTip" xml:space="preserve">
-    <value>Rétablir</value>
-  </data>
-  <data name="UndoButton.ToolTip" xml:space="preserve">
-    <value>Annuler</value>
-  </data>
-  <data name="button_check.ToolTip" xml:space="preserve">
-    <value>vérifier les liens invalides 
-+ ctrl sélectionner les liens orange 
-+ shift-ctrl sélectionner les liens gris
-+ Alt forcer le nouveau scan</value>
-  </data>
-  <data name="button_vlc.ToolTip" xml:space="preserve">
-    <value>jouer avec vlc 
-double click cell</value>
-  </data>
-  <data name="button_revert.ToolTip" xml:space="preserve">
-    <value>Recharger le fichier</value>
-  </data>
-  <data name="button_dup.ToolTip" xml:space="preserve">
-    <value>trouver les doublons 
-+ shift supprimer les doublons</value>
-  </data>
-  <data name="button_moveDown.ToolTip" xml:space="preserve">
-    <value>déplacer la ligne vers le bas 
-Ctrl-2 
-Ctrl-clic déplacer vers le bas 
-Ctrl-B déplacer vers le bas</value>
-  </data>
-  <data name="button_moveUp.ToolTip" xml:space="preserve">
-    <value>déplacer la ligne vers le haut
-Ctrl-1
-Ctrl-clic déplacer vers le haut 
-Ctrl+T déplacer vers le haut!</value>
-  </data>
-  <data name="button_del_all.ToolTip" xml:space="preserve">
-    <value>supprimer la liste </value>
-  </data>
-  <data name="button_settings.ToolTip" xml:space="preserve">
-    <value>Paramètres</value>
-  </data>
-  <data name="button_add.ToolTip" xml:space="preserve">
-    <value>Ajouter une ligne</value>
-  </data>
-  <data name="button_Info.ToolTip" xml:space="preserve">
-    <value>INFO</value>
-  </data>
-  <data name="button_delLine.ToolTip" xml:space="preserve">
-    <value>supprimer la ligne ou les cellules</value>
-  </data>
-  <data name="button_save.ToolTip" xml:space="preserve">
-    <value>enregistrer sous 
-+ shift enregistrer écraser 
-Ctrl+S enregistrer!</value>
-  </data>
-  <data name="addUseragentCell.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 24</value>
-  </data>
-  <data name="addUseragentCell.Text" xml:space="preserve">
-    <value>Ajouter User Agent</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 6</value>
-  </data>
-  <data name="editCellCopy.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+C</value>
-  </data>
-  <data name="editCellCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 24</value>
-  </data>
-  <data name="editCellCopy.Text" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="editCellPaste.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+V</value>
-  </data>
-  <data name="editCellPaste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 24</value>
-  </data>
-  <data name="editCellPaste.Text" xml:space="preserve">
-    <value>Coller</value>
-  </data>
-  <data name="editCellCut.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+X</value>
-  </data>
-  <data name="editCellCut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 24</value>
-  </data>
-  <data name="editCellCut.Text" xml:space="preserve">
-    <value>Couper</value>
-  </data>
-  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 106</value>
-  </data>
-  <data name="label_central.Size" type="System.Drawing.Size, System.Drawing">
-    <value>346, 60</value>
-  </data>
-  <data name="label_central.Text" xml:space="preserve">
-    <value>Glisser-déplacer le fichier pour ouvrir ou ajoutez 
-Ctrl-N pour ouvrir une nouvelle fenêtre</value>
-  </data>
-  <data name="cm3Scrollbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 24</value>
-  </data>
-  <data name="cm3Scrollbar.Text" xml:space="preserve">
-    <value>Barre de défilement</value>
-  </data>
-  <data name="cm3EditF2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 24</value>
-  </data>
-  <data name="contextMenuStrip3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 52</value>
-  </data>
-  <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_file.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA49JREFUeF7t
-        mjmL1VAYhscF7VREUUEsFBREULBQC/0JNoJ7aeOGhZ2VtSiCoIW9NvaiiGAlClrYuqC2LuCOitvz4j1w
-        CN/JTSbJSc6954GHGYa5yZd3krN8mZlMJjNtnB19zQT4izmkEhRQDqkEF1AOKYAfUA7JoBhQDqmAFZDM
-        IY2wwnHmkMAKxncqQlqFB/ES3sbn+B5/ohVK0YkMaRmewkdoXXRdJyak1ag75RtaF9rEpENagGfwK1oX
-        14bJBrQBn6B1UW2ZbDh78DNaF9WWyYZzDH+jdVFFNXNdxgO4BZeiHkvrd32TDecoWhfk+wuv4w4MYX3O
-        mfRjNe7OuYXrcRzWZ2XSA3LZmKPp/QhWxTpGsuFozCibrd7gVqxD8RjJhiO0zilekFPh6O6qi3+MpuGs
-        xUP/v42PVsihRaAeq7p3jsMdo41wXuMH1DYnOto++KH41hlziujzbYXj6jmHUdFfJLS30mzVhLbDkZ9w
-        EUZDu3K/AKfWOVWm8q6Yjy/Rqk3rtGiEWhZaBPbNDbRqu49RULPLKkCWrZBjsQut2v7gCuwcdQKtArS3
-        GgJzsDgGOfdj54RmL208h8IVtGq8iJ2jHrJ1cu3Kh4IWh1aNd7Bz9ChZJ1fLYihsRqvGZ9g5evtgnVz9
-        nKGgWqwaP2LnhF7NaOM6FOahVaNaMp2j6dI6+VwcCgvRqvEHdk6o97MYh8JytGp8i53zAq2Tb8KhoE6C
-        VWOUQfouWiffh0PhMFo13sTOCS0U9fOhcBWtGqMsFEOLsCFtNV6hVeNe7BxtVkMz2Tbsm51o1aaaNXhH
-        4SFaRVzDvgm1Ox5gNE6iVcRT1CKtLzSTht7PHcdoLMEv6Beg6X8NNqFpu/Ue+jU5VWv0rdAFdAW0FY6O
-        NVtOoKun6HmMjgY8bf7aDEfOhu34Hf1QnFr5r8ReUHexzXBkXTbiO/SP4Xsak6UYjqyD7pyycB6j3nQk
-        iRWOrIrGnNBjJfX4r8MkCYUjx6GpPDRbOfV+bjcmSVk40kLbB62QtQis8h9sTV5998q4cKSaXZoh1bLQ
-        rlwbz9DeqqjunIkOp4kacyb2sWqqZquJHJCbqkWg1jnJTuWii4C0t9L2obcVctu0EZL6OWpZaFc+pHdw
-        rVE1JL2a0dsHNdjVQ1abVJ3AaM2uPqkS0tQzLqQMlIWUGREKKeNhhZQpUAwpY+CHlAngQsqUoJAymcy0
-        MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABQUlEQVRYR+3YQU4CURRE0R6xMhfGTNyn
+        uo32/csNCUb8Rb92IOEkPal0FS8MiHF5ehjruh7qeavns557HZ3ZT42eztub7XtUDW75Zr47OdfnIIym
+        6tXjuXFln6Mcg9FUvfrTQUP/KIdgNFWv3jpo6B3lCIym6tXfDhq2H+UAjKbq1dlBw7ajLMNoql5NDhru
+        P8oijKbq1fSgePPCHoym6tWXesYP6q3nwkrOHozanINRzh6M2pyDUc4ejNqcg1HOHozanINRzh6M2pyD
+        Uc4ejNqcg1HOHozanINRzh6M2pyDUc4ejNqcg1HOHozanINRzh6M2pyDUc4ejNqcg1HOHozanINRzh6M
+        2pyDUc4ejNqcg1HOHozanINRrjof5+qfePdjclW6+gtvZ69+TK5K458N46g9v6mxNTYPfszTf7csX+qi
+        2Umls0XHAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button_clearfind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cbDClick.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 255</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 24</value>
+  </data>
+  <data name="checkBox_scroll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 172</value>
+  </data>
+  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 172</value>
+  </data>
+  <data name="checkBox_F2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 217</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 220</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 24</value>
+  </data>
+  <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 115</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 24</value>
+  </data>
+  <data name="checkBox_hotkey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>611, 30</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 24</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 264</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 48</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 24</value>
+  </data>
+  <data name="comboBoxSpeech.Location" type="System.Drawing.Point, System.Drawing">
+    <value>329, 36</value>
+  </data>
+  <data name="comboBoxSpeech.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 32</value>
+  </data>
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAjUlEQVRIS+2UQQqAMAwE+wnBJ3jQ/5+k
-        f9CDz9HdQiCHGgJNT+3AYkuzm1jBNBmXDcrQWnY2C3RCR9k5oeGFbogBf/CMNaylxw2NF0TjA9XexFNj
-        YgU0hwu1oLBwgYFyz3zqNc9C0FOHTa7p2qDrFenJwz+yFdTcxBPQ1KT7r2KHaLDCBdawlp7JeKT0AcCU
-        QxewpghEAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA+UlEQVRoQ+2UWwrCQAxFuyW1qDvrp366
+        WcUd1BOdiAyttkKdjNwDgXaaIef21QghhBBC/CF937dUl07rAvEVdaaMU1quA4TXlMs7dYRAdEjeOKSW
+        uCAp+SIgKfkiICn5IiAp+SIgWU6eIR3VptPZsHdLXamcY2pZDhvymHUX2KXlybBnQxW78y7vzApBr8lf
+        bGPGb955BtmrkzMpBD1l5R0Gzg7BtRjyDoPHQuxTyxPWYsk7CHwMwXFMeQeR0RBUbHkHofzPZFgIq5zl
+        //PfgNjQk8iJdedzEHwXIra8g+hQiDrkHYRfQ9Ql7yBuH3bMD1YIIYQQi9E0N4/OWvhlkugGAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABWklEQVRoQ+2Y7UrDQBBFA+obij/07cTi
+        D99QhXgmzMVQNrTNTpMJzIGBdj/u3Jtt2pKhKIqiKIqjMI7jA/VOvflQGGg+U5/Ukw/FgrCZP1HGLxUW
+        Ai0z/2PC8EXFh0BU5oU1fPHp1ZiGa805+XQciNpV+p7k/+k6CfbOr7wwzVdfEgvCYSHYs615QYPuEKzd
+        x7yg0eoQrNnXvKDhzSGYy2Fe0PjqEIzlMi8wcDEEr3OaFxhZDEHlNi8w1PpBsvetse4fwLuAsdZJzMl3
+        5c/B4FKI/OYNTLY+88Z0T/iynGBwybzIGwJjx72JMbT4VUm17ok8J4GRRfO+RGvyhcDARfOCsVwhaHy1
+        ecFcjhA0vNm8YM2+IWi02rxg7T4haNBtXrBn2xAIh5kX7N0uBKKHf6xiD7Y+JvnOK38OWvOTsAdbjz4V
+        iwlTdhLhfwVM07XvY74oiqIoinCG4Q8MjAPyvzZg+AAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

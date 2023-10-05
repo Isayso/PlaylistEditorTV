@@ -302,8 +302,7 @@ Ctrl + S保存</value>
     <value>209, 60</value>
   </data>
   <data name="label_central.Text" xml:space="preserve">
-    <value>双击以打开文件拖动
-&amp;#39;n拖放文件以打开或附加
+    <value>&amp;#39;n拖放文件以打开或附加
 Ctrl-N来打开新窗口</value>
   </data>
   <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

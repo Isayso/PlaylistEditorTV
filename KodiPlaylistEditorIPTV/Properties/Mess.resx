@@ -171,6 +171,9 @@
   <data name="No internet connection found" xml:space="preserve">
     <value>No internet connection found!</value>
   </data>
+  <data name="No m3u file found" xml:space="preserve">
+    <value>No m3u file found</value>
+  </data>
   <data name="Paste operation failed" xml:space="preserve">
     <value>Paste operation failed.</value>
   </data>

@@ -27,11 +27,16 @@ namespace PlaylistEditor
         public static async Task<bool> RunOnKodi(string link)
         {
             string kodiIP = Settings.Default.rpi;
+
+            if (string.IsNullOrEmpty(kodiIP) || !Settings.Default.enableKodi) return false;  //#68
+
             string kodiUser = Settings.Default.username.Trim();
             string kodiPort = Settings.Default.port;
             //  string kodiPass = Properties.Settings.Default.password; https://stackoverflow.com/questions/12657792/how-to-securely-save-username-password-local
             byte[] plaintext = null;
             string kodiPass = "";
+
+
 
             if (Settings.Default.cipher != null && Settings.Default.entropy != null)
             {

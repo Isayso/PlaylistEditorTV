@@ -117,204 +117,108 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="dataGridView1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="toolStripCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="toolStripCopy.Text" xml:space="preserve">
-    <value>Copier</value>
+    <value>276, 24</value>
   </data>
   <data name="toolStripPaste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="toolStripPaste.Text" xml:space="preserve">
-    <value>Coller</value>
+    <value>276, 24</value>
   </data>
   <data name="cutRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="cutRowMenuItem.Text" xml:space="preserve">
-    <value>Couper la ligne</value>
+    <value>276, 24</value>
   </data>
   <data name="pasteRowMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="pasteRowMenuItem.Text" xml:space="preserve">
-    <value>Coller Insérer une ligne</value>
+    <value>276, 24</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 6</value>
+    <value>273, 6</value>
   </data>
   <data name="playToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="playToolStripMenuItem.Text" xml:space="preserve">
-    <value>Kodi jouer</value>
-  </data>
-  <data name="playToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>double-cliquer sur</value>
+    <value>276, 24</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 6</value>
+    <value>273, 6</value>
   </data>
   <data name="hideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="hideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Masquer la colonne</value>
+    <value>276, 24</value>
   </data>
   <data name="showToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
+    <value>276, 24</value>
   </data>
-  <data name="showToolStripMenuItem.Text" xml:space="preserve">
-    <value>Afficher toutes les colonnes</value>
+  <data name="cm1NewColumn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
   </data>
   <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 6</value>
+    <value>273, 6</value>
   </data>
   <data name="cms1NewWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
-  </data>
-  <data name="cms1NewWindow.Text" xml:space="preserve">
-    <value>nouvelle fenêtre</value>
+    <value>276, 24</value>
   </data>
   <data name="cms1Number.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
+    <value>276, 24</value>
   </data>
-  <data name="cms1Number.Text" xml:space="preserve">
-    <value>Numérotation</value>
+  <data name="cms1GetName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 24</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 238</value>
+    <value>277, 286</value>
   </data>
-  <data name="textBox_find.ToolTip" xml:space="preserve">
-    <value>AND char ESPACE</value>
+  <data name="contextMenuStrip1.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="button_search.ToolTip" xml:space="preserve">
-    <value>Rechercher
-Ctrl +F</value>
-  </data>
-  <data name="button_kodi.ToolTip" xml:space="preserve">
-    <value>jouer avec Kodi
-Ctrl+P 
-Ctrl+ double clic sur la cellule
-</value>
-  </data>
-  <data name="button_import.ToolTip" xml:space="preserve">
-    <value>Importez la liste complète du presse-papiers</value>
-  </data>
-  <data name="RedoButton.ToolTip" xml:space="preserve">
-    <value>Rétablir</value>
-  </data>
-  <data name="UndoButton.ToolTip" xml:space="preserve">
-    <value>Annuler</value>
-  </data>
-  <data name="button_check.ToolTip" xml:space="preserve">
-    <value>vérifier les liens invalides 
-+ ctrl sélectionner les liens orange 
-+ shift-ctrl sélectionner les liens gris
-+ Alt forcer le nouveau scan</value>
-  </data>
-  <data name="button_vlc.ToolTip" xml:space="preserve">
-    <value>jouer avec vlc 
-double click cell</value>
-  </data>
-  <data name="button_revert.ToolTip" xml:space="preserve">
-    <value>Recharger le fichier</value>
-  </data>
-  <data name="button_dup.ToolTip" xml:space="preserve">
-    <value>trouver les doublons 
-+ shift supprimer les doublons</value>
-  </data>
-  <data name="button_moveDown.ToolTip" xml:space="preserve">
-    <value>déplacer la ligne vers le bas 
-Ctrl-2 
-Ctrl-clic déplacer vers le bas 
-Ctrl-B déplacer vers le bas</value>
-  </data>
-  <data name="button_moveUp.ToolTip" xml:space="preserve">
-    <value>déplacer la ligne vers le haut
-Ctrl-1
-Ctrl-clic déplacer vers le haut 
-Ctrl+T déplacer vers le haut!</value>
-  </data>
-  <data name="button_del_all.ToolTip" xml:space="preserve">
-    <value>supprimer la liste </value>
-  </data>
-  <data name="button_settings.ToolTip" xml:space="preserve">
-    <value>Paramètres</value>
-  </data>
-  <data name="button_add.ToolTip" xml:space="preserve">
-    <value>Ajouter une ligne</value>
-  </data>
-  <data name="button_Info.ToolTip" xml:space="preserve">
-    <value>INFO</value>
-  </data>
-  <data name="button_delLine.ToolTip" xml:space="preserve">
-    <value>supprimer la ligne ou les cellules</value>
-  </data>
-  <data name="button_save.ToolTip" xml:space="preserve">
-    <value>enregistrer sous 
-+ shift enregistrer écraser 
-Ctrl+S enregistrer!</value>
+  <data name="contextMenuStrip5.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="addUseragentCell.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 24</value>
-  </data>
-  <data name="addUseragentCell.Text" xml:space="preserve">
-    <value>Ajouter User Agent</value>
+    <value>204, 24</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 6</value>
-  </data>
-  <data name="editCellCopy.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+C</value>
+    <value>201, 6</value>
   </data>
   <data name="editCellCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 24</value>
-  </data>
-  <data name="editCellCopy.Text" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="editCellPaste.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+V</value>
+    <value>204, 24</value>
   </data>
   <data name="editCellPaste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 24</value>
-  </data>
-  <data name="editCellPaste.Text" xml:space="preserve">
-    <value>Coller</value>
-  </data>
-  <data name="editCellCut.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>Ctrl+X</value>
+    <value>204, 24</value>
   </data>
   <data name="editCellCut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 24</value>
-  </data>
-  <data name="editCellCut.Text" xml:space="preserve">
-    <value>Couper</value>
+    <value>204, 24</value>
   </data>
   <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 106</value>
+    <value>205, 106</value>
+  </data>
+  <data name="contextMenuStrip2.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="label_central.Size" type="System.Drawing.Size, System.Drawing">
-    <value>346, 60</value>
+    <value>374, 60</value>
   </data>
-  <data name="label_central.Text" xml:space="preserve">
-    <value>Glisser-déplacer le fichier pour ouvrir ou ajoutez 
-Ctrl-N pour ouvrir une nouvelle fenêtre</value>
+  <data name="label_central.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblRowCheck.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblColCheck.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="cm3Scrollbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 24</value>
-  </data>
-  <data name="cm3Scrollbar.Text" xml:space="preserve">
-    <value>Barre de défilement</value>
+    <value>210, 26</value>
   </data>
   <data name="cm3EditF2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 24</value>
+    <value>210, 26</value>
   </data>
   <data name="contextMenuStrip3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 52</value>
+    <value>211, 56</value>
+  </data>
+  <data name="contextMenuStrip3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="contextMenuStrip4.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="button_refind.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -337,6 +241,9 @@ Ctrl-N pour ouvrir une nouvelle fenêtre</value>
         MDPzD9srLiJeBOqSAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="button_refind.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="button_clearfind.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -345,6 +252,12 @@ Ctrl-N pour ouvrir une nouvelle fenêtre</value>
         YgU0hwu1oLBwgYFyz3zqNc9C0FOHTa7p2qDrFenJwz+yFdTcxBPQ1KT7r2KHaLDCBdawlp7JeKT0AcCU
         QxewpghEAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="button_clearfind.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="plabel_Filename.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -831,5 +744,12 @@ Ctrl-N pour ouvrir une nouvelle fenêtre</value>
         ///wAAAQP/+B////////////////////////////////////////////////////////////////////
         //8=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>

@@ -50,7 +50,7 @@ namespace PlaylistEditor
 
             textBox3.Text = Settings.Default.timeout.ToString();
 
-
+            cbEnableKodi.Checked = Settings.Default.enableKodi;
 
             try
             {
@@ -137,6 +137,7 @@ namespace PlaylistEditor
             Settings.Default.nostart = false;
             Settings.Default.hotkey_enable = checkBox_hotkey.Checked;
             Settings.Default.scrollbar = checkBox_scroll.Checked;
+            Settings.Default.enableKodi = cbEnableKodi.Checked;
 
             Settings.Default.maxthread = (int)nMaxThread.Value;
 
@@ -358,6 +359,24 @@ namespace PlaylistEditor
 
         private void label2_Click(object sender, EventArgs e)
         {
+        }
+
+        private void checkBox_F2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbEnableKodi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbEnableKodi.Checked)
+            {
+                panel2.Visible = true;
+            }
+            else
+            {
+                panel2.Visible = false;
+            }
+
         }
     }
 }

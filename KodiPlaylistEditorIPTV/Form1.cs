@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -26,10 +27,8 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static PlaylistEditor.ClassHelp;
 using static PlaylistEditor.ClassDataset;
-using System.Security.Permissions;
-using static System.Net.WebRequestMethods;
+using static PlaylistEditor.ClassHelp;
 
 namespace PlaylistEditor
 {
@@ -94,8 +93,14 @@ namespace PlaylistEditor
             myCulture = Settings.Default.localize;
             if (string.IsNullOrEmpty(myCulture)) myCulture = "en-US";
 
-            Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
-            Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
+           // myCulture = "ru-RU";
+
+            //Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
+            //Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(myCulture);
+
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(myCulture);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(myCulture);
+
 
             InitializeComponent();
 
@@ -206,10 +211,14 @@ namespace PlaylistEditor
                 this.Size = Settings.Default.F2Size;
             }
 
+            button_kodi.Enabled = Settings.Default.enableKodi;
+
+
             if (dataGridView1.RowCount == 0) dataGridView1.ContextMenuStrip = contextMenuStrip1;
 
             Settings.Default.nostart = false;
             Settings.Default.Save();
+
         }
 
         /// <summary>
@@ -431,7 +440,7 @@ namespace PlaylistEditor
 
             cNameArr.Add("All");
 
-            textBox_find.BringToFront();
+            panel_Find.Show();
 
             if (Settings.Default.findresult == 0) lblRowCheck.Text = "Row";
             else lblRowCheck.Text = "Cell";
@@ -441,18 +450,13 @@ namespace PlaylistEditor
             if (_isIt)
             {
                 _isIt = !_isIt;
-                textBox_find.Visible = true;
-                button_clearfind.Visible = true; lblRowCheck.Visible = true; lblColCheck.Visible = true;
+                panel_Find.Show();
                 this.ActiveControl = textBox_find;
-                button_clearfind.BringToFront(); lblRowCheck.BringToFront(); lblColCheck.BringToFront();
-                button_refind.BringToFront(); button_refind.Visible = true;
             }
             else  //close textbox_find
             {
                 _isIt = !_isIt;
-                textBox_find.Visible = false;
-                button_clearfind.Visible = false; lblRowCheck.Visible = false; lblColCheck.Visible = false;
-                button_refind.Visible = false;
+                panel_Find.Hide();
 
             }
         }
@@ -569,6 +573,11 @@ namespace PlaylistEditor
 
             cm3EditF2.Checked = Settings.Default.F2_edit;
 
+            //TODO change access Kodi button
+
+            if (Settings.Default.enableKodi) button_kodi.Enabled = true;
+            else button_kodi.Enabled = false;
+
         }
 
         /// <summary>
@@ -594,6 +603,11 @@ namespace PlaylistEditor
                 return;
 
             }
+            //else
+            //{
+            //    MessageBox.Show(Mess.No_m3u_file_found);
+            //    return;
+            //}
 
             if (!append)  //append false 
             {
@@ -667,10 +681,11 @@ namespace PlaylistEditor
                 else if ((linktypes.Any(fileRows[i].StartsWith))
                     && (fileRows[i].Contains("//") || fileRows[i].Contains(":\\")))//issue #32 issue #61
                 {
-
-                    dr["Link"] = fileRows[i];
-
-                    try { dt.Rows.Add(dr); }
+                    try
+                    {
+                        dr["Link"] = fileRows[i];
+                        dt.Rows.Add(dr); 
+                    }
                     catch { continue; }
                 }
             }
@@ -923,6 +938,7 @@ namespace PlaylistEditor
 
         private void button_vlc_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.RowCount < 1) return;
 
             string vlclink = dataGridView1.CurrentRow.Cells["Link"].Value.ToString();
             //   if (!vlclink.StartsWith("http") && !vlclink.StartsWith("rtmp")) return; //issue #32
@@ -1037,6 +1053,12 @@ namespace PlaylistEditor
                 switch (MessageBox.Show(Mess.Delete_List, Mess.Warning, MessageBoxButtons.YesNo, MessageBoxIcon.None))
                 {
                     case DialogResult.Yes:
+
+                        for (int j = 0; j < dt.Columns.Count; j++)
+                        {
+                            string header = dt.Columns[j].ToString();
+                            dataGridView1.Columns[header].Visible = false;
+                        }
 
                         dt.Clear();
                         dt.Columns.Clear();
@@ -2700,7 +2722,7 @@ namespace PlaylistEditor
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_kodi_Click(object sender, EventArgs e)
         {
             playToolStripMenuItem.PerformClick();
         }
@@ -2832,6 +2854,7 @@ namespace PlaylistEditor
 
             cm1ColCombo.Items.Clear();
         }
+
 
         private void cm1ColCombo_Click(object sender, EventArgs e)
         {
