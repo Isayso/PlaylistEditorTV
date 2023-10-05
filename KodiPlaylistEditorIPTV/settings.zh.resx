@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_ok.Text" xml:space="preserve">
-    <value>确定</value>
-  </data>
-  <data name="button_cancel.Text" xml:space="preserve">
-    <value>取消</value>
-  </data>
   <data name="textBox_Password.ToolTip" xml:space="preserve">
     <value>nfs连接驱动器的IP</value>
   </data>
@@ -134,7 +128,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 20</value>
+    <value>48, 24</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>密码</value>
@@ -143,7 +137,7 @@
     <value>Kodi系统上的nfs路径</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
+    <value>67, 24</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>用户名</value>
@@ -152,7 +146,7 @@
     <value>Kodi系统上的nfs路径</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 20</value>
+    <value>48, 24</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>端口</value>
@@ -164,7 +158,7 @@
     <value>nfs连接驱动器的IP</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 20</value>
+    <value>26, 24</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>IP</value>
@@ -176,7 +170,7 @@
     <value>自动重置打开的设置</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 20</value>
+    <value>86, 24</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>删除字符</value>
@@ -185,7 +179,7 @@
     <value>要删除的字符数</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 20</value>
+    <value>106, 24</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>粘贴（左移）</value>
@@ -194,7 +188,7 @@
     <value>要删除的字符数</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 20</value>
+    <value>245, 24</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>* .m3u8文件的Kodi用户代理</value>
@@ -221,7 +215,7 @@
     <value>重新开始生效</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 20</value>
+    <value>135, 24</value>
   </data>
   <data name="label15.Text" xml:space="preserve">
     <value>颜色为错误403</value>
@@ -233,7 +227,7 @@
     <value>最大依赖网络尝试一下</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 20</value>
+    <value>182, 24</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
     <value>语言（需要重新启动）</value>
@@ -257,77 +251,38 @@
         I05NHqjSrwaHdq465hr7UaP0n8p3qu+q1tKM9MvhPJdfLP5rq9Vfo4jCoya2i5EAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="button_file.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABQUlEQVRYR+3YQU4CURRE0R6xMhfGTNyn
+        uo32/csNCUb8Rb92IOEkPal0FS8MiHF5ehjruh7qeavns557HZ3ZT42eztub7XtUDW75Zr47OdfnIIym
+        6tXjuXFln6Mcg9FUvfrTQUP/KIdgNFWv3jpo6B3lCIym6tXfDhq2H+UAjKbq1dlBw7ajLMNoql5NDhru
+        P8oijKbq1fSgePPCHoym6tWXesYP6q3nwkrOHozanINRzh6M2pyDUc4ejNqcg1HOHozanINRzh6M2pyD
+        Uc4ejNqcg1HOHozanINRzh6M2pyDUc4ejNqcg1HOHozanINRzh6M2pyDUc4ejNqcg1HOHozanINRzh6M
+        2pyDUc4ejNqcg1HOHozanINRrjof5+qfePdjclW6+gtvZ69+TK5K458N46g9v6mxNTYPfszTf7csX+qi
+        2Umls0XHAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="button_file.ToolTip" xml:space="preserve">
     <value>选择文件...</value>
   </data>
-  <data name="comboBox_result.Items" xml:space="preserve">
-    <value>行</value>
-  </data>
-  <data name="comboBox_result.Items1" xml:space="preserve">
-    <value>单元格</value>
-  </data>
-  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 20</value>
-  </data>
-  <data name="label14.Text" xml:space="preserve">
-    <value>搜索列结果</value>
-  </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
+    <value>51, 24</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>用F2</value>
   </data>
-  <data name="comboBox2.Items" xml:space="preserve">
-    <value>名称</value>
-  </data>
-  <data name="comboBox2.Items1" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="comboBox2.Items2" xml:space="preserve">
-    <value>标题</value>
-  </data>
-  <data name="comboBox2.Items3" xml:space="preserve">
-    <value>徽标</value>
-  </data>
-  <data name="comboBox1.Items" xml:space="preserve">
-    <value>名称</value>
-  </data>
-  <data name="comboBox1.Items1" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="comboBox1.Items2" xml:space="preserve">
-    <value>标题</value>
-  </data>
-  <data name="comboBox1.Items3" xml:space="preserve">
-    <value>徽标</value>
-  </data>
-  <data name="comboBox1.Items5" xml:space="preserve">
-    <value>链接</value>
-  </data>
-  <data name="comboBox1.Items6" xml:space="preserve">
-    <value>所有单元</value>
-  </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 20</value>
+    <value>124, 24</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>搜索列重复项</value>
   </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>选项</value>
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>科迪</value>
-  </data>
   <data name="checkBox_hotkey.Text" xml:space="preserve">
     <value>从剪贴板导入热键（需要重新启动）</value>
   </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>热键</value>
-  </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 20</value>
+    <value>48, 24</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>暗度</value>
@@ -342,19 +297,16 @@
     <value>从全屏开始</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 20</value>
+    <value>105, 24</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>播放器窗口</value>
-  </data>
-  <data name="tabPage4.Text" xml:space="preserve">
-    <value>自动启动</value>
   </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
     <value>69, 217</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 40</value>
+    <value>144, 48</value>
   </data>
   <data name="label18.Text" xml:space="preserve">
     <value>的最大等待时间
@@ -367,13 +319,10 @@
     <value>灰色</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 20</value>
+    <value>162, 24</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>使用的最大线程数</value>
-  </data>
-  <data name="tabPage5.Text" xml:space="preserve">
-    <value>链接检查。</value>
   </data>
   <data name="comboBoxSpeech.Items" xml:space="preserve">
     <value>自动</value>
@@ -393,8 +342,28 @@
   <data name="comboBoxSpeech.Items5" xml:space="preserve">
     <value>俄语</value>
   </data>
-  <data name="tabPage6.Text" xml:space="preserve">
-    <value>语言</value>
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA+UlEQVRoQ+2UWwrCQAxFuyW1qDvrp366
+        WcUd1BOdiAyttkKdjNwDgXaaIef21QghhBBC/CF937dUl07rAvEVdaaMU1quA4TXlMs7dYRAdEjeOKSW
+        uCAp+SIgKfkiICn5IiAp+SIgWU6eIR3VptPZsHdLXamcY2pZDhvymHUX2KXlybBnQxW78y7vzApBr8lf
+        bGPGb955BtmrkzMpBD1l5R0Gzg7BtRjyDoPHQuxTyxPWYsk7CHwMwXFMeQeR0RBUbHkHofzPZFgIq5zl
+        //PfgNjQk8iJdedzEHwXIra8g+hQiDrkHYRfQ9Ql7yBuH3bMD1YIIYQQi9E0N4/OWvhlkugGAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABWklEQVRoQ+2Y7UrDQBBFA+obij/07cTi
+        D99QhXgmzMVQNrTNTpMJzIGBdj/u3Jtt2pKhKIqiKIqjMI7jA/VOvflQGGg+U5/Ukw/FgrCZP1HGLxUW
+        Ai0z/2PC8EXFh0BU5oU1fPHp1ZiGa805+XQciNpV+p7k/+k6CfbOr7wwzVdfEgvCYSHYs615QYPuEKzd
+        x7yg0eoQrNnXvKDhzSGYy2Fe0PjqEIzlMi8wcDEEr3OaFxhZDEHlNi8w1PpBsvetse4fwLuAsdZJzMl3
+        5c/B4FKI/OYNTLY+88Z0T/iynGBwybzIGwJjx72JMbT4VUm17ok8J4GRRfO+RGvyhcDARfOCsVwhaHy1
+        ecFcjhA0vNm8YM2+IWi02rxg7T4haNBtXrBn2xAIh5kX7N0uBKKHf6xiD7Y+JvnOK38OWvOTsAdbjz4V
+        iwlTdhLhfwVM07XvY74oiqIoinCG4Q8MjAPyvzZg+AAAAABJRU5ErkJggg==
+</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

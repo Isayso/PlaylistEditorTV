@@ -89,15 +89,19 @@
             this.cm3EditF2 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip4 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cm4EditFIleHeader = new System.Windows.Forms.ToolStripMenuItem();
-            this.button_refind = new PlaylistEditor.MyButton();
+            this.panel_Find = new System.Windows.Forms.Panel();
             this.button_clearfind = new PlaylistEditor.MyButton();
+            this.button_refind = new PlaylistEditor.MyButton();
             this.plabel_Filename = new PathLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip5.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
             this.contextMenuStrip4.SuspendLayout();
+            this.panel_Find.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -282,7 +286,6 @@
             this.textBox_find.Name = "textBox_find";
             this.toolTip1.SetToolTip(this.textBox_find, resources.GetString("textBox_find.ToolTip"));
             this.textBox_find.TextChanged += new System.EventHandler(this.textBox_find_TextChange);
-            this.textBox_find.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_find_KeyPress);
             // 
             // button_kodi
             // 
@@ -293,7 +296,7 @@
             this.button_kodi.Name = "button_kodi";
             this.toolTip1.SetToolTip(this.button_kodi, resources.GetString("button_kodi.ToolTip"));
             this.button_kodi.UseVisualStyleBackColor = true;
-            this.button_kodi.Click += new System.EventHandler(this.button1_Click);
+            this.button_kodi.Click += new System.EventHandler(this.button_kodi_Click);
             // 
             // button_import
             // 
@@ -343,6 +346,7 @@
             // 
             resources.ApplyResources(this.button_vlc, "button_vlc");
             this.button_vlc.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button_vlc.Cursor = System.Windows.Forms.Cursors.Default;
             this.button_vlc.FlatAppearance.BorderSize = 0;
             this.button_vlc.Image = global::PlaylistEditor.Properties.Resources.arrow_right_drop_circle_outline_r;
             this.button_vlc.Name = "button_vlc";
@@ -352,8 +356,8 @@
             // 
             // button_revert
             // 
-            this.button_revert.BackColor = System.Drawing.Color.MidnightBlue;
             resources.ApplyResources(this.button_revert, "button_revert");
+            this.button_revert.BackColor = System.Drawing.Color.MidnightBlue;
             this.button_revert.FlatAppearance.BorderSize = 0;
             this.button_revert.Image = global::PlaylistEditor.Properties.Resources.reload_r;
             this.button_revert.Name = "button_revert";
@@ -606,15 +610,15 @@
             resources.ApplyResources(this.cm4EditFIleHeader, "cm4EditFIleHeader");
             this.cm4EditFIleHeader.Click += new System.EventHandler(this.cm4EditFIleHeader_Click);
             // 
-            // button_refind
+            // panel_Find
             // 
-            resources.ApplyResources(this.button_refind, "button_refind");
-            this.button_refind.BackColor = System.Drawing.Color.White;
-            this.button_refind.FlatAppearance.BorderSize = 0;
-            this.button_refind.ForeColor = System.Drawing.Color.Black;
-            this.button_refind.Name = "button_refind";
-            this.button_refind.UseVisualStyleBackColor = false;
-            this.button_refind.Click += new System.EventHandler(this.button_refind_Click);
+            resources.ApplyResources(this.panel_Find, "panel_Find");
+            this.panel_Find.Controls.Add(this.textBox_find);
+            this.panel_Find.Controls.Add(this.button_clearfind);
+            this.panel_Find.Controls.Add(this.button_refind);
+            this.panel_Find.Controls.Add(this.lblColCheck);
+            this.panel_Find.Controls.Add(this.lblRowCheck);
+            this.panel_Find.Name = "panel_Find";
             // 
             // button_clearfind
             // 
@@ -626,40 +630,54 @@
             this.button_clearfind.UseVisualStyleBackColor = false;
             this.button_clearfind.Click += new System.EventHandler(this.button_clearfind_Click);
             // 
+            // button_refind
+            // 
+            resources.ApplyResources(this.button_refind, "button_refind");
+            this.button_refind.BackColor = System.Drawing.Color.White;
+            this.button_refind.FlatAppearance.BorderSize = 0;
+            this.button_refind.ForeColor = System.Drawing.Color.Black;
+            this.button_refind.Name = "button_refind";
+            this.button_refind.UseVisualStyleBackColor = false;
+            this.button_refind.Click += new System.EventHandler(this.button_refind_Click);
+            // 
             // plabel_Filename
             // 
             resources.ApplyResources(this.plabel_Filename, "plabel_Filename");
-            this.plabel_Filename.BackColor = System.Drawing.Color.MidnightBlue;
+            this.plabel_Filename.BackColor = System.Drawing.Color.LightGray;
             this.plabel_Filename.ContextMenuStrip = this.contextMenuStrip4;
-            this.plabel_Filename.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.plabel_Filename.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.plabel_Filename.Name = "plabel_Filename";
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel_Find);
+            this.panel1.Controls.Add(this.button_revert);
+            this.panel1.Controls.Add(this.plabel_Filename);
+            this.panel1.Name = "panel1";
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.Controls.Add(this.button_refind);
-            this.Controls.Add(this.lblColCheck);
-            this.Controls.Add(this.lblRowCheck);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label_central);
-            this.Controls.Add(this.button_clearfind);
             this.Controls.Add(this.button_kodi);
             this.Controls.Add(this.button_import);
             this.Controls.Add(this.RedoButton);
             this.Controls.Add(this.UndoButton);
             this.Controls.Add(this.button_check);
             this.Controls.Add(this.button_vlc);
-            this.Controls.Add(this.button_revert);
             this.Controls.Add(this.button_dup);
-            this.Controls.Add(this.textBox_find);
             this.Controls.Add(this.button_search);
             this.Controls.Add(this.button_moveDown);
             this.Controls.Add(this.button_moveUp);
             this.Controls.Add(this.button_del_all);
             this.Controls.Add(this.button_settings);
             this.Controls.Add(this.button_add);
-            this.Controls.Add(this.plabel_Filename);
             this.Controls.Add(this.button_Info);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button_delLine);
@@ -676,6 +694,9 @@
             this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip3.ResumeLayout(false);
             this.contextMenuStrip4.ResumeLayout(false);
+            this.panel_Find.ResumeLayout(false);
+            this.panel_Find.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -743,6 +764,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip5;
         private System.Windows.Forms.ToolStripMenuItem cm5StartSearchDupli;
         private System.Windows.Forms.ToolStripComboBox cm5ColumNames;
+        private System.Windows.Forms.Panel panel_Find;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

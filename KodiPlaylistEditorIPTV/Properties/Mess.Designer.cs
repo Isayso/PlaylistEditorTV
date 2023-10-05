@@ -223,6 +223,15 @@ namespace PlaylistEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No m3u file found.
+        /// </summary>
+        public static string No_m3u_file_found {
+            get {
+                return ResourceManager.GetString("No m3u file found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Paste operation failed..
         /// </summary>
         public static string Paste_operation_failed {

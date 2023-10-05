@@ -31,14 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(settings));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.textBox_Password = new System.Windows.Forms.TextBox();
-            this.textBox_Username = new System.Windows.Forms.TextBox();
-            this.textBox_Port = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,6 +46,8 @@
             this.button_file = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabOption = new System.Windows.Forms.TabPage();
+            this.cbDClick = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.checkBox_scroll = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
             this.checkBox_F2 = new System.Windows.Forms.CheckBox();
@@ -83,8 +77,16 @@
             this.comboBoxSpeech = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbDClick = new System.Windows.Forms.CheckBox();
+            this.cbEnableKodi = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox_Password = new System.Windows.Forms.TextBox();
+            this.textBox_Username = new System.Windows.Forms.TextBox();
+            this.textBox_Port = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nMaxThread)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabOption.SuspendLayout();
@@ -95,63 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabLinkcheck.SuspendLayout();
             this.tabLanguage.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBox_Password
-            // 
-            this.textBox_Password.BackColor = System.Drawing.SystemColors.Menu;
-            resources.ApplyResources(this.textBox_Password, "textBox_Password");
-            this.textBox_Password.Name = "textBox_Password";
-            this.toolTip1.SetToolTip(this.textBox_Password, resources.GetString("textBox_Password.ToolTip"));
-            // 
-            // textBox_Username
-            // 
-            this.textBox_Username.BackColor = System.Drawing.SystemColors.Menu;
-            resources.ApplyResources(this.textBox_Username, "textBox_Username");
-            this.textBox_Username.Name = "textBox_Username";
-            this.toolTip1.SetToolTip(this.textBox_Username, resources.GetString("textBox_Username.ToolTip"));
-            // 
-            // textBox_Port
-            // 
-            this.textBox_Port.BackColor = System.Drawing.SystemColors.Menu;
-            resources.ApplyResources(this.textBox_Port, "textBox_Port");
-            this.textBox_Port.Name = "textBox_Port";
-            this.toolTip1.SetToolTip(this.textBox_Port, resources.GetString("textBox_Port.ToolTip"));
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Name = "label6";
-            this.toolTip1.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Name = "label5";
-            this.toolTip1.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Name = "label4";
-            this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
-            this.toolTip1.SetToolTip(this.textBox2, resources.GetString("textBox2.ToolTip"));
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Name = "label3";
-            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // textBox1
             // 
@@ -295,6 +242,20 @@
             resources.ApplyResources(this.tabOption, "tabOption");
             this.tabOption.Name = "tabOption";
             // 
+            // cbDClick
+            // 
+            this.cbDClick.Checked = true;
+            this.cbDClick.CheckState = System.Windows.Forms.CheckState.Checked;
+            resources.ApplyResources(this.cbDClick, "cbDClick");
+            this.cbDClick.ForeColor = System.Drawing.Color.White;
+            this.cbDClick.Name = "cbDClick";
+            this.cbDClick.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
             // checkBox_scroll
             // 
             resources.ApplyResources(this.checkBox_scroll, "checkBox_scroll");
@@ -315,6 +276,7 @@
             this.checkBox_F2.ForeColor = System.Drawing.Color.White;
             this.checkBox_F2.Name = "checkBox_F2";
             this.checkBox_F2.UseVisualStyleBackColor = true;
+            this.checkBox_F2.CheckedChanged += new System.EventHandler(this.checkBox_F2_CheckedChanged);
             // 
             // label12
             // 
@@ -337,16 +299,10 @@
             // tabKodi
             // 
             this.tabKodi.BackColor = System.Drawing.Color.DarkBlue;
+            this.tabKodi.Controls.Add(this.panel2);
+            this.tabKodi.Controls.Add(this.cbEnableKodi);
             this.tabKodi.Controls.Add(this.textBox_userAgent);
             this.tabKodi.Controls.Add(this.label11);
-            this.tabKodi.Controls.Add(this.textBox_Password);
-            this.tabKodi.Controls.Add(this.textBox_Username);
-            this.tabKodi.Controls.Add(this.textBox_Port);
-            this.tabKodi.Controls.Add(this.label6);
-            this.tabKodi.Controls.Add(this.label5);
-            this.tabKodi.Controls.Add(this.label4);
-            this.tabKodi.Controls.Add(this.textBox2);
-            this.tabKodi.Controls.Add(this.label3);
             this.tabKodi.ForeColor = System.Drawing.Color.White;
             resources.ApplyResources(this.tabKodi, "tabKodi");
             this.tabKodi.Name = "tabKodi";
@@ -544,19 +500,84 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button_cancel_Click);
             // 
-            // label7
+            // cbEnableKodi
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            this.cbEnableKodi.Checked = true;
+            this.cbEnableKodi.CheckState = System.Windows.Forms.CheckState.Checked;
+            resources.ApplyResources(this.cbEnableKodi, "cbEnableKodi");
+            this.cbEnableKodi.ForeColor = System.Drawing.Color.White;
+            this.cbEnableKodi.Name = "cbEnableKodi";
+            this.cbEnableKodi.UseVisualStyleBackColor = true;
+            this.cbEnableKodi.CheckedChanged += new System.EventHandler(this.cbEnableKodi_CheckedChanged);
             // 
-            // cbDClick
+            // panel2
             // 
-            this.cbDClick.Checked = true;
-            this.cbDClick.CheckState = System.Windows.Forms.CheckState.Checked;
-            resources.ApplyResources(this.cbDClick, "cbDClick");
-            this.cbDClick.ForeColor = System.Drawing.Color.White;
-            this.cbDClick.Name = "cbDClick";
-            this.cbDClick.UseVisualStyleBackColor = true;
+            this.panel2.Controls.Add(this.textBox_Password);
+            this.panel2.Controls.Add(this.textBox_Username);
+            this.panel2.Controls.Add(this.textBox_Port);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.label3);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            // 
+            // textBox_Password
+            // 
+            this.textBox_Password.BackColor = System.Drawing.SystemColors.Menu;
+            resources.ApplyResources(this.textBox_Password, "textBox_Password");
+            this.textBox_Password.Name = "textBox_Password";
+            this.toolTip1.SetToolTip(this.textBox_Password, resources.GetString("textBox_Password.ToolTip"));
+            // 
+            // textBox_Username
+            // 
+            this.textBox_Username.BackColor = System.Drawing.SystemColors.Menu;
+            resources.ApplyResources(this.textBox_Username, "textBox_Username");
+            this.textBox_Username.Name = "textBox_Username";
+            this.toolTip1.SetToolTip(this.textBox_Username, resources.GetString("textBox_Username.ToolTip"));
+            // 
+            // textBox_Port
+            // 
+            this.textBox_Port.BackColor = System.Drawing.SystemColors.Menu;
+            resources.ApplyResources(this.textBox_Port, "textBox_Port");
+            this.textBox_Port.Name = "textBox_Port";
+            this.toolTip1.SetToolTip(this.textBox_Port, resources.GetString("textBox_Port.ToolTip"));
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Name = "label6";
+            this.toolTip1.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Name = "label5";
+            this.toolTip1.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Name = "label4";
+            this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
+            resources.ApplyResources(this.textBox2, "textBox2");
+            this.textBox2.Name = "textBox2";
+            this.toolTip1.SetToolTip(this.textBox2, resources.GetString("textBox2.ToolTip"));
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Name = "label3";
+            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // settings
             // 
@@ -584,6 +605,8 @@
             this.tabLinkcheck.PerformLayout();
             this.tabLanguage.ResumeLayout(false);
             this.tabLanguage.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -597,14 +620,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabKodi;
-        private System.Windows.Forms.TextBox textBox_Password;
-        private System.Windows.Forms.TextBox textBox_Username;
-        private System.Windows.Forms.TextBox textBox_Port;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabHotkey;
         private System.Windows.Forms.TextBox textBox_userAgent;
@@ -644,5 +659,15 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox cbDClick;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox cbEnableKodi;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox_Password;
+        private System.Windows.Forms.TextBox textBox_Username;
+        private System.Windows.Forms.TextBox textBox_Port;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -301,8 +301,7 @@ Ctrl+S сохранить</value>
     <value>394, 60</value>
   </data>
   <data name="label_central.Text" xml:space="preserve">
-    <value>Дважды щелкните, чтобы открыть файл. 
-Перетащите файл, чтобы открыть, или добавьте 
+    <value>Перетащите файл, чтобы открыть, или добавьте 
 Ctrl-N, чтобы открыть новое окно</value>
   </data>
   <data name="cm3Scrollbar.Size" type="System.Drawing.Size, System.Drawing">

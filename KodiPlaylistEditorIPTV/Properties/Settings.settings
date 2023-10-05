@@ -15,7 +15,7 @@
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="rpi" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.178.91</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="port" Type="System.String" Scope="User">
       <Value Profile="(Default)">8080</Value>
@@ -124,6 +124,9 @@
     </Setting>
     <Setting Name="colDupli2" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="enableKodi" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

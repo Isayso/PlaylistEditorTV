@@ -278,8 +278,7 @@ Ctrl+S salvar</value>
     <value>336, 60</value>
   </data>
   <data name="label_central.Text" xml:space="preserve">
-    <value>Haga doble clic para abrir el archivo 
-Arrastra y suelta el archivo para abrir o agrega 
+    <value>Arrastra y suelta el archivo para abrir o agrega 
 Ctrl-N para abrir una nueva ventana.</value>
   </data>
   <data name="cm3Scrollbar.Size" type="System.Drawing.Size, System.Drawing">

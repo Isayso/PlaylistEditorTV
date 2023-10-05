@@ -39,6 +39,8 @@ namespace PlaylistEditor
             MouseLeave += OnMouseLeave;
 
             HookMouseMove(this.Controls);
+
+            button_kodi.Visible = Properties.Settings.Default.enableKodi;
         }
 
         private void OnMouseMove(object sender, MouseEventArgs e)

@@ -117,10 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_ok.Text" xml:space="preserve">
-    <value>OK </value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 24</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>كلمة المرور:</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 24</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>اسم المستخدم:</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 24</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>منفذ:</value>
+  </data>
+  <data name="checkBox_w.Text" xml:space="preserve">
+    <value>فوز</value>
+  </data>
+  <data name="checkBox_w.ToolTip" xml:space="preserve">
+    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
+  </data>
+  <data name="textBox_hot.ToolTip" xml:space="preserve">
+    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
+  </data>
+  <data name="checkBox_a.Text" xml:space="preserve">
+    <value>Alt</value>
+  </data>
+  <data name="checkBox_a.ToolTip" xml:space="preserve">
+    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
+  </data>
+  <data name="checkBox_s.Text" xml:space="preserve">
+    <value>مناوبة عمل</value>
+  </data>
+  <data name="checkBox_s.ToolTip" xml:space="preserve">
+    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
+  </data>
+  <data name="checkBox_c.Text" xml:space="preserve">
+    <value>Ctrl</value>
+  </data>
+  <data name="checkBox_c.ToolTip" xml:space="preserve">
+    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
+  </data>
   <data name="button_file.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -135,6 +177,122 @@
         3loQx9HHiAe0dFv1sd80NOnySd5eEMfRx4i30vId1ad+YzH58kk+UhDH0ceIR2nLkepLv7ny8kk+VhDH
         0ceIr6Vtx6o3qqrLJ2nGOuI4+hhxM4wx4jj6GHEzjDHiOPoYcTOMMeI49Wj5D45dvnGNODX5kHv9E6dc
         I05NHqjSrwaHdq465hr7UaP0n8p3qu+q1tKM9MvhPJdfLP5rq9Vfo4jCoya2i5EAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button_file.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABQUlEQVRYR+3YQU4CURRE0R6xMhfGTNyn
+        uo32/csNCUb8Rb92IOEkPal0FS8MiHF5ehjruh7qeavns557HZ3ZT42eztub7XtUDW75Zr47OdfnIIym
+        6tXjuXFln6Mcg9FUvfrTQUP/KIdgNFWv3jpo6B3lCIym6tXfDhq2H+UAjKbq1dlBw7ajLMNoql5NDhru
+        P8oijKbq1fSgePPCHoym6tWXesYP6q3nwkrOHozanINRzh6M2pyDUc4ejNqcg1HOHozanINRzh6M2pyD
+        Uc4ejNqcg1HOHozanINRzh6M2pyDUc4ejNqcg1HOHozanINRzh6M2pyDUc4ejNqcg1HOHozanINRzh6M
+        2pyDUc4ejNqcg1HOHozanINRrjof5+qfePdjclW6+gtvZ69+TK5K458N46g9v6mxNTYPfszTf7csX+qi
+        2Umls0XHAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="button_file.Location" type="System.Drawing.Point, System.Drawing">
+    <value>469, 230</value>
+  </data>
+  <data name="button_file.ToolTip" xml:space="preserve">
+    <value>حدد ملفًا</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 24</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>بحث عن سمات الأعمدة.</value>
+  </data>
+  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 24</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>شريط تمرير أفقي</value>
+  </data>
+  <data name="numericUpDown1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 82</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>371, 85</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 85</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 24</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>العتامة</value>
+  </data>
+  <data name="checkBox_autostart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 299</value>
+  </data>
+  <data name="checkBox_start.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 187</value>
+  </data>
+  <data name="textBox_start.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 236</value>
+  </data>
+  <data name="checkBox_vlc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 138</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>523, 24</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>‏‏وقع خطأ أثناء محاولة الحصول على نافذة Windows Media Player البعيدة.%0</value>
+  </data>
+  <data name="comboBox_403.Items" xml:space="preserve">
+    <value>برتقالي</value>
+  </data>
+  <data name="comboBox_403.Items1" xml:space="preserve">
+    <value>رمادي</value>
+  </data>
+  <data name="comboBoxSpeech.Items" xml:space="preserve">
+    <value>إنجليزي</value>
+  </data>
+  <data name="comboBoxSpeech.Items1" xml:space="preserve">
+    <value>الألمانية</value>
+  </data>
+  <data name="comboBoxSpeech.Items2" xml:space="preserve">
+    <value>الفرنسية</value>
+  </data>
+  <data name="comboBoxSpeech.Items3" xml:space="preserve">
+    <value>الأسبانية</value>
+  </data>
+  <data name="comboBoxSpeech.Items4" xml:space="preserve">
+    <value>الروسية</value>
+  </data>
+  <data name="comboBoxSpeech.Items5" xml:space="preserve">
+    <value>الصينية</value>
+  </data>
+  <data name="comboBoxSpeech.Items6" xml:space="preserve">
+    <value>العربية</value>
+  </data>
+  <data name="comboBoxSpeech.Items7" xml:space="preserve">
+    <value>التركية</value>
+  </data>
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA+UlEQVRoQ+2UWwrCQAxFuyW1qDvrp366
+        WcUd1BOdiAyttkKdjNwDgXaaIef21QghhBBC/CF937dUl07rAvEVdaaMU1quA4TXlMs7dYRAdEjeOKSW
+        uCAp+SIgKfkiICn5IiAp+SIgWU6eIR3VptPZsHdLXamcY2pZDhvymHUX2KXlybBnQxW78y7vzApBr8lf
+        bGPGb955BtmrkzMpBD1l5R0Gzg7BtRjyDoPHQuxTyxPWYsk7CHwMwXFMeQeR0RBUbHkHofzPZFgIq5zl
+        //PfgNjQk8iJdedzEHwXIra8g+hQiDrkHYRfQ9Ql7yBuH3bMD1YIIYQQi9E0N4/OWvhlkugGAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABWklEQVRoQ+2Y7UrDQBBFA+obij/07cTi
+        D99QhXgmzMVQNrTNTpMJzIGBdj/u3Jtt2pKhKIqiKIqjMI7jA/VOvflQGGg+U5/Ukw/FgrCZP1HGLxUW
+        Ai0z/2PC8EXFh0BU5oU1fPHp1ZiGa805+XQciNpV+p7k/+k6CfbOr7wwzVdfEgvCYSHYs615QYPuEKzd
+        x7yg0eoQrNnXvKDhzSGYy2Fe0PjqEIzlMi8wcDEEr3OaFxhZDEHlNi8w1PpBsvetse4fwLuAsdZJzMl3
+        5c/B4FKI/OYNTLY+88Z0T/iynGBwybzIGwJjx72JMbT4VUm17ok8J4GRRfO+RGvyhcDARfOCsVwhaHy1
+        ecFcjhA0vNm8YM2+IWi02rxg7T4haNBtXrBn2xAIh5kX7N0uBKKHf6xiD7Y+JvnOK38OWvOTsAdbjz4V
+        iwlTdhLhfwVM07XvY74oiqIoinCG4Q8MjAPyvzZg+AAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -623,157 +781,7 @@
         //8=
 </value>
   </data>
-  <data name="checkBox_s.ToolTip" xml:space="preserve">
-    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
-  </data>
-  <data name="comboBox2.Items4" xml:space="preserve">
-    <value>الاسم 2</value>
-  </data>
-  <data name="checkBox_a.Text" xml:space="preserve">
-    <value>Alt</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>اسم المستخدم:</value>
-  </data>
-  <data name="checkBox_a.ToolTip" xml:space="preserve">
-    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
-  </data>
-  <data name="comboBoxSpeech.Items1" xml:space="preserve">
-    <value>الألمانية</value>
-  </data>
-  <data name="comboBoxSpeech.Items3" xml:space="preserve">
-    <value>الأسبانية</value>
-  </data>
-  <data name="comboBoxSpeech.Items4" xml:space="preserve">
-    <value>الروسية</value>
-  </data>
-  <data name="comboBoxSpeech.Items5" xml:space="preserve">
-    <value>الصينية</value>
-  </data>
-  <data name="comboBoxSpeech.Items7" xml:space="preserve">
-    <value>التركية</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>بحث عن سمات الأعمدة.</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>إعدادات</value>
-  </data>
-  <data name="comboBoxSpeech.Items6" xml:space="preserve">
-    <value>العربية</value>
-  </data>
-  <data name="comboBox_403.Items1" xml:space="preserve">
-    <value>رمادي</value>
-  </data>
-  <data name="comboBoxSpeech.Items" xml:space="preserve">
-    <value>إنجليزي</value>
-  </data>
-  <data name="comboBox_403.Items" xml:space="preserve">
-    <value>برتقالي</value>
-  </data>
-  <data name="comboBox_result.Items" xml:space="preserve">
-    <value>صف</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>منفذ:</value>
-  </data>
-  <data name="tabPage6.Text" xml:space="preserve">
-    <value>اللغة:</value>
-  </data>
-  <data name="checkBox_w.Text" xml:space="preserve">
-    <value>فوز</value>
-  </data>
-  <data name="button_file.ToolTip" xml:space="preserve">
-    <value>حدد ملفًا</value>
-  </data>
-  <data name="tabPage4.Text" xml:space="preserve">
-    <value>بدء تلقائي</value>
-  </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>خيارات...</value>
-  </data>
-  <data name="textBox_Port.Text" xml:space="preserve">
-    <value>مثال: localhost, www.site.net أو WESTSRV01:8080</value>
-  </data>
-  <data name="comboBox1.Items" xml:space="preserve">
-    <value>&amp;الاسم:</value>
-  </data>
-  <data name="button_cancel.Text" xml:space="preserve">
-    <value>إلغاء الأمر</value>
-  </data>
-  <data name="comboBoxSpeech.Items2" xml:space="preserve">
-    <value>الفرنسية</value>
-  </data>
-  <data name="comboBox2.Items5" xml:space="preserve">
-    <value>ارتباط</value>
-  </data>
-  <data name="checkBox_s.Text" xml:space="preserve">
-    <value>مناوبة عمل</value>
-  </data>
-  <data name="comboBox_result.Items1" xml:space="preserve">
-    <value>خلية</value>
-  </data>
-  <data name="textBox_hot.Text" xml:space="preserve">
-    <value>I</value>
-  </data>
-  <data name="checkBox_c.Text" xml:space="preserve">
-    <value>Ctrl</value>
-  </data>
-  <data name="checkBox_w.ToolTip" xml:space="preserve">
-    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
-  </data>
-  <data name="comboBox1.Items4" xml:space="preserve">
-    <value>الاسم 2</value>
-  </data>
-  <data name="comboBox1.Items6" xml:space="preserve">
-    <value>تحديد كافة الخلايا</value>
-  </data>
-  <data name="comboBox2.Items" xml:space="preserve">
-    <value>&amp;الاسم:</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>كلمة المرور:</value>
-  </data>
-  <data name="comboBox1.Items3" xml:space="preserve">
-    <value>الشعار</value>
-  </data>
-  <data name="tabPage5.Text" xml:space="preserve">
-    <value>كانت هناك مشكلة أثناء إنشاء ارتباط المشاركة. تحقق من الاتصال بالإنترنت ثم حاول مرة أخرى.</value>
-  </data>
-  <data name="textBox_hot.ToolTip" xml:space="preserve">
-    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
-  </data>
-  <data name="checkBox_c.ToolTip" xml:space="preserve">
-    <value>تتطلب التغييرات التي تم إجراؤها على هذا الإعداد إعادة تشغيل الخدمة لكي تدخل حيز التنفيذ.</value>
-  </data>
-  <data name="comboBox1.Items2" xml:space="preserve">
-    <value>العنوان</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>‏‏وقع خطأ أثناء محاولة الحصول على نافذة Windows Media Player البعيدة.%0\r\n</value>
-  </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>مفتاح الاختصار</value>
-  </data>
-  <data name="comboBox1.Items5" xml:space="preserve">
-    <value>ارتباط</value>
-  </data>
-  <data name="comboBox1.Items1" xml:space="preserve">
-    <value>المعرف</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>العتامة</value>
-  </data>
-  <data name="comboBox2.Items1" xml:space="preserve">
-    <value>المعرف</value>
-  </data>
-  <data name="label19.Text" xml:space="preserve">
-    <value>شريط تمرير أفقي</value>
-  </data>
-  <data name="comboBox2.Items3" xml:space="preserve">
-    <value>الشعار</value>
-  </data>
-  <data name="comboBox2.Items2" xml:space="preserve">
-    <value>العنوان</value>
   </data>
 </root>
